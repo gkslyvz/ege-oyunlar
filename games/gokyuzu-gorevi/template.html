@@ -146,6 +146,7 @@
 // Türkçe soruları Ege Pano'daki TİS-1 tekrar kartlarından; Matematik ve Fen soruları
 // pano'daki konu başlıklarından (Açılar, Çokgenler, Ay, Dünyamız) 5. sınıf düzeyinde yazıldı.
 /*LEGS*/
+/*ORTAK*/
 
 // ===== DURUM =====
 const KEY='pilotEge.v1';
@@ -192,7 +193,7 @@ function renderMap(){
   LEGS.forEach((L,i)=>{
     const b=document.createElement('button'); const open=unlocked(i); const st=save.stars[L.id]||0;
     b.className='leg'+(open?'':' locked');
-    b.innerHTML=`<div class="ico">${open?L.icon:'🔒'}</div><div><div class="t">${L.title}</div><div class="d">${L.ders} · ${L.qs.length} soru</div>${st?'<span class="badge">Damga alındı</span>':''}</div><div class="st">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div>`;
+    b.innerHTML=`<div class="ico">${open?L.icon:'🔒'}</div><div><div class="t">${L.title}</div><div class="d">${L.ders} · 10 soru / uçuş</div>${st?'<span class="badge">Damga alındı</span>':''}</div><div class="st">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div>`;
     b.onclick=()=>{ if(open) startLeg(i); else { b.animate([{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'none'}],{duration:250}); } };
     box.appendChild(b);
   });
@@ -206,7 +207,8 @@ function show(id){ ['map','flight','done'].forEach(s=>$(s).classList.toggle('hid
 let R=null;
 function startLeg(i){
   const L=LEGS[i];
-  R={L, queue:shuffle(L.qs.map((q,idx)=>({...q,idx}))), correct:new Set(), firstTry:0, missed:new Set(), tried:new Set(), streak:0};
+  const sel=Ortak.sec(L.id,10,4).map((q,idx)=>({...q,idx}));
+  R={L, sel, n:sel.length, queue:sel.slice(), correct:new Set(), firstTry:0, missed:new Set(), tried:new Set(), streak:0};
   document.body.classList.toggle('space', L.vehicle==='rocket');
   $('legTitle').textContent=L.ders; $('cityA').textContent=L.from; $('cityB').textContent=L.to;
   $('plane').innerHTML = L.vehicle==='rocket'?ROCKET:PLANE;
@@ -214,9 +216,9 @@ function startLeg(i){
   show('flight'); movePlane(); ask();
 }
 function movePlane(){
-  const p=R.correct.size/R.L.qs.length;
+  const p=R.correct.size/R.n;
   $('plane').style.left=`calc(${p*100}% - ${p*76}px + ${(1-p)*20}px)`;
-  $('fuel').textContent=`${R.correct.size}/${R.L.qs.length} ✅`;
+  $('fuel').textContent=`${R.correct.size}/${R.n} ✅`;
 }
 function ask(){
   const Q=R.queue[0];
@@ -230,6 +232,7 @@ function ask(){
 }
 function answer(k,btn){
   const Q=R.queue[0]; const ok=k===Q.a; const first=!R.tried.has(Q.idx); R.tried.add(Q.idx);
+  Ortak.kaydet(Q,ok,first);
   [...$('opts').children].forEach(b=>b.disabled=true);
   if(ok){
     btn.classList.add('right'); sOk(); R.correct.add(Q.idx); if(first) R.firstTry++;
@@ -253,7 +256,7 @@ const pick=a=>a[Math.floor(Math.random()*a.length)];
 $('nextBtn').onclick=()=>{ R.queue.length? ask() : land(); };
 
 function land(){
-  const n=R.L.qs.length, rate=R.firstTry/n;
+  const n=R.n, rate=R.firstTry/n; Ortak.xp(R.firstTry*15);
   const st= rate>=.9?3: rate>=.7?2:1;
   save.stars[R.L.id]=Math.max(save.stars[R.L.id]||0,st); store();
   sWin(); confetti();
@@ -261,7 +264,7 @@ function land(){
   $('stars3').textContent='⭐'.repeat(st)+'☆'.repeat(3-st);
   $('doneTitle').textContent = R.L.vehicle==='rocket' ? 'Ay\'a indin, astronot Ege! 🌙' : `${R.L.to}'a indin, kaptan!`;
   $('doneText').textContent=`${n} sorunun ${R.firstTry} tanesini ilk denemede bildin. ${st<3?'3 yıldız için bu rotayı tekrar uçabilirsin.':'Mükemmel uçuş!'}`;
-  const m=[...R.missed].map(i=>R.L.qs[i]);
+  const m=[...R.missed].map(i=>R.sel[i]);
   $('doneReview').innerHTML = m.length ? `<div class="review"><b>Tekrar et:</b><ul>${m.map(q=>`<li>${q.t}: ${q.o[q.a]}</li>`).join('')}</ul></div>` : '';
   show('done');
 }

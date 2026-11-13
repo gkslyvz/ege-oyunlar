@@ -11,13 +11,14 @@ for (const L of sorular) for (const q of L.qs) {
   if (!Array.isArray(q.o) || q.a < 0 || q.a >= q.o.length) throw new Error(`Hatalı soru (${L.id}): ${q.q}`);
 }
 
-const legs = `const LEGS = ${JSON.stringify(sorular)};`;
+const legs = `const LEGS = ${JSON.stringify(sorular)}; window.LEGS = LEGS;`;
+const ortak = readFileSync('games/ortak/ortak.js', 'utf8');
 const exams = `const EXAMS = ${JSON.stringify(sinavlar)};`;
 
 for (const game of readdirSync('games')) {
   const tpl = `games/${game}/template.html`;
   if (!existsSync(tpl)) continue;
-  const html = readFileSync(tpl, 'utf8').replace('/*LEGS*/', legs).replace('/*EXAMS*/', exams);
+  const html = readFileSync(tpl, 'utf8').replace('/*LEGS*/', () => legs).replace('/*EXAMS*/', exams).replace('/*ORTAK*/', () => ortak);
   if (html.includes('/*LEGS*/') || html.includes('/*EXAMS*/')) throw new Error(`${game}: yer tutucu kaldı`);
   writeFileSync(`games/${game}/index.html`, html);
   console.log(`✓ games/${game}/index.html`);

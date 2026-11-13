@@ -4,7 +4,6 @@
   "title": "İstanbul → Londra",
   "ders": "Türkçe",
   "icon": "📘",
-  "from": "İstanbul",
   "to": "Londra",
   "vehicle": "plane",
   "qs": [
@@ -171,15 +170,363 @@
     ],
     "a": 0,
     "e": "Taş elle dokununca gerçekten serttir: gerçek anlam."
+   },
+   {
+    "t": "Zıt anlam",
+    "q": "\"Cesur\" sözcüğünün zıt anlamlısı hangisi?",
+    "o": [
+     "Korkak",
+     "Güçlü",
+     "Akıllı",
+     "Hızlı"
+    ],
+    "a": 0,
+    "e": "Cesur ↔ korkak. Zıt anlamlılar birbirinin tersini anlatır."
+   },
+   {
+    "t": "Zıt anlam",
+    "q": "\"Uzak\" sözcüğünün zıt anlamlısı hangisi?",
+    "o": [
+     "Yakın",
+     "Geniş",
+     "Uzun",
+     "Derin"
+    ],
+    "a": 0,
+    "e": "Uzak ↔ yakın."
+   },
+   {
+    "t": "Eş anlam",
+    "q": "\"Okul\" sözcüğünün eş anlamlısı hangisi?",
+    "o": [
+     "Mektep",
+     "Sınıf",
+     "Öğrenci",
+     "Kitap"
+    ],
+    "a": 0,
+    "e": "Okul = mektep (eski kullanım)."
+   },
+   {
+    "t": "Eş anlam",
+    "q": "\"Ak\" sözcüğünün eş anlamlısı hangisi?",
+    "o": [
+     "Beyaz",
+     "Siyah",
+     "Temiz",
+     "Açık"
+    ],
+    "a": 0,
+    "e": "Ak = beyaz. (Kara = siyah.)"
+   },
+   {
+    "t": "Eş sesli",
+    "q": "\"Yüz\" sözcüğü hangi cümlede SAYI anlamında kullanılmıştır?",
+    "o": [
+     "Yüz kişi geldi.",
+     "Denizde yüz.",
+     "Yüzünü yıka.",
+     "Kitabın yüzü yırtık."
+    ],
+    "a": 0,
+    "e": "Aynı yazılıp farklı anlam taşıyan sözcüklere eş sesli denir. \"Yüz kişi\" sayıdır."
+   },
+   {
+    "t": "Eş sesli",
+    "q": "\"Çay\" sözcüğü hangi cümlede AKARSU anlamındadır?",
+    "o": [
+     "Çay taştı, köprü yıkıldı.",
+     "Bir bardak çay içtim.",
+     "Çay bahçesine gittik.",
+     "Çay demlendi."
+    ],
+    "a": 0,
+    "e": "Çay hem içecek hem küçük akarsu demektir."
+   },
+   {
+    "t": "Deyimler",
+    "q": "\"Kulak vermek\" ne anlama gelir?",
+    "o": [
+     "Dikkatle dinlemek",
+     "Kulağını göstermek",
+     "Bağırmak",
+     "Uyumak"
+    ],
+    "a": 0,
+    "e": "Kulak vermek: söyleneni dikkatle dinlemek."
+   },
+   {
+    "t": "Deyimler",
+    "q": "\"Dört gözle beklemek\" ne demektir?",
+    "o": [
+     "Çok istekle beklemek",
+     "Gözlük takmak",
+     "Sıkılmak",
+     "Uyuyakalmak"
+    ],
+    "a": 0,
+    "e": "Bir şeyi büyük bir özlem ve istekle beklemek."
+   },
+   {
+    "t": "Deyimler",
+    "q": "\"Pireyi deve yapmak\" ne anlama gelir?",
+    "o": [
+     "Küçük bir şeyi çok büyütmek",
+     "Hayvan beslemek",
+     "Hızlı koşmak",
+     "Yalan söylemek"
+    ],
+    "a": 0,
+    "e": "Önemsiz bir olayı abartmak."
+   },
+   {
+    "t": "Atasözleri",
+    "q": "\"Sakla samanı, gelir zamanı\" atasözü ne öğütler?",
+    "o": [
+     "Gereksiz görünen şeyler bir gün işe yarayabilir",
+     "Saman toplamak gerekir",
+     "Zaman çabuk geçer",
+     "Hayvanlara iyi bakmalıyız"
+    ],
+    "a": 0,
+    "e": "Bugün değersiz sandığımız şey ileride gerekebilir."
+   },
+   {
+    "t": "Atasözleri",
+    "q": "\"Bir elin nesi var, iki elin sesi var\" ne anlatır?",
+    "o": [
+     "Birlikte çalışmak daha güçlüdür",
+     "Alkış yüksek sesli olur",
+     "İki elle yazmak gerekir",
+     "Yalnız çalışmak iyidir"
+    ],
+    "a": 0,
+    "e": "Yardımlaşma ve dayanışmanın gücünü anlatır."
+   },
+   {
+    "t": "Atasözü mü deyim mi?",
+    "q": "Hangisi bir ATASÖZÜDÜR?",
+    "o": [
+     "Ağaç yaşken eğilir.",
+     "Göz atmak",
+     "Kulak vermek",
+     "Etekleri zil çalmak"
+    ],
+    "a": 0,
+    "e": "Atasözleri öğüt veren yargı cümleleridir. Diğerleri deyimdir."
+   },
+   {
+    "t": "Terim anlam",
+    "q": "\"Açı\" sözcüğü hangi cümlede matematik TERİMİ olarak kullanılmıştır?",
+    "o": [
+     "Üçgenin bir açısı 90 derecedir.",
+     "Olaya farklı bir açıdan bak.",
+     "Bu konuda bakış açın çok farklı.",
+     "Sorunu başka bir açıdan düşün."
+    ],
+    "a": 0,
+    "e": "Matematikteki \"açı\" bir terimdir."
+   },
+   {
+    "t": "de / da",
+    "q": "Hangisinde \"de\" doğru yazılmıştır?",
+    "o": [
+     "Ben de geleceğim.",
+     "Bende geleceğim.",
+     "Okul da ders var.",
+     "Ev de kaldım."
+    ],
+    "a": 0,
+    "e": "\"Ben de\" (bağlaç, ayrı yazılır). \"Okulda\" ise bitişik yazılmalı."
+   },
+   {
+    "t": "de / da",
+    "q": "\"Kitabı masada bıraktım.\" cümlesindeki \"da\" nasıl yazılır?",
+    "o": [
+     "Bitişik, çünkü yer bildiriyor",
+     "Ayrı, çünkü bağlaç",
+     "Kesme işaretiyle",
+     "Hiç yazılmaz"
+    ],
+    "a": 0,
+    "e": "Bulunma eki \"-da\" (masada) bitişik yazılır."
+   },
+   {
+    "t": "Soru eki mi",
+    "q": "Soru eki \"mi\" hangisinde doğru yazılmıştır?",
+    "o": [
+     "Geldin mi?",
+     "Geldinmi?",
+     "Gel mi din?",
+     "Geldin-mi?"
+    ],
+    "a": 0,
+    "e": "Soru eki \"mi\" her zaman ayrı yazılır."
+   },
+   {
+    "t": "Noktalama",
+    "q": "Soru cümlesinin sonuna hangi işaret konur?",
+    "o": [
+     "Soru işareti (?)",
+     "Nokta (.)",
+     "Virgül (,)",
+     "Ünlem (!)"
+    ],
+    "a": 0,
+    "e": "Soru bildiren cümleler soru işaretiyle biter."
+   },
+   {
+    "t": "Noktalama",
+    "q": "Sevinç, korku, şaşırma bildiren cümlelerin sonuna hangisi konur?",
+    "o": [
+     "Ünlem (!)",
+     "Virgül (,)",
+     "Noktalı virgül (;)",
+     "İki nokta (:)"
+    ],
+    "a": 0,
+    "e": "Duygu bildiren cümleler ünlemle biter: Ne güzel!"
+   },
+   {
+    "t": "Noktalama",
+    "q": "\"Elma, armut ve muz aldım.\" cümlesinde virgül neden kullanılmıştır?",
+    "o": [
+     "Sıralanan sözcükleri ayırmak için",
+     "Cümleyi bitirmek için",
+     "Soru sormak için",
+     "Konuşmayı başlatmak için"
+    ],
+    "a": 0,
+    "e": "Eş görevli sözcükleri ayırmak için virgül kullanılır."
+   },
+   {
+    "t": "Kesme işareti",
+    "q": "Hangisinde kesme işareti doğru kullanılmıştır?",
+    "o": [
+     "Ankara'ya gittik.",
+     "Okul'a gittik.",
+     "Kitap'ı okudum.",
+     "Ev'de kaldım."
+    ],
+    "a": 0,
+    "e": "Özel adlara gelen ekler kesmeyle ayrılır; cins adlara kesme konmaz."
+   },
+   {
+    "t": "Büyük harf",
+    "q": "Hangisi büyük harfle başlamalıdır?",
+    "o": [
+     "Özel isimler (Ege, Bodrum)",
+     "Her sözcük",
+     "Fiiller",
+     "Sıfatlar"
+    ],
+    "a": 0,
+    "e": "Kişi, yer, kurum adları gibi özel isimler büyük harfle başlar."
+   },
+   {
+    "t": "Ana fikir",
+    "q": "Bir metnin ana fikri nedir?",
+    "o": [
+     "Yazarın okura vermek istediği temel mesaj",
+     "Metnin ilk cümlesi",
+     "Metindeki en uzun paragraf",
+     "Metnin başlığı"
+    ],
+    "a": 0,
+    "e": "Ana fikir, metnin bize verdiği asıl mesajdır."
+   },
+   {
+    "t": "Hikâyenin unsurları",
+    "q": "\"Geçen yaz, Bodrum'da\" ifadeleri hikâyenin hangi unsurlarını verir?",
+    "o": [
+     "Zaman ve yer",
+     "Kişi ve olay",
+     "Olay ve zaman",
+     "Kişi ve yer"
+    ],
+    "a": 0,
+    "e": "\"Geçen yaz\" zaman, \"Bodrum'da\" yer bildirir."
+   },
+   {
+    "t": "Sebep-sonuç",
+    "q": "Hangisi sebep-sonuç cümlesidir?",
+    "o": [
+     "Yağmur yağdığı için maç ertelendi.",
+     "Yarın maç var.",
+     "Maç çok güzeldi.",
+     "Maça gidelim mi?"
+    ],
+    "a": 0,
+    "e": "\"…için\" sebebi, \"maç ertelendi\" sonucu verir."
+   },
+   {
+    "t": "Öznel / nesnel",
+    "q": "Hangisi NESNEL (kanıtlanabilir) bir yargıdır?",
+    "o": [
+     "Türkiye'nin başkenti Ankara'dır.",
+     "En güzel şehir İzmir'dir.",
+     "Bu film çok sıkıcı.",
+     "Pizza en lezzetli yemektir."
+    ],
+    "a": 0,
+    "e": "Nesnel yargılar kişiden kişiye değişmez, doğrulanabilir."
+   },
+   {
+    "t": "Öznel / nesnel",
+    "q": "Hangisi ÖZNEL bir yargıdır?",
+    "o": [
+     "Bu kitap çok eğlenceli.",
+     "Kitap 120 sayfadır.",
+     "Kitabı Mehmet yazdı.",
+     "Kitap 2020'de basıldı."
+    ],
+    "a": 0,
+    "e": "\"Eğlenceli\" kişisel bir görüştür, herkese göre değişebilir."
+   },
+   {
+    "t": "Gerçek / mecaz",
+    "q": "\"Tatlı bir konuşması var.\" cümlesinde \"tatlı\" hangi anlamda?",
+    "o": [
+     "Mecaz",
+     "Gerçek",
+     "Terim",
+     "Zıt"
+    ],
+    "a": 0,
+    "e": "Konuşmanın tadı olmaz; \"hoş, sevimli\" anlamında mecazdır."
+   },
+   {
+    "t": "İkileme",
+    "q": "\"Sağa sola bakarak karşıya geçti.\" cümlesindeki ikileme hangisi?",
+    "o": [
+     "sağa sola",
+     "bakarak",
+     "karşıya geçti",
+     "geçti"
+    ],
+    "a": 0,
+    "e": "Zıt anlamlı iki sözcükle de ikileme kurulur: sağa sola."
+   },
+   {
+    "t": "Pekiştirme",
+    "q": "\"Bembeyaz\" hangi sözcüğün pekiştirilmiş hâlidir?",
+    "o": [
+     "beyaz",
+     "bem",
+     "ben",
+     "beyin"
+    ],
+    "a": 0,
+    "e": "Bem + beyaz = bembeyaz."
    }
-  ]
+  ],
+  "from": "İstanbul"
  },
  {
   "id": "mat",
   "title": "Londra → New York",
   "ders": "Matematik",
   "icon": "📐",
-  "from": "Londra",
   "to": "New York",
   "vehicle": "plane",
   "qs": [
@@ -326,15 +673,256 @@
     ],
     "a": 1,
     "e": "180° − 60° − 70° = 50°"
+   },
+   {
+    "t": "Doğal sayılar",
+    "q": "5 234 018 sayısında 2 rakamının basamak değeri nedir?",
+    "o": [
+     "200 000",
+     "2 000",
+     "20 000",
+     "2 000 000"
+    ],
+    "a": 0,
+    "e": "2, yüz binler basamağında: 2 × 100 000 = 200 000."
+   },
+   {
+    "t": "Doğal sayılar",
+    "q": "\"Üç milyon kırk bin beş\" sayısı nasıl yazılır?",
+    "o": [
+     "3 040 005",
+     "3 400 005",
+     "3 040 050",
+     "340 005"
+    ],
+    "a": 0,
+    "e": "3 milyon + 40 bin + 5 = 3 040 005."
+   },
+   {
+    "t": "Kesirler",
+    "q": "Bir pizzanın 3/8'ini yedik. Kaç dilimi kaldı? (8 dilim)",
+    "o": [
+     "5",
+     "3",
+     "8",
+     "4"
+    ],
+    "a": 0,
+    "e": "8 − 3 = 5 dilim kaldı, yani 5/8."
+   },
+   {
+    "t": "Kesirler",
+    "q": "Hangisi 1/2'ye eşittir?",
+    "o": [
+     "4/8",
+     "2/3",
+     "3/4",
+     "1/4"
+    ],
+    "a": 0,
+    "e": "4/8 sadeleşince 1/2 olur."
+   },
+   {
+    "t": "Kesirler",
+    "q": "Hangisi en büyüktür?",
+    "o": [
+     "3/4",
+     "1/2",
+     "1/4",
+     "2/8"
+    ],
+    "a": 0,
+    "e": "3/4 = 0,75 en büyüktür."
+   },
+   {
+    "t": "İşlem önceliği",
+    "q": "3 + 4 × 2 işleminin sonucu kaçtır?",
+    "o": [
+     "11",
+     "14",
+     "10",
+     "9"
+    ],
+    "a": 0,
+    "e": "Önce çarpma: 4 × 2 = 8, sonra 3 + 8 = 11."
+   },
+   {
+    "t": "İşlem önceliği",
+    "q": "(3 + 4) × 2 işleminin sonucu kaçtır?",
+    "o": [
+     "14",
+     "11",
+     "10",
+     "24"
+    ],
+    "a": 0,
+    "e": "Önce parantez: 7 × 2 = 14."
+   },
+   {
+    "t": "Örüntü",
+    "q": "2, 5, 8, 11, … örüntüsünde sıradaki sayı kaçtır?",
+    "o": [
+     "14",
+     "13",
+     "15",
+     "12"
+    ],
+    "a": 0,
+    "e": "Her adımda 3 artıyor: 11 + 3 = 14."
+   },
+   {
+    "t": "Örüntü",
+    "q": "1, 2, 4, 8, … örüntüsünde sıradaki sayı kaçtır?",
+    "o": [
+     "16",
+     "10",
+     "12",
+     "14"
+    ],
+    "a": 0,
+    "e": "Her adımda 2 ile çarpılıyor: 8 × 2 = 16."
+   },
+   {
+    "t": "Üçgenler",
+    "q": "Üç kenarı da eşit olan üçgene ne denir?",
+    "o": [
+     "Eşkenar üçgen",
+     "İkizkenar üçgen",
+     "Çeşitkenar üçgen",
+     "Dik üçgen"
+    ],
+    "a": 0,
+    "e": "Bütün kenarları eşit: eşkenar üçgen."
+   },
+   {
+    "t": "Üçgenler",
+    "q": "Yalnızca iki kenarı eşit olan üçgene ne denir?",
+    "o": [
+     "İkizkenar üçgen",
+     "Eşkenar üçgen",
+     "Çeşitkenar üçgen",
+     "Geniş üçgen"
+    ],
+    "a": 0,
+    "e": "İki kenarı eşit: ikizkenar üçgen."
+   },
+   {
+    "t": "Üçgenler",
+    "q": "Kenarları 4, 6 ve 9 cm olan üçgen hangisidir?",
+    "o": [
+     "Çeşitkenar",
+     "İkizkenar",
+     "Eşkenar",
+     "Hiçbiri"
+    ],
+    "a": 0,
+    "e": "Tüm kenarları farklı: çeşitkenar."
+   },
+   {
+    "t": "Dörtgenler",
+    "q": "Karşılıklı kenarları paralel ve eşit, tüm açıları 90° olan dörtgen hangisidir?",
+    "o": [
+     "Dikdörtgen",
+     "Yamuk",
+     "Eşkenar dörtgen",
+     "Deltoid"
+    ],
+    "a": 0,
+    "e": "Dikdörtgenin tüm açıları dik açıdır."
+   },
+   {
+    "t": "Geometrik nicelikler",
+    "q": "Kenarları 6 cm ve 4 cm olan dikdörtgenin çevresi kaç cm'dir?",
+    "o": [
+     "20",
+     "24",
+     "10",
+     "48"
+    ],
+    "a": 0,
+    "e": "Çevre = 2 × (6 + 4) = 20 cm."
+   },
+   {
+    "t": "Geometrik nicelikler",
+    "q": "Kenarları 6 cm ve 4 cm olan dikdörtgenin alanı kaç cm²'dir?",
+    "o": [
+     "24",
+     "20",
+     "10",
+     "12"
+    ],
+    "a": 0,
+    "e": "Alan = 6 × 4 = 24 cm²."
+   },
+   {
+    "t": "Geometrik nicelikler",
+    "q": "Bir kenarı 5 cm olan karenin alanı kaç cm²'dir?",
+    "o": [
+     "25",
+     "20",
+     "10",
+     "15"
+    ],
+    "a": 0,
+    "e": "Alan = 5 × 5 = 25 cm²."
+   },
+   {
+    "t": "Veri",
+    "q": "Bir sınıfta en çok tercih edilen meyveyi bulmak için hangisine bakılır?",
+    "o": [
+     "En çok tekrar eden veriye (tepe değer)",
+     "En küçük sayıya",
+     "Toplama",
+     "Ortadaki sayıya"
+    ],
+    "a": 0,
+    "e": "En çok tekrar eden değere tepe değer (mod) denir."
+   },
+   {
+    "t": "Olasılık",
+    "q": "\"Yarın güneş doğudan doğacak.\" olayı nasıl bir olaydır?",
+    "o": [
+     "Kesin olay",
+     "İmkânsız olay",
+     "Olası olay",
+     "Şanslı olay"
+    ],
+    "a": 0,
+    "e": "Mutlaka gerçekleşecek olaya kesin olay denir."
+   },
+   {
+    "t": "Olasılık",
+    "q": "Bir zarı atınca 7 gelmesi nasıl bir olaydır?",
+    "o": [
+     "İmkânsız olay",
+     "Kesin olay",
+     "Olası olay",
+     "Eşit olay"
+    ],
+    "a": 0,
+    "e": "Zarda 7 yoktur; hiç gerçekleşmeyecek olay imkânsızdır."
+   },
+   {
+    "t": "Olasılık",
+    "q": "Bir madeni parayı atınca yazı gelmesi nasıl bir olaydır?",
+    "o": [
+     "Olası (gelebilir de gelmeyebilir de)",
+     "Kesin",
+     "İmkânsız",
+     "Hiçbiri"
+    ],
+    "a": 0,
+    "e": "Yazı da tura da gelebilir: olası olay."
    }
-  ]
+  ],
+  "gen": true,
+  "from": "Londra"
  },
  {
   "id": "fen",
   "title": "New York → Ay 🌙",
   "ders": "Fen Bilimleri",
   "icon": "🚀",
-  "from": "New York",
   "to": "Ay",
   "vehicle": "rocket",
   "qs": [
@@ -481,7 +1069,1182 @@
     ],
     "a": 2,
     "e": "Güneş bir yıldızdır; kendi ışığını ve ısısını üretir."
+   },
+   {
+    "t": "Güneş",
+    "q": "Güneş'e çıplak gözle bakmak neden tehlikelidir?",
+    "o": [
+     "Gözlere kalıcı zarar verebilir",
+     "Güneş söner",
+     "Hava kararır",
+     "Hiçbir zararı yoktur"
+    ],
+    "a": 0,
+    "e": "Güneş ışınları göze zarar verir; asla doğrudan bakılmaz."
+   },
+   {
+    "t": "Güneş, Dünya, Ay",
+    "q": "Büyükten küçüğe doğru sıralama hangisidir?",
+    "o": [
+     "Güneş – Dünya – Ay",
+     "Dünya – Güneş – Ay",
+     "Ay – Dünya – Güneş",
+     "Güneş – Ay – Dünya"
+    ],
+    "a": 0,
+    "e": "Güneş en büyük, Ay en küçüktür."
+   },
+   {
+    "t": "Ay",
+    "q": "Ay kendi ekseni etrafında dönerken Dünya'dan Ay'ın hep hangi yüzünü görürüz?",
+    "o": [
+     "Hep aynı yüzünü",
+     "Her gece farklı yüzünü",
+     "Hiçbir yüzünü",
+     "Yarısını bir gün, yarısını öbür gün"
+    ],
+    "a": 0,
+    "e": "Ay'ın dönme ve dolanma süreleri eşit olduğu için hep aynı yüzü bize bakar."
+   },
+   {
+    "t": "Kuvvet",
+    "q": "Kuvvet nedir?",
+    "o": [
+     "İtme veya çekme etkisi",
+     "Bir tür enerji kaynağı",
+     "Cismin rengi",
+     "Cismin sıcaklığı"
+    ],
+    "a": 0,
+    "e": "Kuvvet, cisimlere uygulanan itme veya çekmedir."
+   },
+   {
+    "t": "Kuvvet",
+    "q": "Kuvvet hangi araçla ölçülür?",
+    "o": [
+     "Dinamometre",
+     "Termometre",
+     "Cetvel",
+     "Barometre"
+    ],
+    "a": 0,
+    "e": "Kuvvet dinamometre ile ölçülür."
+   },
+   {
+    "t": "Kuvvet",
+    "q": "Kuvvetin birimi nedir?",
+    "o": [
+     "Newton (N)",
+     "Kilogram (kg)",
+     "Metre (m)",
+     "Derece (°C)"
+    ],
+    "a": 0,
+    "e": "Kuvvet birimi Newton'dur."
+   },
+   {
+    "t": "Kuvvet",
+    "q": "Hangisi kuvvetin bir etkisi DEĞİLDİR?",
+    "o": [
+     "Cismin rengini değiştirmek",
+     "Durgun cismi hareket ettirmek",
+     "Cismin yönünü değiştirmek",
+     "Cismin şeklini değiştirmek"
+    ],
+    "a": 0,
+    "e": "Kuvvet hareket, yön, hız ve şekil değiştirebilir; rengi değiştirmez."
+   },
+   {
+    "t": "Kütle ve ağırlık",
+    "q": "Ay'a giden bir astronotun KÜTLESİ ne olur?",
+    "o": [
+     "Değişmez",
+     "Artar",
+     "Azalır",
+     "Sıfır olur"
+    ],
+    "a": 0,
+    "e": "Kütle madde miktarıdır; nerede olursa olsun değişmez."
+   },
+   {
+    "t": "Kütle ve ağırlık",
+    "q": "Ay'a giden bir astronotun AĞIRLIĞI ne olur?",
+    "o": [
+     "Azalır (yaklaşık 6'da 1'i)",
+     "Artar",
+     "Değişmez",
+     "İki katına çıkar"
+    ],
+    "a": 0,
+    "e": "Ay'ın çekim kuvveti Dünya'nınkinin yaklaşık 6'da 1'i kadardır."
+   },
+   {
+    "t": "Kütle ve ağırlık",
+    "q": "Ağırlık hangi birimle ölçülür?",
+    "o": [
+     "Newton",
+     "Kilogram",
+     "Litre",
+     "Saniye"
+    ],
+    "a": 0,
+    "e": "Ağırlık bir kuvvettir, birimi Newton'dur. Kütle ise kilogramla ölçülür."
+   },
+   {
+    "t": "Sürtünme",
+    "q": "Sürtünme kuvveti harekete göre hangi yöndedir?",
+    "o": [
+     "Hareketin tersi yönünde",
+     "Hareketle aynı yönde",
+     "Yukarı doğru",
+     "Yönü yoktur"
+    ],
+    "a": 0,
+    "e": "Sürtünme hareketi zorlaştırır, ters yönde etki eder."
+   },
+   {
+    "t": "Sürtünme",
+    "q": "Hangi yüzeyde sürtünme en FAZLADIR?",
+    "o": [
+     "Pürüzlü toprak yol",
+     "Buz",
+     "Cilalı parke",
+     "Islak kaygan zemin"
+    ],
+    "a": 0,
+    "e": "Yüzey ne kadar pürüzlüyse sürtünme o kadar fazladır."
+   },
+   {
+    "t": "Sürtünme",
+    "q": "Kışın yollara kum veya tuz dökülmesinin amacı nedir?",
+    "o": [
+     "Sürtünmeyi artırıp kaymayı önlemek",
+     "Yolu süslemek",
+     "Sürtünmeyi azaltmak",
+     "Karı hızlı eritmek için hiçbir şey yapmamak"
+    ],
+    "a": 0,
+    "e": "Kum sürtünmeyi artırır, araçların kaymasını önler."
+   },
+   {
+    "t": "Hücre",
+    "q": "Canlıların en küçük yapı birimi nedir?",
+    "o": [
+     "Hücre",
+     "Doku",
+     "Organ",
+     "Sistem"
+    ],
+    "a": 0,
+    "e": "Tüm canlılar hücrelerden oluşur."
+   },
+   {
+    "t": "Hücre",
+    "q": "Hücreyi incelemek için hangi araç kullanılır?",
+    "o": [
+     "Mikroskop",
+     "Teleskop",
+     "Dürbün",
+     "Dinamometre"
+    ],
+    "a": 0,
+    "e": "Hücreler çok küçüktür; mikroskopla görülür."
+   },
+   {
+    "t": "Hücre",
+    "q": "Hangisi bitki hücresinde olup hayvan hücresinde BULUNMAZ?",
+    "o": [
+     "Hücre duvarı ve kloroplast",
+     "Hücre zarı",
+     "Çekirdek",
+     "Sitoplazma"
+    ],
+    "a": 0,
+    "e": "Hücre duvarı ve kloroplast yalnızca bitki hücresinde bulunur."
+   },
+   {
+    "t": "Hücre",
+    "q": "Hücrenin yönetim merkezi hangisidir?",
+    "o": [
+     "Çekirdek",
+     "Hücre zarı",
+     "Sitoplazma",
+     "Hücre duvarı"
+    ],
+    "a": 0,
+    "e": "Çekirdek, hücrenin faaliyetlerini yönetir."
+   },
+   {
+    "t": "Destek ve hareket",
+    "q": "Vücudumuza şekil veren ve organları koruyan sistem hangisidir?",
+    "o": [
+     "İskelet sistemi",
+     "Sindirim sistemi",
+     "Dolaşım sistemi",
+     "Boşaltım sistemi"
+    ],
+    "a": 0,
+    "e": "İskelet vücuda şekil verir ve organları korur."
+   },
+   {
+    "t": "Destek ve hareket",
+    "q": "Kemiklerin birleşme yerlerine ne denir?",
+    "o": [
+     "Eklem",
+     "Kas",
+     "Kıkırdak",
+     "Damar"
+    ],
+    "a": 0,
+    "e": "Kemiklerin birleştiği yerler eklemdir."
+   },
+   {
+    "t": "Destek ve hareket",
+    "q": "Kalp kası nasıl çalışır?",
+    "o": [
+     "İsteğimiz dışında (istemsiz)",
+     "Biz istedikçe",
+     "Sadece uyurken",
+     "Sadece koşarken"
+    ],
+    "a": 0,
+    "e": "Kalp kası istemsiz çalışır, hiç durmaz."
+   },
+   {
+    "t": "Işık",
+    "q": "Hangisi DOĞAL ışık kaynağıdır?",
+    "o": [
+     "Güneş",
+     "Ampul",
+     "El feneri",
+     "Mum"
+    ],
+    "a": 0,
+    "e": "Güneş doğal; ampul, fener, mum insan yapımı (yapay) kaynaklardır."
+   },
+   {
+    "t": "Işık",
+    "q": "Ay neden ışık kaynağı DEĞİLDİR?",
+    "o": [
+     "Kendi ışığını üretmez, yansıtır",
+     "Çok uzaktadır",
+     "Çok küçüktür",
+     "Soğuktur"
+    ],
+    "a": 0,
+    "e": "Ay, Güneş'ten aldığı ışığı yansıtır."
+   },
+   {
+    "t": "Işık",
+    "q": "Işık nasıl yayılır?",
+    "o": [
+     "Doğrusal olarak (düz çizgiler hâlinde)",
+     "Daireler çizerek",
+     "Sadece aşağı doğru",
+     "Zikzak yaparak"
+    ],
+    "a": 0,
+    "e": "Işık her yöne doğrusal yayılır."
+   },
+   {
+    "t": "Işık",
+    "q": "Işığı hiç geçirmeyen maddelere ne denir?",
+    "o": [
+     "Opak (saydam olmayan)",
+     "Saydam",
+     "Yarı saydam",
+     "Parlak"
+    ],
+    "a": 0,
+    "e": "Tahta, taş gibi maddeler opaktır; gölge oluşturur."
+   },
+   {
+    "t": "Işık",
+    "q": "Pencere camı ışığı nasıl geçirir?",
+    "o": [
+     "Saydamdır, büyük kısmını geçirir",
+     "Hiç geçirmez",
+     "Opaktır",
+     "Yarı saydamdır"
+    ],
+    "a": 0,
+    "e": "Temiz pencere camı saydamdır."
+   },
+   {
+    "t": "Işık",
+    "q": "Buzlu cam ışığı nasıl geçirir?",
+    "o": [
+     "Yarı saydamdır, bir kısmını geçirir",
+     "Tamamını geçirir",
+     "Hiç geçirmez",
+     "Işığı üretir"
+    ],
+    "a": 0,
+    "e": "Buzlu cam, yağlı kâğıt yarı saydamdır."
+   },
+   {
+    "t": "Işık",
+    "q": "Gölge nasıl oluşur?",
+    "o": [
+     "Opak bir cisim ışığın yolunu kestiğinde",
+     "Saydam cisimden ışık geçince",
+     "Karanlıkta kendiliğinden",
+     "Işık kaynağı olmadan"
+    ],
+    "a": 0,
+    "e": "Opak cisim ışığı engeller, arkasında gölge oluşur."
+   },
+   {
+    "t": "Madde",
+    "q": "Maddenin üç hâli hangisidir?",
+    "o": [
+     "Katı, sıvı, gaz",
+     "Sert, yumuşak, sıvı",
+     "Sıcak, ılık, soğuk",
+     "Ağır, hafif, orta"
+    ],
+    "a": 0,
+    "e": "Maddeler katı, sıvı ve gaz hâlinde bulunur."
+   },
+   {
+    "t": "Madde",
+    "q": "Buzun ısı alarak suya dönüşmesine ne denir?",
+    "o": [
+     "Erime",
+     "Donma",
+     "Buharlaşma",
+     "Yoğuşma"
+    ],
+    "a": 0,
+    "e": "Katının ısı alıp sıvı olmasına erime denir."
+   },
+   {
+    "t": "Madde",
+    "q": "Suyun ısı vererek buza dönüşmesine ne denir?",
+    "o": [
+     "Donma",
+     "Erime",
+     "Kaynama",
+     "Yoğuşma"
+    ],
+    "a": 0,
+    "e": "Sıvının ısı verip katı olmasına donma denir."
+   },
+   {
+    "t": "Madde",
+    "q": "Soğuk bardağın dışında su damlacıkları oluşmasına ne denir?",
+    "o": [
+     "Yoğuşma",
+     "Erime",
+     "Donma",
+     "Buharlaşma"
+    ],
+    "a": 0,
+    "e": "Havadaki su buharı soğuk yüzeyde sıvıya döner: yoğuşma."
+   },
+   {
+    "t": "Madde",
+    "q": "Maddeler ısıtıldığında genellikle ne olur?",
+    "o": [
+     "Genleşir (hacmi büyür)",
+     "Büzülür",
+     "Ağırlaşır",
+     "Kaybolur"
+    ],
+    "a": 0,
+    "e": "Isınan maddeler genleşir, soğuyanlar büzülür."
+   },
+   {
+    "t": "Madde",
+    "q": "Sıcaklık hangi araçla ölçülür?",
+    "o": [
+     "Termometre",
+     "Dinamometre",
+     "Terazi",
+     "Cetvel"
+    ],
+    "a": 0,
+    "e": "Termometre sıcaklığı derece (°C) cinsinden ölçer."
+   },
+   {
+    "t": "Elektrik",
+    "q": "Basit bir elektrik devresinde ampulün yanması için ne gerekir?",
+    "o": [
+     "Devrenin kapalı olması (anahtar kapalı)",
+     "Anahtarın açık olması",
+     "Pilin çıkarılması",
+     "Kablonun kesilmesi"
+    ],
+    "a": 0,
+    "e": "Akım ancak kapalı devrede dolaşır."
+   },
+   {
+    "t": "Elektrik",
+    "q": "Devrede elektrik enerjisi sağlayan eleman hangisidir?",
+    "o": [
+     "Pil",
+     "Ampul",
+     "Anahtar",
+     "Kablo"
+    ],
+    "a": 0,
+    "e": "Pil, devrenin enerji kaynağıdır."
+   },
+   {
+    "t": "Elektrik",
+    "q": "Hangisi elektriği İLETİR?",
+    "o": [
+     "Bakır tel",
+     "Plastik",
+     "Tahta",
+     "Cam"
+    ],
+    "a": 0,
+    "e": "Metaller iletkendir; plastik, tahta, cam yalıtkandır."
+   },
+   {
+    "t": "Elektrik",
+    "q": "Islak elle prize dokunmak neden tehlikelidir?",
+    "o": [
+     "Su elektriği iletir, çarpılabiliriz",
+     "Priz kirlenir",
+     "Su buharlaşır",
+     "Hiçbir tehlikesi yoktur"
+    ],
+    "a": 0,
+    "e": "Su elektriği iletir; ıslak elle elektrikli aletlere dokunulmaz."
+   },
+   {
+    "t": "Geri dönüşüm",
+    "q": "Hangisi geri dönüştürülebilir?",
+    "o": [
+     "Cam şişe",
+     "Muz kabuğu",
+     "Kullanılmış peçete",
+     "Yemek artığı"
+    ],
+    "a": 0,
+    "e": "Cam, kâğıt, plastik ve metal geri dönüştürülebilir."
+   },
+   {
+    "t": "Geri dönüşüm",
+    "q": "Biten piller nereye atılmalıdır?",
+    "o": [
+     "Atık pil toplama kutusuna",
+     "Çöp kutusuna",
+     "Toprağa",
+     "Denize"
+    ],
+    "a": 0,
+    "e": "Piller doğaya zararlıdır; ayrı toplanır."
+   },
+   {
+    "t": "Sürdürülebilir yaşam",
+    "q": "Hangisi su tasarrufu sağlar?",
+    "o": [
+     "Diş fırçalarken musluğu kapatmak",
+     "Musluğu açık bırakmak",
+     "Uzun duş almak",
+     "Bahçeyi öğlen sulamak"
+    ],
+    "a": 0,
+    "e": "Kullanmadığımız anda musluğu kapatmak suyu korur."
    }
-  ]
+  ],
+  "from": "New York"
+ },
+ {
+  "id": "sos",
+  "title": "Ay → Kapadokya",
+  "ders": "Sosyal Bilgiler",
+  "icon": "🗺️",
+  "to": "Kapadokya",
+  "vehicle": "plane",
+  "qs": [
+   {
+    "t": "Birlikte yaşamak",
+    "q": "Ailede, okulda ve arkadaş grubunda üstlendiğimiz görevlere ne denir?",
+    "o": [
+     "Rol",
+     "Hak",
+     "Kural",
+     "Ödül"
+    ],
+    "a": 0,
+    "e": "Bulunduğumuz grupta üstlendiğimiz görevlere rol denir."
+   },
+   {
+    "t": "Birlikte yaşamak",
+    "q": "Hangisi bir öğrencinin SORUMLULUĞUDUR?",
+    "o": [
+     "Okul kurallarına uymak",
+     "Oyun oynamak",
+     "Eğitim almak",
+     "Sağlıklı yaşamak"
+    ],
+    "a": 0,
+    "e": "Kurallara uymak sorumluluktur; eğitim almak ise bir haktır."
+   },
+   {
+    "t": "Birlikte yaşamak",
+    "q": "Hangisi her çocuğun HAKKIDIR?",
+    "o": [
+     "Eğitim almak",
+     "Ev işlerini yapmak",
+     "Ödev yapmak",
+     "Sınıfı temizlemek"
+    ],
+    "a": 0,
+    "e": "Eğitim hakkı tüm çocukların temel hakkıdır."
+   },
+   {
+    "t": "Evimiz Dünya",
+    "q": "Ana yönler hangileridir?",
+    "o": [
+     "Kuzey, Güney, Doğu, Batı",
+     "Sağ, Sol, Ön, Arka",
+     "Kuzeydoğu, Güneybatı",
+     "Yukarı, Aşağı"
+    ],
+    "a": 0,
+    "e": "Dört ana yön: kuzey, güney, doğu, batı."
+   },
+   {
+    "t": "Evimiz Dünya",
+    "q": "Güneş hangi yönden doğar?",
+    "o": [
+     "Doğu",
+     "Batı",
+     "Kuzey",
+     "Güney"
+    ],
+    "a": 0,
+    "e": "Güneş doğudan doğar, batıdan batar."
+   },
+   {
+    "t": "Evimiz Dünya",
+    "q": "Kuzey ile doğu arasındaki ara yön hangisidir?",
+    "o": [
+     "Kuzeydoğu",
+     "Güneybatı",
+     "Kuzeybatı",
+     "Güneydoğu"
+    ],
+    "a": 0,
+    "e": "Kuzey + doğu arası: kuzeydoğu."
+   },
+   {
+    "t": "Evimiz Dünya",
+    "q": "Türkiye kaç coğrafi bölgeye ayrılır?",
+    "o": [
+     "7",
+     "5",
+     "9",
+     "81"
+    ],
+    "a": 0,
+    "e": "Türkiye 7 coğrafi bölgeden ve 81 ilden oluşur."
+   },
+   {
+    "t": "Evimiz Dünya",
+    "q": "Türkiye'nin başkenti neresidir?",
+    "o": [
+     "Ankara",
+     "İstanbul",
+     "İzmir",
+     "Bursa"
+    ],
+    "a": 0,
+    "e": "Başkentimiz Ankara'dır."
+   },
+   {
+    "t": "Evimiz Dünya",
+    "q": "Haritada yerlerin gösterildiği küçültme oranına ne denir?",
+    "o": [
+     "Ölçek",
+     "Lejant",
+     "Pusula",
+     "Yön oku"
+    ],
+    "a": 0,
+    "e": "Ölçek, gerçek uzunluğun haritada kaç kez küçültüldüğünü gösterir."
+   },
+   {
+    "t": "Evimiz Dünya",
+    "q": "Haritadaki işaretlerin anlamlarını açıklayan bölüme ne denir?",
+    "o": [
+     "Lejant (açıklama)",
+     "Ölçek",
+     "Başlık",
+     "Kroki"
+    ],
+    "a": 0,
+    "e": "Lejant, harita işaretlerini açıklar."
+   },
+   {
+    "t": "Afetler",
+    "q": "Deprem anında ne yapılmalıdır?",
+    "o": [
+     "Çök – Kapan – Tutun",
+     "Merdivenlerden koşarak inmek",
+     "Asansöre binmek",
+     "Pencereden atlamak"
+    ],
+    "a": 0,
+    "e": "Deprem sırasında çök, kapan, tutun hareketi yapılır."
+   },
+   {
+    "t": "Afetler",
+    "q": "Acil durumda hangi numara aranır?",
+    "o": [
+     "112",
+     "155",
+     "110",
+     "156"
+    ],
+    "a": 0,
+    "e": "Türkiye'de tüm acil durumlar için 112 aranır."
+   },
+   {
+    "t": "Ortak mirasımız",
+    "q": "Göbeklitepe hangi ilimizdedir?",
+    "o": [
+     "Şanlıurfa",
+     "Konya",
+     "Çorum",
+     "İzmir"
+    ],
+    "a": 0,
+    "e": "Göbeklitepe Şanlıurfa'dadır; bilinen en eski tapınak alanlarındandır."
+   },
+   {
+    "t": "Ortak mirasımız",
+    "q": "Çatalhöyük hangi ilimizdedir?",
+    "o": [
+     "Konya",
+     "Şanlıurfa",
+     "Ankara",
+     "Çanakkale"
+    ],
+    "a": 0,
+    "e": "Çatalhöyük, Konya'da bulunan çok eski bir yerleşim yeridir."
+   },
+   {
+    "t": "Ortak mirasımız",
+    "q": "Truva (Troya) antik kenti hangi ilimizdedir?",
+    "o": [
+     "Çanakkale",
+     "İzmir",
+     "Antalya",
+     "Muğla"
+    ],
+    "a": 0,
+    "e": "Truva antik kenti Çanakkale'dedir."
+   },
+   {
+    "t": "Ortak mirasımız",
+    "q": "Geçmişten bugüne aktarılan gelenek, eser ve değerlere ne denir?",
+    "o": [
+     "Kültürel miras",
+     "Doğal kaynak",
+     "Teknoloji",
+     "Ekonomi"
+    ],
+    "a": 0,
+    "e": "Atalarımızdan kalan maddi ve manevi değerler kültürel mirastır."
+   },
+   {
+    "t": "Yaşayan demokrasi",
+    "q": "TBMM hangi tarihte açılmıştır?",
+    "o": [
+     "23 Nisan 1920",
+     "29 Ekim 1923",
+     "19 Mayıs 1919",
+     "30 Ağustos 1922"
+    ],
+    "a": 0,
+    "e": "TBMM 23 Nisan 1920'de açıldı; bu gün çocuklara armağan edildi."
+   },
+   {
+    "t": "Yaşayan demokrasi",
+    "q": "Cumhuriyet hangi tarihte ilan edildi?",
+    "o": [
+     "29 Ekim 1923",
+     "23 Nisan 1920",
+     "10 Kasım 1938",
+     "30 Ağustos 1922"
+    ],
+    "a": 0,
+    "e": "Cumhuriyet 29 Ekim 1923'te ilan edildi."
+   },
+   {
+    "t": "Yaşayan demokrasi",
+    "q": "Sınıf başkanını oyla seçmek hangi yönetim anlayışına örnektir?",
+    "o": [
+     "Demokrasi",
+     "Krallık",
+     "Rastgele seçim",
+     "Zorla atama"
+    ],
+    "a": 0,
+    "e": "Seçimle yönetici belirlemek demokrasinin temelidir."
+   },
+   {
+    "t": "Yaşayan demokrasi",
+    "q": "Atatürk hangi yıl doğmuştur?",
+    "o": [
+     "1881",
+     "1919",
+     "1923",
+     "1938"
+    ],
+    "a": 0,
+    "e": "Mustafa Kemal Atatürk 1881'de Selanik'te doğdu."
+   },
+   {
+    "t": "Ekonomi",
+    "q": "Hangisi bir İHTİYAÇTIR?",
+    "o": [
+     "Yemek yemek",
+     "Yeni oyun konsolu",
+     "Üçüncü bir ayakkabı",
+     "Pahalı oyuncak"
+    ],
+    "a": 0,
+    "e": "Yaşamak için gerekli olanlar ihtiyaçtır; diğerleri istektir."
+   },
+   {
+    "t": "Ekonomi",
+    "q": "Gelecekte kullanmak için paranın bir kısmını biriktirmeye ne denir?",
+    "o": [
+     "Tasarruf",
+     "Borç",
+     "Harcama",
+     "İsraf"
+    ],
+    "a": 0,
+    "e": "Paranın bir kısmını biriktirmek tasarruftur."
+   },
+   {
+    "t": "Ekonomi",
+    "q": "Bilinçli bir tüketici alışverişte ne yapar?",
+    "o": [
+     "Fiş/fatura alır, son kullanma tarihine bakar",
+     "Her gördüğünü alır",
+     "Fiyata hiç bakmaz",
+     "Fiş istemez"
+    ],
+    "a": 0,
+    "e": "Fiş almak tüketici haklarımızı korur."
+   },
+   {
+    "t": "Ekonomi",
+    "q": "Gelir ve giderlerin planlandığı listeye ne denir?",
+    "o": [
+     "Bütçe",
+     "Fatura",
+     "Fiş",
+     "Senet"
+    ],
+    "a": 0,
+    "e": "Bütçe, gelir ve giderlerin planıdır."
+   },
+   {
+    "t": "Teknoloji",
+    "q": "İnternette tanımadığımız biri adresimizi sorarsa ne yapmalıyız?",
+    "o": [
+     "Vermemeli, bir büyüğümüze haber vermeliyiz",
+     "Hemen vermeliyiz",
+     "Telefon numaramızı da vermeliyiz",
+     "Fotoğrafımızı göndermeliyiz"
+    ],
+    "a": 0,
+    "e": "Kişisel bilgilerimizi internette paylaşmayız."
+   },
+   {
+    "t": "Bilim insanları",
+    "q": "2015'te Nobel Kimya Ödülü'nü kazanan Türk bilim insanı kimdir?",
+    "o": [
+     "Aziz Sancar",
+     "Cahit Arf",
+     "Ali Kuşçu",
+     "Piri Reis"
+    ],
+    "a": 0,
+    "e": "Aziz Sancar, DNA onarımı çalışmalarıyla Nobel Kimya Ödülü'nü kazandı."
+   },
+   {
+    "t": "Bilim insanları",
+    "q": "Ünlü dünya haritasını çizen Osmanlı denizcisi kimdir?",
+    "o": [
+     "Piri Reis",
+     "Ali Kuşçu",
+     "Uluğ Bey",
+     "Cahit Arf"
+    ],
+    "a": 0,
+    "e": "Piri Reis'in 1513 tarihli dünya haritası çok ünlüdür."
+   },
+   {
+    "t": "Bilim insanları",
+    "q": "\"Arf değişmezi\" ile tanınan Türk matematikçi kimdir?",
+    "o": [
+     "Cahit Arf",
+     "Aziz Sancar",
+     "Piri Reis",
+     "Mimar Sinan"
+    ],
+    "a": 0,
+    "e": "Cahit Arf, dünyaca tanınan matematikçimizdir."
+   }
+  ],
+  "from": "Ay"
+ },
+ {
+  "id": "ing",
+  "title": "Kapadokya → Tokyo",
+  "ders": "İngilizce",
+  "icon": "🇬🇧",
+  "to": "Tokyo",
+  "vehicle": "plane",
+  "qs": [
+   {
+    "t": "Classroom life",
+    "q": "Which day comes after Monday?",
+    "o": [
+     "Tuesday",
+     "Sunday",
+     "Thursday",
+     "Friday"
+    ],
+    "a": 0,
+    "e": "Monday → Tuesday (Pazartesi → Salı)."
+   },
+   {
+    "t": "Classroom life",
+    "q": "Which day comes before Saturday?",
+    "o": [
+     "Friday",
+     "Sunday",
+     "Monday",
+     "Wednesday"
+    ],
+    "a": 0,
+    "e": "Friday → Saturday (Cuma → Cumartesi)."
+   },
+   {
+    "t": "Classroom life",
+    "q": "\"Çarşamba\" in English?",
+    "o": [
+     "Wednesday",
+     "Thursday",
+     "Tuesday",
+     "Weekend"
+    ],
+    "a": 0,
+    "e": "Wednesday = Çarşamba."
+   },
+   {
+    "t": "Classroom life",
+    "q": "What time is it? 🕞 (3:30)",
+    "o": [
+     "It's half past three.",
+     "It's three o'clock.",
+     "It's quarter past three.",
+     "It's half past four."
+    ],
+    "a": 0,
+    "e": "3:30 = half past three (üçü buçuk)."
+   },
+   {
+    "t": "Classroom life",
+    "q": "What time is it? 🕗 (8:00)",
+    "o": [
+     "It's eight o'clock.",
+     "It's half past eight.",
+     "It's eight past.",
+     "It's quarter to eight."
+    ],
+    "a": 0,
+    "e": "Tam saat: o'clock."
+   },
+   {
+    "t": "Classroom life",
+    "q": "\"Silgi\" in English?",
+    "o": [
+     "Eraser / Rubber",
+     "Ruler",
+     "Pencil case",
+     "Sharpener"
+    ],
+    "a": 0,
+    "e": "Eraser (rubber) = silgi; ruler = cetvel."
+   },
+   {
+    "t": "Classroom life",
+    "q": "\"Cetvel\" in English?",
+    "o": [
+     "Ruler",
+     "Eraser",
+     "Scissors",
+     "Notebook"
+    ],
+    "a": 0,
+    "e": "Ruler = cetvel."
+   },
+   {
+    "t": "Classroom life",
+    "q": "Which is a classroom RULE?",
+    "o": [
+     "Don't run in the classroom.",
+     "I like pizza.",
+     "She is tall.",
+     "It's sunny."
+    ],
+    "a": 0,
+    "e": "Rules: \"Don't run\", \"Raise your hand\" gibi emir cümleleri."
+   },
+   {
+    "t": "Classroom life",
+    "q": "Which school subject is about numbers?",
+    "o": [
+     "Maths",
+     "Science",
+     "Art",
+     "Music"
+    ],
+    "a": 0,
+    "e": "Maths (mathematics) = matematik."
+   },
+   {
+    "t": "Classroom life",
+    "q": "\"Science\" dersi Türkçede hangisidir?",
+    "o": [
+     "Fen bilimleri",
+     "Sosyal bilgiler",
+     "Beden eğitimi",
+     "Görsel sanatlar"
+    ],
+    "a": 0,
+    "e": "Science = fen bilimleri."
+   },
+   {
+    "t": "Classroom life",
+    "q": "\"Can I open the window?\" ne demektir?",
+    "o": [
+     "Pencereyi açabilir miyim?",
+     "Pencere açık mı?",
+     "Pencereyi kapat.",
+     "Pencere nerede?"
+    ],
+    "a": 0,
+    "e": "\"Can I …?\" izin istemek için kullanılır."
+   },
+   {
+    "t": "School life",
+    "q": "She is from Germany. She is ___.",
+    "o": [
+     "German",
+     "Germanian",
+     "Germany",
+     "Germish"
+    ],
+    "a": 0,
+    "e": "Germany → German (Almanya → Alman)."
+   },
+   {
+    "t": "School life",
+    "q": "He is from Japan. He is ___.",
+    "o": [
+     "Japanese",
+     "Japanish",
+     "Japan",
+     "Japanian"
+    ],
+    "a": 0,
+    "e": "Japan → Japanese."
+   },
+   {
+    "t": "School life",
+    "q": "I am from Türkiye. I am ___.",
+    "o": [
+     "Turkish",
+     "Turkian",
+     "Turkey",
+     "Turkese"
+    ],
+    "a": 0,
+    "e": "Türkiye → Turkish."
+   },
+   {
+    "t": "School life",
+    "q": "He is from Italy. He is ___.",
+    "o": [
+     "Italian",
+     "Italish",
+     "Italese",
+     "Italy"
+    ],
+    "a": 0,
+    "e": "Italy → Italian."
+   },
+   {
+    "t": "School life",
+    "q": "Which is a school CLUB?",
+    "o": [
+     "Chess club",
+     "Teacher",
+     "Classroom",
+     "Lunch"
+    ],
+    "a": 0,
+    "e": "Chess club = satranç kulübü."
+   },
+   {
+    "t": "Personal life",
+    "q": "\"I can swim.\" ne demektir?",
+    "o": [
+     "Yüzebilirim.",
+     "Yüzemem.",
+     "Yüzüyorum.",
+     "Yüzmeyi sevmem."
+    ],
+    "a": 0,
+    "e": "can = -ebilmek (yetenek)."
+   },
+   {
+    "t": "Personal life",
+    "q": "\"She can't play the guitar.\" ne demektir?",
+    "o": [
+     "Gitar çalamaz.",
+     "Gitar çalabilir.",
+     "Gitar çalıyor.",
+     "Gitar çalmayı sever."
+    ],
+    "a": 0,
+    "e": "can't = -emez."
+   },
+   {
+    "t": "Personal life",
+    "q": "Which word describes appearance (görünüş)?",
+    "o": [
+     "Tall",
+     "Kind",
+     "Funny",
+     "Clever"
+    ],
+    "a": 0,
+    "e": "Tall (uzun boylu) dış görünüştür; kind, funny, clever kişilik özellikleridir."
+   },
+   {
+    "t": "Personal life",
+    "q": "\"He has got curly hair.\" ne demektir?",
+    "o": [
+     "Kıvırcık saçları var.",
+     "Düz saçları var.",
+     "Saçı yok.",
+     "Uzun boylu."
+    ],
+    "a": 0,
+    "e": "curly = kıvırcık, straight = düz."
+   },
+   {
+    "t": "Family life",
+    "q": "My mother's sister is my ___.",
+    "o": [
+     "Aunt",
+     "Uncle",
+     "Cousin",
+     "Grandmother"
+    ],
+    "a": 0,
+    "e": "Annenin ya da babanın kız kardeşi: aunt (teyze/hala)."
+   },
+   {
+    "t": "Family life",
+    "q": "My father's father is my ___.",
+    "o": [
+     "Grandfather",
+     "Uncle",
+     "Brother",
+     "Cousin"
+    ],
+    "a": 0,
+    "e": "Grandfather = dede."
+   },
+   {
+    "t": "Family life",
+    "q": "My aunt's son is my ___.",
+    "o": [
+     "Cousin",
+     "Brother",
+     "Nephew",
+     "Uncle"
+    ],
+    "a": 0,
+    "e": "Teyzenin/halanın çocuğu: cousin (kuzen)."
+   },
+   {
+    "t": "Life in nature",
+    "q": "Where do polar bears live?",
+    "o": [
+     "In the Arctic (cold places)",
+     "In the desert",
+     "In the jungle",
+     "In the city"
+    ],
+    "a": 0,
+    "e": "Kutup ayıları soğuk Kuzey Kutbu bölgesinde yaşar."
+   },
+   {
+    "t": "Life in nature",
+    "q": "Where do camels live?",
+    "o": [
+     "In the desert",
+     "In the sea",
+     "In the Arctic",
+     "In the forest"
+    ],
+    "a": 0,
+    "e": "Develer çölde yaşar."
+   },
+   {
+    "t": "Life in nature",
+    "q": "Which animal can fly?",
+    "o": [
+     "Eagle",
+     "Fish",
+     "Elephant",
+     "Horse"
+    ],
+    "a": 0,
+    "e": "Eagle = kartal, uçabilir."
+   },
+   {
+    "t": "Life in nature",
+    "q": "\"Ağaç\" in English?",
+    "o": [
+     "Tree",
+     "Leaf",
+     "Flower",
+     "Grass"
+    ],
+    "a": 0,
+    "e": "Tree = ağaç; leaf = yaprak."
+   },
+   {
+    "t": "Life in nature",
+    "q": "Which one lives in the sea?",
+    "o": [
+     "Dolphin",
+     "Monkey",
+     "Camel",
+     "Rabbit"
+    ],
+    "a": 0,
+    "e": "Dolphin = yunus, denizde yaşar."
+   }
+  ],
+  "from": "Kapadokya"
  }
 ]

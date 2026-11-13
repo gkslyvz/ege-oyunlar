@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Pilot Ege: Profesör Unutkan'dan Kaçış</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+html,body{margin:0;height:100%;overflow:hidden;background:#9fd8ff;font-family:'Baloo 2',system-ui,sans-serif;color:#10223f;touch-action:none}
+canvas{display:block;position:fixed;inset:0}
+.hidden{display:none!important}
+#hud{position:fixed;left:0;right:0;top:0;padding:8px 10px;z-index:2;pointer-events:none}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.pill{background:rgba(16,34,63,.78);color:#fff;font-weight:800;border-radius:999px;padding:4px 12px;font-size:15px;white-space:nowrap}
+.chase{flex:1;height:14px;background:rgba(16,34,63,.6);border-radius:99px;position:relative;overflow:hidden}
+.chase i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#ff4d6d,#ffb02e,#3ddc84);border-radius:99px;transition:width .4s}
+.chase b{position:absolute;right:6px;top:-3px;font-size:13px}
+.qcard{background:rgba(255,255,255,.94);border-radius:16px;padding:8px 10px;box-shadow:0 6px 18px rgba(0,0,0,.18);max-width:560px;margin:0 auto;transition:transform .3s}
+.qtop{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:#4a5d7c}
+.qtext{font-size:18px;font-weight:800;line-height:1.2;margin:2px 0 6px}
+.chips{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
+.chip{border-radius:10px;padding:4px 6px;font-size:14px;font-weight:700;line-height:1.1;color:#fff;text-align:center;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.chip b{display:block;font-size:16px}
+.chip.right{outline:4px solid #1fa35b;outline-offset:1px}.chip.dim{opacity:.35}
+#bar{position:fixed;right:10px;bottom:10px;z-index:3;display:flex;gap:8px}
+#bar button{border:none;font:inherit;cursor:pointer}
+#toast{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);width:min(92vw,520px);border-radius:16px;padding:9px 13px;font-size:15px;line-height:1.3;z-index:3;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:opacity .3s;pointer-events:none}
+#toast.ok{background:#e3f8ec}#toast.no{background:#fff1d6}#toast b{display:block;font-size:18px}
+#flash{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity .25s;background:radial-gradient(ellipse at center,rgba(255,0,0,0) 40%,rgba(255,40,40,.55))}
+#flash.g{background:radial-gradient(ellipse at center,rgba(0,255,0,0) 40%,rgba(40,220,120,.45))}
+.screen{position:fixed;inset:0;z-index:5;display:grid;place-items:center;padding:16px;background:linear-gradient(180deg,rgba(40,20,90,.86),rgba(59,130,246,.75))}
+.panel{background:#fff;border-radius:24px;padding:18px;max-width:440px;width:100%;box-shadow:0 14px 40px rgba(0,0,0,.3);text-align:center;max-height:94vh;overflow:auto}
+.panel h1{font-size:30px;line-height:1.05;margin:4px 0 6px}
+.panel p{margin:6px 0;color:#34496b}
+.btn{display:block;width:100%;font:inherit;font-size:19px;font-weight:800;padding:11px;border:none;border-radius:16px;margin-top:9px;cursor:pointer;color:#fff;box-shadow:0 5px 0 rgba(0,0,0,.2)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.how{background:#eef5ff;border-radius:14px;padding:9px;font-size:14px;text-align:left;margin-top:10px}
+.story{font-size:17px;font-weight:700;background:#f3eefe;border-radius:14px;padding:10px;margin:8px 0;min-height:70px}
+.big{font-size:38px;letter-spacing:3px}
+</style>
+</head>
+<body>
+<div id="flash"></div>
+<div id="hud" class="hidden">
+  <div class="top"><span class="pill" id="fuel">⛽ 0/10</span><div class="chase"><i id="chaseBar"></i><b>🦹</b></div><span class="pill" id="coins">🪙 0</span></div>
+  <div class="qcard" id="qcard"><div class="qtop"><span id="qTopic"></span><span id="qInfo"></span></div><div class="qtext" id="qText">Koş! 🏃</div><div class="chips" id="chips"></div></div>
+</div>
+<div id="toast" class="hidden"></div>
+<div id="bar" class="hidden"><button class="pill" id="mute">🔊</button></div>
+
+<div class="screen" id="start"><div class="panel">
+  <div style="font-size:52px">🏃‍♂️💨🦹</div>
+  <h1>Profesör Unutkan'dan Kaçış</h1>
+  <div class="story" id="story"></div>
+  <div id="ozet"></div>
+  <div id="dersler"></div>
+  <div class="how"><b>Nasıl oynanır?</b><br>👆 Sağa/sola kaydır: şerit değiştir · Yukarı: zıpla · Aşağı: kay<br>⌨️ Ok tuşları / WASD<br>🚪 Doğru cevabın kapısından geç: uçağına <b>bilgi yakıtı</b> topla!<br>⛽ 10 yakıtı topla, uçağına bin ve kalkış yap. Engellere çarpar ya da yanlış kapıdan geçersen Profesör yaklaşır!</div>
+</div></div>
+<div class="screen hidden" id="end"><div class="panel" id="endPanel"></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script>
+const LEGS = [{"id":"tr","title":"İstanbul → Londra","ders":"Türkçe","icon":"📘","to":"Londra","vehicle":"plane","qs":[{"t":"Eş anlam","q":"\"Yanıt\" sözcüğünün eş anlamlısı hangisi?","o":["Cevap","Soru","Sonuç","Anlam"],"a":0,"e":"Yanıt = Cevap. Aynı anlama gelen farklı sözcüklere eş anlamlı denir."},{"t":"Eş anlam","q":"\"Kara\" sözcüğünün eş anlamlısı hangisi?","o":["Beyaz","Siyah","Koyu yeşil","Toprak"],"a":1,"e":"Kara = Siyah. (Beyaz ise zıt anlamlısıdır.)"},{"t":"Deyimler","q":"\"Göz atmak\" deyimi ne anlama gelir?","o":["Bir şeye kısaca, üstünkörü bakmak","Göze bir şey kaçmak","Çok uykusu gelmek","Birine kızmak"],"a":0,"e":"Göz atmak: bir şeye kısaca, şöyle bir bakmak."},{"t":"Deyimler","q":"\"Etekleri zil çalmak\" ne demektir?","o":["Çok korkmak","Çok sevinmek","Çok yorulmak","Çok acıkmak"],"a":1,"e":"Etekleri zil çalmak: çok sevinmek, sevinçten yerinde duramamak."},{"t":"Atasözleri","q":"\"Damlaya damlaya göl olur\" atasözü ne anlatır?","o":["Yağmur çok yağınca göl oluşur","Küçük birikimler zamanla büyük sonuç oluşturur","Su israf edilmemeli","Göller yavaş dolar"],"a":1,"e":"Azar azar biriken şeyler zamanla büyür. Her gün biraz çalışmak da böyledir!"},{"t":"İkileme","q":"\"Çocuklar koşa koşa eve geldi.\" cümlesindeki ikileme hangisi?","o":["Çocuklar","eve geldi","koşa koşa","geldi"],"a":2,"e":"Aynı sözcüğün tekrar edilmesi ikilemedir: koşa koşa."},{"t":"İkileme","q":"Hangisi bir ikilemedir?","o":["yavaş yavaş","masmavi","kırmızı elma","hızlı koştu"],"a":0,"e":"\"Yavaş yavaş\" ikilemedir. \"Masmavi\" ise pekiştirmedir."},{"t":"Pekiştirme","q":"\"Kıpkırmızı\" hangi sözcüğün pekiştirilmiş hâlidir?","o":["kırık","kırmızı","kıpır","kırk"],"a":1,"e":"Kıp + kırmızı = kıpkırmızı. Anlamı güçlendirir."},{"t":"Pekiştirme","q":"Hangisi pekiştirmeli bir sözcüktür?","o":["ağır ağır","masmavi","gide gide","mavi gök"],"a":1,"e":"Mas + mavi = masmavi. \"Ağır ağır\" ve \"gide gide\" ikilemedir."},{"t":"Hikâyenin unsurları","q":"Hikâyenin dört temel unsuru hangisidir?","o":["Giriş, gelişme, sonuç, başlık","Kişi, zaman, yer, olay","Yazar, kitap, sayfa, kapak","Soru, cevap, özet, ana fikir"],"a":1,"e":"Hikâyenin unsurları: kişi (kahraman), zaman, yer, olay."},{"t":"Büyük harf","q":"Hangisi doğru yazılmıştır?","o":["ege Ankara'ya gitti.","Ege ankara'ya gitti.","Ege Ankara'ya gitti.","ege ankara'ya gitti."],"a":2,"e":"Cümle büyük harfle başlar; kişi ve şehir adları büyük harfle yazılır."},{"t":"Noktanın kullanımı","q":"Tarih hangi seçenekte doğru yazılmıştır?","o":["10,11,2026","10.11.2026","10;11;2026","10:11:2026"],"a":1,"e":"Tarihte gün, ay ve yıl arasına nokta konabilir: 10.11.2026"},{"t":"Sözcükte anlam","q":"\"Arkadaşına sert bir cevap verdi.\" cümlesinde \"sert\" hangi anlamda?","o":["Gerçek anlam","Mecaz anlam"],"a":1,"e":"Cevabın dokunulacak bir sertliği yoktur; burada \"kırıcı\" anlamında, yani mecaz."},{"t":"Sözcükte anlam","q":"\"Bu taş çok sert.\" cümlesinde \"sert\" hangi anlamda?","o":["Gerçek anlam","Mecaz anlam"],"a":0,"e":"Taş elle dokununca gerçekten serttir: gerçek anlam."},{"t":"Zıt anlam","q":"\"Cesur\" sözcüğünün zıt anlamlısı hangisi?","o":["Korkak","Güçlü","Akıllı","Hızlı"],"a":0,"e":"Cesur ↔ korkak. Zıt anlamlılar birbirinin tersini anlatır."},{"t":"Zıt anlam","q":"\"Uzak\" sözcüğünün zıt anlamlısı hangisi?","o":["Yakın","Geniş","Uzun","Derin"],"a":0,"e":"Uzak ↔ yakın."},{"t":"Eş anlam","q":"\"Okul\" sözcüğünün eş anlamlısı hangisi?","o":["Mektep","Sınıf","Öğrenci","Kitap"],"a":0,"e":"Okul = mektep (eski kullanım)."},{"t":"Eş anlam","q":"\"Ak\" sözcüğünün eş anlamlısı hangisi?","o":["Beyaz","Siyah","Temiz","Açık"],"a":0,"e":"Ak = beyaz. (Kara = siyah.)"},{"t":"Eş sesli","q":"\"Yüz\" sözcüğü hangi cümlede SAYI anlamında kullanılmıştır?","o":["Yüz kişi geldi.","Denizde yüz.","Yüzünü yıka.","Kitabın yüzü yırtık."],"a":0,"e":"Aynı yazılıp farklı anlam taşıyan sözcüklere eş sesli denir. \"Yüz kişi\" sayıdır."},{"t":"Eş sesli","q":"\"Çay\" sözcüğü hangi cümlede AKARSU anlamındadır?","o":["Çay taştı, köprü yıkıldı.","Bir bardak çay içtim.","Çay bahçesine gittik.","Çay demlendi."],"a":0,"e":"Çay hem içecek hem küçük akarsu demektir."},{"t":"Deyimler","q":"\"Kulak vermek\" ne anlama gelir?","o":["Dikkatle dinlemek","Kulağını göstermek","Bağırmak","Uyumak"],"a":0,"e":"Kulak vermek: söyleneni dikkatle dinlemek."},{"t":"Deyimler","q":"\"Dört gözle beklemek\" ne demektir?","o":["Çok istekle beklemek","Gözlük takmak","Sıkılmak","Uyuyakalmak"],"a":0,"e":"Bir şeyi büyük bir özlem ve istekle beklemek."},{"t":"Deyimler","q":"\"Pireyi deve yapmak\" ne anlama gelir?","o":["Küçük bir şeyi çok büyütmek","Hayvan beslemek","Hızlı koşmak","Yalan söylemek"],"a":0,"e":"Önemsiz bir olayı abartmak."},{"t":"Atasözleri","q":"\"Sakla samanı, gelir zamanı\" atasözü ne öğütler?","o":["Gereksiz görünen şeyler bir gün işe yarayabilir","Saman toplamak gerekir","Zaman çabuk geçer","Hayvanlara iyi bakmalıyız"],"a":0,"e":"Bugün değersiz sandığımız şey ileride gerekebilir."},{"t":"Atasözleri","q":"\"Bir elin nesi var, iki elin sesi var\" ne anlatır?","o":["Birlikte çalışmak daha güçlüdür","Alkış yüksek sesli olur","İki elle yazmak gerekir","Yalnız çalışmak iyidir"],"a":0,"e":"Yardımlaşma ve dayanışmanın gücünü anlatır."},{"t":"Atasözü mü deyim mi?","q":"Hangisi bir ATASÖZÜDÜR?","o":["Ağaç yaşken eğilir.","Göz atmak","Kulak vermek","Etekleri zil çalmak"],"a":0,"e":"Atasözleri öğüt veren yargı cümleleridir. Diğerleri deyimdir."},{"t":"Terim anlam","q":"\"Açı\" sözcüğü hangi cümlede matematik TERİMİ olarak kullanılmıştır?","o":["Üçgenin bir açısı 90 derecedir.","Olaya farklı bir açıdan bak.","Bu konuda bakış açın çok farklı.","Sorunu başka bir açıdan düşün."],"a":0,"e":"Matematikteki \"açı\" bir terimdir."},{"t":"de / da","q":"Hangisinde \"de\" doğru yazılmıştır?","o":["Ben de geleceğim.","Bende geleceğim.","Okul da ders var.","Ev de kaldım."],"a":0,"e":"\"Ben de\" (bağlaç, ayrı yazılır). \"Okulda\" ise bitişik yazılmalı."},{"t":"de / da","q":"\"Kitabı masada bıraktım.\" cümlesindeki \"da\" nasıl yazılır?","o":["Bitişik, çünkü yer bildiriyor","Ayrı, çünkü bağlaç","Kesme işaretiyle","Hiç yazılmaz"],"a":0,"e":"Bulunma eki \"-da\" (masada) bitişik yazılır."},{"t":"Soru eki mi","q":"Soru eki \"mi\" hangisinde doğru yazılmıştır?","o":["Geldin mi?","Geldinmi?","Gel mi din?","Geldin-mi?"],"a":0,"e":"Soru eki \"mi\" her zaman ayrı yazılır."},{"t":"Noktalama","q":"Soru cümlesinin sonuna hangi işaret konur?","o":["Soru işareti (?)","Nokta (.)","Virgül (,)","Ünlem (!)"],"a":0,"e":"Soru bildiren cümleler soru işaretiyle biter."},{"t":"Noktalama","q":"Sevinç, korku, şaşırma bildiren cümlelerin sonuna hangisi konur?","o":["Ünlem (!)","Virgül (,)","Noktalı virgül (;)","İki nokta (:)"],"a":0,"e":"Duygu bildiren cümleler ünlemle biter: Ne güzel!"},{"t":"Noktalama","q":"\"Elma, armut ve muz aldım.\" cümlesinde virgül neden kullanılmıştır?","o":["Sıralanan sözcükleri ayırmak için","Cümleyi bitirmek için","Soru sormak için","Konuşmayı başlatmak için"],"a":0,"e":"Eş görevli sözcükleri ayırmak için virgül kullanılır."},{"t":"Kesme işareti","q":"Hangisinde kesme işareti doğru kullanılmıştır?","o":["Ankara'ya gittik.","Okul'a gittik.","Kitap'ı okudum.","Ev'de kaldım."],"a":0,"e":"Özel adlara gelen ekler kesmeyle ayrılır; cins adlara kesme konmaz."},{"t":"Büyük harf","q":"Hangisi büyük harfle başlamalıdır?","o":["Özel isimler (Ege, Bodrum)","Her sözcük","Fiiller","Sıfatlar"],"a":0,"e":"Kişi, yer, kurum adları gibi özel isimler büyük harfle başlar."},{"t":"Ana fikir","q":"Bir metnin ana fikri nedir?","o":["Yazarın okura vermek istediği temel mesaj","Metnin ilk cümlesi","Metindeki en uzun paragraf","Metnin başlığı"],"a":0,"e":"Ana fikir, metnin bize verdiği asıl mesajdır."},{"t":"Hikâyenin unsurları","q":"\"Geçen yaz, Bodrum'da\" ifadeleri hikâyenin hangi unsurlarını verir?","o":["Zaman ve yer","Kişi ve olay","Olay ve zaman","Kişi ve yer"],"a":0,"e":"\"Geçen yaz\" zaman, \"Bodrum'da\" yer bildirir."},{"t":"Sebep-sonuç","q":"Hangisi sebep-sonuç cümlesidir?","o":["Yağmur yağdığı için maç ertelendi.","Yarın maç var.","Maç çok güzeldi.","Maça gidelim mi?"],"a":0,"e":"\"…için\" sebebi, \"maç ertelendi\" sonucu verir."},{"t":"Öznel / nesnel","q":"Hangisi NESNEL (kanıtlanabilir) bir yargıdır?","o":["Türkiye'nin başkenti Ankara'dır.","En güzel şehir İzmir'dir.","Bu film çok sıkıcı.","Pizza en lezzetli yemektir."],"a":0,"e":"Nesnel yargılar kişiden kişiye değişmez, doğrulanabilir."},{"t":"Öznel / nesnel","q":"Hangisi ÖZNEL bir yargıdır?","o":["Bu kitap çok eğlenceli.","Kitap 120 sayfadır.","Kitabı Mehmet yazdı.","Kitap 2020'de basıldı."],"a":0,"e":"\"Eğlenceli\" kişisel bir görüştür, herkese göre değişebilir."},{"t":"Gerçek / mecaz","q":"\"Tatlı bir konuşması var.\" cümlesinde \"tatlı\" hangi anlamda?","o":["Mecaz","Gerçek","Terim","Zıt"],"a":0,"e":"Konuşmanın tadı olmaz; \"hoş, sevimli\" anlamında mecazdır."},{"t":"İkileme","q":"\"Sağa sola bakarak karşıya geçti.\" cümlesindeki ikileme hangisi?","o":["sağa sola","bakarak","karşıya geçti","geçti"],"a":0,"e":"Zıt anlamlı iki sözcükle de ikileme kurulur: sağa sola."},{"t":"Pekiştirme","q":"\"Bembeyaz\" hangi sözcüğün pekiştirilmiş hâlidir?","o":["beyaz","bem","ben","beyin"],"a":0,"e":"Bem + beyaz = bembeyaz."}],"from":"İstanbul"},{"id":"mat","title":"Londra → New York","ders":"Matematik","icon":"📐","to":"New York","vehicle":"plane","qs":[{"t":"Açılar","q":"Ölçüsü 90° olan açıya ne denir?","o":["Dar açı","Dik açı","Geniş açı","Doğru açı"],"a":1,"e":"90° = dik açı. Defterin köşesi gibi."},{"t":"Açılar","q":"Ölçüsü 45° olan açı hangisidir?","o":["Dar açı","Dik açı","Geniş açı","Doğru açı"],"a":0,"e":"0° ile 90° arasındaki açılar dar açıdır."},{"t":"Açılar","q":"Ölçüsü 130° olan açı hangisidir?","o":["Dar açı","Dik açı","Geniş açı","Tam açı"],"a":2,"e":"90° ile 180° arasındaki açılar geniş açıdır."},{"t":"Açılar","q":"Ölçüsü 180° olan açıya ne denir?","o":["Dik açı","Geniş açı","Doğru açı","Tam açı"],"a":2,"e":"180° = doğru açı. Kollar düz bir çizgi oluşturur."},{"t":"Doğrular","q":"Hiç kesişmeyen ve aralarındaki uzaklık hep aynı kalan iki doğruya ne denir?","o":["Kesişen doğrular","Paralel doğrular","Dik kesişen doğrular","Işın"],"a":1,"e":"Paralel doğrular hiç kesişmez. Tren rayları gibi."},{"t":"Doğrular","q":"Kesiştiklerinde 90° açı oluşturan doğrulara ne denir?","o":["Paralel doğrular","Dik kesişen doğrular","Eğik doğrular","Doğru parçası"],"a":1,"e":"90° ile kesişen doğrular dik kesişen doğrulardır. Artı (+) işareti gibi."},{"t":"Çokgenler","q":"Altıgenin kaç kenarı vardır?","o":["5","6","7","8"],"a":1,"e":"Altı-gen: 6 kenar, 6 köşe."},{"t":"Çokgenler","q":"Hangisi bir çokgen DEĞİLDİR?","o":["Üçgen","Kare","Daire","Beşgen"],"a":2,"e":"Çokgenler düz kenarlardan oluşur. Dairenin kenarı eğridir, çokgen değildir."},{"t":"Çokgenler","q":"Tüm kenarları ve tüm açıları eşit olan çokgene ne denir?","o":["Düzgün çokgen","Dikdörtgen","Dar açılı çokgen","Eğik çokgen"],"a":0,"e":"Kenarları ve açıları eşit olan çokgen düzgün çokgendir. Kare bir düzgün dörtgendir."},{"t":"Çokgenler","q":"Bir üçgenin iç açılarının toplamı kaç derecedir?","o":["90°","180°","270°","360°"],"a":1,"e":"Her üçgende iç açılar toplamı 180°dir."},{"t":"Çokgenler","q":"Bir dörtgenin iç açılarının toplamı kaç derecedir?","o":["180°","270°","360°","400°"],"a":2,"e":"Dörtgenin iç açıları toplamı 360°dir. Karede 4 × 90° = 360°."},{"t":"Çokgenler","q":"Bir üçgenin iki açısı 60° ve 70° ise üçüncü açı kaç derecedir?","o":["40°","50°","60°","70°"],"a":1,"e":"180° − 60° − 70° = 50°"},{"t":"Doğal sayılar","q":"5 234 018 sayısında 2 rakamının basamak değeri nedir?","o":["200 000","2 000","20 000","2 000 000"],"a":0,"e":"2, yüz binler basamağında: 2 × 100 000 = 200 000."},{"t":"Doğal sayılar","q":"\"Üç milyon kırk bin beş\" sayısı nasıl yazılır?","o":["3 040 005","3 400 005","3 040 050","340 005"],"a":0,"e":"3 milyon + 40 bin + 5 = 3 040 005."},{"t":"Kesirler","q":"Bir pizzanın 3/8'ini yedik. Kaç dilimi kaldı? (8 dilim)","o":["5","3","8","4"],"a":0,"e":"8 − 3 = 5 dilim kaldı, yani 5/8."},{"t":"Kesirler","q":"Hangisi 1/2'ye eşittir?","o":["4/8","2/3","3/4","1/4"],"a":0,"e":"4/8 sadeleşince 1/2 olur."},{"t":"Kesirler","q":"Hangisi en büyüktür?","o":["3/4","1/2","1/4","2/8"],"a":0,"e":"3/4 = 0,75 en büyüktür."},{"t":"İşlem önceliği","q":"3 + 4 × 2 işleminin sonucu kaçtır?","o":["11","14","10","9"],"a":0,"e":"Önce çarpma: 4 × 2 = 8, sonra 3 + 8 = 11."},{"t":"İşlem önceliği","q":"(3 + 4) × 2 işleminin sonucu kaçtır?","o":["14","11","10","24"],"a":0,"e":"Önce parantez: 7 × 2 = 14."},{"t":"Örüntü","q":"2, 5, 8, 11, … örüntüsünde sıradaki sayı kaçtır?","o":["14","13","15","12"],"a":0,"e":"Her adımda 3 artıyor: 11 + 3 = 14."},{"t":"Örüntü","q":"1, 2, 4, 8, … örüntüsünde sıradaki sayı kaçtır?","o":["16","10","12","14"],"a":0,"e":"Her adımda 2 ile çarpılıyor: 8 × 2 = 16."},{"t":"Üçgenler","q":"Üç kenarı da eşit olan üçgene ne denir?","o":["Eşkenar üçgen","İkizkenar üçgen","Çeşitkenar üçgen","Dik üçgen"],"a":0,"e":"Bütün kenarları eşit: eşkenar üçgen."},{"t":"Üçgenler","q":"Yalnızca iki kenarı eşit olan üçgene ne denir?","o":["İkizkenar üçgen","Eşkenar üçgen","Çeşitkenar üçgen","Geniş üçgen"],"a":0,"e":"İki kenarı eşit: ikizkenar üçgen."},{"t":"Üçgenler","q":"Kenarları 4, 6 ve 9 cm olan üçgen hangisidir?","o":["Çeşitkenar","İkizkenar","Eşkenar","Hiçbiri"],"a":0,"e":"Tüm kenarları farklı: çeşitkenar."},{"t":"Dörtgenler","q":"Karşılıklı kenarları paralel ve eşit, tüm açıları 90° olan dörtgen hangisidir?","o":["Dikdörtgen","Yamuk","Eşkenar dörtgen","Deltoid"],"a":0,"e":"Dikdörtgenin tüm açıları dik açıdır."},{"t":"Geometrik nicelikler","q":"Kenarları 6 cm ve 4 cm olan dikdörtgenin çevresi kaç cm'dir?","o":["20","24","10","48"],"a":0,"e":"Çevre = 2 × (6 + 4) = 20 cm."},{"t":"Geometrik nicelikler","q":"Kenarları 6 cm ve 4 cm olan dikdörtgenin alanı kaç cm²'dir?","o":["24","20","10","12"],"a":0,"e":"Alan = 6 × 4 = 24 cm²."},{"t":"Geometrik nicelikler","q":"Bir kenarı 5 cm olan karenin alanı kaç cm²'dir?","o":["25","20","10","15"],"a":0,"e":"Alan = 5 × 5 = 25 cm²."},{"t":"Veri","q":"Bir sınıfta en çok tercih edilen meyveyi bulmak için hangisine bakılır?","o":["En çok tekrar eden veriye (tepe değer)","En küçük sayıya","Toplama","Ortadaki sayıya"],"a":0,"e":"En çok tekrar eden değere tepe değer (mod) denir."},{"t":"Olasılık","q":"\"Yarın güneş doğudan doğacak.\" olayı nasıl bir olaydır?","o":["Kesin olay","İmkânsız olay","Olası olay","Şanslı olay"],"a":0,"e":"Mutlaka gerçekleşecek olaya kesin olay denir."},{"t":"Olasılık","q":"Bir zarı atınca 7 gelmesi nasıl bir olaydır?","o":["İmkânsız olay","Kesin olay","Olası olay","Eşit olay"],"a":0,"e":"Zarda 7 yoktur; hiç gerçekleşmeyecek olay imkânsızdır."},{"t":"Olasılık","q":"Bir madeni parayı atınca yazı gelmesi nasıl bir olaydır?","o":["Olası (gelebilir de gelmeyebilir de)","Kesin","İmkânsız","Hiçbiri"],"a":0,"e":"Yazı da tura da gelebilir: olası olay."}],"gen":true,"from":"Londra"},{"id":"fen","title":"New York → Ay 🌙","ders":"Fen Bilimleri","icon":"🚀","to":"Ay","vehicle":"rocket","qs":[{"t":"Ay","q":"Ay ışığını nereden alır?","o":["Kendi ışığını üretir","Güneş'ten aldığı ışığı yansıtır","Yıldızlardan","Dünya'nın ışıklarından"],"a":1,"e":"Ay bir ışık kaynağı değildir; Güneş ışığını yansıttığı için parlak görünür."},{"t":"Ay","q":"Ay neyin uydusudur?","o":["Güneş'in","Mars'ın","Dünya'nın","Jüpiter'in"],"a":2,"e":"Ay, Dünya'nın tek doğal uydusudur."},{"t":"Ay","q":"Ay, Dünya'nın etrafındaki bir turunu yaklaşık ne kadar sürede tamamlar?","o":["1 günde","1 haftada","Yaklaşık 1 ayda","1 yılda"],"a":2,"e":"Yaklaşık 27–29 gün, yani aşağı yukarı 1 ay."},{"t":"Ay","q":"Ay'ın yüzeyindeki çukurlara ne denir?","o":["Volkan","Krater","Vadi","Mağara"],"a":1,"e":"Göktaşı çarpmalarıyla oluşan çukurlara krater denir."},{"t":"Ay","q":"Ay'da neden ses duyulmaz?","o":["Ay çok soğuk olduğu için","Atmosferi (havası) olmadığı için","Ay çok küçük olduğu için","Ay döndüğü için"],"a":1,"e":"Ses havada yayılır. Ay'da hava (atmosfer) olmadığı için ses iletilmez."},{"t":"Ay'ın evreleri","q":"Hangisi Ay'ın evrelerinin doğru sırasıdır?","o":["Dolunay → Yeni Ay → İlk Dördün → Son Dördün","Yeni Ay → İlk Dördün → Dolunay → Son Dördün","İlk Dördün → Son Dördün → Dolunay → Yeni Ay","Yeni Ay → Dolunay → Son Dördün → İlk Dördün"],"a":1,"e":"Yeni Ay → İlk Dördün → Dolunay → Son Dördün, sonra yeniden Yeni Ay."},{"t":"Ay'ın evreleri","q":"Ay'ın aydınlık yüzünün tamamen göründüğü evre hangisidir?","o":["Yeni Ay","İlk Dördün","Dolunay","Son Dördün"],"a":2,"e":"Dolunayda Ay'ın bize bakan yüzü tamamen aydınlıktır."},{"t":"Dünyamız","q":"Gece ve gündüz neden oluşur?","o":["Dünya'nın Güneş etrafında dolanmasıyla","Dünya'nın kendi ekseni etrafında dönmesiyle","Ay'ın Dünya etrafında dolanmasıyla","Güneş'in Dünya etrafında dönmesiyle"],"a":1,"e":"Dünya kendi etrafında döndükçe Güneş'e bakan yüz gündüz, diğer yüz gece olur."},{"t":"Dünyamız","q":"Dünya kendi ekseni etrafındaki bir dönüşünü yaklaşık kaç saatte tamamlar?","o":["12 saatte","24 saatte","48 saatte","365 saatte"],"a":1,"e":"Yaklaşık 24 saat = 1 gün."},{"t":"Dünyamız","q":"Dünya, Güneş etrafındaki bir turunu ne kadar sürede tamamlar?","o":["1 günde","1 ayda","1 yılda (365 gün 6 saat)","10 yılda"],"a":2,"e":"Yaklaşık 365 gün 6 saat = 1 yıl."},{"t":"Dünyamız","q":"Dünya'nın şekli neye benzer?","o":["Düz bir tepsiye","Küreye","Küpe","Silindire"],"a":1,"e":"Dünya küreye benzer (kutuplardan hafifçe basıktır)."},{"t":"Gökyüzü","q":"Güneş nedir?","o":["Bir gezegen","Bir uydu","Bir yıldız","Bir göktaşı"],"a":2,"e":"Güneş bir yıldızdır; kendi ışığını ve ısısını üretir."},{"t":"Güneş","q":"Güneş'e çıplak gözle bakmak neden tehlikelidir?","o":["Gözlere kalıcı zarar verebilir","Güneş söner","Hava kararır","Hiçbir zararı yoktur"],"a":0,"e":"Güneş ışınları göze zarar verir; asla doğrudan bakılmaz."},{"t":"Güneş, Dünya, Ay","q":"Büyükten küçüğe doğru sıralama hangisidir?","o":["Güneş – Dünya – Ay","Dünya – Güneş – Ay","Ay – Dünya – Güneş","Güneş – Ay – Dünya"],"a":0,"e":"Güneş en büyük, Ay en küçüktür."},{"t":"Ay","q":"Ay kendi ekseni etrafında dönerken Dünya'dan Ay'ın hep hangi yüzünü görürüz?","o":["Hep aynı yüzünü","Her gece farklı yüzünü","Hiçbir yüzünü","Yarısını bir gün, yarısını öbür gün"],"a":0,"e":"Ay'ın dönme ve dolanma süreleri eşit olduğu için hep aynı yüzü bize bakar."},{"t":"Kuvvet","q":"Kuvvet nedir?","o":["İtme veya çekme etkisi","Bir tür enerji kaynağı","Cismin rengi","Cismin sıcaklığı"],"a":0,"e":"Kuvvet, cisimlere uygulanan itme veya çekmedir."},{"t":"Kuvvet","q":"Kuvvet hangi araçla ölçülür?","o":["Dinamometre","Termometre","Cetvel","Barometre"],"a":0,"e":"Kuvvet dinamometre ile ölçülür."},{"t":"Kuvvet","q":"Kuvvetin birimi nedir?","o":["Newton (N)","Kilogram (kg)","Metre (m)","Derece (°C)"],"a":0,"e":"Kuvvet birimi Newton'dur."},{"t":"Kuvvet","q":"Hangisi kuvvetin bir etkisi DEĞİLDİR?","o":["Cismin rengini değiştirmek","Durgun cismi hareket ettirmek","Cismin yönünü değiştirmek","Cismin şeklini değiştirmek"],"a":0,"e":"Kuvvet hareket, yön, hız ve şekil değiştirebilir; rengi değiştirmez."},{"t":"Kütle ve ağırlık","q":"Ay'a giden bir astronotun KÜTLESİ ne olur?","o":["Değişmez","Artar","Azalır","Sıfır olur"],"a":0,"e":"Kütle madde miktarıdır; nerede olursa olsun değişmez."},{"t":"Kütle ve ağırlık","q":"Ay'a giden bir astronotun AĞIRLIĞI ne olur?","o":["Azalır (yaklaşık 6'da 1'i)","Artar","Değişmez","İki katına çıkar"],"a":0,"e":"Ay'ın çekim kuvveti Dünya'nınkinin yaklaşık 6'da 1'i kadardır."},{"t":"Kütle ve ağırlık","q":"Ağırlık hangi birimle ölçülür?","o":["Newton","Kilogram","Litre","Saniye"],"a":0,"e":"Ağırlık bir kuvvettir, birimi Newton'dur. Kütle ise kilogramla ölçülür."},{"t":"Sürtünme","q":"Sürtünme kuvveti harekete göre hangi yöndedir?","o":["Hareketin tersi yönünde","Hareketle aynı yönde","Yukarı doğru","Yönü yoktur"],"a":0,"e":"Sürtünme hareketi zorlaştırır, ters yönde etki eder."},{"t":"Sürtünme","q":"Hangi yüzeyde sürtünme en FAZLADIR?","o":["Pürüzlü toprak yol","Buz","Cilalı parke","Islak kaygan zemin"],"a":0,"e":"Yüzey ne kadar pürüzlüyse sürtünme o kadar fazladır."},{"t":"Sürtünme","q":"Kışın yollara kum veya tuz dökülmesinin amacı nedir?","o":["Sürtünmeyi artırıp kaymayı önlemek","Yolu süslemek","Sürtünmeyi azaltmak","Karı hızlı eritmek için hiçbir şey yapmamak"],"a":0,"e":"Kum sürtünmeyi artırır, araçların kaymasını önler."},{"t":"Hücre","q":"Canlıların en küçük yapı birimi nedir?","o":["Hücre","Doku","Organ","Sistem"],"a":0,"e":"Tüm canlılar hücrelerden oluşur."},{"t":"Hücre","q":"Hücreyi incelemek için hangi araç kullanılır?","o":["Mikroskop","Teleskop","Dürbün","Dinamometre"],"a":0,"e":"Hücreler çok küçüktür; mikroskopla görülür."},{"t":"Hücre","q":"Hangisi bitki hücresinde olup hayvan hücresinde BULUNMAZ?","o":["Hücre duvarı ve kloroplast","Hücre zarı","Çekirdek","Sitoplazma"],"a":0,"e":"Hücre duvarı ve kloroplast yalnızca bitki hücresinde bulunur."},{"t":"Hücre","q":"Hücrenin yönetim merkezi hangisidir?","o":["Çekirdek","Hücre zarı","Sitoplazma","Hücre duvarı"],"a":0,"e":"Çekirdek, hücrenin faaliyetlerini yönetir."},{"t":"Destek ve hareket","q":"Vücudumuza şekil veren ve organları koruyan sistem hangisidir?","o":["İskelet sistemi","Sindirim sistemi","Dolaşım sistemi","Boşaltım sistemi"],"a":0,"e":"İskelet vücuda şekil verir ve organları korur."},{"t":"Destek ve hareket","q":"Kemiklerin birleşme yerlerine ne denir?","o":["Eklem","Kas","Kıkırdak","Damar"],"a":0,"e":"Kemiklerin birleştiği yerler eklemdir."},{"t":"Destek ve hareket","q":"Kalp kası nasıl çalışır?","o":["İsteğimiz dışında (istemsiz)","Biz istedikçe","Sadece uyurken","Sadece koşarken"],"a":0,"e":"Kalp kası istemsiz çalışır, hiç durmaz."},{"t":"Işık","q":"Hangisi DOĞAL ışık kaynağıdır?","o":["Güneş","Ampul","El feneri","Mum"],"a":0,"e":"Güneş doğal; ampul, fener, mum insan yapımı (yapay) kaynaklardır."},{"t":"Işık","q":"Ay neden ışık kaynağı DEĞİLDİR?","o":["Kendi ışığını üretmez, yansıtır","Çok uzaktadır","Çok küçüktür","Soğuktur"],"a":0,"e":"Ay, Güneş'ten aldığı ışığı yansıtır."},{"t":"Işık","q":"Işık nasıl yayılır?","o":["Doğrusal olarak (düz çizgiler hâlinde)","Daireler çizerek","Sadece aşağı doğru","Zikzak yaparak"],"a":0,"e":"Işık her yöne doğrusal yayılır."},{"t":"Işık","q":"Işığı hiç geçirmeyen maddelere ne denir?","o":["Opak (saydam olmayan)","Saydam","Yarı saydam","Parlak"],"a":0,"e":"Tahta, taş gibi maddeler opaktır; gölge oluşturur."},{"t":"Işık","q":"Pencere camı ışığı nasıl geçirir?","o":["Saydamdır, büyük kısmını geçirir","Hiç geçirmez","Opaktır","Yarı saydamdır"],"a":0,"e":"Temiz pencere camı saydamdır."},{"t":"Işık","q":"Buzlu cam ışığı nasıl geçirir?","o":["Yarı saydamdır, bir kısmını geçirir","Tamamını geçirir","Hiç geçirmez","Işığı üretir"],"a":0,"e":"Buzlu cam, yağlı kâğıt yarı saydamdır."},{"t":"Işık","q":"Gölge nasıl oluşur?","o":["Opak bir cisim ışığın yolunu kestiğinde","Saydam cisimden ışık geçince","Karanlıkta kendiliğinden","Işık kaynağı olmadan"],"a":0,"e":"Opak cisim ışığı engeller, arkasında gölge oluşur."},{"t":"Madde","q":"Maddenin üç hâli hangisidir?","o":["Katı, sıvı, gaz","Sert, yumuşak, sıvı","Sıcak, ılık, soğuk","Ağır, hafif, orta"],"a":0,"e":"Maddeler katı, sıvı ve gaz hâlinde bulunur."},{"t":"Madde","q":"Buzun ısı alarak suya dönüşmesine ne denir?","o":["Erime","Donma","Buharlaşma","Yoğuşma"],"a":0,"e":"Katının ısı alıp sıvı olmasına erime denir."},{"t":"Madde","q":"Suyun ısı vererek buza dönüşmesine ne denir?","o":["Donma","Erime","Kaynama","Yoğuşma"],"a":0,"e":"Sıvının ısı verip katı olmasına donma denir."},{"t":"Madde","q":"Soğuk bardağın dışında su damlacıkları oluşmasına ne denir?","o":["Yoğuşma","Erime","Donma","Buharlaşma"],"a":0,"e":"Havadaki su buharı soğuk yüzeyde sıvıya döner: yoğuşma."},{"t":"Madde","q":"Maddeler ısıtıldığında genellikle ne olur?","o":["Genleşir (hacmi büyür)","Büzülür","Ağırlaşır","Kaybolur"],"a":0,"e":"Isınan maddeler genleşir, soğuyanlar büzülür."},{"t":"Madde","q":"Sıcaklık hangi araçla ölçülür?","o":["Termometre","Dinamometre","Terazi","Cetvel"],"a":0,"e":"Termometre sıcaklığı derece (°C) cinsinden ölçer."},{"t":"Elektrik","q":"Basit bir elektrik devresinde ampulün yanması için ne gerekir?","o":["Devrenin kapalı olması (anahtar kapalı)","Anahtarın açık olması","Pilin çıkarılması","Kablonun kesilmesi"],"a":0,"e":"Akım ancak kapalı devrede dolaşır."},{"t":"Elektrik","q":"Devrede elektrik enerjisi sağlayan eleman hangisidir?","o":["Pil","Ampul","Anahtar","Kablo"],"a":0,"e":"Pil, devrenin enerji kaynağıdır."},{"t":"Elektrik","q":"Hangisi elektriği İLETİR?","o":["Bakır tel","Plastik","Tahta","Cam"],"a":0,"e":"Metaller iletkendir; plastik, tahta, cam yalıtkandır."},{"t":"Elektrik","q":"Islak elle prize dokunmak neden tehlikelidir?","o":["Su elektriği iletir, çarpılabiliriz","Priz kirlenir","Su buharlaşır","Hiçbir tehlikesi yoktur"],"a":0,"e":"Su elektriği iletir; ıslak elle elektrikli aletlere dokunulmaz."},{"t":"Geri dönüşüm","q":"Hangisi geri dönüştürülebilir?","o":["Cam şişe","Muz kabuğu","Kullanılmış peçete","Yemek artığı"],"a":0,"e":"Cam, kâğıt, plastik ve metal geri dönüştürülebilir."},{"t":"Geri dönüşüm","q":"Biten piller nereye atılmalıdır?","o":["Atık pil toplama kutusuna","Çöp kutusuna","Toprağa","Denize"],"a":0,"e":"Piller doğaya zararlıdır; ayrı toplanır."},{"t":"Sürdürülebilir yaşam","q":"Hangisi su tasarrufu sağlar?","o":["Diş fırçalarken musluğu kapatmak","Musluğu açık bırakmak","Uzun duş almak","Bahçeyi öğlen sulamak"],"a":0,"e":"Kullanmadığımız anda musluğu kapatmak suyu korur."}],"from":"New York"},{"id":"sos","title":"Ay → Kapadokya","ders":"Sosyal Bilgiler","icon":"🗺️","to":"Kapadokya","vehicle":"plane","qs":[{"t":"Birlikte yaşamak","q":"Ailede, okulda ve arkadaş grubunda üstlendiğimiz görevlere ne denir?","o":["Rol","Hak","Kural","Ödül"],"a":0,"e":"Bulunduğumuz grupta üstlendiğimiz görevlere rol denir."},{"t":"Birlikte yaşamak","q":"Hangisi bir öğrencinin SORUMLULUĞUDUR?","o":["Okul kurallarına uymak","Oyun oynamak","Eğitim almak","Sağlıklı yaşamak"],"a":0,"e":"Kurallara uymak sorumluluktur; eğitim almak ise bir haktır."},{"t":"Birlikte yaşamak","q":"Hangisi her çocuğun HAKKIDIR?","o":["Eğitim almak","Ev işlerini yapmak","Ödev yapmak","Sınıfı temizlemek"],"a":0,"e":"Eğitim hakkı tüm çocukların temel hakkıdır."},{"t":"Evimiz Dünya","q":"Ana yönler hangileridir?","o":["Kuzey, Güney, Doğu, Batı","Sağ, Sol, Ön, Arka","Kuzeydoğu, Güneybatı","Yukarı, Aşağı"],"a":0,"e":"Dört ana yön: kuzey, güney, doğu, batı."},{"t":"Evimiz Dünya","q":"Güneş hangi yönden doğar?","o":["Doğu","Batı","Kuzey","Güney"],"a":0,"e":"Güneş doğudan doğar, batıdan batar."},{"t":"Evimiz Dünya","q":"Kuzey ile doğu arasındaki ara yön hangisidir?","o":["Kuzeydoğu","Güneybatı","Kuzeybatı","Güneydoğu"],"a":0,"e":"Kuzey + doğu arası: kuzeydoğu."},{"t":"Evimiz Dünya","q":"Türkiye kaç coğrafi bölgeye ayrılır?","o":["7","5","9","81"],"a":0,"e":"Türkiye 7 coğrafi bölgeden ve 81 ilden oluşur."},{"t":"Evimiz Dünya","q":"Türkiye'nin başkenti neresidir?","o":["Ankara","İstanbul","İzmir","Bursa"],"a":0,"e":"Başkentimiz Ankara'dır."},{"t":"Evimiz Dünya","q":"Haritada yerlerin gösterildiği küçültme oranına ne denir?","o":["Ölçek","Lejant","Pusula","Yön oku"],"a":0,"e":"Ölçek, gerçek uzunluğun haritada kaç kez küçültüldüğünü gösterir."},{"t":"Evimiz Dünya","q":"Haritadaki işaretlerin anlamlarını açıklayan bölüme ne denir?","o":["Lejant (açıklama)","Ölçek","Başlık","Kroki"],"a":0,"e":"Lejant, harita işaretlerini açıklar."},{"t":"Afetler","q":"Deprem anında ne yapılmalıdır?","o":["Çök – Kapan – Tutun","Merdivenlerden koşarak inmek","Asansöre binmek","Pencereden atlamak"],"a":0,"e":"Deprem sırasında çök, kapan, tutun hareketi yapılır."},{"t":"Afetler","q":"Acil durumda hangi numara aranır?","o":["112","155","110","156"],"a":0,"e":"Türkiye'de tüm acil durumlar için 112 aranır."},{"t":"Ortak mirasımız","q":"Göbeklitepe hangi ilimizdedir?","o":["Şanlıurfa","Konya","Çorum","İzmir"],"a":0,"e":"Göbeklitepe Şanlıurfa'dadır; bilinen en eski tapınak alanlarındandır."},{"t":"Ortak mirasımız","q":"Çatalhöyük hangi ilimizdedir?","o":["Konya","Şanlıurfa","Ankara","Çanakkale"],"a":0,"e":"Çatalhöyük, Konya'da bulunan çok eski bir yerleşim yeridir."},{"t":"Ortak mirasımız","q":"Truva (Troya) antik kenti hangi ilimizdedir?","o":["Çanakkale","İzmir","Antalya","Muğla"],"a":0,"e":"Truva antik kenti Çanakkale'dedir."},{"t":"Ortak mirasımız","q":"Geçmişten bugüne aktarılan gelenek, eser ve değerlere ne denir?","o":["Kültürel miras","Doğal kaynak","Teknoloji","Ekonomi"],"a":0,"e":"Atalarımızdan kalan maddi ve manevi değerler kültürel mirastır."},{"t":"Yaşayan demokrasi","q":"TBMM hangi tarihte açılmıştır?","o":["23 Nisan 1920","29 Ekim 1923","19 Mayıs 1919","30 Ağustos 1922"],"a":0,"e":"TBMM 23 Nisan 1920'de açıldı; bu gün çocuklara armağan edildi."},{"t":"Yaşayan demokrasi","q":"Cumhuriyet hangi tarihte ilan edildi?","o":["29 Ekim 1923","23 Nisan 1920","10 Kasım 1938","30 Ağustos 1922"],"a":0,"e":"Cumhuriyet 29 Ekim 1923'te ilan edildi."},{"t":"Yaşayan demokrasi","q":"Sınıf başkanını oyla seçmek hangi yönetim anlayışına örnektir?","o":["Demokrasi","Krallık","Rastgele seçim","Zorla atama"],"a":0,"e":"Seçimle yönetici belirlemek demokrasinin temelidir."},{"t":"Yaşayan demokrasi","q":"Atatürk hangi yıl doğmuştur?","o":["1881","1919","1923","1938"],"a":0,"e":"Mustafa Kemal Atatürk 1881'de Selanik'te doğdu."},{"t":"Ekonomi","q":"Hangisi bir İHTİYAÇTIR?","o":["Yemek yemek","Yeni oyun konsolu","Üçüncü bir ayakkabı","Pahalı oyuncak"],"a":0,"e":"Yaşamak için gerekli olanlar ihtiyaçtır; diğerleri istektir."},{"t":"Ekonomi","q":"Gelecekte kullanmak için paranın bir kısmını biriktirmeye ne denir?","o":["Tasarruf","Borç","Harcama","İsraf"],"a":0,"e":"Paranın bir kısmını biriktirmek tasarruftur."},{"t":"Ekonomi","q":"Bilinçli bir tüketici alışverişte ne yapar?","o":["Fiş/fatura alır, son kullanma tarihine bakar","Her gördüğünü alır","Fiyata hiç bakmaz","Fiş istemez"],"a":0,"e":"Fiş almak tüketici haklarımızı korur."},{"t":"Ekonomi","q":"Gelir ve giderlerin planlandığı listeye ne denir?","o":["Bütçe","Fatura","Fiş","Senet"],"a":0,"e":"Bütçe, gelir ve giderlerin planıdır."},{"t":"Teknoloji","q":"İnternette tanımadığımız biri adresimizi sorarsa ne yapmalıyız?","o":["Vermemeli, bir büyüğümüze haber vermeliyiz","Hemen vermeliyiz","Telefon numaramızı da vermeliyiz","Fotoğrafımızı göndermeliyiz"],"a":0,"e":"Kişisel bilgilerimizi internette paylaşmayız."},{"t":"Bilim insanları","q":"2015'te Nobel Kimya Ödülü'nü kazanan Türk bilim insanı kimdir?","o":["Aziz Sancar","Cahit Arf","Ali Kuşçu","Piri Reis"],"a":0,"e":"Aziz Sancar, DNA onarımı çalışmalarıyla Nobel Kimya Ödülü'nü kazandı."},{"t":"Bilim insanları","q":"Ünlü dünya haritasını çizen Osmanlı denizcisi kimdir?","o":["Piri Reis","Ali Kuşçu","Uluğ Bey","Cahit Arf"],"a":0,"e":"Piri Reis'in 1513 tarihli dünya haritası çok ünlüdür."},{"t":"Bilim insanları","q":"\"Arf değişmezi\" ile tanınan Türk matematikçi kimdir?","o":["Cahit Arf","Aziz Sancar","Piri Reis","Mimar Sinan"],"a":0,"e":"Cahit Arf, dünyaca tanınan matematikçimizdir."}],"from":"Ay"},{"id":"ing","title":"Kapadokya → Tokyo","ders":"İngilizce","icon":"🇬🇧","to":"Tokyo","vehicle":"plane","qs":[{"t":"Classroom life","q":"Which day comes after Monday?","o":["Tuesday","Sunday","Thursday","Friday"],"a":0,"e":"Monday → Tuesday (Pazartesi → Salı)."},{"t":"Classroom life","q":"Which day comes before Saturday?","o":["Friday","Sunday","Monday","Wednesday"],"a":0,"e":"Friday → Saturday (Cuma → Cumartesi)."},{"t":"Classroom life","q":"\"Çarşamba\" in English?","o":["Wednesday","Thursday","Tuesday","Weekend"],"a":0,"e":"Wednesday = Çarşamba."},{"t":"Classroom life","q":"What time is it? 🕞 (3:30)","o":["It's half past three.","It's three o'clock.","It's quarter past three.","It's half past four."],"a":0,"e":"3:30 = half past three (üçü buçuk)."},{"t":"Classroom life","q":"What time is it? 🕗 (8:00)","o":["It's eight o'clock.","It's half past eight.","It's eight past.","It's quarter to eight."],"a":0,"e":"Tam saat: o'clock."},{"t":"Classroom life","q":"\"Silgi\" in English?","o":["Eraser / Rubber","Ruler","Pencil case","Sharpener"],"a":0,"e":"Eraser (rubber) = silgi; ruler = cetvel."},{"t":"Classroom life","q":"\"Cetvel\" in English?","o":["Ruler","Eraser","Scissors","Notebook"],"a":0,"e":"Ruler = cetvel."},{"t":"Classroom life","q":"Which is a classroom RULE?","o":["Don't run in the classroom.","I like pizza.","She is tall.","It's sunny."],"a":0,"e":"Rules: \"Don't run\", \"Raise your hand\" gibi emir cümleleri."},{"t":"Classroom life","q":"Which school subject is about numbers?","o":["Maths","Science","Art","Music"],"a":0,"e":"Maths (mathematics) = matematik."},{"t":"Classroom life","q":"\"Science\" dersi Türkçede hangisidir?","o":["Fen bilimleri","Sosyal bilgiler","Beden eğitimi","Görsel sanatlar"],"a":0,"e":"Science = fen bilimleri."},{"t":"Classroom life","q":"\"Can I open the window?\" ne demektir?","o":["Pencereyi açabilir miyim?","Pencere açık mı?","Pencereyi kapat.","Pencere nerede?"],"a":0,"e":"\"Can I …?\" izin istemek için kullanılır."},{"t":"School life","q":"She is from Germany. She is ___.","o":["German","Germanian","Germany","Germish"],"a":0,"e":"Germany → German (Almanya → Alman)."},{"t":"School life","q":"He is from Japan. He is ___.","o":["Japanese","Japanish","Japan","Japanian"],"a":0,"e":"Japan → Japanese."},{"t":"School life","q":"I am from Türkiye. I am ___.","o":["Turkish","Turkian","Turkey","Turkese"],"a":0,"e":"Türkiye → Turkish."},{"t":"School life","q":"He is from Italy. He is ___.","o":["Italian","Italish","Italese","Italy"],"a":0,"e":"Italy → Italian."},{"t":"School life","q":"Which is a school CLUB?","o":["Chess club","Teacher","Classroom","Lunch"],"a":0,"e":"Chess club = satranç kulübü."},{"t":"Personal life","q":"\"I can swim.\" ne demektir?","o":["Yüzebilirim.","Yüzemem.","Yüzüyorum.","Yüzmeyi sevmem."],"a":0,"e":"can = -ebilmek (yetenek)."},{"t":"Personal life","q":"\"She can't play the guitar.\" ne demektir?","o":["Gitar çalamaz.","Gitar çalabilir.","Gitar çalıyor.","Gitar çalmayı sever."],"a":0,"e":"can't = -emez."},{"t":"Personal life","q":"Which word describes appearance (görünüş)?","o":["Tall","Kind","Funny","Clever"],"a":0,"e":"Tall (uzun boylu) dış görünüştür; kind, funny, clever kişilik özellikleridir."},{"t":"Personal life","q":"\"He has got curly hair.\" ne demektir?","o":["Kıvırcık saçları var.","Düz saçları var.","Saçı yok.","Uzun boylu."],"a":0,"e":"curly = kıvırcık, straight = düz."},{"t":"Family life","q":"My mother's sister is my ___.","o":["Aunt","Uncle","Cousin","Grandmother"],"a":0,"e":"Annenin ya da babanın kız kardeşi: aunt (teyze/hala)."},{"t":"Family life","q":"My father's father is my ___.","o":["Grandfather","Uncle","Brother","Cousin"],"a":0,"e":"Grandfather = dede."},{"t":"Family life","q":"My aunt's son is my ___.","o":["Cousin","Brother","Nephew","Uncle"],"a":0,"e":"Teyzenin/halanın çocuğu: cousin (kuzen)."},{"t":"Life in nature","q":"Where do polar bears live?","o":["In the Arctic (cold places)","In the desert","In the jungle","In the city"],"a":0,"e":"Kutup ayıları soğuk Kuzey Kutbu bölgesinde yaşar."},{"t":"Life in nature","q":"Where do camels live?","o":["In the desert","In the sea","In the Arctic","In the forest"],"a":0,"e":"Develer çölde yaşar."},{"t":"Life in nature","q":"Which animal can fly?","o":["Eagle","Fish","Elephant","Horse"],"a":0,"e":"Eagle = kartal, uçabilir."},{"t":"Life in nature","q":"\"Ağaç\" in English?","o":["Tree","Leaf","Flower","Grass"],"a":0,"e":"Tree = ağaç; leaf = yaprak."},{"t":"Life in nature","q":"Which one lives in the sea?","o":["Dolphin","Monkey","Camel","Rabbit"],"a":0,"e":"Dolphin = yunus, denizde yaşar."}],"from":"Kapadokya"}]; window.LEGS = LEGS;
+// ===== EGE OYUNLAR ORTAK MOTORU =====
+// Soru seçimi (tekrarsız + aralıklı tekrar), matematik soru üreticileri, ortak ilerleme, müzik ve ses.
+// Tüm oyunlar aynı tarayıcıda aynı kaydı paylaşır (localStorage 'egeOrtak.v1').
+(function(){
+const KEY='egeOrtak.v1';
+const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul'}).format(new Date());
+const dayNum=d=>Math.round(Date.parse(d+'T00:00:00Z')/864e5);
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY));if(x&&x.v===1)return x}catch(e){}return{v:1,q:{},son:[],xp:0,seri:{gun:null,say:0},gorev:{gun:null,yapilan:0,hedef:15,odul:false},sessiz:false,toplamDogru:0}}
+let S=load();
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const fmt=n=>n.toLocaleString('tr-TR');
+
+// ---------- Matematik üreticileri (her seferinde yeni sayılar) ----------
+function opts(correct,wrongs,n=4){
+  const set=[String(correct)];
+  for(const w of shuffle(wrongs)){const s=String(w);if(!set.includes(s)&&set.length<n)set.push(s)}
+  return set; // doğru cevap 0. indekste; oyun seçenekleri karıştırır
+}
+const GEN={
+  aciTuru(){const a=pick([R(10,85),90,R(95,175),180]);const t=a<90?'Dar açı':a===90?'Dik açı':a<180?'Geniş açı':'Doğru açı';
+    return{t:'Açılar',q:`Ölçüsü ${a}° olan açı hangisidir?`,o:opts(t,['Dar açı','Dik açı','Geniş açı','Doğru açı']),a:0,e:'Dar < 90° · Dik = 90° · Geniş 90°–180° · Doğru = 180°'}},
+  ucgenAci(){const x=R(25,80),y=R(25,170-x-10),z=180-x-y;
+    return{t:'Üçgenler',q:`Bir üçgenin iki açısı ${x}° ve ${y}°. Üçüncü açı kaç derecedir?`,o:opts(z+'°',[z+10,z-10,360-x-y,x+y].filter(v=>v>0).map(v=>v+'°')),a:0,e:`Üçgende iç açılar toplamı 180°: 180 − ${x} − ${y} = ${z}°`}},
+  dortgenAci(){const a=R(60,120),b=R(60,120),c=R(60,120),d=360-a-b-c;if(d<=20||d>=180)return GEN.dortgenAci();
+    return{t:'Dörtgenler',q:`Bir dörtgenin üç açısı ${a}°, ${b}° ve ${c}°. Dördüncü açı kaç derecedir?`,o:opts(d+'°',[d+10,d-10,180-a-b+c,d+20].filter(v=>v>0).map(v=>v+'°')),a:0,e:`Dörtgende iç açılar toplamı 360°: 360 − ${a} − ${b} − ${c} = ${d}°`}},
+  cevre(){const a=R(3,15),b=R(2,12);if(a===b)return GEN.cevre();const c=2*(a+b);
+    return{t:'Çevre',q:`Kenarları ${a} cm ve ${b} cm olan dikdörtgenin çevresi kaç cm'dir?`,o:opts(c,[a*b,a+b,c+2,c-2]),a:0,e:`Çevre = 2 × (${a} + ${b}) = ${c} cm`}},
+  alan(){const a=R(3,15),b=R(2,12);if(a===b)return GEN.alan();const s=a*b;
+    return{t:'Alan',q:`Kenarları ${a} cm ve ${b} cm olan dikdörtgenin alanı kaç cm²'dir?`,o:opts(s,[2*(a+b),a+b,s+a,s-b]),a:0,e:`Alan = ${a} × ${b} = ${s} cm²`}},
+  basamak(){const n=R(1000000,9999999);const s=String(n);const i=R(0,5);const d=+s[i];if(d===0)return GEN.basamak();
+    const names=['milyonlar','yüz binler','on binler','binler','yüzler','onlar'];const val=d*10**(6-i);
+    return{t:'Basamak değeri',q:`${fmt(n)} sayısında ${names[i]} basamağındaki ${d} rakamının basamak değeri nedir?`,o:opts(fmt(val),[fmt(val*10),fmt(val/10),String(d),fmt(d*10**(5-i))].filter(v=>v!=='0')),a:0,e:`${d} × ${fmt(10**(6-i))} = ${fmt(val)}`}},
+  yuvarla(){const n=R(10000,99999);const r=Math.round(n/1000)*1000;
+    return{t:'Yuvarlama',q:`${fmt(n)} sayısı en yakın bine yuvarlanırsa kaç olur?`,o:opts(fmt(r),[fmt(r+1000),fmt(r-1000),fmt(Math.round(n/100)*100),fmt(Math.floor(n/10000)*10000)]),a:0,e:`Yüzler basamağına bakılır: ${String(n).slice(-3,-2)} ${+String(n).slice(-3,-2)>=5?'≥ 5 → yukarı':'< 5 → aşağı'} yuvarlanır.`}},
+  oncelik(){const a=R(2,20),b=R(2,9),c=R(2,9);const r=a+b*c;
+    return{t:'İşlem önceliği',q:`${a} + ${b} × ${c} = ?`,o:opts(r,[(a+b)*c,a*b+c,r+1,r-1]),a:0,e:`Önce çarpma: ${b} × ${c} = ${b*c}, sonra ${a} + ${b*c} = ${r}`}},
+  kesirSayi(){const p=pick([2,3,4,5,6,8,10]);const k=R(1,p-1);const t=p*R(2,9);const r=t/p*k;
+    return{t:'Kesirler',q:`${t} sayısının ${k}/${p} kadarı kaçtır?`,o:opts(r,[t/p,r+t/p,t-r,k*p,r+1,r*2,r+k+1]),a:0,e:`${t} ÷ ${p} = ${t/p}, × ${k} = ${r}`}},
+  carpma(){const a=R(12,99),b=R(3,9);const r=a*b;
+    return{t:'Çarpma',q:`${a} × ${b} = ?`,o:opts(r,[r+b,r-a,r+10,a*(b+1)]),a:0,e:`${a} × ${b} = ${r}`}},
+  bolme(){const b=R(3,9),q=R(12,99);const a=b*q;
+    return{t:'Bölme',q:`${a} ÷ ${b} = ?`,o:opts(q,[q+1,q-1,q+10,b*2]),a:0,e:`${q} × ${b} = ${a}, yani ${a} ÷ ${b} = ${q}`}},
+  ucgenKenar(){const t=pick(['e','i','c']);let s;
+    if(t==='e'){const x=R(3,12);s=[x,x,x]}else if(t==='i'){const x=R(3,12);let y=R(2,12);if(y===x)y++;if(y>=2*x)y=x+1;s=[x,x,y]}else{const x=R(3,8);s=[x,x+R(1,3),x+R(4,6)];if(s[2]>=s[0]+s[1])return GEN.ucgenKenar()}
+    const n={e:'Eşkenar',i:'İkizkenar',c:'Çeşitkenar'}[t];
+    return{t:'Üçgenler',q:`Kenarları ${shuffle(s).join(' cm, ')} cm olan üçgen hangisidir?`,o:opts(n,['Eşkenar','İkizkenar','Çeşitkenar']),a:0,e:'Eşkenar: 3 kenar eşit · İkizkenar: 2 kenar eşit · Çeşitkenar: hepsi farklı'}},
+  cokgen(){const c=pick([[3,'Üçgen'],[4,'Dörtgen'],[5,'Beşgen'],[6,'Altıgen'],[8,'Sekizgen']]);
+    return{t:'Çokgenler',q:`${c[1]}in kaç kenarı vardır?`,o:opts(c[0],[c[0]+1,c[0]-1,c[0]+2]),a:0,e:`${c[1]}: ${c[0]} kenar, ${c[0]} köşe.`}},
+};
+const GEN_KEYS=Object.keys(GEN);
+function uret(){const k=pick(GEN_KEYS);const q=GEN[k]();q.id='gen:'+k;q.gen=true;return q}
+
+// ---------- Soru seçimi ----------
+const ARALIK=[0,1,3,7,21]; // Leitner kutuları (gün)
+const hash=t=>{let h=5381;for(let i=0;i<t.length;i++)h=(h*33^t.charCodeAt(i))>>>0;return h.toString(36)};
+function bank(legId){const L=(window.LEGS||[]).find(l=>l.id===legId);if(!L)return[];return L.qs.map(q=>({...q,id:q.id||legId+':'+hash(q.q)}))}
+function oncelik(q,now){
+  const st=S.q[q.id];const recent=S.son.indexOf(q.id); // son görülenler listesinde ne kadar yakın
+  if(!st)return 50+Math.random()*10;                  // hiç görülmemiş
+  const due=dayNum(st.son)+ARALIK[Math.min(st.kutu,4)]<=now;
+  let p=due?(st.kutu===0?80:40):5;                     // vakti gelmiş yanlışlar en önde
+  if(recent>=0&&recent<40)p-=60-recent;               // yakın zamanda sorulanı geriye at
+  return p+Math.random()*5;
+}
+function sec(legId,n=10,maxOpt=4){
+  const now=dayNum(today());
+  let pool=bank(legId).map(q=>({q,p:oncelik(q,now)})).sort((a,b)=>b.p-a.p).map(x=>x.q);
+  const L=(window.LEGS||[]).find(l=>l.id===legId);
+  let out=pool.slice(0,n);
+  if(L&&L.gen){const g=Math.round(n*0.4);out=out.slice(0,n-g);for(let i=0;i<g;i++)out.push(uret())}
+  return shuffle(out).map(q=>kirp(q,maxOpt));
+}
+function kirp(q,max){ // seçenek sayısını azaltır, doğru cevabı korur
+  if(q.o.length<=max)return q;
+  const wrong=shuffle(q.o.map((t,i)=>i).filter(i=>i!==q.a)).slice(0,max-1);
+  const keep=shuffle([q.a,...wrong]);
+  return{...q,o:keep.map(i=>q.o[i]),a:keep.indexOf(q.a)};
+}
+function kaydet(q,dogru,ilkDeneme=true){
+  if(!q.gen){
+    const st=S.q[q.id]||(S.q[q.id]={kutu:0,son:today(),d:0,y:0});
+    st.son=today();if(dogru){st.d++;if(ilkDeneme)st.kutu=Math.min(4,st.kutu+1)}else{st.y++;st.kutu=0}
+    S.son=[q.id,...S.son.filter(x=>x!==q.id)].slice(0,120);
+  }
+  if(dogru){S.toplamDogru++;gorevSay()}
+  save();
+}
+
+// ---------- İlerleme ----------
+const RUTBE=['Çırak Pilot','Yardımcı Pilot','Kaptan','Filo Komutanı','As Pilot','Gökyüzü Efsanesi'];
+const seviye=()=>1+Math.floor(S.xp/150);
+function xp(n){const once=seviye();S.xp+=Math.max(0,Math.round(n));seriGuncelle();save();return seviye()>once}
+function seriGuncelle(){const t=today();if(S.seri.gun===t)return;const d=S.seri.gun?dayNum(t)-dayNum(S.seri.gun):99;S.seri.say=d===1?S.seri.say+1:1;S.seri.gun=t}
+function gorevSay(){const t=today();if(S.gorev.gun!==t)S.gorev={gun:t,yapilan:0,hedef:15,odul:false};S.gorev.yapilan++;
+  if(!S.gorev.odul&&S.gorev.yapilan>=S.gorev.hedef){S.gorev.odul=true;S.xp+=100;Ortak.olay&&Ortak.olay('gorev')}}
+function durum(){const t=today();const g=S.gorev.gun===t?S.gorev:{yapilan:0,hedef:15,odul:false};
+  const l=seviye();return{xp:S.xp,seviye:l,rutbe:RUTBE[Math.min(l-1,RUTBE.length-1)],ilerleme:(S.xp%150)/150,seri:S.seri.gun&&dayNum(t)-dayNum(S.seri.gun)<=1?S.seri.say:0,gorev:g,toplamDogru:S.toplamDogru}}
+function ozetHTML(){const d=durum();return `<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;font-weight:700;font-size:14px">
+  <span style="background:#10223f;color:#ffc23d;border-radius:99px;padding:4px 10px">Sv ${d.seviye} · ${d.rutbe}</span>
+  <span style="background:#ff7a3d;color:#fff;border-radius:99px;padding:4px 10px">🔥 ${d.seri} gün seri</span>
+  <span style="background:${d.gorev.odul?'#1fa35b':'#3b82f6'};color:#fff;border-radius:99px;padding:4px 10px">🎯 Günlük görev ${Math.min(d.gorev.yapilan,d.gorev.hedef)}/${d.gorev.hedef}${d.gorev.odul?' ✓':''}</span></div>`}
+
+// ---------- Ses ve müzik (WebAudio, dosya yok) ----------
+let ctx=null,master=null,muzikT=null;
+function ac(){try{if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=S.sessiz?0:1;master.connect(ctx.destination)}if(ctx.state==='suspended')ctx.resume()}catch(e){}return ctx}
+function nota(f,t,d,tip='square',v=.08){if(!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type=tip;o.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0008,t+d);o.connect(g).connect(master);o.start(t);o.stop(t+d+.02)}
+function davul(t,tip){if(!ctx)return;const len=tip==='k'?.18:.06;const b=ctx.createBuffer(1,ctx.sampleRate*len,ctx.sampleRate);const d=b.getChannelData(0);
+  for(let i=0;i<d.length;i++)d[i]=(tip==='k'?Math.sin(i/ctx.sampleRate*2*Math.PI*(120-i/d.length*80)):Math.random()*2-1)*(1-i/d.length);
+  const s=ctx.createBufferSource(),g=ctx.createGain();s.buffer=b;g.gain.value=tip==='k'?.35:.06;s.connect(g).connect(master);s.start(t)}
+const hz=m=>440*2**((m-69)/12);
+const TEMALAR={ // akor kökleri ve melodi dizisi (pentatonik), tempo
+  gok:{bpm:112,kok:[60,57,65,67],mel:[0,2,4,7,9,12]},
+  kosu:{bpm:140,kok:[57,53,55,52],mel:[0,3,5,7,10,12]},
+  uzay:{bpm:96,kok:[62,58,60,57],mel:[0,2,3,7,9,12]},
+};
+function muzik(tema='gok'){ac();if(!ctx)return;muzikDur();const T=TEMALAR[tema]||TEMALAR.gok;const adim=60/T.bpm/2;let n=0;let t0=ctx.currentTime+.1;
+  let seed=1;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647; // tekrar eden ama akılda kalan melodi
+  const melodi=Array.from({length:32},()=>rnd()<.7?T.mel[Math.floor(rnd()*T.mel.length)]:null);
+  const zamanla=()=>{while(t0<ctx.currentTime+.6){const bar=Math.floor(n/8)%4,s=n%8;const kok=T.kok[bar];
+      if(s%4===0)davul(t0,'k');if(s%4===2)davul(t0,'h');
+      if(s%2===0)nota(hz(kok-24),t0,adim*1.8,'triangle',.12);
+      const m=melodi[n%32];if(m!==null)nota(hz(kok+m+(bar%2?0:12)),t0,adim*.9,'square',.035);
+      n++;t0+=adim}};
+  zamanla();muzikT=setInterval(zamanla,200)}
+function muzikDur(){clearInterval(muzikT);muzikT=null}
+const SES={
+  dogru(){ac();const t=ctx&&ctx.currentTime;[784,988,1319].forEach((f,i)=>nota(f,t+i*.07,.15,'square',.07))},
+  yanlis(){ac();const t=ctx&&ctx.currentTime;nota(220,t,.25,'sawtooth',.08);nota(165,t+.12,.3,'sawtooth',.08)},
+  altin(){ac();const t=ctx&&ctx.currentTime;nota(1319,t,.06,'square',.05);nota(1760,t+.05,.1,'square',.05)},
+  zafer(){ac();const t=ctx&&ctx.currentTime;[523,659,784,1047,784,1047,1319].forEach((f,i)=>nota(f,t+i*.11,.2,'square',.07))},
+  zipla(){ac();const t=ctx&&ctx.currentTime;if(!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain();o.frequency.setValueAtTime(300,t);o.frequency.exponentialRampToValueAtTime(700,t+.15);g.gain.setValueAtTime(.06,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);o.connect(g).connect(master);o.start(t);o.stop(t+.2)},
+};
+function sessiz(v){if(v===undefined)return S.sessiz;S.sessiz=v;save();if(master)master.gain.value=v?0:1}
+
+window.Ortak={sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null};
+})();
+
+const ASSET=(window.ASSET_BASE||'../../assets/');
+const COLORS=['#2f7cf6','#f5a30b','#9b4dff'],LETTERS=['A','B','C'];
+const $=id=>document.getElementById(id);
+const DERS=[['tr','📘 Türkçe','#3b82f6'],['mat','📐 Matematik','#f59e0b'],['fen','🔬 Fen','#7c3aed'],['sos','🗺️ Sosyal','#10b981'],['ing','🇬🇧 İngilizce','#ef4f6a']];
+const STORY=['Profesör Unutkan, Kaptan Ege\'nin uçağının yakıtını boşalttı! 😱','Uçağı yeniden doldurmanın tek yolu: pistte koşarken doğru cevap kapılarından geçip BİLGİ YAKITI toplamak.','Ama dikkat! Profesör Unutkan ve robotları peşinde. Hadi Kaptan, koş! 🏃‍♂️'];
+
+// ================= SAHNE =================
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);document.body.prepend(renderer.domElement);
+const scene=new THREE.Scene();const SKY=0x9fd8ff;scene.background=new THREE.Color(SKY);scene.fog=new THREE.Fog(SKY,40,150);
+const camera=new THREE.PerspectiveCamera(62,innerWidth/innerHeight,.1,400);
+addEventListener('resize',()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix()});
+scene.add(new THREE.HemisphereLight(0xffffff,0x557744,.9));const sun=new THREE.DirectionalLight(0xfff0d0,.8);sun.position.set(10,30,10);scene.add(sun);scene.add(sun.target);
+const M=(c,o={})=>new THREE.MeshStandardMaterial({color:c,flatShading:true,roughness:.8,...o});
+const mat={asph:M(0x3d4350),line:M(0xf4f4f4),yel:M(0xffc23d),grass:M(0x6cbf5a),grass2:M(0x58a84b),hang:M(0xb7c3d6),hangR:M(0x7d8aa3),cone:M(0xff7a1a),white:M(0xffffff),red:M(0xe2463b),blue:M(0x1c4f9c),skin:M(0xf2c39b),dark:M(0x23324d),purple:M(0x7c3aed),gold:M(0xffc23d,{metalness:.5,roughness:.3,emissive:0x5a3c00}),gray:M(0x9aa3b2),glass:M(0x9fe0ff,{emissive:0x226688})};
+
+const LANES=[-2.4,0,2.4];
+// Zemin: pist + çimen (oyuncuyla birlikte kayar, desen dokuyla akar)
+function stripeTex(){const c=document.createElement('canvas');c.width=64;c.height=256;const x=c.getContext('2d');x.fillStyle='#3d4350';x.fillRect(0,0,64,256);
+  x.fillStyle='#e9e9e9';[19,43].forEach(px=>{for(let y=0;y<256;y+=64)x.fillRect(px-1,y,2,36)});x.fillStyle='#f4f4f4';x.fillRect(0,0,3,256);x.fillRect(61,0,3,256);
+  const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(1,40);return t}
+const roadTex=stripeTex();
+const road=new THREE.Mesh(new THREE.PlaneGeometry(7.6,400),new THREE.MeshStandardMaterial({map:roadTex,roughness:.9}));road.rotation.x=-Math.PI/2;scene.add(road);
+const grass=new THREE.Mesh(new THREE.PlaneGeometry(300,400),mat.grass);grass.rotation.x=-Math.PI/2;grass.position.y=-.02;scene.add(grass);
+
+// Kenar dekorları: hangarlar, ışıklar, koniler, park etmiş uçaklar (geri dönüşümlü)
+const deco=[];
+function hangar(){const g=new THREE.Group();const w=10+Math.random()*6;const b=new THREE.Mesh(new THREE.BoxGeometry(w,5,9),mat.hang);b.position.y=2.5;
+  const r=new THREE.Mesh(new THREE.CylinderGeometry(4.6,4.6,w,10,1,false,0,Math.PI),mat.hangR);r.rotation.z=Math.PI/2;r.position.y=5;r.scale.set(1,1,1);
+  const d=new THREE.Mesh(new THREE.BoxGeometry(w*.7,3.8,.2),mat.dark);d.position.set(0,1.9,4.55);g.add(b,r,d);return g}
+function lightPole(){const g=new THREE.Group();const p=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.6,6),mat.gray);p.position.y=.3;const l=new THREE.Mesh(new THREE.SphereGeometry(.14,8,6),M(0x66ccff,{emissive:0x3399ff}));l.position.y=.65;g.add(p,l);return g}
+for(let i=0;i<10;i++){const h=hangar();const s=i%2?1:-1;h.position.set(s*(16+Math.random()*6),0,-i*36);h.rotation.y=s>0?-Math.PI/2:Math.PI/2;scene.add(h);deco.push({o:h,span:360})}
+for(let i=0;i<40;i++){const s=i%2?1:-1;const l=lightPole();l.position.set(s*4.1,0,-Math.floor(i/2)*9);scene.add(l);deco.push({o:l,span:180})}
+// Park etmiş Boeing 737'ler (FlightGear/FR24 modeli, GPLv2) — yüklenemezse sahne yine çalışır
+let jetProto=null;
+new THREE.GLTFLoader().load(ASSET+'models/b737.glb',g=>{jetProto=g.scene;const b=new THREE.Box3().setFromObject(jetProto);const sz=b.getSize(new THREE.Vector3());jetProto.scale.setScalar(26/Math.max(sz.x,sz.z));
+  for(let i=0;i<4;i++){const j=jetProto.clone();const s=i%2?1:-1;j.position.set(s*32,0,-i*90-40);j.rotation.y=s>0?Math.PI*.75:-Math.PI*.25;scene.add(j);deco.push({o:j,span:360})}},undefined,()=>{});
+
+// ================= KARAKTER: Kaptan Ege =================
+function makePilot(){const g=new THREE.Group();
+  const body=new THREE.Mesh(new THREE.BoxGeometry(.62,.8,.38),mat.blue);body.position.y=1.15;
+  const belt=new THREE.Mesh(new THREE.BoxGeometry(.64,.1,.4),mat.dark);belt.position.y=.82;
+  const head=new THREE.Mesh(new THREE.SphereGeometry(.27,12,10),mat.skin);head.position.y=1.8;
+  const cap=new THREE.Mesh(new THREE.CylinderGeometry(.3,.3,.16,12),mat.dark);cap.position.y=2.02;
+  const band=new THREE.Mesh(new THREE.CylinderGeometry(.305,.305,.05,12),mat.gold);band.position.y=1.97;
+  const visor=new THREE.Mesh(new THREE.BoxGeometry(.36,.04,.2),mat.dark);visor.position.set(0,1.95,-.26);
+  const wing=new THREE.Mesh(new THREE.BoxGeometry(.3,.06,.02),mat.gold);wing.position.set(.12,1.35,-.2);
+  const limb=(w,h,m)=>{const p=new THREE.Group();const s=new THREE.Mesh(new THREE.BoxGeometry(w,h,w),m);s.position.y=-h/2;p.add(s);return p};
+  const la=limb(.16,.62,mat.blue),ra=limb(.16,.62,mat.blue);la.position.set(-.4,1.5,0);ra.position.set(.4,1.5,0);
+  const ll=limb(.2,.78,mat.dark),rl=limb(.2,.78,mat.dark);ll.position.set(-.16,.8,0);rl.position.set(.16,.8,0);
+  g.add(body,belt,head,cap,band,visor,wing,la,ra,ll,rl);g.userData={la,ra,ll,rl};return g}
+const pilot=makePilot();pilot.scale.setScalar(.85);scene.add(pilot);
+// Profesör Unutkan robotu
+function makeProf(){const g=new THREE.Group();const b=new THREE.Mesh(new THREE.CylinderGeometry(.5,.7,1.4,8),mat.purple);b.position.y=1;
+  const h=new THREE.Mesh(new THREE.BoxGeometry(1,.8,.8),mat.gray);h.position.y=2.1;const e1=new THREE.Mesh(new THREE.SphereGeometry(.14,8,6),M(0xff3355,{emissive:0xff0033}));e1.position.set(-.22,2.15,-.41);const e2=e1.clone();e2.position.x=.22;
+  const ant=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,.5,5),mat.gray);ant.position.y=2.75;const bulb=new THREE.Mesh(new THREE.SphereGeometry(.1,8,6),M(0xffee55,{emissive:0xffaa00}));bulb.position.y=3.02;
+  const wheel=new THREE.Mesh(new THREE.TorusGeometry(.35,.12,6,12),mat.dark);wheel.rotation.y=Math.PI/2;wheel.position.y=.35;
+  g.add(b,h,e1,e2,ant,bulb,wheel);return g}
+const prof=makeProf();scene.add(prof);
+
+// Yazılı kapı paneli
+function panelTex(letter,text,color){const c=document.createElement('canvas');c.width=512;c.height=256;const x=c.getContext('2d');
+  x.fillStyle=color;x.beginPath();x.roundRect?x.roundRect(6,6,500,244,36):x.rect(6,6,500,244);x.fill();x.lineWidth=10;x.strokeStyle='#fff';x.stroke();
+  x.fillStyle='#fff';x.font='bold 84px sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText(letter,256,64);
+  let fs=46;x.font=`bold ${fs}px sans-serif`;const words=text.split(' ');let lines=[''];
+  for(const w of words){const t=(lines[lines.length-1]+' '+w).trim();if(x.measureText(t).width>470&&lines[lines.length-1]){lines.push(w)}else lines[lines.length-1]=t}
+  if(lines.length>3){fs=34;x.font=`bold ${fs}px sans-serif`;lines=[''];for(const w of words){const t=(lines[lines.length-1]+' '+w).trim();if(x.measureText(t).width>470&&lines[lines.length-1])lines.push(w);else lines[lines.length-1]=t}}
+  lines.slice(0,4).forEach((l,i,a)=>x.fillText(l,256,170+(i-(a.length-1)/2)*(fs+4)));
+  return new THREE.CanvasTexture(c)}
+
+// ================= OYUN =================
+let G=null,last=performance.now(),keys={};const parts=[];
+const lerp=(a,b,t)=>a+(b-a)*t;
+function startGame(leg){
+  Ortak.ac();
+  if(G)G.objs.forEach(o=>scene.remove(o.mesh));
+  G={leg,qs:Ortak.sec(leg,14,3),qi:0,fuel:0,need:10,dist:4,coins:0,lane:1,x:0,y:0,vy:0,slide:0,z:0,speed:11,objs:[],nextGate:60,nextObs:22,gate:null,inv:0,firstOk:0,answered:0,missed:[],running:true,t:0,won:false};
+  pilot.position.set(0,0,0);
+  ['start','end'].forEach(s=>$(s).classList.add('hidden'));$('hud').classList.remove('hidden');$('bar').classList.remove('hidden');
+  $('qText').textContent='Koş! İlk kapı geliyor… 🏃';$('chips').innerHTML='';$('qTopic').textContent='';$('qInfo').textContent='';
+  hud();Ortak.muzik('kosu');
+}
+function hud(){$('fuel').textContent=`⛽ ${G.fuel}/${G.need}`;$('coins').textContent=`🪙 ${G.coins}`;$('chaseBar').style.width=(G.dist/6*100)+'%'}
+function addObj(mesh,kind,lane,z,extra={}){mesh.position.set(LANES[lane],0,z);scene.add(mesh);const o={mesh,kind,lane,z,...extra};G.objs.push(o);return o}
+function spawnObstacle(z){
+  const r=Math.random();
+  if(r<.4){// bariyer: zıpla
+    const lane=Math.floor(Math.random()*3);const g=new THREE.Group();
+    const bar=new THREE.Mesh(new THREE.BoxGeometry(2,.35,.25),mat.red);bar.position.y=.75;const s1=new THREE.Mesh(new THREE.BoxGeometry(.15,.9,.15),mat.white);s1.position.set(-.85,.45,0);const s2=s1.clone();s2.position.x=.85;
+    const st=new THREE.Mesh(new THREE.BoxGeometry(2,.12,.27),mat.white);st.position.y=.75;st.scale.x=.3;g.add(bar,s1,s2,st);addObj(g,'jump',lane,z);
+  }else if(r<.7){// yüksek bant: kay
+    const lane=Math.floor(Math.random()*3);const g=new THREE.Group();const top=new THREE.Mesh(new THREE.BoxGeometry(2.1,.45,.4),mat.yel);top.position.y=1.65;
+    const p1=new THREE.Mesh(new THREE.BoxGeometry(.15,1.9,.15),mat.gray);p1.position.set(-1,.95,0);const p2=p1.clone();p2.position.x=1;g.add(top,p1,p2);addObj(g,'slide',lane,z);
+  }else{// kargo arabası: şerit değiştir (iki şeridi kapatabilir)
+    const lanes=Math.random()<.35?[0,1,2].sort(()=>Math.random()-.5).slice(0,2):[Math.floor(Math.random()*3)];
+    lanes.forEach(lane=>{const g=new THREE.Group();const b=new THREE.Mesh(new THREE.BoxGeometry(1.9,1.6,2.4),M([0x4a90d9,0xe2763b,0x5ab866][lane]));b.position.y=1.05;
+      const w=new THREE.Mesh(new THREE.BoxGeometry(2,.25,2.5),mat.dark);w.position.y=.18;g.add(b,w);addObj(g,'block',lane,z)});
+  }
+  // altın dizisi
+  const cl=Math.floor(Math.random()*3);for(let i=0;i<5;i++){const c=new THREE.Mesh(new THREE.TorusGeometry(.32,.1,6,14),mat.gold);c.position.y=1;addObj(c,'coin',cl,z-6-i*2.2)}
+}
+function spawnGate(z){
+  if(G.qi>=G.qs.length){G.qs=G.qs.concat(Ortak.sec(G.leg,6,3))}
+  const Q=G.qs[G.qi++];const order=Q.o.map((t,k)=>({t,k})).sort(()=>Math.random()-.5);
+  const gate={Q,z,lanes:order,passed:false,meshes:[]};
+  order.forEach((op,j)=>{const g=new THREE.Group();const col=new THREE.Color(COLORS[j]);const m=M(col,{emissive:col,emissiveIntensity:.25});
+    const p1=new THREE.Mesh(new THREE.BoxGeometry(.18,3.4,.18),m);p1.position.set(-1.05,1.7,0);const p2=p1.clone();p2.position.x=1.05;
+    const pan=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.15),new THREE.MeshBasicMaterial({map:panelTex(LETTERS[j],op.t,COLORS[j]),transparent:true}));pan.position.y=3.9;
+    const glow=new THREE.Mesh(new THREE.PlaneGeometry(2,3.3),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.14,side:THREE.DoubleSide,depthWrite:false}));glow.position.y=1.65;
+    g.add(p1,p2,pan,glow);g.position.set(LANES[j],0,z);scene.add(g);gate.meshes.push(g)});
+  G.gate=gate;
+  $('qTopic').textContent=Q.t;$('qInfo').textContent=`Soru ${G.answered+1}`;$('qText').textContent=Q.q;
+  $('chips').innerHTML=order.map((op,j)=>`<div class="chip" id="chip${j}" style="background:${COLORS[j]}"><b>${LETTERS[j]}</b>${op.t}</div>`).join('');
+  $('qcard').style.transform='scale(1.04)';setTimeout(()=>$('qcard').style.transform='',300);
+}
+let toastT=null;
+function toast(ok,title,body){const t=$('toast');t.classList.remove('hidden');t.className=ok?'ok':'no';t.innerHTML=`<b>${title}</b>${body}`;t.style.opacity=1;clearTimeout(toastT);toastT=setTimeout(()=>{t.style.opacity=0;setTimeout(()=>t.classList.add('hidden'),300)},ok?2600:4600)}
+function flash(g){const f=$('flash');f.className=g?'g':'';f.style.opacity=1;setTimeout(()=>f.style.opacity=0,250)}
+function burst(pos,color,n=20){for(let i=0;i<n;i++){const m=new THREE.Mesh(new THREE.BoxGeometry(.15,.15,.15),new THREE.MeshBasicMaterial({color}));m.position.copy(pos);
+  m.userData.v=new THREE.Vector3((Math.random()-.5)*8,Math.random()*7,(Math.random()-.5)*8);m.userData.l=1;scene.add(m);parts.push(m)}}
+function resolveGate(){
+  const gt=G.gate;gt.passed=true;const Q=gt.Q;const op=gt.lanes[G.lane];const ok=op.k===Q.a;G.answered++;
+  const first=!G.missed.includes(Q);Ortak.kaydet(Q,ok,first);
+  gt.lanes.forEach((o,j)=>{const ch=$('chip'+j);if(ch)ch.classList.add(o.k===Q.a?'right':'dim')});
+  if(ok){G.fuel++;if(first)G.firstOk++;G.dist=Math.min(6,G.dist+1);G.speed=Math.min(17,G.speed+.4);Ortak.SES.dogru();flash(true);
+    burst(gt.meshes[G.lane].position.clone().add(new THREE.Vector3(0,2,0)),0x40e080,26);
+    toast(true,['⛽ Bilgi yakıtı alındı!','Tam isabet, kaptan!','Doğru kapı! 🚪'][Math.floor(Math.random()*3)],Q.e);
+  }else{G.dist=Math.max(0,G.dist-1.5);G.missed.push(Q);G.qs.splice(Math.min(G.qi+2,G.qs.length),0,Q);Ortak.SES.yanlis();flash(false);
+    const right=gt.lanes.findIndex(o=>o.k===Q.a);
+    toast(false,'Yanlış kapı! 🦹 Profesör yaklaşıyor',`Doğrusu <b style="display:inline;font-size:15px">${LETTERS[right]}: ${Q.o[Q.a]}</b><br>${Q.e}`)}
+  hud();setTimeout(()=>gt.meshes.forEach(m=>scene.remove(m)),1200);
+  if(G.fuel>=G.need)setTimeout(win,1400);
+}
+function hit(){if(G.inv>0)return;G.inv=1.4;G.dist=Math.max(0,G.dist-1);Ortak.SES.yanlis();flash(false);G.shake=.5;hud();
+  toast(false,'Çarptın! 💥','Profesör Unutkan yaklaşıyor. Engellere dikkat!');if(G.dist<=0)setTimeout(lose,500)}
+function endScreen(won){
+  G.running=false;Ortak.muzikDur();const n=G.answered;const xp=G.firstOk*20+G.coins*2+(won?80:0);const up=Ortak.xp(xp);
+  won?Ortak.SES.zafer():Ortak.SES.yanlis();
+  const st=won?(G.firstOk>=9?3:G.firstOk>=7?2:1):0;
+  $('endPanel').innerHTML=`<div style="font-size:52px">${won?'🛫':'🦹'}</div><h1>${won?'Kalkış! Kurtuldun!':'Profesör yakaladı!'}</h1>
+    <p>${won?'Uçağın bilgi yakıtıyla doldu. Kaptan Ege gökyüzünde! Profesör Unutkan pistte kaldı. 😄':'Ama topladığın her şey senin. Yanlış yaptığın sorular bir dahaki koşuda önce gelecek.'}</p>
+    ${won?`<div class="big">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div>`:''}
+    <p><b>+${xp} XP</b> · İlk denemede doğru: ${G.firstOk}/${n} · 🪙 ${G.coins}</p>
+    ${up?'<p style="background:#10223f;color:#ffc23d;border-radius:12px;padding:6px;font-weight:800">⬆️ SEVİYE ATLADIN!</p>':''}
+    ${Ortak.ozetHTML()}
+    ${G.missed.length?`<div class="how"><b>Tekrar et:</b><br>${[...new Set(G.missed)].map(q=>`• ${q.t}: ${q.o[q.a]}`).join('<br>')}</div>`:''}
+    <button class="btn" style="background:#3b82f6" id="again">Tekrar koş 🏃</button><button class="btn" style="background:#10223f" id="menu">Ders seç</button>`;
+  $('again').onclick=()=>startGame(G.leg);$('menu').onclick=showStart;
+  $('hud').classList.add('hidden');setTimeout(()=>$('end').classList.remove('hidden'),won?1800:300);
+}
+function win(){if(!G.running)return;G.won=true;G.takeoff=0;burst(pilot.position.clone().add(new THREE.Vector3(0,1,0)),0xffc23d,40);setTimeout(()=>endScreen(true),1600)}
+function lose(){if(G.running)endScreen(false)}
+function showStart(){if(G)G.running=false;Ortak.muzikDur();$('end').classList.add('hidden');$('start').classList.remove('hidden');$('hud').classList.add('hidden');
+  $('ozet').innerHTML=Ortak.ozetHTML();
+  $('dersler').innerHTML=DERS.map(d=>`<button class="btn" style="background:${d[2]}" data-leg="${d[0]}">${d[1]}</button>`).join('');
+  document.querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>startGame(b.dataset.leg))}
+let si=0;function story(){$('story').textContent=STORY[si%STORY.length];si++}setInterval(story,3800);story();
+$('mute').onclick=()=>{const v=!Ortak.sessiz();Ortak.sessiz(v);$('mute').textContent=v?'🔇':'🔊'};$('mute').textContent=Ortak.sessiz()?'🔇':'🔊';
+
+// ================= KONTROLLER =================
+function move(d){if(!G||!G.running)return;const n=Math.max(0,Math.min(2,G.lane+d));if(n!==G.lane){G.lane=n}}
+function jump(){if(!G||!G.running)return;if(G.y<=.01){G.vy=8.2;Ortak.SES.zipla()}}
+function slide(){if(!G||!G.running)return;G.slide=.75;if(G.y>0)G.vy=-12}
+let ts=null;
+addEventListener('pointerdown',e=>{if(e.target.closest('button,.panel'))return;ts={x:e.clientX,y:e.clientY,t:performance.now(),used:false};Ortak.ac()});
+addEventListener('pointermove',e=>{if(!ts||ts.used)return;const dx=e.clientX-ts.x,dy=e.clientY-ts.y;if(Math.max(Math.abs(dx),Math.abs(dy))<30)return;ts.used=true;
+  if(Math.abs(dx)>Math.abs(dy))move(dx>0?1:-1);else dy<0?jump():slide()});
+addEventListener('pointerup',e=>{if(ts&&!ts.used&&performance.now()-ts.t<300&&!e.target.closest('button,.panel')){move(e.clientX<innerWidth/2?-1:1)}ts=null});
+addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(keys[k])return;keys[k]=true;
+  if(k==='arrowleft'||k==='a')move(-1);if(k==='arrowright'||k==='d')move(1);if(k==='arrowup'||k==='w'||k===' ')jump();if(k==='arrowdown'||k==='s')slide()});
+addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false});
+
+// ================= DÖNGÜ =================
+function loop(now){requestAnimationFrame(loop);const dt=Math.min(.05,(now-last)/1000);last=now;const t=now/1000;
+  const P=pilot.position,U=pilot.userData;
+  if(G&&G.running&&!G.won){
+    G.t+=dt;G.z-=G.speed*dt;G.x=lerp(G.x,LANES[G.lane],Math.min(1,dt*12));
+    G.vy-=24*dt;G.y=Math.max(0,G.y+G.vy*dt);if(G.y===0)G.vy=Math.max(0,G.vy);
+    G.slide=Math.max(0,G.slide-dt);G.inv=Math.max(0,G.inv-dt);
+    P.set(G.x,G.y,G.z);
+    // spawn
+    if(G.z<=-G.nextGate+120&&!G.gateSpawned){spawnGate(-G.nextGate);G.gateSpawned=true}
+    if(G.gate&&!G.gate.passed&&G.z<=G.gate.z){resolveGate()}
+    if(G.gate&&G.gate.passed&&G.z<G.gate.z-20){G.nextGate+=78+Math.random()*12;G.gateSpawned=false;G.gate=null}
+    while(-G.nextObs>G.z-110){const z=-G.nextObs;const gz=G.gateSpawned&&G.gate?G.gate.z:-G.nextGate;if(Math.abs(z-gz)>18)spawnObstacle(z);G.nextObs+=16+Math.random()*10}
+    // çarpışma
+    G.objs=G.objs.filter(o=>{
+      if(o.kind==='coin'){o.mesh.rotation.y+=dt*4;if(o.lane===G.lane&&Math.abs(o.z-G.z)<.9&&G.y<1.6){scene.remove(o.mesh);G.coins++;Ortak.SES.altin();hud();return false}}
+      else if(o.lane===G.lane&&Math.abs(o.z-G.z)<(o.kind==='block'?1.3:.45)){
+        if(o.kind==='jump'&&G.y<.9)hit();else if(o.kind==='slide'&&G.slide<=0)hit();else if(o.kind==='block')hit()}
+      if(o.z>G.z+2.5){scene.remove(o.mesh);return false}return true});
+    // animasyon
+    const run=Math.sin(G.t*14);const air=G.y>0;
+    U.la.rotation.x=run*.9;U.ra.rotation.x=-run*.9;U.ll.rotation.x=air?-.6:-run*.8;U.rl.rotation.x=air?.3:run*.8;
+    pilot.rotation.x=G.slide>0?-1.2:0;pilot.position.y=G.y+(G.slide>0?.35:Math.abs(run)*.06);
+    pilot.rotation.z=(LANES[G.lane]-G.x)*-.15;pilot.rotation.y=0;
+    pilot.visible=G.inv>0?Math.floor(t*12)%2===0:true;
+    // profesör
+    prof.visible=true;const pd=4+G.dist*2.4;prof.position.set(lerp(prof.position.x,G.x,dt*3),Math.abs(Math.sin(t*10))*.15,G.z+pd);prof.rotation.y=Math.PI;
+    roadTex.offset.y=-G.z/10;
+    if(G.dist<=0&&G.running)lose();
+  }else if(G&&G.won){
+    // kalkış sahnesi: pilot uçağa dönüşür gibi yükselir
+    G.takeoff+=dt;P.y+=dt*(2+G.takeoff*6);P.z-=dt*20;pilot.rotation.x=-.4;prof.position.z+=dt*2;
+  }else{
+    // menü: yerinde koşu
+    const run=Math.sin(t*10);U.la.rotation.x=run*.7;U.ra.rotation.x=-run*.7;U.ll.rotation.x=-run*.6;U.rl.rotation.x=run*.6;
+    P.set(0,0,0);pilot.rotation.set(0,Math.PI+Math.sin(t*.5)*.4,0);prof.visible=false;
+  }
+  road.position.set(0,0,P.z-150);grass.position.set(0,-.02,P.z-150);
+  deco.forEach(d=>{if(d.o.position.z>P.z+30)d.o.position.z-=d.span});
+  for(let i=parts.length-1;i>=0;i--){const m=parts[i];m.userData.l-=dt*1.3;m.userData.v.y-=12*dt;m.position.addScaledVector(m.userData.v,dt);m.scale.setScalar(Math.max(.01,m.userData.l));if(m.userData.l<=0){scene.remove(m);parts.splice(i,1)}}
+  const cz=P.z+7.6;camera.position.set(lerp(camera.position.x,P.x*.55,dt*5),4.6+(G&&G.won?P.y*.6:0),cz);
+  if(G&&G.shake>0){G.shake-=dt;camera.position.x+=(Math.random()-.5)*G.shake}
+  camera.lookAt(P.x*.4,1.2+(G&&G.won?P.y*.8:0),P.z-12);
+  sun.position.set(P.x+10,30,P.z+10);sun.target.position.copy(P);
+  renderer.render(scene,camera);
+}
+camera.position.set(0,3.6,6.2);
+showStart();requestAnimationFrame(loop);
+</script>
+</body>
+</html>

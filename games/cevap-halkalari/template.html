@@ -59,9 +59,12 @@ canvas{display:block;position:fixed;inset:0}
     <div style="font-size:54px">🛩️</div>
     <h1>Pilot Ege 3D<br>Cevap Halkaları</h1>
     <p>Uçağını uçur, doğru cevabın halkasından geç!</p>
+    <div id="ozet" style="margin:6px 0"></div>
     <button class="btn b1" data-leg="tr">📘 Türkçe rotası</button>
     <button class="btn b2" data-leg="mat">📐 Matematik rotası</button>
     <button class="btn b3" data-leg="fen">🚀 Fen rotası</button>
+    <button class="btn" style="background:#10b981" data-leg="sos">🗺️ Sosyal rotası</button>
+    <button class="btn" style="background:#ef4f6a" data-leg="ing">🇬🇧 İngilizce rotası</button>
     <div class="how"><b>Nasıl oynanır?</b><br>📱 Ekrana dokun, parmağını sürükle: uçak o yöne gider.<br>⌨️ Bilgisayarda: ok tuşları veya WASD.<br>🟢 Doğru halka = hız + puan. 🔴 Yanlış halka = soru sonra tekrar gelir.<br>🪙 Yoldaki altınları da topla!</div>
     <div id="best" class="small" style="margin-top:8px;font-size:14px;color:#4a5d7c"></div>
   </div>
@@ -72,9 +75,11 @@ canvas{display:block;position:fixed;inset:0}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script>
-// ================= SORU BANKASI (Ege Pano'dan) =================
 /*LEGS*/
+/*ORTAK*/
+const ASSET=(window.ASSET_BASE||'../../assets/');
 
 const COLORS=['#2f7cf6','#f5a30b','#9b4dff','#ef4f6a'];
 const LETTERS=['A','B','C','D'];
@@ -83,7 +88,7 @@ const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(M
 let best={};try{best=JSON.parse(localStorage.getItem('pilotEge3D.best'))||{}}catch(e){}
 
 // ================= SES =================
-let actx=null,engine=null,muted=false;
+let actx=null,engine=null,muted=Ortak.sessiz();
 function initAudio(){
   try{
     actx=actx||new(window.AudioContext||window.webkitAudioContext)();
@@ -98,7 +103,7 @@ function initAudio(){
   }catch(e){}
 }
 function tone(fs,d=.12,type='triangle',v=.16){if(!actx||muted)return;try{let t=actx.currentTime;fs.forEach(fr=>{const o=actx.createOscillator(),g=actx.createGain();o.type=type;o.frequency.value=fr;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g).connect(actx.destination);o.start(t);o.stop(t+d);t+=d*.85})}catch(e){}}
-$('mute').onclick=()=>{muted=!muted;$('mute').textContent=muted?'🔇':'🔊';if(engine)engine.g.gain.value=muted?0:.035};
+$('mute').onclick=()=>{muted=!muted;Ortak.sessiz(muted);$('mute').textContent=muted?'🔇':'🔊';if(engine)engine.g.gain.value=muted?0:.035};
 
 // ================= SAHNE =================
 const SKY=0x8fd3ff;
@@ -143,6 +148,11 @@ function makePlane(){
   return g;
 }
 const plane=makePlane();plane.scale.setScalar(.8);scene.add(plane);
+// Gerçek model: Piper PA-28 (FlightGear/FR24, GPLv2). Yüklenince basit modelin yerini alır.
+new THREE.GLTFLoader().load(ASSET+'models/pa28.glb',g=>{const m=g.scene;const b=new THREE.Box3().setFromObject(m);const sz=b.getSize(new THREE.Vector3());const c=b.getCenter(new THREE.Vector3());
+  m.position.sub(c);const w=new THREE.Group();w.add(m);w.rotation.y=PA28_YAW;w.scale.setScalar(6.2/Math.max(sz.x,sz.z));
+  plane.children.forEach(ch=>ch.visible=false);plane.add(w);plane.userData.real=w},undefined,()=>{});
+const PA28_YAW=0;
 const sideX=()=>(Math.random()<.5?-1:1)*(22+Math.random()*50);
 
 // Bulutlar ve adalar (sonsuz dünya için geri dönüştürülür)
@@ -171,16 +181,17 @@ const parts=[];
 
 function startGame(legId){
   const L=LEGS.find(l=>l.id===legId);
-  G={L,queue:shuffle(L.qs.map((q,i)=>({...q,i}))),done:new Set(),tried:new Set(),firstOk:0,missed:new Set(),
+  const sel=Ortak.sec(legId,10,4).map((q,i)=>({...q,i}));
+  G={L,total:sel.length,sel,queue:sel.slice(),done:new Set(),tried:new Set(),firstOk:0,missed:new Set(),
      score:0,speed:24,boost:0,vel:{x:0,y:0},gate:null,wait:1.2,shake:0,coins:[],running:true};
   plane.position.set(0,7,0);
   $('start').classList.add('hidden');$('end').classList.add('hidden');
   $('hud').classList.remove('hidden');$('bar').classList.remove('hidden');$('hint').style.opacity=1;
   setTimeout(()=>$('hint').style.opacity=0,3500);
   $('score').textContent='⭐ 0';$('qText').textContent='Kalkış! Hazırlan...';$('chips').innerHTML='';$('qTopic').textContent=L.ders;
-  updateProg();initAudio();
+  updateProg();initAudio();Ortak.muzik(legId==='fen'?'uzay':'gok');
 }
-function updateProg(){$('qProg').textContent=`${G.done.size}/${G.L.qs.length} ✅`}
+function updateProg(){$('qProg').textContent=`${G.done.size}/${G.total} ✅`}
 
 function spawnGate(){
   const Q=G.queue[0];
@@ -224,6 +235,7 @@ function toast(ok,title,body){const t=$('toast');t.className=ok?'ok':'no';t.inne
 function resolveGate(hit){
   const gt=G.gate,Q=gt.Q;const first=!G.tried.has(Q.i);G.tried.add(Q.i);
   const ok=hit&&hit.k===Q.a;
+  Ortak.kaydet(Q,ok,first);
   gt.rings.forEach((r,j)=>{const ch=$('chip'+j);if(!ch)return;if(r.k===Q.a)ch.classList.add('right');else ch.classList.add('dim')});
   if(ok){
     G.queue.shift();G.done.add(Q.i);if(first)G.firstOk++;
@@ -243,14 +255,14 @@ function resolveGate(hit){
 }
 
 function endGame(){
-  G.running=false;
-  const n=G.L.qs.length,st=G.firstOk/n>=.9?3:G.firstOk/n>=.7?2:1;
+  G.running=false;Ortak.muzikDur();
+  const n=G.total,st=G.firstOk/n>=.9?3:G.firstOk/n>=.7?2:1;
   best[G.L.id]=Math.max(best[G.L.id]||0,st);try{localStorage.setItem('pilotEge3D.best',JSON.stringify(best))}catch(e){}
   tone([523,659,784,1047,1319],.14);
-  const miss=[...G.missed].map(i=>G.L.qs[i]);
+  const miss=[...G.missed].map(i=>G.sel[i]);const up=Ortak.xp(G.firstOk*20+Math.round(G.score/20));
   $('endPanel').innerHTML=`<div style="font-size:54px">🛬</div><h1>Güvenli iniş!</h1>
    <div class="big">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div>
-   <p><b>${G.score} puan</b> · İlk denemede doğru: ${G.firstOk}/${n}</p>
+   <p><b>${G.score} puan</b> · İlk denemede doğru: ${G.firstOk}/${n}</p>${up?'<p style="background:#10223f;color:#ffc23d;border-radius:12px;padding:6px;font-weight:800">⬆️ SEVİYE ATLADIN!</p>':''}${Ortak.ozetHTML()}
    ${miss.length?`<div class="how rev"><b>Tekrar et:</b><br>${miss.map(q=>`• ${q.t}: ${q.o[q.a]}`).join('<br>')}</div>`:'<p>Hiç hata yok. Gerçek bir as pilotsun! 🏆</p>'}
    <button class="btn b1" id="again">Bu rotayı tekrar uç</button><button class="btn b4" id="menu">Başka rota seç</button>`;
   $('again').onclick=()=>startGame(G.L.id);$('menu').onclick=showStart;
@@ -259,7 +271,8 @@ function endGame(){
 function showStart(){
   if(G)G.running=false;
   $('end').classList.add('hidden');$('start').classList.remove('hidden');$('hud').classList.add('hidden');$('bar').classList.add('hidden');
-  const names={tr:'Türkçe',mat:'Matematik',fen:'Fen'};
+  Ortak.muzikDur();$('ozet').innerHTML=Ortak.ozetHTML();
+  const names={tr:'Türkçe',mat:'Matematik',fen:'Fen',sos:'Sosyal',ing:'İngilizce'};
   const b=Object.keys(best).map(k=>`${names[k]} ${'⭐'.repeat(best[k])}`).join(' · ');$('best').textContent=b?'En iyi: '+b:'';
 }
 document.querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>startGame(b.dataset.leg));

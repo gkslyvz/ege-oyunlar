@@ -172,6 +172,7 @@ h1{color:#fff;font-size:30px;margin:14px 0 4px;text-shadow:0 3px 0 rgba(0,0,0,.2
 <script>
 // ================= SORU BANKASI (Ege Pano'dan) =================
 /*LEGS*/
+/*ORTAK*/
 
 // ================= DÜNYA =================
 const REGIONS = [
@@ -356,6 +357,7 @@ function anim(el,cls){el.classList.remove(cls);void el.offsetWidth;el.classList.
 
 function answer(k,btn){
   const Q=B.queue[0]; const ok=k===Q.a;
+  Ortak.kaydet(Q,ok,!(S.qs[Q.id]&&S.qs[Q.id].w>0));
   [...$('opts').children].forEach(b=>b.disabled=true);
   const st=S.qs[Q.id]||(S.qs[Q.id]={r:0,w:0});
   if(ok){
@@ -386,6 +388,7 @@ $('nextBtn').onclick=()=>{ if(B.hp<=0) win(); else if(B.hearts<=0) lose(); else 
 $('flee').onclick=()=>{ if(B&&B.xpGain){S.xp+=B.xpGain;store()} renderMap(); };
 
 function win(){
+  Ortak.xp(B.firstOk*20+(B.kind==='boss'||B.kind==='exam'?60:20));
   const before=level(S.xp); S.xp+=B.xpGain+(B.kind==='minion'||typeof B.kind==='number'?20:50)*B.mult;
   let cardId=null,isNew=false;
   if(B.kind==='exam'){ cardId='golden'; isNew=!S.cards.golden; S.cards.golden=(S.cards.golden||0)+1; if(B.exam.id!=='demo') S.examWins.push(B.exam.id); }

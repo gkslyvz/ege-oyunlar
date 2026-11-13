@@ -1,0 +1,487 @@
+[
+ {
+  "id": "tr",
+  "title": "İstanbul → Londra",
+  "ders": "Türkçe",
+  "icon": "📘",
+  "from": "İstanbul",
+  "to": "Londra",
+  "vehicle": "plane",
+  "qs": [
+   {
+    "t": "Eş anlam",
+    "q": "\"Yanıt\" sözcüğünün eş anlamlısı hangisi?",
+    "o": [
+     "Cevap",
+     "Soru",
+     "Sonuç",
+     "Anlam"
+    ],
+    "a": 0,
+    "e": "Yanıt = Cevap. Aynı anlama gelen farklı sözcüklere eş anlamlı denir."
+   },
+   {
+    "t": "Eş anlam",
+    "q": "\"Kara\" sözcüğünün eş anlamlısı hangisi?",
+    "o": [
+     "Beyaz",
+     "Siyah",
+     "Koyu yeşil",
+     "Toprak"
+    ],
+    "a": 1,
+    "e": "Kara = Siyah. (Beyaz ise zıt anlamlısıdır.)"
+   },
+   {
+    "t": "Deyimler",
+    "q": "\"Göz atmak\" deyimi ne anlama gelir?",
+    "o": [
+     "Bir şeye kısaca, üstünkörü bakmak",
+     "Göze bir şey kaçmak",
+     "Çok uykusu gelmek",
+     "Birine kızmak"
+    ],
+    "a": 0,
+    "e": "Göz atmak: bir şeye kısaca, şöyle bir bakmak."
+   },
+   {
+    "t": "Deyimler",
+    "q": "\"Etekleri zil çalmak\" ne demektir?",
+    "o": [
+     "Çok korkmak",
+     "Çok sevinmek",
+     "Çok yorulmak",
+     "Çok acıkmak"
+    ],
+    "a": 1,
+    "e": "Etekleri zil çalmak: çok sevinmek, sevinçten yerinde duramamak."
+   },
+   {
+    "t": "Atasözleri",
+    "q": "\"Damlaya damlaya göl olur\" atasözü ne anlatır?",
+    "o": [
+     "Yağmur çok yağınca göl oluşur",
+     "Küçük birikimler zamanla büyük sonuç oluşturur",
+     "Su israf edilmemeli",
+     "Göller yavaş dolar"
+    ],
+    "a": 1,
+    "e": "Azar azar biriken şeyler zamanla büyür. Her gün biraz çalışmak da böyledir!"
+   },
+   {
+    "t": "İkileme",
+    "q": "\"Çocuklar koşa koşa eve geldi.\" cümlesindeki ikileme hangisi?",
+    "o": [
+     "Çocuklar",
+     "eve geldi",
+     "koşa koşa",
+     "geldi"
+    ],
+    "a": 2,
+    "e": "Aynı sözcüğün tekrar edilmesi ikilemedir: koşa koşa."
+   },
+   {
+    "t": "İkileme",
+    "q": "Hangisi bir ikilemedir?",
+    "o": [
+     "yavaş yavaş",
+     "masmavi",
+     "kırmızı elma",
+     "hızlı koştu"
+    ],
+    "a": 0,
+    "e": "\"Yavaş yavaş\" ikilemedir. \"Masmavi\" ise pekiştirmedir."
+   },
+   {
+    "t": "Pekiştirme",
+    "q": "\"Kıpkırmızı\" hangi sözcüğün pekiştirilmiş hâlidir?",
+    "o": [
+     "kırık",
+     "kırmızı",
+     "kıpır",
+     "kırk"
+    ],
+    "a": 1,
+    "e": "Kıp + kırmızı = kıpkırmızı. Anlamı güçlendirir."
+   },
+   {
+    "t": "Pekiştirme",
+    "q": "Hangisi pekiştirmeli bir sözcüktür?",
+    "o": [
+     "ağır ağır",
+     "masmavi",
+     "gide gide",
+     "mavi gök"
+    ],
+    "a": 1,
+    "e": "Mas + mavi = masmavi. \"Ağır ağır\" ve \"gide gide\" ikilemedir."
+   },
+   {
+    "t": "Hikâyenin unsurları",
+    "q": "Hikâyenin dört temel unsuru hangisidir?",
+    "o": [
+     "Giriş, gelişme, sonuç, başlık",
+     "Kişi, zaman, yer, olay",
+     "Yazar, kitap, sayfa, kapak",
+     "Soru, cevap, özet, ana fikir"
+    ],
+    "a": 1,
+    "e": "Hikâyenin unsurları: kişi (kahraman), zaman, yer, olay."
+   },
+   {
+    "t": "Büyük harf",
+    "q": "Hangisi doğru yazılmıştır?",
+    "o": [
+     "ege Ankara'ya gitti.",
+     "Ege ankara'ya gitti.",
+     "Ege Ankara'ya gitti.",
+     "ege ankara'ya gitti."
+    ],
+    "a": 2,
+    "e": "Cümle büyük harfle başlar; kişi ve şehir adları büyük harfle yazılır."
+   },
+   {
+    "t": "Noktanın kullanımı",
+    "q": "Tarih hangi seçenekte doğru yazılmıştır?",
+    "o": [
+     "10,11,2026",
+     "10.11.2026",
+     "10;11;2026",
+     "10:11:2026"
+    ],
+    "a": 1,
+    "e": "Tarihte gün, ay ve yıl arasına nokta konabilir: 10.11.2026"
+   },
+   {
+    "t": "Sözcükte anlam",
+    "q": "\"Arkadaşına sert bir cevap verdi.\" cümlesinde \"sert\" hangi anlamda?",
+    "o": [
+     "Gerçek anlam",
+     "Mecaz anlam"
+    ],
+    "a": 1,
+    "e": "Cevabın dokunulacak bir sertliği yoktur; burada \"kırıcı\" anlamında, yani mecaz."
+   },
+   {
+    "t": "Sözcükte anlam",
+    "q": "\"Bu taş çok sert.\" cümlesinde \"sert\" hangi anlamda?",
+    "o": [
+     "Gerçek anlam",
+     "Mecaz anlam"
+    ],
+    "a": 0,
+    "e": "Taş elle dokununca gerçekten serttir: gerçek anlam."
+   }
+  ]
+ },
+ {
+  "id": "mat",
+  "title": "Londra → New York",
+  "ders": "Matematik",
+  "icon": "📐",
+  "from": "Londra",
+  "to": "New York",
+  "vehicle": "plane",
+  "qs": [
+   {
+    "t": "Açılar",
+    "q": "Ölçüsü 90° olan açıya ne denir?",
+    "o": [
+     "Dar açı",
+     "Dik açı",
+     "Geniş açı",
+     "Doğru açı"
+    ],
+    "a": 1,
+    "e": "90° = dik açı. Defterin köşesi gibi."
+   },
+   {
+    "t": "Açılar",
+    "q": "Ölçüsü 45° olan açı hangisidir?",
+    "o": [
+     "Dar açı",
+     "Dik açı",
+     "Geniş açı",
+     "Doğru açı"
+    ],
+    "a": 0,
+    "e": "0° ile 90° arasındaki açılar dar açıdır."
+   },
+   {
+    "t": "Açılar",
+    "q": "Ölçüsü 130° olan açı hangisidir?",
+    "o": [
+     "Dar açı",
+     "Dik açı",
+     "Geniş açı",
+     "Tam açı"
+    ],
+    "a": 2,
+    "e": "90° ile 180° arasındaki açılar geniş açıdır."
+   },
+   {
+    "t": "Açılar",
+    "q": "Ölçüsü 180° olan açıya ne denir?",
+    "o": [
+     "Dik açı",
+     "Geniş açı",
+     "Doğru açı",
+     "Tam açı"
+    ],
+    "a": 2,
+    "e": "180° = doğru açı. Kollar düz bir çizgi oluşturur."
+   },
+   {
+    "t": "Doğrular",
+    "q": "Hiç kesişmeyen ve aralarındaki uzaklık hep aynı kalan iki doğruya ne denir?",
+    "o": [
+     "Kesişen doğrular",
+     "Paralel doğrular",
+     "Dik kesişen doğrular",
+     "Işın"
+    ],
+    "a": 1,
+    "e": "Paralel doğrular hiç kesişmez. Tren rayları gibi."
+   },
+   {
+    "t": "Doğrular",
+    "q": "Kesiştiklerinde 90° açı oluşturan doğrulara ne denir?",
+    "o": [
+     "Paralel doğrular",
+     "Dik kesişen doğrular",
+     "Eğik doğrular",
+     "Doğru parçası"
+    ],
+    "a": 1,
+    "e": "90° ile kesişen doğrular dik kesişen doğrulardır. Artı (+) işareti gibi."
+   },
+   {
+    "t": "Çokgenler",
+    "q": "Altıgenin kaç kenarı vardır?",
+    "o": [
+     "5",
+     "6",
+     "7",
+     "8"
+    ],
+    "a": 1,
+    "e": "Altı-gen: 6 kenar, 6 köşe."
+   },
+   {
+    "t": "Çokgenler",
+    "q": "Hangisi bir çokgen DEĞİLDİR?",
+    "o": [
+     "Üçgen",
+     "Kare",
+     "Daire",
+     "Beşgen"
+    ],
+    "a": 2,
+    "e": "Çokgenler düz kenarlardan oluşur. Dairenin kenarı eğridir, çokgen değildir."
+   },
+   {
+    "t": "Çokgenler",
+    "q": "Tüm kenarları ve tüm açıları eşit olan çokgene ne denir?",
+    "o": [
+     "Düzgün çokgen",
+     "Dikdörtgen",
+     "Dar açılı çokgen",
+     "Eğik çokgen"
+    ],
+    "a": 0,
+    "e": "Kenarları ve açıları eşit olan çokgen düzgün çokgendir. Kare bir düzgün dörtgendir."
+   },
+   {
+    "t": "Çokgenler",
+    "q": "Bir üçgenin iç açılarının toplamı kaç derecedir?",
+    "o": [
+     "90°",
+     "180°",
+     "270°",
+     "360°"
+    ],
+    "a": 1,
+    "e": "Her üçgende iç açılar toplamı 180°dir."
+   },
+   {
+    "t": "Çokgenler",
+    "q": "Bir dörtgenin iç açılarının toplamı kaç derecedir?",
+    "o": [
+     "180°",
+     "270°",
+     "360°",
+     "400°"
+    ],
+    "a": 2,
+    "e": "Dörtgenin iç açıları toplamı 360°dir. Karede 4 × 90° = 360°."
+   },
+   {
+    "t": "Çokgenler",
+    "q": "Bir üçgenin iki açısı 60° ve 70° ise üçüncü açı kaç derecedir?",
+    "o": [
+     "40°",
+     "50°",
+     "60°",
+     "70°"
+    ],
+    "a": 1,
+    "e": "180° − 60° − 70° = 50°"
+   }
+  ]
+ },
+ {
+  "id": "fen",
+  "title": "New York → Ay 🌙",
+  "ders": "Fen Bilimleri",
+  "icon": "🚀",
+  "from": "New York",
+  "to": "Ay",
+  "vehicle": "rocket",
+  "qs": [
+   {
+    "t": "Ay",
+    "q": "Ay ışığını nereden alır?",
+    "o": [
+     "Kendi ışığını üretir",
+     "Güneş'ten aldığı ışığı yansıtır",
+     "Yıldızlardan",
+     "Dünya'nın ışıklarından"
+    ],
+    "a": 1,
+    "e": "Ay bir ışık kaynağı değildir; Güneş ışığını yansıttığı için parlak görünür."
+   },
+   {
+    "t": "Ay",
+    "q": "Ay neyin uydusudur?",
+    "o": [
+     "Güneş'in",
+     "Mars'ın",
+     "Dünya'nın",
+     "Jüpiter'in"
+    ],
+    "a": 2,
+    "e": "Ay, Dünya'nın tek doğal uydusudur."
+   },
+   {
+    "t": "Ay",
+    "q": "Ay, Dünya'nın etrafındaki bir turunu yaklaşık ne kadar sürede tamamlar?",
+    "o": [
+     "1 günde",
+     "1 haftada",
+     "Yaklaşık 1 ayda",
+     "1 yılda"
+    ],
+    "a": 2,
+    "e": "Yaklaşık 27–29 gün, yani aşağı yukarı 1 ay."
+   },
+   {
+    "t": "Ay",
+    "q": "Ay'ın yüzeyindeki çukurlara ne denir?",
+    "o": [
+     "Volkan",
+     "Krater",
+     "Vadi",
+     "Mağara"
+    ],
+    "a": 1,
+    "e": "Göktaşı çarpmalarıyla oluşan çukurlara krater denir."
+   },
+   {
+    "t": "Ay",
+    "q": "Ay'da neden ses duyulmaz?",
+    "o": [
+     "Ay çok soğuk olduğu için",
+     "Atmosferi (havası) olmadığı için",
+     "Ay çok küçük olduğu için",
+     "Ay döndüğü için"
+    ],
+    "a": 1,
+    "e": "Ses havada yayılır. Ay'da hava (atmosfer) olmadığı için ses iletilmez."
+   },
+   {
+    "t": "Ay'ın evreleri",
+    "q": "Hangisi Ay'ın evrelerinin doğru sırasıdır?",
+    "o": [
+     "Dolunay → Yeni Ay → İlk Dördün → Son Dördün",
+     "Yeni Ay → İlk Dördün → Dolunay → Son Dördün",
+     "İlk Dördün → Son Dördün → Dolunay → Yeni Ay",
+     "Yeni Ay → Dolunay → Son Dördün → İlk Dördün"
+    ],
+    "a": 1,
+    "e": "Yeni Ay → İlk Dördün → Dolunay → Son Dördün, sonra yeniden Yeni Ay."
+   },
+   {
+    "t": "Ay'ın evreleri",
+    "q": "Ay'ın aydınlık yüzünün tamamen göründüğü evre hangisidir?",
+    "o": [
+     "Yeni Ay",
+     "İlk Dördün",
+     "Dolunay",
+     "Son Dördün"
+    ],
+    "a": 2,
+    "e": "Dolunayda Ay'ın bize bakan yüzü tamamen aydınlıktır."
+   },
+   {
+    "t": "Dünyamız",
+    "q": "Gece ve gündüz neden oluşur?",
+    "o": [
+     "Dünya'nın Güneş etrafında dolanmasıyla",
+     "Dünya'nın kendi ekseni etrafında dönmesiyle",
+     "Ay'ın Dünya etrafında dolanmasıyla",
+     "Güneş'in Dünya etrafında dönmesiyle"
+    ],
+    "a": 1,
+    "e": "Dünya kendi etrafında döndükçe Güneş'e bakan yüz gündüz, diğer yüz gece olur."
+   },
+   {
+    "t": "Dünyamız",
+    "q": "Dünya kendi ekseni etrafındaki bir dönüşünü yaklaşık kaç saatte tamamlar?",
+    "o": [
+     "12 saatte",
+     "24 saatte",
+     "48 saatte",
+     "365 saatte"
+    ],
+    "a": 1,
+    "e": "Yaklaşık 24 saat = 1 gün."
+   },
+   {
+    "t": "Dünyamız",
+    "q": "Dünya, Güneş etrafındaki bir turunu ne kadar sürede tamamlar?",
+    "o": [
+     "1 günde",
+     "1 ayda",
+     "1 yılda (365 gün 6 saat)",
+     "10 yılda"
+    ],
+    "a": 2,
+    "e": "Yaklaşık 365 gün 6 saat = 1 yıl."
+   },
+   {
+    "t": "Dünyamız",
+    "q": "Dünya'nın şekli neye benzer?",
+    "o": [
+     "Düz bir tepsiye",
+     "Küreye",
+     "Küpe",
+     "Silindire"
+    ],
+    "a": 1,
+    "e": "Dünya küreye benzer (kutuplardan hafifçe basıktır)."
+   },
+   {
+    "t": "Gökyüzü",
+    "q": "Güneş nedir?",
+    "o": [
+     "Bir gezegen",
+     "Bir uydu",
+     "Bir yıldız",
+     "Bir göktaşı"
+    ],
+    "a": 2,
+    "e": "Güneş bir yıldızdır; kendi ışığını ve ısısını üretir."
+   }
+  ]
+ }
+]
