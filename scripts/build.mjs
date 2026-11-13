@@ -34,13 +34,14 @@ if (gi > 0) {
   const out = process.argv[gi + 1];
   const REP = [['Pilot Ege', 'Pilot Kaptan'], ['Kaptan Ege', 'Kaptan'], ['astronot Ege', 'astronot kaptan'], ['Ege Pano', 'Pano'],
     ["Ege ankara'ya", "Ali ankara'ya"], ["Ege Ankara'ya", "Ali Ankara'ya"], ['(Ege, Bodrum)', '(Ali, Bodrum)'], ['pilotEge', 'mpOyun'], ['egeOrtak', 'mpOrtak'], ['Ege Oyunlar', 'MATPROSU Oyunlar']];
-  const genelLegs = `const LEGS = ${JSON.stringify(sorular)}; window.LEGS = LEGS; window.ASSET_BASE = '../modeller/';`;
+  const genelSorular = sorular.filter(l => l.id !== 'odev').map(l => ({ ...l, setler: undefined, qs: l.qs.filter(q => !q.set && !q.kaynak).map(({ kaynak, set, ...q }) => ({ ...q, tur: 'banka' })) }));
+  const genelLegs = `const LEGS = ${JSON.stringify(genelSorular)}; window.LEGS = LEGS; window.ASSET_BASE = '../modeller/';`;
   for (const game of readdirSync('games')) {
     const tpl = `games/${game}/template.html`;
     if (!existsSync(tpl)) continue;
     let html = readFileSync(tpl, 'utf8').replace('/*LEGS*/', () => genelLegs).replace('/*EXAMS*/', 'const EXAMS = [];').replace('/*ORTAK*/', () => ortak);
     for (const [a, b] of REP) html = html.split(a).join(b);
-    if (/\bEge\b/.test(html.replace(/Ege Bölgesi/g, ''))) throw new Error(`${game}: genel sürümde isim kaldı`);
+    if (/\bEge\b/.test(html.replace(/Ege (Bölgesi|adaları|Denizi)|Marmara, Ege/g, ''))) throw new Error(`${game}: genel sürümde isim kaldı`);
     mkdirSync(`${out}/${game}`, { recursive: true });
     writeFileSync(`${out}/${game}/index.html`, html);
   }

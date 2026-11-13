@@ -418,7 +418,7 @@ function win(){if(!G.running)return;G.won=true;G.takeoff=0;burst(pilot.position.
 function lose(){if(G.running)endScreen(false)}
 function showStart(){if(G)G.running=false;Ortak.muzikDur();$('end').classList.add('hidden');$('start').classList.remove('hidden');$('hud').classList.add('hidden');
   $('ozet').innerHTML=Ortak.ozetHTML();
-  $('dersler').innerHTML=DERS.map(d=>`<button class="btn" style="background:${d[2]}" data-leg="${d[0]}">${d[1]}</button>`).join('');
+  $('dersler').innerHTML=DERS.filter(d=>LEGS.some(l=>l.id===d[0])).map(d=>`<button class="btn" style="background:${d[2]}" data-leg="${d[0]}">${d[1]}</button>`).join('');
   document.querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>startGame(b.dataset.leg))}
 let si=0;function story(){$('story').textContent=STORY[si%STORY.length];si++}setInterval(story,3800);story();
 $('mute').onclick=()=>{const v=!Ortak.sessiz();Ortak.sessiz(v);$('mute').textContent=v?'🔇':'🔊'};$('mute').textContent=Ortak.sessiz()?'🔇':'🔊';

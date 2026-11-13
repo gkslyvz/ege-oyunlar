@@ -477,7 +477,7 @@ function showStart(){
   const names={tr:'Türkçe',mat:'Matematik',fen:'Fen',sos:'Sosyal',ing:'İngilizce'};
   const b=Object.keys(best).map(k=>`${names[k]} ${'⭐'.repeat(best[k])}`).join(' · ');$('best').textContent=b?'En iyi: '+b:'';
 }
-document.querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>startGame(b.dataset.leg));
+document.querySelectorAll('[data-leg]').forEach(b=>{if(!LEGS.some(l=>l.id===b.dataset.leg))b.remove();else b.onclick=()=>startGame(b.dataset.leg)});
 
 // ================= KONTROLLER =================
 let touch=null;
