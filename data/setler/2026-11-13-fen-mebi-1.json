@@ -1,0 +1,362 @@
+{
+ "id": "2026-11-13-fen-mebi-1",
+ "ders": "fen",
+ "baslik": "Fen ödevi: Ay ve Dünya (MEBİ çalışma kâğıdı)",
+ "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)",
+ "kazanimlar": [
+  "FB.5.1.2",
+  "FB.5.1.3",
+  "FB.5.1.4",
+  "FB.5.2.2",
+  "FB.5.2.3"
+ ],
+ "sorular": [
+  {
+   "t": "Ay'ın ışığı",
+   "k": "FB.5.1.2",
+   "q": "Gece Ay'ı neden kendi ışık kaynağı varmış gibi parlak görürüz?",
+   "o": [
+    "Güneş'ten aldığı ışığı yansıttığı için",
+    "Kendi ışığını ürettiği için",
+    "Yüzeyinde volkanlar olduğu için",
+    "Dünya'ya çok yakın olduğu için"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Parlak görünen her cismi ışık kaynağı sanma",
+    "2": "Yüzey şekillerini ışık kaynağı sanma",
+    "3": "Yakınlığı ışık nedeni sanma"
+   },
+   "e": "Ay ışık kaynağı değildir; Güneş ışığını yansıtır.",
+   "ip": "Ayna kendi ışığını üretir mi?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın hareketleri",
+   "k": "FB.5.1.2",
+   "q": "Ay'ın kendi etrafında dönme süresi yaklaşık ne kadardır?",
+   "o": [
+    "27,3 gün",
+    "24 saat",
+    "1 yıl",
+    "1 hafta"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay'ın dönmesini Dünya'nınkiyle aynı sanma",
+    "2": "Dünya'nın Güneş çevresindeki süresiyle karıştırma",
+    "3": "Evre değişim süresiyle karıştırma"
+   },
+   "e": "Ay kendi etrafındaki dönüşünü ve Dünya etrafındaki dolanmasını aynı sürede (27,3 gün) tamamlar.",
+   "ip": "Dolanma süresiyle aynı.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın hareketleri",
+   "k": "FB.5.1.2",
+   "q": "Ay, Dünya'nın etrafında hangi yönde dolanır?",
+   "o": [
+    "Batıdan doğuya",
+    "Doğudan batıya",
+    "Kuzeyden güneye",
+    "Güneyden kuzeye"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay'ın gökyüzündeki görünür hareketini gerçek yön sanma",
+    "2": "Yönleri karıştırma",
+    "3": "Yönleri karıştırma"
+   },
+   "e": "Ay, Dünya ve Güneş'in tüm dönme ve dolanma hareketleri batıdan doğuyadır.",
+   "ip": "Dünya'nın dönme yönüyle aynı.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "Ay, Güneş ile Dünya'nın tam arasındayken (Güneş-Ay-Dünya) hangi evre görülür? (Ödevdeki modelde 1 numaralı konum)",
+   "o": [
+    "Yeni Ay",
+    "Dolunay",
+    "İlk dördün",
+    "Son dördün"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Konumu ters düşünme",
+    "2": "Konum-evre eşleşmesini bilmeme",
+    "3": "Konum-evre eşleşmesini bilmeme"
+   },
+   "e": "Bu konumda Ay'ın aydınlık yüzü Güneş'e, karanlık yüzü bize bakar: Yeni Ay.",
+   "ip": "Aydınlık yüz hangi tarafa bakar?",
+   "zor": 3,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "Ay, Dünya'ya göre Güneş'in tam ters tarafındayken hangi evre görülür?",
+   "o": [
+    "Dolunay",
+    "Yeni Ay",
+    "Son dördün",
+    "İlk dördün"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Konumu ters düşünme",
+    "2": "Konum-evre eşleşmesini bilmeme",
+    "3": "Konum-evre eşleşmesini bilmeme"
+   },
+   "e": "Bu konumda Ay'ın Güneş'ten aydınlanan yüzünün tamamı bize bakar: Dolunay.",
+   "ip": "Güneş, Dünya ve Ay bir çizgide; Dünya ortada.",
+   "zor": 3,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "Yeni Ay'dan Dolunay'a kadar yaklaşık ne kadar süre geçer?",
+   "o": [
+    "Yaklaşık 2 hafta",
+    "Yaklaşık 1 hafta",
+    "Yaklaşık 1 ay",
+    "1 gün"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "İki ana evre arasını yeni ay-dolunay arası sanma",
+    "2": "Tam döngüyü yarım döngü sanma",
+    "3": "Evre değişimini günlük sanma"
+   },
+   "e": "Yeni Ay → İlk Dördün (1 hafta) → Dolunay (1 hafta daha): yaklaşık 2 hafta.",
+   "ip": "Arada bir ana evre daha var.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "Son dördünden başlayarak sıralama hangisidir?",
+   "o": [
+    "Son dördün → Yeni Ay → İlk dördün → Dolunay",
+    "Son dördün → Dolunay → İlk dördün → Yeni Ay",
+    "Son dördün → İlk dördün → Yeni Ay → Dolunay",
+    "Son dördün → Dolunay → Yeni Ay → İlk dördün"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Evre sırasını tersine çevirme",
+    "2": "Dördün evrelerini yan yana sanma",
+    "3": "Evreleri rastgele sıralama"
+   },
+   "e": "Son dördünden sonra Ay küçülerek Yeni Ay olur, sonra büyüyerek İlk dördün ve Dolunay gelir.",
+   "ip": "Son dördünden sonra Ay küçülür.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "14 Eylül'de son dördün görüldüyse yaklaşık 1 hafta sonra (21 Eylül) hangi evre görülür?",
+   "o": [
+    "Yeni Ay",
+    "Dolunay",
+    "İlk dördün",
+    "Yine son dördün"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Evrelerin yönünü ters düşünme",
+    "2": "Bir evre atlama",
+    "3": "Evrenin değişmediğini sanma"
+   },
+   "e": "İki ana evre arası yaklaşık 1 hafta: son dördünden sonra Yeni Ay gelir.",
+   "ip": "Son dördünden sonraki ana evre.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın hareketleri",
+   "k": "FB.5.1.2",
+   "q": "Dünya'dan Ay'ın hep aynı yüzü görüldüğüne göre Ay modelinde HANGİ hareket mutlaka olmalıdır?",
+   "o": [
+    "Ay'ın kendi etrafında, dolanma süresiyle aynı sürede dönmesi",
+    "Ay'ın hiç dönmemesi",
+    "Ay'ın günde bir kez dönmesi",
+    "Dünya'nın durması"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Hep aynı yüzü görmek için Ay'ın dönmemesi gerektiğini sanma",
+    "2": "Ay'ın dönme süresini Dünya'nınkiyle aynı sanma",
+    "3": "Dünya'nın hareketini yok sayma"
+   },
+   "e": "Ay dönmeseydi farklı yüzlerini görürdük. Dönme ve dolanma süreleri eşit (27,3 gün) olduğu için hep aynı yüz bize bakar.",
+   "ip": "Ay hiç dönmeseydi, dolanırken bize hep aynı yüzünü mü gösterirdi?",
+   "zor": 3,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Güneş, Dünya, Ay",
+   "k": "FB.5.1.4",
+   "q": "Bir modelde küçük, orta ve büyük küre kullanılacak. Doğru eşleştirme hangisidir?",
+   "o": [
+    "Küçük: Ay – Orta: Dünya – Büyük: Güneş",
+    "Küçük: Dünya – Orta: Ay – Büyük: Güneş",
+    "Küçük: Güneş – Orta: Dünya – Büyük: Ay",
+    "Küçük: Ay – Orta: Güneş – Büyük: Dünya"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay'ı Dünya'dan büyük sanma",
+    "2": "Gökyüzünde küçük görünen Güneş'i küçük sanma",
+    "3": "Güneş'i Dünya'dan küçük sanma"
+   },
+   "e": "Hacimce en büyük Güneş, en küçük Ay'dır.",
+   "ip": "Gökyüzündeki görüntüye değil gerçek büyüklüğe bak.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "Ay'ın evreleri neden oluşur?",
+   "o": [
+    "Ay, Dünya etrafında dolanırken aydınlık yüzünün bize görünen kısmı değiştiği için",
+    "Dünya'nın gölgesi Ay'ın üstüne düştüğü için",
+    "Ay'ın şekli gerçekten değiştiği için",
+    "Bulutlar Ay'ı kapattığı için"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Evreleri Ay tutulması sanma",
+    "2": "Ay'ın biçiminin değiştiğini sanma",
+    "3": "Hava olaylarını neden sanma"
+   },
+   "e": "Ay'ın yarısı hep Güneş'ten aydınlanır; dolandıkça bu yarının ne kadarını gördüğümüz değişir.",
+   "ip": "Ay'ın şekli gerçekten değişiyor mu?",
+   "zor": 3,
+   "tur": "benzer"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "Dolunaydan yaklaşık 1 hafta sonra hangi ana evre görülür?",
+   "o": [
+    "Son dördün",
+    "İlk dördün",
+    "Yeni Ay",
+    "Yine dolunay"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "İlk ve son dördünü karıştırma",
+    "2": "Bir evre atlama",
+    "3": "Evrenin değişmediğini sanma"
+   },
+   "e": "Dolunaydan sonra Ay küçülmeye başlar; 1 hafta sonra son dördün olur.",
+   "ip": "Dolunaydan sonra Ay büyür mü küçülür mü?",
+   "zor": 2,
+   "tur": "benzer"
+  },
+  {
+   "t": "Ay'ın hareketleri",
+   "k": "FB.5.1.4",
+   "q": "Ay, Dünya ile birlikte Güneş'in etrafında dolanır mı?",
+   "o": [
+    "Evet, yaklaşık 1 yılda",
+    "Hayır, Ay yalnızca Dünya'nın etrafında döner",
+    "Evet, 27,3 günde",
+    "Hayır, Güneş Ay'ın etrafında döner"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay'ın Güneş çevresindeki hareketini bilmeme",
+    "2": "Dünya çevresindeki süreyle karıştırma",
+    "3": "Merkezi yanlış belirleme"
+   },
+   "e": "Ay, Dünya'nın uydusu olarak onunla birlikte Güneş'in etrafında yaklaşık 1 yılda dolanır.",
+   "ip": "Ay Dünya'yı bırakıp gider mi?",
+   "zor": 3,
+   "tur": "benzer"
+  },
+  {
+   "t": "Dinamometre",
+   "k": "FB.5.2.2",
+   "q": "Dinamometreye asılan cismin ağırlığı artarsa yay ne olur?",
+   "o": [
+    "Daha çok uzar",
+    "Daha az uzar",
+    "Hiç değişmez",
+    "Kısalır"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Kuvvet-uzama ilişkisini ters bilme",
+    "2": "Yayın kuvvete tepki vermediğini sanma",
+    "3": "Çekme ile itmeyi karıştırma"
+   },
+   "e": "Dinamometrenin yayı, uygulanan kuvvet arttıkça daha çok uzar.",
+   "ip": "Lastiği daha çok çekersen ne olur?",
+   "zor": 1,
+   "tur": "hazirlik"
+  },
+  {
+   "t": "Kütle ve ağırlık",
+   "k": "FB.5.2.3",
+   "q": "Dünya'da kütlesi 6 kg olan bir cismin Ay'daki kütlesi kaç kg olur?",
+   "o": [
+    "6 kg",
+    "1 kg",
+    "36 kg",
+    "0 kg"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ağırlıktaki değişimi kütleye uygulama",
+    "2": "Çarpma hatası",
+    "3": "Uzayda kütlenin yok olduğunu sanma"
+   },
+   "e": "Kütle madde miktarıdır, yer değişince değişmez. Değişen ağırlıktır.",
+   "ip": "Kütle mi değişir, ağırlık mı?",
+   "zor": 2,
+   "tur": "hazirlik",
+   "acik": "6"
+  },
+  {
+   "t": "Kütle ve ağırlık",
+   "k": "FB.5.2.3",
+   "q": "Kütle hangi araçla ölçülür?",
+   "o": [
+    "Eşit kollu terazi",
+    "Dinamometre",
+    "Termometre",
+    "Cetvel"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Kütle ile ağırlığı karıştırma",
+    "2": "Ölçme araçlarını karıştırma",
+    "3": "Ölçme araçlarını karıştırma"
+   },
+   "e": "Kütle eşit kollu terazi ile, ağırlık (kuvvet) dinamometre ile ölçülür.",
+   "ip": "İki kefeli araç.",
+   "zor": 2,
+   "tur": "hazirlik"
+  }
+ ]
+}

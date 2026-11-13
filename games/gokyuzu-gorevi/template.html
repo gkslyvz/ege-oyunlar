@@ -74,6 +74,9 @@
   .fb{margin-top:14px;padding:12px 14px;border-radius:14px;font-size:17px;line-height:1.35}
   .fb.ok{background:#e3f8ec}
   .fb.no{background:#fff1d6}
+  .fb.ip{background:#e8f0ff}
+  .acik{display:flex;gap:8px}.acik input{flex:1;font:inherit;font-size:22px;font-weight:800;padding:10px 12px;border-radius:14px;border:3px solid #d6e6fb;text-align:center}.acik button{font:inherit;font-size:18px;font-weight:800;border:none;border-radius:14px;background:#1c4f9c;color:#fff;padding:0 16px}
+  .opt.off{opacity:.4;text-decoration:line-through}
   .fb b{display:block;font-size:19px}
   .next{margin-top:14px;width:100%;font:inherit;font-size:21px;font-weight:800;padding:14px;border:none;border-radius:16px;background:var(--gold);color:#3b2a00;cursor:pointer;box-shadow:0 5px 0 #d99a12}
   .next:active{transform:translateY(3px);box-shadow:0 2px 0 #d99a12}
@@ -186,7 +189,7 @@ const ROCKET=`<g><path d="M8 18 L0 12 L4 23 L0 34 L8 28 Z" fill="#ffc23d"/><path
 <path d="M14 15 L6 5 L22 15 Z M14 31 L6 41 L22 31 Z" fill="#e2463b"/><circle cx="44" cy="23" r="5" fill="#a9dcff" stroke="#10223f" stroke-width="2"/></g>`;
 
 // ===== HARİTA =====
-function unlocked(i){ return i===0 || (save.stars[LEGS[i-1].id]||0)>0; }
+function unlocked(i){ return i===0 || LEGS[i].id==='odev' || (save.stars[LEGS[i-1].id]||0)>0; }
 function renderMap(){
   document.body.classList.remove('space');
   const box=$('legs'); box.innerHTML='';
@@ -206,6 +209,7 @@ function show(id){ ['map','flight','done'].forEach(s=>$(s).classList.toggle('hid
 // ===== UÇUŞ =====
 let R=null;
 function startLeg(i){
+  if(Ortak.sureKapisi())return;
   const L=LEGS[i];
   const sel=Ortak.sec(L.id,10,4).map((q,idx)=>({...q,idx}));
   R={L, sel, n:sel.length, queue:sel.slice(), correct:new Set(), firstTry:0, missed:new Set(), tried:new Set(), streak:0};
@@ -221,31 +225,45 @@ function movePlane(){
   $('fuel').textContent=`${R.correct.size}/${R.n} ✅`;
 }
 function ask(){
-  const Q=R.queue[0];
+  const Q=R.queue[0]; R.att=0;
   $('qTopic').textContent=Q.t; $('qCount').textContent=`Kalan: ${R.queue.length}`;
   $('qText').textContent=Q.q; $('fb').innerHTML=''; $('nextBtn').classList.add('hidden');
   const box=$('opts'); box.innerHTML='';
+  if(Q.acik!=null && Math.random()<0.4){
+    box.innerHTML=`<div class="acik"><input id="acikIn" inputmode="numeric" autocomplete="off" placeholder="Cevabını yaz"><button id="acikBtn">Gönder</button></div>`;
+    const go=()=>{const v=$('acikIn').value.trim();if(!v)return;answer(Ortak.acikKontrol(Q,v)?Q.a:-1,null,v)};
+    $('acikBtn').onclick=go;$('acikIn').onkeydown=e=>{if(e.key==='Enter')go()};setTimeout(()=>$('acikIn').focus(),50);return;
+  }
   shuffle(Q.o.map((text,k)=>({text,k}))).forEach(({text,k})=>{
     const b=document.createElement('button'); b.className='opt'; b.textContent=text;
     b.onclick=()=>answer(k,b); box.appendChild(b);
   });
 }
-function answer(k,btn){
-  const Q=R.queue[0]; const ok=k===Q.a; const first=!R.tried.has(Q.idx); R.tried.add(Q.idx);
-  Ortak.kaydet(Q,ok,first);
-  [...$('opts').children].forEach(b=>b.disabled=true);
+function answer(k,btn,yazilan){
+  const Q=R.queue[0]; const ok=k===Q.a; R.att++; const first=!R.tried.has(Q.idx)&&R.att===1; R.tried.add(Q.idx);
+  const fb=Ortak.geriBildirim(Q,k,R.att);
   if(ok){
-    btn.classList.add('right'); sOk(); R.correct.add(Q.idx); if(first) R.firstTry++;
+    Ortak.kaydet(Q,true,first);
+    [...$('opts').querySelectorAll('button,input')].forEach(b=>b.disabled=true);
+    if(btn)btn.classList.add('right'); sOk(); R.correct.add(Q.idx); if(first) R.firstTry++;
     R.streak++; R.queue.shift();
-    $('fb').innerHTML=`<div class="fb ok"><b>${pick(['Harika, kaptan!','Tam isabet!','Süper uçuş!','Doğru rota!'])}</b>${Q.e}</div>`;
+    $('fb').innerHTML=`<div class="fb ok"><b>${R.att>1?'İpucuyla buldun! 💡':pick(['Harika, kaptan!','Tam isabet!','Süper uçuş!','Doğru rota!'])}</b>${Q.e}</div>`;
     $('combo').textContent = R.streak>=3 ? `🔥 ${R.streak} doğru üst üste! Rüzgâr arkanda!` : '';
     movePlane();
+  }else if(fb.tip==='ipucu'){
+    Ortak.kaydet(Q,false,true,k>=0?k:null); R.missed.add(Q.idx); R.streak=0;
+    if(btn){btn.classList.add('wrong','off');btn.disabled=true}
+    beep([520,700],.12);
+    $('fb').innerHTML=`<div class="fb ip"><b>💡 İpucu</b>${fb.metin}${yazilan!=null?`<br><span class="small">Senin cevabın: ${yazilan}</span>`:''}</div>`;
+    $('combo').textContent=''; return;
   }else{
-    btn.classList.add('wrong'); sBad(); R.missed.add(Q.idx); R.streak=0;
-    [...$('opts').children].forEach(b=>{ if(b.textContent===Q.o[Q.a]) b.classList.add('right'); });
+    Ortak.kaydet(Q,false,false,k>=0?k:null);
+    [...$('opts').querySelectorAll('button,input')].forEach(b=>b.disabled=true);
+    if(btn)btn.classList.add('wrong'); sBad(); R.missed.add(Q.idx); R.streak=0;
+    [...$('opts').querySelectorAll('.opt')].forEach(b=>{ if(b.textContent===Q.o[Q.a]) b.classList.add('right'); });
     const plane=$('plane'); plane.classList.remove('bob','shake'); void plane.offsetWidth; plane.classList.add('shake');
     setTimeout(()=>{plane.classList.remove('shake');plane.classList.add('bob')},650);
-    $('fb').innerHTML=`<div class="fb no"><b>Türbülans! 🌪️</b>${Q.e}<br><span class="small">Bu soru rotanın sonunda tekrar gelecek.</span></div>`;
+    $('fb').innerHTML=`<div class="fb no"><b>Doğrusu: ${Q.o[Q.a]}</b>${Q.e}<br><span class="small">Bu soru rotanın sonunda tekrar gelecek.</span></div>`;
     $('combo').textContent='';
     R.queue.push(R.queue.shift());
   }

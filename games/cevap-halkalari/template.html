@@ -65,6 +65,7 @@ canvas{display:block;position:fixed;inset:0}
     <button class="btn b3" data-leg="fen">🚀 Fen rotası</button>
     <button class="btn" style="background:#10b981" data-leg="sos">🗺️ Sosyal rotası</button>
     <button class="btn" style="background:#ef4f6a" data-leg="ing">🇬🇧 İngilizce rotası</button>
+    <button class="btn" style="background:#f59e0b" data-leg="odev">📸 Ödev Görevi</button>
     <div class="how"><b>Nasıl oynanır?</b><br>📱 Ekrana dokun, parmağını sürükle: uçak o yöne gider.<br>⌨️ Bilgisayarda: ok tuşları veya WASD.<br>🟢 Doğru halka = hız + puan. 🔴 Yanlış halka = soru sonra tekrar gelir.<br>🪙 Yoldaki altınları da topla!</div>
     <div id="best" class="small" style="margin-top:8px;font-size:14px;color:#4a5d7c"></div>
   </div>
@@ -149,7 +150,7 @@ function makePlane(){
 }
 const plane=makePlane();plane.scale.setScalar(.8);scene.add(plane);
 // Gerçek model: Piper PA-28 (FlightGear/FR24, GPLv2). Yüklenince basit modelin yerini alır.
-new THREE.GLTFLoader().load(ASSET+'models/pa28.glb',g=>{const m=g.scene;const b=new THREE.Box3().setFromObject(m);const sz=b.getSize(new THREE.Vector3());const c=b.getCenter(new THREE.Vector3());
+new THREE.GLTFLoader().load((window.MODEL_DATA||{})['models/pa28.glb']||ASSET+'models/pa28.glb',g=>{const m=g.scene;const b=new THREE.Box3().setFromObject(m);const sz=b.getSize(new THREE.Vector3());const c=b.getCenter(new THREE.Vector3());
   m.position.sub(c);const w=new THREE.Group();w.add(m);w.rotation.y=PA28_YAW;w.scale.setScalar(6.2/Math.max(sz.x,sz.z));
   plane.children.forEach(ch=>ch.visible=false);plane.add(w);plane.userData.real=w},undefined,()=>{});
 const PA28_YAW=0;
@@ -180,7 +181,8 @@ let G=null,last=performance.now(),steer={x:0,y:0},keys={};
 const parts=[];
 
 function startGame(legId){
-  const L=LEGS.find(l=>l.id===legId);
+  if(Ortak.sureKapisi())return;
+  const L=LEGS.find(l=>l.id===legId);if(!L)return;
   const sel=Ortak.sec(legId,10,4).map((q,i)=>({...q,i}));
   G={L,total:sel.length,sel,queue:sel.slice(),done:new Set(),tried:new Set(),firstOk:0,missed:new Set(),
      score:0,speed:24,boost:0,vel:{x:0,y:0},gate:null,wait:1.2,shake:0,coins:[],running:true};
@@ -233,20 +235,34 @@ let toastT=null;
 function toast(ok,title,body){const t=$('toast');t.className=ok?'ok':'no';t.innerHTML=`<b>${title}</b>${body}`;t.style.opacity=1;clearTimeout(toastT);toastT=setTimeout(()=>{t.style.opacity=0;setTimeout(()=>t.classList.add('hidden'),300)},ok?3200:4800)}
 
 function resolveGate(hit){
-  const gt=G.gate,Q=gt.Q;const first=!G.tried.has(Q.i);G.tried.add(Q.i);
+  const gt=G.gate,Q=gt.Q;G.att=G.att||{};const n=(G.att[Q.i]=(G.att[Q.i]||0)+1);const first=n===1;
   const ok=hit&&hit.k===Q.a;
-  Ortak.kaydet(Q,ok,first);
-  gt.rings.forEach((r,j)=>{const ch=$('chip'+j);if(!ch)return;if(r.k===Q.a)ch.classList.add('right');else ch.classList.add('dim')});
+  const sec=hit?hit.k:null;
   if(ok){
+    Ortak.kaydet(Q,true,first);
+    gt.rings.forEach((r,j)=>{const ch=$('chip'+j);if(!ch)return;if(r.k===Q.a)ch.classList.add('right');else ch.classList.add('dim')});
     G.queue.shift();G.done.add(Q.i);if(first)G.firstOk++;
     G.score+=first?100:50;G.boost=1.6;flash(true);burst(hit.g.position,0x40e080);burst(hit.g.position,0xffe066,14);
     tone([660,880,1175,1568],.1);
     toast(true,['Tam isabet, kaptan! 🎯','Mükemmel uçuş! ✈️','Doğru halka! 🟢'][Math.floor(Math.random()*3)],Q.e);
   }else{
-    G.missed.add(Q.i);G.queue.push(G.queue.shift());G.shake=.6;flash(false);tone([220,160],.2,'sawtooth');
+    const fb=Ortak.geriBildirim(Q,sec,n);
+    Ortak.kaydet(Q,false,first,sec);
+    G.missed.add(Q.i);G.shake=.6;flash(false);
     if(hit)burst(hit.g.position,0xff5050,18);
-    const right=gt.rings.find(r=>r.k===Q.a);
-    toast(false,hit?'Yanlış halka! 💥':'Halkayı kaçırdın! 🌪️',`Doğrusu <b style="display:inline;font-size:16px">${right.letter}: ${right.t}</b><br>${Q.e}<br><span style="font-size:13px;color:#7a5a00">Bu soru rotanın sonunda tekrar gelecek.</span>`);
+    if(fb.tip==='ipucu'){
+      // ilk yanlış: ipucu, soru hemen bir sonraki halkada tekrar
+      tone([520,700],.12);
+      const q0=G.queue.shift();G.queue.splice(Math.min(1,G.queue.length),0,q0);
+      gt.rings.forEach((r,j)=>{const ch=$('chip'+j);if(ch&&hit&&r.k===hit.k)ch.classList.add('dim')});
+      toast(false,hit?'Az kaldı! 💡':'Halkayı kaçırdın! 💡',`<b style="display:inline;font-size:15px">İpucu:</b> ${fb.metin}<br><span style="font-size:13px;color:#7a5a00">Bu soru hemen tekrar gelecek, bir daha dene.</span>`);
+    }else{
+      tone([220,160],.2,'sawtooth');
+      G.queue.push(G.queue.shift());
+      gt.rings.forEach((r,j)=>{const ch=$('chip'+j);if(!ch)return;if(r.k===Q.a)ch.classList.add('right');else ch.classList.add('dim')});
+      const right=gt.rings.find(r=>r.k===Q.a);
+      toast(false,'Birlikte bakalım 📘',`Doğrusu <b style="display:inline;font-size:16px">${right.letter}: ${right.t}</b><br>${fb.metin||Q.e}<br><span style="font-size:13px;color:#7a5a00">Bu soru rotanın sonunda tekrar gelecek.</span>`);
+    }
   }
   $('score').textContent='⭐ '+G.score;updateProg();
   gt.passed=true;G.wait=ok?3.4:5.2;

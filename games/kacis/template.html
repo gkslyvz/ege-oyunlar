@@ -19,8 +19,8 @@ canvas{display:block;position:fixed;inset:0}
 .qcard{background:rgba(255,255,255,.94);border-radius:16px;padding:8px 10px;box-shadow:0 6px 18px rgba(0,0,0,.18);max-width:560px;margin:0 auto;transition:transform .3s}
 .qtop{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:#4a5d7c}
 .qtext{font-size:18px;font-weight:800;line-height:1.2;margin:2px 0 6px}
-.chips{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
-.chip{border-radius:10px;padding:4px 6px;font-size:14px;font-weight:700;line-height:1.1;color:#fff;text-align:center;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.chip{border-radius:10px;padding:4px 4px;font-size:13px;word-break:break-word;font-weight:700;line-height:1.1;color:#fff;text-align:center;text-shadow:0 1px 0 rgba(0,0,0,.25)}
 .chip b{display:block;font-size:16px}
 .chip.right{outline:4px solid #1fa35b;outline-offset:1px}.chip.dim{opacity:.35}
 #bar{position:fixed;right:10px;bottom:10px;z-index:3;display:flex;gap:8px}
@@ -65,9 +65,9 @@ canvas{display:block;position:fixed;inset:0}
 /*LEGS*/
 /*ORTAK*/
 const ASSET=(window.ASSET_BASE||'../../assets/');
-const COLORS=['#2f7cf6','#f5a30b','#9b4dff'],LETTERS=['A','B','C'];
+const COLORS=['#2f7cf6','#f5a30b','#9b4dff','#e2463b'],LETTERS=['A','B','C','D'];
 const $=id=>document.getElementById(id);
-const DERS=[['tr','📘 Türkçe','#3b82f6'],['mat','📐 Matematik','#f59e0b'],['fen','🔬 Fen','#7c3aed'],['sos','🗺️ Sosyal','#10b981'],['ing','🇬🇧 İngilizce','#ef4f6a']];
+const DERS=[['tr','📘 Türkçe','#3b82f6'],['mat','📐 Matematik','#f59e0b'],['fen','🔬 Fen','#7c3aed'],['sos','🗺️ Sosyal','#10b981'],['ing','🇬🇧 İngilizce','#ef4f6a'],['odev','📸 Ödev Görevi','#f59e0b']];
 const STORY=['Profesör Unutkan, Kaptan Ege\'nin uçağının yakıtını boşalttı! 😱','Uçağı yeniden doldurmanın tek yolu: pistte koşarken doğru cevap kapılarından geçip BİLGİ YAKITI toplamak.','Ama dikkat! Profesör Unutkan ve robotları peşinde. Hadi Kaptan, koş! 🏃‍♂️'];
 
 // ================= SAHNE =================
@@ -80,13 +80,13 @@ scene.add(new THREE.HemisphereLight(0xffffff,0x557744,.9));const sun=new THREE.D
 const M=(c,o={})=>new THREE.MeshStandardMaterial({color:c,flatShading:true,roughness:.8,...o});
 const mat={asph:M(0x3d4350),line:M(0xf4f4f4),yel:M(0xffc23d),grass:M(0x6cbf5a),grass2:M(0x58a84b),hang:M(0xb7c3d6),hangR:M(0x7d8aa3),cone:M(0xff7a1a),white:M(0xffffff),red:M(0xe2463b),blue:M(0x1c4f9c),skin:M(0xf2c39b),dark:M(0x23324d),purple:M(0x7c3aed),gold:M(0xffc23d,{metalness:.5,roughness:.3,emissive:0x5a3c00}),gray:M(0x9aa3b2),glass:M(0x9fe0ff,{emissive:0x226688})};
 
-const LANES=[-2.4,0,2.4];
+const LANES=[-3.3,-1.1,1.1,3.3];const NL=LANES.length;
 // Zemin: pist + çimen (oyuncuyla birlikte kayar, desen dokuyla akar)
 function stripeTex(){const c=document.createElement('canvas');c.width=64;c.height=256;const x=c.getContext('2d');x.fillStyle='#3d4350';x.fillRect(0,0,64,256);
-  x.fillStyle='#e9e9e9';[19,43].forEach(px=>{for(let y=0;y<256;y+=64)x.fillRect(px-1,y,2,36)});x.fillStyle='#f4f4f4';x.fillRect(0,0,3,256);x.fillRect(61,0,3,256);
+  x.fillStyle='#e9e9e9';[16,32,48].forEach(px=>{for(let y=0;y<256;y+=64)x.fillRect(px-1,y,2,36)});x.fillStyle='#f4f4f4';x.fillRect(0,0,3,256);x.fillRect(61,0,3,256);
   const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(1,40);return t}
 const roadTex=stripeTex();
-const road=new THREE.Mesh(new THREE.PlaneGeometry(7.6,400),new THREE.MeshStandardMaterial({map:roadTex,roughness:.9}));road.rotation.x=-Math.PI/2;scene.add(road);
+const road=new THREE.Mesh(new THREE.PlaneGeometry(9.4,400),new THREE.MeshStandardMaterial({map:roadTex,roughness:.9}));road.rotation.x=-Math.PI/2;scene.add(road);
 const grass=new THREE.Mesh(new THREE.PlaneGeometry(300,400),mat.grass);grass.rotation.x=-Math.PI/2;grass.position.y=-.02;scene.add(grass);
 
 // Kenar dekorları: hangarlar, ışıklar, koniler, park etmiş uçaklar (geri dönüşümlü)
@@ -96,10 +96,10 @@ function hangar(){const g=new THREE.Group();const w=10+Math.random()*6;const b=n
   const d=new THREE.Mesh(new THREE.BoxGeometry(w*.7,3.8,.2),mat.dark);d.position.set(0,1.9,4.55);g.add(b,r,d);return g}
 function lightPole(){const g=new THREE.Group();const p=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.6,6),mat.gray);p.position.y=.3;const l=new THREE.Mesh(new THREE.SphereGeometry(.14,8,6),M(0x66ccff,{emissive:0x3399ff}));l.position.y=.65;g.add(p,l);return g}
 for(let i=0;i<10;i++){const h=hangar();const s=i%2?1:-1;h.position.set(s*(16+Math.random()*6),0,-i*36);h.rotation.y=s>0?-Math.PI/2:Math.PI/2;scene.add(h);deco.push({o:h,span:360})}
-for(let i=0;i<40;i++){const s=i%2?1:-1;const l=lightPole();l.position.set(s*4.1,0,-Math.floor(i/2)*9);scene.add(l);deco.push({o:l,span:180})}
+for(let i=0;i<40;i++){const s=i%2?1:-1;const l=lightPole();l.position.set(s*5.1,0,-Math.floor(i/2)*9);scene.add(l);deco.push({o:l,span:180})}
 // Park etmiş Boeing 737'ler (FlightGear/FR24 modeli, GPLv2) — yüklenemezse sahne yine çalışır
 let jetProto=null;
-new THREE.GLTFLoader().load(ASSET+'models/b737.glb',g=>{jetProto=g.scene;const b=new THREE.Box3().setFromObject(jetProto);const sz=b.getSize(new THREE.Vector3());jetProto.scale.setScalar(26/Math.max(sz.x,sz.z));
+new THREE.GLTFLoader().load((window.MODEL_DATA||{})['models/b737.glb']||ASSET+'models/b737.glb',g=>{jetProto=g.scene;const b=new THREE.Box3().setFromObject(jetProto);const sz=b.getSize(new THREE.Vector3());jetProto.scale.setScalar(26/Math.max(sz.x,sz.z));
   for(let i=0;i<4;i++){const j=jetProto.clone();const s=i%2?1:-1;j.position.set(s*32,0,-i*90-40);j.rotation.y=s>0?Math.PI*.75:-Math.PI*.25;scene.add(j);deco.push({o:j,span:360})}},undefined,()=>{});
 
 // ================= KARAKTER: Kaptan Ege =================
@@ -138,9 +138,9 @@ function panelTex(letter,text,color){const c=document.createElement('canvas');c.
 let G=null,last=performance.now(),keys={};const parts=[];
 const lerp=(a,b,t)=>a+(b-a)*t;
 function startGame(leg){
-  Ortak.ac();
+  Ortak.ac();if(Ortak.sureKapisi())return;
   if(G)G.objs.forEach(o=>scene.remove(o.mesh));
-  G={leg,qs:Ortak.sec(leg,14,3),qi:0,fuel:0,need:10,dist:4,coins:0,lane:1,x:0,y:0,vy:0,slide:0,z:0,speed:11,objs:[],nextGate:60,nextObs:22,gate:null,inv:0,firstOk:0,answered:0,missed:[],running:true,t:0,won:false};
+  G={leg,qs:Ortak.sec(leg,14,4),qi:0,fuel:0,need:10,dist:4,coins:0,lane:1,x:0,y:0,vy:0,slide:0,z:0,speed:11,objs:[],nextGate:60,nextObs:22,gate:null,inv:0,firstOk:0,answered:0,missed:[],running:true,t:0,won:false};
   pilot.position.set(0,0,0);
   ['start','end'].forEach(s=>$(s).classList.add('hidden'));$('hud').classList.remove('hidden');$('bar').classList.remove('hidden');
   $('qText').textContent='Koş! İlk kapı geliyor… 🏃';$('chips').innerHTML='';$('qTopic').textContent='';$('qInfo').textContent='';
@@ -151,28 +151,28 @@ function addObj(mesh,kind,lane,z,extra={}){mesh.position.set(LANES[lane],0,z);sc
 function spawnObstacle(z){
   const r=Math.random();
   if(r<.4){// bariyer: zıpla
-    const lane=Math.floor(Math.random()*3);const g=new THREE.Group();
-    const bar=new THREE.Mesh(new THREE.BoxGeometry(2,.35,.25),mat.red);bar.position.y=.75;const s1=new THREE.Mesh(new THREE.BoxGeometry(.15,.9,.15),mat.white);s1.position.set(-.85,.45,0);const s2=s1.clone();s2.position.x=.85;
+    const lane=Math.floor(Math.random()*NL);const g=new THREE.Group();
+    const bar=new THREE.Mesh(new THREE.BoxGeometry(1.9,.35,.25),mat.red);bar.position.y=.75;const s1=new THREE.Mesh(new THREE.BoxGeometry(.15,.9,.15),mat.white);s1.position.set(-.85,.45,0);const s2=s1.clone();s2.position.x=.85;
     const st=new THREE.Mesh(new THREE.BoxGeometry(2,.12,.27),mat.white);st.position.y=.75;st.scale.x=.3;g.add(bar,s1,s2,st);addObj(g,'jump',lane,z);
   }else if(r<.7){// yüksek bant: kay
-    const lane=Math.floor(Math.random()*3);const g=new THREE.Group();const top=new THREE.Mesh(new THREE.BoxGeometry(2.1,.45,.4),mat.yel);top.position.y=1.65;
+    const lane=Math.floor(Math.random()*NL);const g=new THREE.Group();const top=new THREE.Mesh(new THREE.BoxGeometry(2.1,.45,.4),mat.yel);top.position.y=1.65;
     const p1=new THREE.Mesh(new THREE.BoxGeometry(.15,1.9,.15),mat.gray);p1.position.set(-1,.95,0);const p2=p1.clone();p2.position.x=1;g.add(top,p1,p2);addObj(g,'slide',lane,z);
   }else{// kargo arabası: şerit değiştir (iki şeridi kapatabilir)
-    const lanes=Math.random()<.35?[0,1,2].sort(()=>Math.random()-.5).slice(0,2):[Math.floor(Math.random()*3)];
-    lanes.forEach(lane=>{const g=new THREE.Group();const b=new THREE.Mesh(new THREE.BoxGeometry(1.9,1.6,2.4),M([0x4a90d9,0xe2763b,0x5ab866][lane]));b.position.y=1.05;
+    const lanes=Math.random()<.35?[0,1,2,3].sort(()=>Math.random()-.5).slice(0,2):[Math.floor(Math.random()*NL)];
+    lanes.forEach(lane=>{const g=new THREE.Group();const b=new THREE.Mesh(new THREE.BoxGeometry(1.9,1.6,2.4),M([0x4a90d9,0xe2763b,0x5ab866,0xb565d9][lane]));b.position.y=1.05;
       const w=new THREE.Mesh(new THREE.BoxGeometry(2,.25,2.5),mat.dark);w.position.y=.18;g.add(b,w);addObj(g,'block',lane,z)});
   }
   // altın dizisi
-  const cl=Math.floor(Math.random()*3);for(let i=0;i<5;i++){const c=new THREE.Mesh(new THREE.TorusGeometry(.32,.1,6,14),mat.gold);c.position.y=1;addObj(c,'coin',cl,z-6-i*2.2)}
+  const cl=Math.floor(Math.random()*NL);for(let i=0;i<5;i++){const c=new THREE.Mesh(new THREE.TorusGeometry(.32,.1,6,14),mat.gold);c.position.y=1;addObj(c,'coin',cl,z-6-i*2.2)}
 }
 function spawnGate(z){
-  if(G.qi>=G.qs.length){G.qs=G.qs.concat(Ortak.sec(G.leg,6,3))}
+  if(G.qi>=G.qs.length){G.qs=G.qs.concat(Ortak.sec(G.leg,6,4))}
   const Q=G.qs[G.qi++];const order=Q.o.map((t,k)=>({t,k})).sort(()=>Math.random()-.5);
   const gate={Q,z,lanes:order,passed:false,meshes:[]};
   order.forEach((op,j)=>{const g=new THREE.Group();const col=new THREE.Color(COLORS[j]);const m=M(col,{emissive:col,emissiveIntensity:.25});
-    const p1=new THREE.Mesh(new THREE.BoxGeometry(.18,3.4,.18),m);p1.position.set(-1.05,1.7,0);const p2=p1.clone();p2.position.x=1.05;
-    const pan=new THREE.Mesh(new THREE.PlaneGeometry(2.3,1.15),new THREE.MeshBasicMaterial({map:panelTex(LETTERS[j],op.t,COLORS[j]),transparent:true}));pan.position.y=3.9;
-    const glow=new THREE.Mesh(new THREE.PlaneGeometry(2,3.3),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.14,side:THREE.DoubleSide,depthWrite:false}));glow.position.y=1.65;
+    const p1=new THREE.Mesh(new THREE.BoxGeometry(.18,3.4,.18),m);p1.position.set(-.98,1.7,0);const p2=p1.clone();p2.position.x=.98;
+    const pan=new THREE.Mesh(new THREE.PlaneGeometry(2.1,1.05),new THREE.MeshBasicMaterial({map:panelTex(LETTERS[j],op.t,COLORS[j]),transparent:true}));pan.position.y=3.9;
+    const glow=new THREE.Mesh(new THREE.PlaneGeometry(1.9,3.3),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.14,side:THREE.DoubleSide,depthWrite:false}));glow.position.y=1.65;
     g.add(p1,p2,pan,glow);g.position.set(LANES[j],0,z);scene.add(g);gate.meshes.push(g)});
   G.gate=gate;
   $('qTopic').textContent=Q.t;$('qInfo').textContent=`Soru ${G.answered+1}`;$('qText').textContent=Q.q;
@@ -186,14 +186,28 @@ function burst(pos,color,n=20){for(let i=0;i<n;i++){const m=new THREE.Mesh(new T
   m.userData.v=new THREE.Vector3((Math.random()-.5)*8,Math.random()*7,(Math.random()-.5)*8);m.userData.l=1;scene.add(m);parts.push(m)}}
 function resolveGate(){
   const gt=G.gate;gt.passed=true;const Q=gt.Q;const op=gt.lanes[G.lane];const ok=op.k===Q.a;G.answered++;
-  const first=!G.missed.includes(Q);Ortak.kaydet(Q,ok,first);
-  gt.lanes.forEach((o,j)=>{const ch=$('chip'+j);if(ch)ch.classList.add(o.k===Q.a?'right':'dim')});
-  if(ok){G.fuel++;if(first)G.firstOk++;G.dist=Math.min(6,G.dist+1);G.speed=Math.min(17,G.speed+.4);Ortak.SES.dogru();flash(true);
+  G.att=G.att||new Map();const n=(G.att.get(Q)||0)+1;G.att.set(Q,n);const first=n===1;
+  if(ok){Ortak.kaydet(Q,true,first);
+    gt.lanes.forEach((o,j)=>{const ch=$('chip'+j);if(ch)ch.classList.add(o.k===Q.a?'right':'dim')});
+    G.fuel++;if(first)G.firstOk++;G.dist=Math.min(6,G.dist+1);G.speed=Math.min(17,G.speed+.4);Ortak.SES.dogru();flash(true);
     burst(gt.meshes[G.lane].position.clone().add(new THREE.Vector3(0,2,0)),0x40e080,26);
     toast(true,['⛽ Bilgi yakıtı alındı!','Tam isabet, kaptan!','Doğru kapı! 🚪'][Math.floor(Math.random()*3)],Q.e);
-  }else{G.dist=Math.max(0,G.dist-1.5);G.missed.push(Q);G.qs.splice(Math.min(G.qi+2,G.qs.length),0,Q);Ortak.SES.yanlis();flash(false);
-    const right=gt.lanes.findIndex(o=>o.k===Q.a);
-    toast(false,'Yanlış kapı! 🦹 Profesör yaklaşıyor',`Doğrusu <b style="display:inline;font-size:15px">${LETTERS[right]}: ${Q.o[Q.a]}</b><br>${Q.e}`)}
+  }else{
+    const fb=Ortak.geriBildirim(Q,op.k,n);Ortak.kaydet(Q,false,first,op.k);
+    if(!G.missed.includes(Q))G.missed.push(Q);flash(false);
+    if(fb.tip==='ipucu'){
+      // ilk yanlış: ceza yok, ipucu + soru bir sonraki kapıda tekrar
+      G.answered--;G.qs.splice(G.qi,0,Q);Ortak.SES.zipla();
+      gt.lanes.forEach((o,j)=>{const ch=$('chip'+j);if(ch&&o.k===op.k)ch.classList.add('dim')});
+      toast(false,'Az kaldı! 💡',`<b style="display:inline;font-size:15px">İpucu:</b> ${fb.metin}<br><span style="font-size:13px">Aynı soru hemen bir sonraki kapıda.</span>`);
+    }else{
+      G.dist=Math.max(0,G.dist-1.5);G.qs.splice(Math.min(G.qi+3,G.qs.length),0,Q);Ortak.SES.yanlis();
+      gt.lanes.forEach((o,j)=>{const ch=$('chip'+j);if(ch)ch.classList.add(o.k===Q.a?'right':'dim')});
+      const right=gt.lanes.findIndex(o=>o.k===Q.a);
+      toast(false,'Birlikte bakalım 📘 Profesör yaklaşıyor',`Doğrusu <b style="display:inline;font-size:15px">${LETTERS[right]}: ${Q.o[Q.a]}</b><br>${fb.metin||Q.e}`);
+      if(G.dist<=0)setTimeout(lose,900);
+    }
+  }
   hud();setTimeout(()=>gt.meshes.forEach(m=>scene.remove(m)),1200);
   if(G.fuel>=G.need)setTimeout(win,1400);
 }
@@ -224,7 +238,7 @@ let si=0;function story(){$('story').textContent=STORY[si%STORY.length];si++}set
 $('mute').onclick=()=>{const v=!Ortak.sessiz();Ortak.sessiz(v);$('mute').textContent=v?'🔇':'🔊'};$('mute').textContent=Ortak.sessiz()?'🔇':'🔊';
 
 // ================= KONTROLLER =================
-function move(d){if(!G||!G.running)return;const n=Math.max(0,Math.min(2,G.lane+d));if(n!==G.lane){G.lane=n}}
+function move(d){if(!G||!G.running)return;const n=Math.max(0,Math.min(NL-1,G.lane+d));if(n!==G.lane){G.lane=n}}
 function jump(){if(!G||!G.running)return;if(G.y<=.01){G.vy=8.2;Ortak.SES.zipla()}}
 function slide(){if(!G||!G.running)return;G.slide=.75;if(G.y>0)G.vy=-12}
 let ts=null;
@@ -276,7 +290,7 @@ function loop(now){requestAnimationFrame(loop);const dt=Math.min(.05,(now-last)/
   road.position.set(0,0,P.z-150);grass.position.set(0,-.02,P.z-150);
   deco.forEach(d=>{if(d.o.position.z>P.z+30)d.o.position.z-=d.span});
   for(let i=parts.length-1;i>=0;i--){const m=parts[i];m.userData.l-=dt*1.3;m.userData.v.y-=12*dt;m.position.addScaledVector(m.userData.v,dt);m.scale.setScalar(Math.max(.01,m.userData.l));if(m.userData.l<=0){scene.remove(m);parts.splice(i,1)}}
-  const cz=P.z+7.6;camera.position.set(lerp(camera.position.x,P.x*.55,dt*5),4.6+(G&&G.won?P.y*.6:0),cz);
+  const cz=P.z+8.4;camera.position.set(lerp(camera.position.x,P.x*.5,dt*5),5.0+(G&&G.won?P.y*.6:0),cz);
   if(G&&G.shake>0){G.shake-=dt;camera.position.x+=(Math.random()-.5)*G.shake}
   camera.lookAt(P.x*.4,1.2+(G&&G.won?P.y*.8:0),P.z-12);
   sun.position.set(P.x+10,30,P.z+10);sun.target.position.copy(P);

@@ -1,182 +1,48 @@
-# Soru bankası kaynağı. Çalıştır: python3 scripts/kaynak/banka.py  → data/sorular.json
-# Müfredat: TYMM 5. sınıf (tymm.meb.gov.tr) — Fen 7 ünite, Matematik 6 tema, Sosyal 6 öğrenme alanı, İngilizce temalar.
-import json
-def Q(t,q,o,a,e): return {"t":t,"q":q,"o":o,"a":a,"e":e}
-old={L['id']:L for L in json.load(open('scripts/kaynak/ilk-banka.json'))}
+# Soru bankası v2 → data/sorular.json + data/kazanimlar.json
+# Çalıştır: python3 scripts/kaynak/banka.py
+import json, glob, os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'v2'))
+from tr import TR; from mat import MAT; from fen import FEN; from sos_ing import SOS, ING; from kazanim import K
 
-TR=old['tr']['qs']+[
-Q("Zıt anlam","\"Cesur\" sözcüğünün zıt anlamlısı hangisi?",["Korkak","Güçlü","Akıllı","Hızlı"],0,"Cesur ↔ korkak. Zıt anlamlılar birbirinin tersini anlatır."),
-Q("Zıt anlam","\"Uzak\" sözcüğünün zıt anlamlısı hangisi?",["Yakın","Geniş","Uzun","Derin"],0,"Uzak ↔ yakın."),
-Q("Eş anlam","\"Okul\" sözcüğünün eş anlamlısı hangisi?",["Mektep","Sınıf","Öğrenci","Kitap"],0,"Okul = mektep (eski kullanım)."),
-Q("Eş anlam","\"Ak\" sözcüğünün eş anlamlısı hangisi?",["Beyaz","Siyah","Temiz","Açık"],0,"Ak = beyaz. (Kara = siyah.)"),
-Q("Eş sesli","\"Yüz\" sözcüğü hangi cümlede SAYI anlamında kullanılmıştır?",["Yüz kişi geldi.","Denizde yüz.","Yüzünü yıka.","Kitabın yüzü yırtık."],0,"Aynı yazılıp farklı anlam taşıyan sözcüklere eş sesli denir. \"Yüz kişi\" sayıdır."),
-Q("Eş sesli","\"Çay\" sözcüğü hangi cümlede AKARSU anlamındadır?",["Çay taştı, köprü yıkıldı.","Bir bardak çay içtim.","Çay bahçesine gittik.","Çay demlendi."],0,"Çay hem içecek hem küçük akarsu demektir."),
-Q("Deyimler","\"Kulak vermek\" ne anlama gelir?",["Dikkatle dinlemek","Kulağını göstermek","Bağırmak","Uyumak"],0,"Kulak vermek: söyleneni dikkatle dinlemek."),
-Q("Deyimler","\"Dört gözle beklemek\" ne demektir?",["Çok istekle beklemek","Gözlük takmak","Sıkılmak","Uyuyakalmak"],0,"Bir şeyi büyük bir özlem ve istekle beklemek."),
-Q("Deyimler","\"Pireyi deve yapmak\" ne anlama gelir?",["Küçük bir şeyi çok büyütmek","Hayvan beslemek","Hızlı koşmak","Yalan söylemek"],0,"Önemsiz bir olayı abartmak."),
-Q("Atasözleri","\"Sakla samanı, gelir zamanı\" atasözü ne öğütler?",["Gereksiz görünen şeyler bir gün işe yarayabilir","Saman toplamak gerekir","Zaman çabuk geçer","Hayvanlara iyi bakmalıyız"],0,"Bugün değersiz sandığımız şey ileride gerekebilir."),
-Q("Atasözleri","\"Bir elin nesi var, iki elin sesi var\" ne anlatır?",["Birlikte çalışmak daha güçlüdür","Alkış yüksek sesli olur","İki elle yazmak gerekir","Yalnız çalışmak iyidir"],0,"Yardımlaşma ve dayanışmanın gücünü anlatır."),
-Q("Atasözü mü deyim mi?","Hangisi bir ATASÖZÜDÜR?",["Ağaç yaşken eğilir.","Göz atmak","Kulak vermek","Etekleri zil çalmak"],0,"Atasözleri öğüt veren yargı cümleleridir. Diğerleri deyimdir."),
-Q("Terim anlam","\"Açı\" sözcüğü hangi cümlede matematik TERİMİ olarak kullanılmıştır?",["Üçgenin bir açısı 90 derecedir.","Olaya farklı bir açıdan bak.","Bu konuda bakış açın çok farklı.","Sorunu başka bir açıdan düşün."],0,"Matematikteki \"açı\" bir terimdir."),
-Q("de / da","Hangisinde \"de\" doğru yazılmıştır?",["Ben de geleceğim.","Bende geleceğim.","Okul da ders var.","Ev de kaldım."],0,"\"Ben de\" (bağlaç, ayrı yazılır). \"Okulda\" ise bitişik yazılmalı."),
-Q("de / da","\"Kitabı masada bıraktım.\" cümlesindeki \"da\" nasıl yazılır?",["Bitişik, çünkü yer bildiriyor","Ayrı, çünkü bağlaç","Kesme işaretiyle","Hiç yazılmaz"],0,"Bulunma eki \"-da\" (masada) bitişik yazılır."),
-Q("Soru eki mi","Soru eki \"mi\" hangisinde doğru yazılmıştır?",["Geldin mi?","Geldinmi?","Gel mi din?","Geldin-mi?"],0,"Soru eki \"mi\" her zaman ayrı yazılır."),
-Q("Noktalama","Soru cümlesinin sonuna hangi işaret konur?",["Soru işareti (?)","Nokta (.)","Virgül (,)","Ünlem (!)"],0,"Soru bildiren cümleler soru işaretiyle biter."),
-Q("Noktalama","Sevinç, korku, şaşırma bildiren cümlelerin sonuna hangisi konur?",["Ünlem (!)","Virgül (,)","Noktalı virgül (;)","İki nokta (:)"],0,"Duygu bildiren cümleler ünlemle biter: Ne güzel!"),
-Q("Noktalama","\"Elma, armut ve muz aldım.\" cümlesinde virgül neden kullanılmıştır?",["Sıralanan sözcükleri ayırmak için","Cümleyi bitirmek için","Soru sormak için","Konuşmayı başlatmak için"],0,"Eş görevli sözcükleri ayırmak için virgül kullanılır."),
-Q("Kesme işareti","Hangisinde kesme işareti doğru kullanılmıştır?",["Ankara'ya gittik.","Okul'a gittik.","Kitap'ı okudum.","Ev'de kaldım."],0,"Özel adlara gelen ekler kesmeyle ayrılır; cins adlara kesme konmaz."),
-Q("Büyük harf","Hangisi büyük harfle başlamalıdır?",["Özel isimler (Ege, Bodrum)","Her sözcük","Fiiller","Sıfatlar"],0,"Kişi, yer, kurum adları gibi özel isimler büyük harfle başlar."),
-Q("Ana fikir","Bir metnin ana fikri nedir?",["Yazarın okura vermek istediği temel mesaj","Metnin ilk cümlesi","Metindeki en uzun paragraf","Metnin başlığı"],0,"Ana fikir, metnin bize verdiği asıl mesajdır."),
-Q("Hikâyenin unsurları","\"Geçen yaz, Bodrum'da\" ifadeleri hikâyenin hangi unsurlarını verir?",["Zaman ve yer","Kişi ve olay","Olay ve zaman","Kişi ve yer"],0,"\"Geçen yaz\" zaman, \"Bodrum'da\" yer bildirir."),
-Q("Sebep-sonuç","Hangisi sebep-sonuç cümlesidir?",["Yağmur yağdığı için maç ertelendi.","Yarın maç var.","Maç çok güzeldi.","Maça gidelim mi?"],0,"\"…için\" sebebi, \"maç ertelendi\" sonucu verir."),
-Q("Öznel / nesnel","Hangisi NESNEL (kanıtlanabilir) bir yargıdır?",["Türkiye'nin başkenti Ankara'dır.","En güzel şehir İzmir'dir.","Bu film çok sıkıcı.","Pizza en lezzetli yemektir."],0,"Nesnel yargılar kişiden kişiye değişmez, doğrulanabilir."),
-Q("Öznel / nesnel","Hangisi ÖZNEL bir yargıdır?",["Bu kitap çok eğlenceli.","Kitap 120 sayfadır.","Kitabı Mehmet yazdı.","Kitap 2020'de basıldı."],0,"\"Eğlenceli\" kişisel bir görüştür, herkese göre değişebilir."),
-Q("Gerçek / mecaz","\"Tatlı bir konuşması var.\" cümlesinde \"tatlı\" hangi anlamda?",["Mecaz","Gerçek","Terim","Zıt"],0,"Konuşmanın tadı olmaz; \"hoş, sevimli\" anlamında mecazdır."),
-Q("İkileme","\"Sağa sola bakarak karşıya geçti.\" cümlesindeki ikileme hangisi?",["sağa sola","bakarak","karşıya geçti","geçti"],0,"Zıt anlamlı iki sözcükle de ikileme kurulur: sağa sola."),
-Q("Pekiştirme","\"Bembeyaz\" hangi sözcüğün pekiştirilmiş hâlidir?",["beyaz","bem","ben","beyin"],0,"Bem + beyaz = bembeyaz."),
-]
+# .py setlerini JSON'a dök (otomatik akış doğrudan JSON yazar)
+for f in glob.glob(os.path.join(os.path.dirname(__file__), 'v2', 'set_*.py')):
+    ns = {}; exec(open(f).read(), {'__name__': 'set', 'S': __import__('ortak').S}, ns)
+    s = ns['SET']; json.dump(s, open(f"data/setler/{s['id']}.json", 'w'), ensure_ascii=False, indent=1)
+SETS = [json.load(open(f)) for f in sorted(glob.glob('data/setler/*.json'))]
 
-MAT=old['mat']['qs']+[
-Q("Doğal sayılar","5 234 018 sayısında 2 rakamının basamak değeri nedir?",["200 000","2 000","20 000","2 000 000"],0,"2, yüz binler basamağında: 2 × 100 000 = 200 000."),
-Q("Doğal sayılar","\"Üç milyon kırk bin beş\" sayısı nasıl yazılır?",["3 040 005","3 400 005","3 040 050","340 005"],0,"3 milyon + 40 bin + 5 = 3 040 005."),
-Q("Kesirler","Bir pizzanın 3/8'ini yedik. Kaç dilimi kaldı? (8 dilim)",["5","3","8","4"],0,"8 − 3 = 5 dilim kaldı, yani 5/8."),
-Q("Kesirler","Hangisi 1/2'ye eşittir?",["4/8","2/3","3/4","1/4"],0,"4/8 sadeleşince 1/2 olur."),
-Q("Kesirler","Hangisi en büyüktür?",["3/4","1/2","1/4","2/8"],0,"3/4 = 0,75 en büyüktür."),
-Q("İşlem önceliği","3 + 4 × 2 işleminin sonucu kaçtır?",["11","14","10","9"],0,"Önce çarpma: 4 × 2 = 8, sonra 3 + 8 = 11."),
-Q("İşlem önceliği","(3 + 4) × 2 işleminin sonucu kaçtır?",["14","11","10","24"],0,"Önce parantez: 7 × 2 = 14."),
-Q("Örüntü","2, 5, 8, 11, … örüntüsünde sıradaki sayı kaçtır?",["14","13","15","12"],0,"Her adımda 3 artıyor: 11 + 3 = 14."),
-Q("Örüntü","1, 2, 4, 8, … örüntüsünde sıradaki sayı kaçtır?",["16","10","12","14"],0,"Her adımda 2 ile çarpılıyor: 8 × 2 = 16."),
-Q("Üçgenler","Üç kenarı da eşit olan üçgene ne denir?",["Eşkenar üçgen","İkizkenar üçgen","Çeşitkenar üçgen","Dik üçgen"],0,"Bütün kenarları eşit: eşkenar üçgen."),
-Q("Üçgenler","Yalnızca iki kenarı eşit olan üçgene ne denir?",["İkizkenar üçgen","Eşkenar üçgen","Çeşitkenar üçgen","Geniş üçgen"],0,"İki kenarı eşit: ikizkenar üçgen."),
-Q("Üçgenler","Kenarları 4, 6 ve 9 cm olan üçgen hangisidir?",["Çeşitkenar","İkizkenar","Eşkenar","Hiçbiri"],0,"Tüm kenarları farklı: çeşitkenar."),
-Q("Dörtgenler","Karşılıklı kenarları paralel ve eşit, tüm açıları 90° olan dörtgen hangisidir?",["Dikdörtgen","Yamuk","Eşkenar dörtgen","Deltoid"],0,"Dikdörtgenin tüm açıları dik açıdır."),
-Q("Geometrik nicelikler","Kenarları 6 cm ve 4 cm olan dikdörtgenin çevresi kaç cm'dir?",["20","24","10","48"],0,"Çevre = 2 × (6 + 4) = 20 cm."),
-Q("Geometrik nicelikler","Kenarları 6 cm ve 4 cm olan dikdörtgenin alanı kaç cm²'dir?",["24","20","10","12"],0,"Alan = 6 × 4 = 24 cm²."),
-Q("Geometrik nicelikler","Bir kenarı 5 cm olan karenin alanı kaç cm²'dir?",["25","20","10","15"],0,"Alan = 5 × 5 = 25 cm²."),
-Q("Veri","Bir sınıfta en çok tercih edilen meyveyi bulmak için hangisine bakılır?",["En çok tekrar eden veriye (tepe değer)","En küçük sayıya","Toplama","Ortadaki sayıya"],0,"En çok tekrar eden değere tepe değer (mod) denir."),
-Q("Olasılık","\"Yarın güneş doğudan doğacak.\" olayı nasıl bir olaydır?",["Kesin olay","İmkânsız olay","Olası olay","Şanslı olay"],0,"Mutlaka gerçekleşecek olaya kesin olay denir."),
-Q("Olasılık","Bir zarı atınca 7 gelmesi nasıl bir olaydır?",["İmkânsız olay","Kesin olay","Olası olay","Eşit olay"],0,"Zarda 7 yoktur; hiç gerçekleşmeyecek olay imkânsızdır."),
-Q("Olasılık","Bir madeni parayı atınca yazı gelmesi nasıl bir olaydır?",["Olası (gelebilir de gelmeyebilir de)","Kesin","İmkânsız","Hiçbiri"],0,"Yazı da tura da gelebilir: olası olay."),
+LEGS = [
+ dict(id='tr', title='İstanbul → Londra', ders='Türkçe', icon='📘', **{'from': 'İstanbul'}, to='Londra', vehicle='plane', qs=list(TR)),
+ dict(id='mat', title='Londra → New York', ders='Matematik', icon='📐', **{'from': 'Londra'}, to='New York', vehicle='plane', qs=list(MAT), gen=True),
+ dict(id='fen', title='New York → Ay 🌙', ders='Fen Bilimleri', icon='🚀', **{'from': 'New York'}, to='Ay', vehicle='rocket', qs=list(FEN)),
+ dict(id='sos', title='Ay → Kapadokya', ders='Sosyal Bilgiler', icon='🗺️', **{'from': 'Ay'}, to='Kapadokya', vehicle='plane', qs=list(SOS)),
+ dict(id='ing', title='Kapadokya → Tokyo', ders='İngilizce', icon='🇬🇧', **{'from': 'Kapadokya'}, to='Tokyo', vehicle='plane', qs=list(ING)),
 ]
+by = {L['id']: L for L in LEGS}
+odev = []
+for s in SETS:
+    for q in s['sorular']:
+        q = dict(q); q['set'] = s['id']
+        by[s['ders']]['qs'].append(q)
+        odev.append(q)
+if odev:
+    LEGS.append(dict(id='odev', title='Ödev Görevi ⭐', ders='Ödev Görevi', icon='📸', **{'from': 'Ödev'}, to='Usta', vehicle='plane', qs=odev,
+                     setler=[{k: s[k] for k in ('id', 'baslik', 'ders', 'kazanimlar')} for s in SETS]))
 
-FEN=old['fen']['qs']+[
-Q("Güneş","Güneş'e çıplak gözle bakmak neden tehlikelidir?",["Gözlere kalıcı zarar verebilir","Güneş söner","Hava kararır","Hiçbir zararı yoktur"],0,"Güneş ışınları göze zarar verir; asla doğrudan bakılmaz."),
-Q("Güneş, Dünya, Ay","Büyükten küçüğe doğru sıralama hangisidir?",["Güneş – Dünya – Ay","Dünya – Güneş – Ay","Ay – Dünya – Güneş","Güneş – Ay – Dünya"],0,"Güneş en büyük, Ay en küçüktür."),
-Q("Ay","Ay kendi ekseni etrafında dönerken Dünya'dan Ay'ın hep hangi yüzünü görürüz?",["Hep aynı yüzünü","Her gece farklı yüzünü","Hiçbir yüzünü","Yarısını bir gün, yarısını öbür gün"],0,"Ay'ın dönme ve dolanma süreleri eşit olduğu için hep aynı yüzü bize bakar."),
-Q("Kuvvet","Kuvvet nedir?",["İtme veya çekme etkisi","Bir tür enerji kaynağı","Cismin rengi","Cismin sıcaklığı"],0,"Kuvvet, cisimlere uygulanan itme veya çekmedir."),
-Q("Kuvvet","Kuvvet hangi araçla ölçülür?",["Dinamometre","Termometre","Cetvel","Barometre"],0,"Kuvvet dinamometre ile ölçülür."),
-Q("Kuvvet","Kuvvetin birimi nedir?",["Newton (N)","Kilogram (kg)","Metre (m)","Derece (°C)"],0,"Kuvvet birimi Newton'dur."),
-Q("Kuvvet","Hangisi kuvvetin bir etkisi DEĞİLDİR?",["Cismin rengini değiştirmek","Durgun cismi hareket ettirmek","Cismin yönünü değiştirmek","Cismin şeklini değiştirmek"],0,"Kuvvet hareket, yön, hız ve şekil değiştirebilir; rengi değiştirmez."),
-Q("Kütle ve ağırlık","Ay'a giden bir astronotun KÜTLESİ ne olur?",["Değişmez","Artar","Azalır","Sıfır olur"],0,"Kütle madde miktarıdır; nerede olursa olsun değişmez."),
-Q("Kütle ve ağırlık","Ay'a giden bir astronotun AĞIRLIĞI ne olur?",["Azalır (yaklaşık 6'da 1'i)","Artar","Değişmez","İki katına çıkar"],0,"Ay'ın çekim kuvveti Dünya'nınkinin yaklaşık 6'da 1'i kadardır."),
-Q("Kütle ve ağırlık","Ağırlık hangi birimle ölçülür?",["Newton","Kilogram","Litre","Saniye"],0,"Ağırlık bir kuvvettir, birimi Newton'dur. Kütle ise kilogramla ölçülür."),
-Q("Sürtünme","Sürtünme kuvveti harekete göre hangi yöndedir?",["Hareketin tersi yönünde","Hareketle aynı yönde","Yukarı doğru","Yönü yoktur"],0,"Sürtünme hareketi zorlaştırır, ters yönde etki eder."),
-Q("Sürtünme","Hangi yüzeyde sürtünme en FAZLADIR?",["Pürüzlü toprak yol","Buz","Cilalı parke","Islak kaygan zemin"],0,"Yüzey ne kadar pürüzlüyse sürtünme o kadar fazladır."),
-Q("Sürtünme","Kışın yollara kum veya tuz dökülmesinin amacı nedir?",["Sürtünmeyi artırıp kaymayı önlemek","Yolu süslemek","Sürtünmeyi azaltmak","Karı hızlı eritmek için hiçbir şey yapmamak"],0,"Kum sürtünmeyi artırır, araçların kaymasını önler."),
-Q("Hücre","Canlıların en küçük yapı birimi nedir?",["Hücre","Doku","Organ","Sistem"],0,"Tüm canlılar hücrelerden oluşur."),
-Q("Hücre","Hücreyi incelemek için hangi araç kullanılır?",["Mikroskop","Teleskop","Dürbün","Dinamometre"],0,"Hücreler çok küçüktür; mikroskopla görülür."),
-Q("Hücre","Hangisi bitki hücresinde olup hayvan hücresinde BULUNMAZ?",["Hücre duvarı ve kloroplast","Hücre zarı","Çekirdek","Sitoplazma"],0,"Hücre duvarı ve kloroplast yalnızca bitki hücresinde bulunur."),
-Q("Hücre","Hücrenin yönetim merkezi hangisidir?",["Çekirdek","Hücre zarı","Sitoplazma","Hücre duvarı"],0,"Çekirdek, hücrenin faaliyetlerini yönetir."),
-Q("Destek ve hareket","Vücudumuza şekil veren ve organları koruyan sistem hangisidir?",["İskelet sistemi","Sindirim sistemi","Dolaşım sistemi","Boşaltım sistemi"],0,"İskelet vücuda şekil verir ve organları korur."),
-Q("Destek ve hareket","Kemiklerin birleşme yerlerine ne denir?",["Eklem","Kas","Kıkırdak","Damar"],0,"Kemiklerin birleştiği yerler eklemdir."),
-Q("Destek ve hareket","Kalp kası nasıl çalışır?",["İsteğimiz dışında (istemsiz)","Biz istedikçe","Sadece uyurken","Sadece koşarken"],0,"Kalp kası istemsiz çalışır, hiç durmaz."),
-Q("Işık","Hangisi DOĞAL ışık kaynağıdır?",["Güneş","Ampul","El feneri","Mum"],0,"Güneş doğal; ampul, fener, mum insan yapımı (yapay) kaynaklardır."),
-Q("Işık","Ay neden ışık kaynağı DEĞİLDİR?",["Kendi ışığını üretmez, yansıtır","Çok uzaktadır","Çok küçüktür","Soğuktur"],0,"Ay, Güneş'ten aldığı ışığı yansıtır."),
-Q("Işık","Işık nasıl yayılır?",["Doğrusal olarak (düz çizgiler hâlinde)","Daireler çizerek","Sadece aşağı doğru","Zikzak yaparak"],0,"Işık her yöne doğrusal yayılır."),
-Q("Işık","Işığı hiç geçirmeyen maddelere ne denir?",["Opak (saydam olmayan)","Saydam","Yarı saydam","Parlak"],0,"Tahta, taş gibi maddeler opaktır; gölge oluşturur."),
-Q("Işık","Pencere camı ışığı nasıl geçirir?",["Saydamdır, büyük kısmını geçirir","Hiç geçirmez","Opaktır","Yarı saydamdır"],0,"Temiz pencere camı saydamdır."),
-Q("Işık","Buzlu cam ışığı nasıl geçirir?",["Yarı saydamdır, bir kısmını geçirir","Tamamını geçirir","Hiç geçirmez","Işığı üretir"],0,"Buzlu cam, yağlı kâğıt yarı saydamdır."),
-Q("Işık","Gölge nasıl oluşur?",["Opak bir cisim ışığın yolunu kestiğinde","Saydam cisimden ışık geçince","Karanlıkta kendiliğinden","Işık kaynağı olmadan"],0,"Opak cisim ışığı engeller, arkasında gölge oluşur."),
-Q("Madde","Maddenin üç hâli hangisidir?",["Katı, sıvı, gaz","Sert, yumuşak, sıvı","Sıcak, ılık, soğuk","Ağır, hafif, orta"],0,"Maddeler katı, sıvı ve gaz hâlinde bulunur."),
-Q("Madde","Buzun ısı alarak suya dönüşmesine ne denir?",["Erime","Donma","Buharlaşma","Yoğuşma"],0,"Katının ısı alıp sıvı olmasına erime denir."),
-Q("Madde","Suyun ısı vererek buza dönüşmesine ne denir?",["Donma","Erime","Kaynama","Yoğuşma"],0,"Sıvının ısı verip katı olmasına donma denir."),
-Q("Madde","Soğuk bardağın dışında su damlacıkları oluşmasına ne denir?",["Yoğuşma","Erime","Donma","Buharlaşma"],0,"Havadaki su buharı soğuk yüzeyde sıvıya döner: yoğuşma."),
-Q("Madde","Maddeler ısıtıldığında genellikle ne olur?",["Genleşir (hacmi büyür)","Büzülür","Ağırlaşır","Kaybolur"],0,"Isınan maddeler genleşir, soğuyanlar büzülür."),
-Q("Madde","Sıcaklık hangi araçla ölçülür?",["Termometre","Dinamometre","Terazi","Cetvel"],0,"Termometre sıcaklığı derece (°C) cinsinden ölçer."),
-Q("Elektrik","Basit bir elektrik devresinde ampulün yanması için ne gerekir?",["Devrenin kapalı olması (anahtar kapalı)","Anahtarın açık olması","Pilin çıkarılması","Kablonun kesilmesi"],0,"Akım ancak kapalı devrede dolaşır."),
-Q("Elektrik","Devrede elektrik enerjisi sağlayan eleman hangisidir?",["Pil","Ampul","Anahtar","Kablo"],0,"Pil, devrenin enerji kaynağıdır."),
-Q("Elektrik","Hangisi elektriği İLETİR?",["Bakır tel","Plastik","Tahta","Cam"],0,"Metaller iletkendir; plastik, tahta, cam yalıtkandır."),
-Q("Elektrik","Islak elle prize dokunmak neden tehlikelidir?",["Su elektriği iletir, çarpılabiliriz","Priz kirlenir","Su buharlaşır","Hiçbir tehlikesi yoktur"],0,"Su elektriği iletir; ıslak elle elektrikli aletlere dokunulmaz."),
-Q("Geri dönüşüm","Hangisi geri dönüştürülebilir?",["Cam şişe","Muz kabuğu","Kullanılmış peçete","Yemek artığı"],0,"Cam, kâğıt, plastik ve metal geri dönüştürülebilir."),
-Q("Geri dönüşüm","Biten piller nereye atılmalıdır?",["Atık pil toplama kutusuna","Çöp kutusuna","Toprağa","Denize"],0,"Piller doğaya zararlıdır; ayrı toplanır."),
-Q("Sürdürülebilir yaşam","Hangisi su tasarrufu sağlar?",["Diş fırçalarken musluğu kapatmak","Musluğu açık bırakmak","Uzun duş almak","Bahçeyi öğlen sulamak"],0,"Kullanmadığımız anda musluğu kapatmak suyu korur."),
-]
-
-SOS=[
-Q("Birlikte yaşamak","Ailede, okulda ve arkadaş grubunda üstlendiğimiz görevlere ne denir?",["Rol","Hak","Kural","Ödül"],0,"Bulunduğumuz grupta üstlendiğimiz görevlere rol denir."),
-Q("Birlikte yaşamak","Hangisi bir öğrencinin SORUMLULUĞUDUR?",["Okul kurallarına uymak","Oyun oynamak","Eğitim almak","Sağlıklı yaşamak"],0,"Kurallara uymak sorumluluktur; eğitim almak ise bir haktır."),
-Q("Birlikte yaşamak","Hangisi her çocuğun HAKKIDIR?",["Eğitim almak","Ev işlerini yapmak","Ödev yapmak","Sınıfı temizlemek"],0,"Eğitim hakkı tüm çocukların temel hakkıdır."),
-Q("Evimiz Dünya","Ana yönler hangileridir?",["Kuzey, Güney, Doğu, Batı","Sağ, Sol, Ön, Arka","Kuzeydoğu, Güneybatı","Yukarı, Aşağı"],0,"Dört ana yön: kuzey, güney, doğu, batı."),
-Q("Evimiz Dünya","Güneş hangi yönden doğar?",["Doğu","Batı","Kuzey","Güney"],0,"Güneş doğudan doğar, batıdan batar."),
-Q("Evimiz Dünya","Kuzey ile doğu arasındaki ara yön hangisidir?",["Kuzeydoğu","Güneybatı","Kuzeybatı","Güneydoğu"],0,"Kuzey + doğu arası: kuzeydoğu."),
-Q("Evimiz Dünya","Türkiye kaç coğrafi bölgeye ayrılır?",["7","5","9","81"],0,"Türkiye 7 coğrafi bölgeden ve 81 ilden oluşur."),
-Q("Evimiz Dünya","Türkiye'nin başkenti neresidir?",["Ankara","İstanbul","İzmir","Bursa"],0,"Başkentimiz Ankara'dır."),
-Q("Evimiz Dünya","Haritada yerlerin gösterildiği küçültme oranına ne denir?",["Ölçek","Lejant","Pusula","Yön oku"],0,"Ölçek, gerçek uzunluğun haritada kaç kez küçültüldüğünü gösterir."),
-Q("Evimiz Dünya","Haritadaki işaretlerin anlamlarını açıklayan bölüme ne denir?",["Lejant (açıklama)","Ölçek","Başlık","Kroki"],0,"Lejant, harita işaretlerini açıklar."),
-Q("Afetler","Deprem anında ne yapılmalıdır?",["Çök – Kapan – Tutun","Merdivenlerden koşarak inmek","Asansöre binmek","Pencereden atlamak"],0,"Deprem sırasında çök, kapan, tutun hareketi yapılır."),
-Q("Afetler","Acil durumda hangi numara aranır?",["112","155","110","156"],0,"Türkiye'de tüm acil durumlar için 112 aranır."),
-Q("Ortak mirasımız","Göbeklitepe hangi ilimizdedir?",["Şanlıurfa","Konya","Çorum","İzmir"],0,"Göbeklitepe Şanlıurfa'dadır; bilinen en eski tapınak alanlarındandır."),
-Q("Ortak mirasımız","Çatalhöyük hangi ilimizdedir?",["Konya","Şanlıurfa","Ankara","Çanakkale"],0,"Çatalhöyük, Konya'da bulunan çok eski bir yerleşim yeridir."),
-Q("Ortak mirasımız","Truva (Troya) antik kenti hangi ilimizdedir?",["Çanakkale","İzmir","Antalya","Muğla"],0,"Truva antik kenti Çanakkale'dedir."),
-Q("Ortak mirasımız","Geçmişten bugüne aktarılan gelenek, eser ve değerlere ne denir?",["Kültürel miras","Doğal kaynak","Teknoloji","Ekonomi"],0,"Atalarımızdan kalan maddi ve manevi değerler kültürel mirastır."),
-Q("Yaşayan demokrasi","TBMM hangi tarihte açılmıştır?",["23 Nisan 1920","29 Ekim 1923","19 Mayıs 1919","30 Ağustos 1922"],0,"TBMM 23 Nisan 1920'de açıldı; bu gün çocuklara armağan edildi."),
-Q("Yaşayan demokrasi","Cumhuriyet hangi tarihte ilan edildi?",["29 Ekim 1923","23 Nisan 1920","10 Kasım 1938","30 Ağustos 1922"],0,"Cumhuriyet 29 Ekim 1923'te ilan edildi."),
-Q("Yaşayan demokrasi","Sınıf başkanını oyla seçmek hangi yönetim anlayışına örnektir?",["Demokrasi","Krallık","Rastgele seçim","Zorla atama"],0,"Seçimle yönetici belirlemek demokrasinin temelidir."),
-Q("Yaşayan demokrasi","Atatürk hangi yıl doğmuştur?",["1881","1919","1923","1938"],0,"Mustafa Kemal Atatürk 1881'de Selanik'te doğdu."),
-Q("Ekonomi","Hangisi bir İHTİYAÇTIR?",["Yemek yemek","Yeni oyun konsolu","Üçüncü bir ayakkabı","Pahalı oyuncak"],0,"Yaşamak için gerekli olanlar ihtiyaçtır; diğerleri istektir."),
-Q("Ekonomi","Gelecekte kullanmak için paranın bir kısmını biriktirmeye ne denir?",["Tasarruf","Borç","Harcama","İsraf"],0,"Paranın bir kısmını biriktirmek tasarruftur."),
-Q("Ekonomi","Bilinçli bir tüketici alışverişte ne yapar?",["Fiş/fatura alır, son kullanma tarihine bakar","Her gördüğünü alır","Fiyata hiç bakmaz","Fiş istemez"],0,"Fiş almak tüketici haklarımızı korur."),
-Q("Ekonomi","Gelir ve giderlerin planlandığı listeye ne denir?",["Bütçe","Fatura","Fiş","Senet"],0,"Bütçe, gelir ve giderlerin planıdır."),
-Q("Teknoloji","İnternette tanımadığımız biri adresimizi sorarsa ne yapmalıyız?",["Vermemeli, bir büyüğümüze haber vermeliyiz","Hemen vermeliyiz","Telefon numaramızı da vermeliyiz","Fotoğrafımızı göndermeliyiz"],0,"Kişisel bilgilerimizi internette paylaşmayız."),
-Q("Bilim insanları","2015'te Nobel Kimya Ödülü'nü kazanan Türk bilim insanı kimdir?",["Aziz Sancar","Cahit Arf","Ali Kuşçu","Piri Reis"],0,"Aziz Sancar, DNA onarımı çalışmalarıyla Nobel Kimya Ödülü'nü kazandı."),
-Q("Bilim insanları","Ünlü dünya haritasını çizen Osmanlı denizcisi kimdir?",["Piri Reis","Ali Kuşçu","Uluğ Bey","Cahit Arf"],0,"Piri Reis'in 1513 tarihli dünya haritası çok ünlüdür."),
-Q("Bilim insanları","\"Arf değişmezi\" ile tanınan Türk matematikçi kimdir?",["Cahit Arf","Aziz Sancar","Piri Reis","Mimar Sinan"],0,"Cahit Arf, dünyaca tanınan matematikçimizdir."),
-]
-
-ING=[
-Q("Classroom life","Which day comes after Monday?",["Tuesday","Sunday","Thursday","Friday"],0,"Monday → Tuesday (Pazartesi → Salı)."),
-Q("Classroom life","Which day comes before Saturday?",["Friday","Sunday","Monday","Wednesday"],0,"Friday → Saturday (Cuma → Cumartesi)."),
-Q("Classroom life","\"Çarşamba\" in English?",["Wednesday","Thursday","Tuesday","Weekend"],0,"Wednesday = Çarşamba."),
-Q("Classroom life","What time is it? 🕞 (3:30)",["It's half past three.","It's three o'clock.","It's quarter past three.","It's half past four."],0,"3:30 = half past three (üçü buçuk)."),
-Q("Classroom life","What time is it? 🕗 (8:00)",["It's eight o'clock.","It's half past eight.","It's eight past.","It's quarter to eight."],0,"Tam saat: o'clock."),
-Q("Classroom life","\"Silgi\" in English?",["Eraser / Rubber","Ruler","Pencil case","Sharpener"],0,"Eraser (rubber) = silgi; ruler = cetvel."),
-Q("Classroom life","\"Cetvel\" in English?",["Ruler","Eraser","Scissors","Notebook"],0,"Ruler = cetvel."),
-Q("Classroom life","Which is a classroom RULE?",["Don't run in the classroom.","I like pizza.","She is tall.","It's sunny."],0,"Rules: \"Don't run\", \"Raise your hand\" gibi emir cümleleri."),
-Q("Classroom life","Which school subject is about numbers?",["Maths","Science","Art","Music"],0,"Maths (mathematics) = matematik."),
-Q("Classroom life","\"Science\" dersi Türkçede hangisidir?",["Fen bilimleri","Sosyal bilgiler","Beden eğitimi","Görsel sanatlar"],0,"Science = fen bilimleri."),
-Q("Classroom life","\"Can I open the window?\" ne demektir?",["Pencereyi açabilir miyim?","Pencere açık mı?","Pencereyi kapat.","Pencere nerede?"],0,"\"Can I …?\" izin istemek için kullanılır."),
-Q("School life","She is from Germany. She is ___.",["German","Germanian","Germany","Germish"],0,"Germany → German (Almanya → Alman)."),
-Q("School life","He is from Japan. He is ___.",["Japanese","Japanish","Japan","Japanian"],0,"Japan → Japanese."),
-Q("School life","I am from Türkiye. I am ___.",["Turkish","Turkian","Turkey","Turkese"],0,"Türkiye → Turkish."),
-Q("School life","He is from Italy. He is ___.",["Italian","Italish","Italese","Italy"],0,"Italy → Italian."),
-Q("School life","Which is a school CLUB?",["Chess club","Teacher","Classroom","Lunch"],0,"Chess club = satranç kulübü."),
-Q("Personal life","\"I can swim.\" ne demektir?",["Yüzebilirim.","Yüzemem.","Yüzüyorum.","Yüzmeyi sevmem."],0,"can = -ebilmek (yetenek)."),
-Q("Personal life","\"She can't play the guitar.\" ne demektir?",["Gitar çalamaz.","Gitar çalabilir.","Gitar çalıyor.","Gitar çalmayı sever."],0,"can't = -emez."),
-Q("Personal life","Which word describes appearance (görünüş)?",["Tall","Kind","Funny","Clever"],0,"Tall (uzun boylu) dış görünüştür; kind, funny, clever kişilik özellikleridir."),
-Q("Personal life","\"He has got curly hair.\" ne demektir?",["Kıvırcık saçları var.","Düz saçları var.","Saçı yok.","Uzun boylu."],0,"curly = kıvırcık, straight = düz."),
-Q("Family life","My mother's sister is my ___.",["Aunt","Uncle","Cousin","Grandmother"],0,"Annenin ya da babanın kız kardeşi: aunt (teyze/hala)."),
-Q("Family life","My father's father is my ___.",["Grandfather","Uncle","Brother","Cousin"],0,"Grandfather = dede."),
-Q("Family life","My aunt's son is my ___.",["Cousin","Brother","Nephew","Uncle"],0,"Teyzenin/halanın çocuğu: cousin (kuzen)."),
-Q("Life in nature","Where do polar bears live?",["In the Arctic (cold places)","In the desert","In the jungle","In the city"],0,"Kutup ayıları soğuk Kuzey Kutbu bölgesinde yaşar."),
-Q("Life in nature","Where do camels live?",["In the desert","In the sea","In the Arctic","In the forest"],0,"Develer çölde yaşar."),
-Q("Life in nature","Which animal can fly?",["Eagle","Fish","Elephant","Horse"],0,"Eagle = kartal, uçabilir."),
-Q("Life in nature","\"Ağaç\" in English?",["Tree","Leaf","Flower","Grass"],0,"Tree = ağaç; leaf = yaprak."),
-Q("Life in nature","Which one lives in the sea?",["Dolphin","Monkey","Camel","Rabbit"],0,"Dolphin = yunus, denizde yaşar."),
-]
-
-LEGS=[
- dict(id='tr',title='İstanbul → Londra',ders='Türkçe',icon='📘',from_='İstanbul',to='Londra',vehicle='plane',qs=TR),
- dict(id='mat',title='Londra → New York',ders='Matematik',icon='📐',from_='Londra',to='New York',vehicle='plane',qs=MAT,gen=True),
- dict(id='fen',title='New York → Ay 🌙',ders='Fen Bilimleri',icon='🚀',from_='New York',to='Ay',vehicle='rocket',qs=FEN),
- dict(id='sos',title='Ay → Kapadokya',ders='Sosyal Bilgiler',icon='🗺️',from_='Ay',to='Kapadokya',vehicle='plane',qs=SOS),
- dict(id='ing',title='Kapadokya → Tokyo',ders='İngilizce',icon='🇬🇧',from_='Kapadokya',to='Tokyo',vehicle='plane',qs=ING),
-]
+hata, uyari = [], []
 for L in LEGS:
-    L['from']=L.pop('from_')
-    seen=set()
+    seen = set()
     for q in L['qs']:
-        assert 0<=q['a']<len(q['o']),q
-        assert len(set(q['o']))==len(q['o']),q
-        assert q['q'] not in seen,q['q']; seen.add(q['q'])
-json.dump(LEGS,open('data/sorular.json','w'),ensure_ascii=False,indent=1)
-print({L['id']:len(L['qs']) for L in LEGS}, 'toplam', sum(len(L['qs']) for L in LEGS))
+        if len(q['o']) != 4: hata.append(f"{L['id']}: 4 şık değil: {q['q']}")
+        if not 0 <= q['a'] < len(q['o']): hata.append(f"a hatalı: {q['q']}")
+        if len(set(q['o'])) != len(q['o']): hata.append(f"tekrar eden şık: {q['q']}")
+        if q['q'] in seen and L['id'] != 'odev': hata.append(f"tekrar eden soru: {q['q']}")
+        seen.add(q['q'])
+        if q.get('k') not in K: uyari.append(f"kazanım katalogda yok: {q.get('k')} — {q['q'][:50]}")
+        for i in range(len(q['o'])):
+            if i != q['a'] and str(i) not in q.get('yan', {}): hata.append(f"yanılgı eksik ({i}): {q['q']}")
+        if not q.get('ip'): hata.append(f"ipucu yok: {q['q']}")
+if hata: print('\n'.join(hata)); sys.exit(1)
+json.dump(LEGS, open('data/sorular.json', 'w'), ensure_ascii=False, indent=1)
+json.dump(K, open('data/kazanimlar.json', 'w'), ensure_ascii=False, indent=1)
+print({L['id']: len(L['qs']) for L in LEGS}, 'toplam', sum(len(L['qs']) for L in LEGS if L['id'] != 'odev'), '| set:', len(SETS))
+if uyari: print('UYARI:', *uyari, sep='\n  ')

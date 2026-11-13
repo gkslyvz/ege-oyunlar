@@ -1,0 +1,287 @@
+{
+ "tarih": "2026-11-13",
+ "denetlenen": 202,
+ "sorunlu": 35,
+ "bulgular": [
+  {
+   "leg": "tr",
+   "q": "\"Ak\" sözcüğünün eş anlamlısı hangisi?",
+   "seviye": "ORTA",
+   "tur": "belirsiz",
+   "aciklama": "TDK'de 'ak' sözcüğünün 2. anlamı 'temiz, lekesiz'dir (ak alın, ak kâğıt). Bağlam verilmediği için 'Temiz' şıkkı da savunulabilir.",
+   "oneri": "'Temiz' şıkkını 'Sarı' ile değiştir; yan: 'Renk adlarını karıştırma'. Ya da soruyu 'Ak saçlı dede' bağlamıyla sor."
+  },
+  {
+   "leg": "fen",
+   "q": "Soğuk bardağın dışında su damlacıkları oluşmasına ne denir?",
+   "seviye": "ORTA",
+   "tur": "belirsiz",
+   "aciklama": "Günlük dilde bu olaya zaten 'bardağın terlemesi' denir. Parantezdeki 'sızma' açıklamasına rağmen çocuk 'terleme' şıkkını haklı olarak seçebilir.",
+   "oneri": "3. şıkkı 'Kaynama' yap; yan: 'Isı alma ile vermeyi karıştırma'. Açıklamaya 'Halk arasında buna bardağın terlemesi denir' cümlesini ekle."
+  },
+  {
+   "leg": "fen",
+   "q": "Devreye daha fazla pil eklenirse ampulün parlaklığı ne olur? (Diğer her şey aynı",
+   "seviye": "ORTA",
+   "tur": "belirsiz",
+   "aciklama": "Pillerin bağlanma biçimi belirtilmemiş. Paralel bağlamada parlaklık değişmez, yani 'Değişmez' şıkkı da savunulabilir. 'Diğer her şey aynı' ifadesi bunu çözmüyor.",
+   "oneri": "Soruyu 'Devreye pilleri art arda (seri) ekleyerek pil sayısını artırırsak ampulün parlaklığı ne olur?' biçiminde yaz."
+  },
+  {
+   "leg": "fen",
+   "q": "Ay, Güneş ile Dünya'nın arasındayken (fenerin Dünya'ya bakan tarafında) hangi ev",
+   "seviye": "ORTA",
+   "tur": "belirsiz",
+   "aciklama": "'(fenerin Dünya'ya bakan tarafında)' ifadesi oyunda görünmeyen bir sınıf modeline gönderme yapıyor. Fenerin Güneş'i temsil ettiği söylenmediği için kafa karıştırıyor. Ayrıca fen12 ile neredeyse aynı soru.",
+   "oneri": "Parantezi çıkar ya da '(modelde fener Güneş'tir)' diye açıkla. İstersen fen12 ile birleştir."
+  },
+  {
+   "leg": "fen",
+   "q": "Dünya'dan Ay'ın hep aynı yüzü görüldüğüne göre Ay modelinde HANGİ hareket mutlak",
+   "seviye": "ORTA",
+   "tur": "ipucu",
+   "aciklama": "İpucu oyunda hiç geçmeyen bir anlatıya ('Ece'nin işareti') gönderme yapıyor. Bağlamı olmadan çocuğa anlamsız geliyor.",
+   "oneri": "İpucunu şöyle değiştir: 'Ay hiç dönmeseydi, dolanırken bize hep aynı yüzünü mü gösterirdi?'"
+  },
+  {
+   "leg": "mat",
+   "q": "Hangisi en büyüktür?",
+   "seviye": "DUSUK",
+   "tur": "yanilgi",
+   "aciklama": "Yanılgı notları şıklarla uyuşmuyor. 1/4'ün paydası 3/4 ile aynı (4). 'Paydası küçük olanı büyük sanan' çocuk 1/2'yi seçer. 2/8'i ise 'paydası büyük olanı büyük sanan' çocuk seçer.",
+   "oneri": "Yanılgıları şöyle düzelt: 1/2 → 'Paydası küçük olanı büyük sanma'; 1/4 → 'Kesirleri karşılaştıramama'; 2/8 → 'Paydası büyük olanı büyük sanma'."
+  },
+  {
+   "leg": "mat",
+   "q": "3 + 4 × 2 işleminin sonucu kaçtır?",
+   "seviye": "DUSUK",
+   "tur": "yanilgi",
+   "aciklama": "'Çarpmayı toplama gibi yapma' yanılgısı 3+4+2=9 verir, 10 vermez. 9 için yazılan 'İşlemleri karıştırma' ise çok genel kalıyor.",
+   "oneri": "9 → 'Çarpmayı toplama gibi yapma (3+4+2)'. 10 → başka bir gerçekçi hata, ya da şıkkı 7 (yalnızca 3+4) ile değiştir."
+  },
+  {
+   "leg": "mat",
+   "q": "(3 + 4) × 2 işleminin sonucu kaçtır?",
+   "seviye": "DUSUK",
+   "tur": "yanilgi",
+   "aciklama": "24 için yazılan 'Sayıları birleştirme hatası' belirsiz. 3×4×2=24 olduğu için gerçek yanılgı 'bütün işlemleri çarpma sanma'.",
+   "oneri": "24 → 'Bütün işlemleri çarpma sanma (3×4×2)'."
+  },
+  {
+   "leg": "tr",
+   "q": "\"Kara\" sözcüğünün eş anlamlısı hangisi?",
+   "seviye": "DUSUK",
+   "tur": "dil",
+   "aciklama": "'Toprak' şıkkının yanılgısı 'kara = kara parçası' anlamına dayanıyor ama 'kara' ile 'toprak' tam eş anlamlı değil. Açıklamadaki 'karayı (toprağı) da anlatır' cümlesi de döngüsel.",
+   "oneri": "'Toprak' yerine 'Kırmızı' koy. Açıklamayı şöyle yaz: 'Kara = siyah. Kara sözcüğünün denizle kaplı olmayan yer anlamı da vardır.'"
+  },
+  {
+   "leg": "fen",
+   "q": "Güneş'in kendi ekseni etrafında dönmesine ne ad verilir?",
+   "seviye": "DUSUK",
+   "tur": "dil",
+   "aciklama": "Soru 'ne ad verilir?' diye soruyor ama 2. ve 3. şıklar ad değil, yargı cümlesi; şıklar soruyla uyumsuz. İpucu da cevabı doğrudan veriyor ('Kendi etrafında = dönme').",
+   "oneri": "2. ve 3. şıkları 'Yörünge hareketi' ve 'Kayma hareketi' gibi adlarla değiştir. İpucu: 'Bir topacın yaptığı hareketi düşün.'"
+  },
+  {
+   "leg": "fen",
+   "q": "Ay, Dünya ve Güneş'in dönme ve dolanma yönü hangisidir?",
+   "seviye": "DUSUK",
+   "tur": "dil",
+   "aciklama": "Güneş'in (bu düzeyde) bir dolanma hareketi yok. 'Ay, Dünya ve Güneş'in dönme ve dolanma yönü' ifadesi Güneş'e dolanma yüklüyor; açıklamadaki 'Hepsi ... dolanır' cümlesi de aynı hatayı yapıyor.",
+   "oneri": "Soruyu 'Güneş'in dönme yönü ile Dünya ve Ay'ın dönme ve dolanma yönleri hangisidir?' yap; açıklamayı buna göre düzelt."
+  },
+  {
+   "leg": "fen",
+   "q": "Hangisi küçükten büyüğe doğru doğru sıralanmıştır?",
+   "seviye": "DUSUK",
+   "tur": "dil",
+   "aciklama": "'küçükten büyüğe doğru doğru sıralanmıştır' ifadesinde 'doğru' iki kez geçiyor.",
+   "oneri": "'Hangisi küçükten büyüğe DOĞRU sıralanmıştır?' veya 'Hangi sıralama küçükten büyüğe doğrudur?'"
+  },
+  {
+   "leg": "fen",
+   "q": "Isı ile sıcaklık arasındaki ilişki hangisidir?",
+   "seviye": "DUSUK",
+   "tur": "dil",
+   "aciklama": "Soru 'ilişki' soruyor ama doğru şık bir ilişki değil, iki ayrı tanım veriyor.",
+   "oneri": "Soruyu 'Isı ve sıcaklık ile ilgili hangisi doğrudur?' yap."
+  },
+  {
+   "leg": "fen",
+   "q": "Ay, Dünya ile birlikte Güneş'in etrafında dolanır mı?",
+   "seviye": "DUSUK",
+   "tur": "kazanim",
+   "aciklama": "Ay'ın Dünya ile birlikte Güneş çevresinde dolanması Güneş-Dünya-Ay sisteminin göreli hareketiyle ilgili.",
+   "oneri": "k: FB.5.1.4"
+  },
+  {
+   "leg": "tr",
+   "q": "\"Yanıt\" sözcüğünün eş anlamlısı hangisi?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Bir soruya ne verilir?' sorusunun cevabı doğrudan 'cevap'.",
+   "oneri": "'Bu sözcüğü bir soru-cevap oyununda duymuşsundur; aynı anlama gelen başka sözcük?'"
+  },
+  {
+   "leg": "tr",
+   "q": "\"Okul\" sözcüğünün eş anlamlısı hangisi?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Eskiden okula ne denirdi?' cevabı doğrudan söylüyor; eski sözcük olan tek şık 'Mektep'.",
+   "oneri": "'Eş anlamlı sözcük aynı şeyi anlatır; okulun kendisini anlatan başka sözcük hangisi?'"
+  },
+  {
+   "leg": "tr",
+   "q": "\"Kulak vermek\" ne anlama gelir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Öğretmenini dinlerken...' ipucundaki 'dinlemek' sözcüğü doğru şıkta da geçiyor.",
+   "oneri": "'Biri sana önemli bir şey anlatırken nasıl davranırsın?'"
+  },
+  {
+   "leg": "tr",
+   "q": "\"Kıpkırmızı\" hangi sözcüğün pekiştirilmiş hâlidir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Sözcüğün sonundaki renge bak' dediği için seçeneklerden yalnızca 'kırmızı' renk adı.",
+   "oneri": "'Pekiştirmede başa bir hece eklenir; o heceyi çıkar.'"
+  },
+  {
+   "leg": "tr",
+   "q": "\"Bembeyaz\" hangi sözcüğün pekiştirilmiş hâlidir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Bir renk adı arıyoruz' dediği için seçeneklerden yalnızca 'beyaz' renk adı.",
+   "oneri": "'Pekiştirmede başa eklenen heceyi çıkar, ne kalır?'"
+  },
+  {
+   "leg": "tr",
+   "q": "\"Açı\" sözcüğü hangi cümlede matematik TERİMİ olarak kullanılmıştır?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Hangisinde açı derece ile ölçülüyor?' ipucu doğru şıktaki '90 derece'yi doğrudan gösteriyor.",
+   "oneri": "'Terim, bir bilim dalına (matematik, fen) özgü anlamdır.'"
+  },
+  {
+   "leg": "mat",
+   "q": "Üç kenarı da eşit olan üçgene ne denir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "\"'Eş' + 'kenar'\" ipucu şık adını doğrudan veriyor.",
+   "oneri": "'Bütün kenarlar birbirine eşit; bu üçgenin adı da bunu anlatır.' ya da ipucunu tamamen kaldır."
+  },
+  {
+   "leg": "mat",
+   "q": "Karşılıklı kenarları paralel ve eşit, tüm açıları 90° olan dörtgen hangisidir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "\"'Dik' + 'dörtgen'\" ipucu cevabı söylüyor.",
+   "oneri": "'Tüm açıları dik açı olan dörtgeni düşün; kapı ya da defter.'"
+  },
+  {
+   "leg": "fen",
+   "q": "Ay'ın Dünya'ya bakan yüzünün tamamen aydınlık göründüğü evre hangisidir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "\"'Dolu' + 'ay'\" ipucu şıkkı doğrudan veriyor.",
+   "oneri": "'Ay'ın bize bakan yüzü tamamen aydınlık.'"
+  },
+  {
+   "leg": "fen",
+   "q": "Kuvvetin birimi nedir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Bilim insanı Isaac'in soyadı' (Newton) cevabı ele veriyor.",
+   "oneri": "'Bu birim, yerçekimini açıklayan bir bilim insanının adını taşır.'"
+  },
+  {
+   "leg": "fen",
+   "q": "Hücreyi incelemek için hangi araç kullanılır?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "\"'Mikro' küçük demektir\" ipucu tek 'mikro'lu şıkkı gösteriyor.",
+   "oneri": "'Çok küçük şeyleri büyüterek gösteren araç.'"
+  },
+  {
+   "leg": "sos",
+   "q": "Ailede, okulda ve arkadaş grubunda üstlendiğimiz görevlere ne denir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "\"Okulda hangi 'rol'desin?\" ipucu cevap sözcüğünü içeriyor.",
+   "oneri": "'Okulda öğrenci, evde kardeşsin; bunlara ne denir?'"
+  },
+  {
+   "leg": "sos",
+   "q": "Türkiye kaç coğrafi bölgeye ayrılır?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Haftanın gün sayısı kadar' doğrudan 7'yi veriyor.",
+   "oneri": "'Karadeniz, Marmara, Ege... say bakalım.'"
+  },
+  {
+   "leg": "sos",
+   "q": "Çatalhöyük hangi ilimizdedir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'İç Anadolu'nun en büyük ili' belirsiz: nüfusça en büyük il Ankara, o da şıklarda var. Yanlış yönlendirebilir.",
+   "oneri": "'Yüzölçümü Türkiye'nin en büyük ili.'"
+  },
+  {
+   "leg": "sos",
+   "q": "TBMM hangi tarihte açılmıştır?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Çocuk Bayramı' ipucu bilinen tarihi doğrudan veriyor.",
+   "oneri": "'Bu günü Atatürk çocuklara armağan etti.' ya da 'Meclis, Cumhuriyet'ten önce açıldı.'"
+  },
+  {
+   "leg": "ing",
+   "q": "He is from Japan. He is ___.",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'-ese ile biter' dediği için -ese ile biten tek şık Japanese.",
+   "oneri": "'Ülke adı ile milliyet farklıdır; Chinese gibi düşün.'"
+  },
+  {
+   "leg": "ing",
+   "q": "I am from Türkiye. I am ___.",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'-ish ile biter' dediği için -ish ile biten tek şık Turkish.",
+   "oneri": "'Ülke adı ile milliyet farklıdır; English'e benzer.'"
+  },
+  {
+   "leg": "ing",
+   "q": "He is from Italy. He is ___.",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'-ian ile biter' dediği için -ian ile biten tek şık Italian.",
+   "oneri": "'Ülke adı ile milliyet farklıdır; Brazil → Brazilian gibi.'"
+  },
+  {
+   "leg": "ing",
+   "q": "Which is a school CLUB?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "\"'Club' kelimesi geçen seçenek\" cevabı tamamen veriyor.",
+   "oneri": "'Okulda öğrencilerin birlikte hobi yaptığı grup.'"
+  },
+  {
+   "leg": "ing",
+   "q": "\"He has got curly hair.\" ne demektir?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "'Curly fries gibi kıvrık' ipucu sözcüğün anlamını doğrudan söylüyor.",
+   "oneri": "'curly ile straight birbirinin zıttı.'"
+  },
+  {
+   "leg": "ing",
+   "q": "Which one lives in the sea?",
+   "seviye": "DUSUK",
+   "tur": "ipucu",
+   "aciklama": "İpucu 'Yunus.' doğrudan cevabın çevirisi.",
+   "oneri": "'Suda yaşar, burnu uzun ve çok zekidir.'"
+  }
+ ]
+}

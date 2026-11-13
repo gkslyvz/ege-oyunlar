@@ -91,7 +91,9 @@ h1{color:#fff;font-size:30px;margin:14px 0 4px;text-shadow:0 3px 0 rgba(0,0,0,.2
 .opt.right{background:#e3f8ec;border-color:var(--ok)}
 .opt.wrong{background:#fde8e6;border-color:var(--bad)}
 .fb{margin-top:12px;padding:11px 13px;border-radius:14px;font-size:16px;line-height:1.35}
-.fb.ok{background:#e3f8ec}.fb.no{background:#fff1d6}
+.fb.ok{background:#e3f8ec}.fb.no{background:#fff1d6}.fb.ip{background:#e8f0ff}
+.acik{display:flex;gap:8px;margin-top:4px}.acik input{flex:1;font:inherit;font-size:22px;font-weight:800;padding:10px 12px;border-radius:14px;border:3px solid #d6e6fb;text-align:center}.acik button{font:inherit;font-size:18px;font-weight:800;border:none;border-radius:14px;background:#1c4f9c;color:#fff;padding:0 16px}
+.opt.off{opacity:.4;text-decoration:line-through}
 .fb b{display:block;font-size:18px}
 .combo{color:#fff;text-align:center;font-weight:800;min-height:22px;margin-top:8px;text-shadow:0 2px 0 rgba(0,0,0,.3)}
 .topbar{display:flex;justify-content:space-between;align-items:center;color:#fff;font-weight:700}
@@ -318,7 +320,8 @@ function qPriority(q){const s=S.qs[q.id]||{r:0,w:0};return (s.w-s.r)*2+(s.r+s.w=
 function startBattle(R,kind,exam){
   const foe= kind==='boss'?R.boss : kind==='exam'?{e:'⚡'+R.boss.e,n:'Sınav Boss\'u',say:`Sınavına ${exam.left===0?'bugün':exam.left+' gün'} kaldı! Bakalım hazır mısın?`} : R.mons[kind];
   const maxHp= kind==='exam'?7 : kind==='boss'?5 : 3;
-  const pool=QB[R.id].slice().sort((a,b)=>qPriority(b)-qPriority(a));
+  if(Ortak.sureKapisi())return;
+  const pool=Ortak.sec(R.id,24,4);
   B={R,kind,exam,foe,hp:maxHp,maxHp,hearts:3,streak:0,queue:pool,xpGain:0,asked:0,firstOk:0,mult:kind==='exam'?2:1};
   setBg(R.bodyClass);
   $('bTitle').textContent=`${R.flag} ${R.city}`; $('bXp').textContent='';
@@ -334,11 +337,16 @@ function drawBars(){
   $('bXp').textContent=`+${B.xpGain} XP`;
 }
 function ask(){
-  if(!B.queue.length) B.queue=shuffle(QB[B.R.id]);
-  const Q=B.queue[0];
+  if(!B.queue.length) B.queue=Ortak.sec(B.R.id,12,4);
+  const Q=B.queue[0]; B.att=0;
   $('qTopic').textContent=Q.t; $('qNum').textContent=`Canavar canı: ${B.hp}/${B.maxHp}`;
   $('qText').textContent=Q.q; $('fb').innerHTML=''; $('nextBtn').classList.add('hidden');
   const box=$('opts'); box.innerHTML='';
+  if(Q.acik!=null && Math.random()<0.4){ // açık uçlu: cevabı kendisi yazar
+    box.innerHTML=`<div class="acik"><input id="acikIn" inputmode="numeric" autocomplete="off" placeholder="Cevabını yaz"><button id="acikBtn">Gönder</button></div>`;
+    const go=()=>{const v=$('acikIn').value.trim();if(!v)return;answer(Ortak.acikKontrol(Q,v)?Q.a:-1,null,v)};
+    $('acikBtn').onclick=go;$('acikIn').onkeydown=e=>{if(e.key==='Enter')go()};setTimeout(()=>$('acikIn').focus(),50);return;
+  }
   shuffle(Q.o.map((text,k)=>({text,k}))).forEach(({text,k})=>{
     const b=document.createElement('button'); b.className='opt'; b.textContent=text;
     b.onclick=()=>answer(k,b); box.appendChild(b);
@@ -355,32 +363,42 @@ function fireProjectile(){
 }
 function anim(el,cls){el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls);setTimeout(()=>el.classList.remove(cls),550)}
 
-function answer(k,btn){
-  const Q=B.queue[0]; const ok=k===Q.a;
-  Ortak.kaydet(Q,ok,!(S.qs[Q.id]&&S.qs[Q.id].w>0));
-  [...$('opts').children].forEach(b=>b.disabled=true);
-  const st=S.qs[Q.id]||(S.qs[Q.id]={r:0,w:0});
+function answer(k,btn,yazilan){
+  const Q=B.queue[0]; const ok=k===Q.a; B.att++;
+  const fb=Ortak.geriBildirim(Q,k,B.att);
   if(ok){
-    st.r++; B.streak++; B.queue.shift();
+    Ortak.kaydet(Q,true,B.att===1);
+    [...$('opts').querySelectorAll('button,input')].forEach(b=>b.disabled=true);
+    B.streak++; B.queue.shift();
     const crit=B.streak>=3&&B.streak%3===0; const dmg=crit?2:1;
-    B.hp-=dmg; const xp=(crit?20:10)*B.mult; B.xpGain+=xp;
-    btn.classList.add('right'); crit?sCrit():sHit();
+    B.hp-=dmg; const xp=(crit?20:10)*B.mult*(B.att===1?1:.5); B.xpGain+=xp;
+    if(btn)btn.classList.add('right'); crit?sCrit():sHit();
     anim($('egeBody'),'lungeR'); fireProjectile();
     setTimeout(()=>{anim($('foeBody'),'hit');floatText(crit?'KRİTİK -2':'-1','right');drawBars()},360);
     say(B.hp<=0?'Hayıııır! Nasıl bildin?!':pick(['Ahh! Bunu nereden bildin?!','Of! Bu acıttı!','Şanslıydın, küçük pilot!','Grr... Bir dahakine!']));
-    $('fb').innerHTML=`<div class="fb ok"><b>${crit?'⚡ KRİTİK VURUŞ!':pick(['Tam isabet!','Harika, kaptan!','Doğru!'])}</b>${Q.e}</div>`;
+    $('fb').innerHTML=`<div class="fb ok"><b>${crit?'⚡ KRİTİK VURUŞ!':B.att>1?'İpucuyla buldun! 💡':pick(['Tam isabet!','Harika, kaptan!','Doğru!'])}</b>${Q.e}</div>`;
     $('combo').textContent=B.streak>=2?`🔥 ${B.streak} doğru üst üste!${B.streak%3===2?' Bir sonraki KRİTİK!':''}`:'';
+    if(B.att===1)B.firstOk++; B.asked++;
+  }else if(fb.tip==='ipucu'){
+    // 1. yanlış: ipucu ver, aynı soruyu tekrar denet (can gitmez)
+    Ortak.kaydet(Q,false,true,k>=0?k:null);
+    if(btn){btn.classList.add('wrong','off');btn.disabled=true}
+    Ortak.SES.ipucu(); say(pick(['Hı hı… Emin misin?','Bir daha düşün bakalım!','Yaklaştın ama olmadı!']));
+    $('fb').innerHTML=`<div class="fb ip"><b>💡 İpucu</b>${fb.metin}${yazilan!=null?`<br><span class="small">Senin cevabın: ${yazilan}</span>`:''}</div>`;
+    B.streak=0; $('combo').textContent=''; return;
   }else{
-    st.w++; B.streak=0; B.hearts--;
-    btn.classList.add('wrong'); sHurt();
-    [...$('opts').children].forEach(b=>{if(b.textContent===Q.o[Q.a])b.classList.add('right')});
+    // 2. yanlış: açıklama + doğru cevap, canavar saldırır, soru sonra yine gelir
+    Ortak.kaydet(Q,false,false,k>=0?k:null);
+    [...$('opts').querySelectorAll('button,input')].forEach(b=>b.disabled=true);
+    B.streak=0; B.hearts--; if(btn)btn.classList.add('wrong'); sHurt();
+    [...$('opts').querySelectorAll('.opt')].forEach(b=>{if(b.textContent===Q.o[Q.a])b.classList.add('right')});
     anim($('foeBody'),'lungeL'); setTimeout(()=>{anim($('egeBody'),'hurt');floatText('💔','left');drawBars()},250);
     say(pick(['Hahaha! Yanıldın!','Bu bilgi artık benim!','Hi hi hi, tuzağa düştün!']));
-    $('fb').innerHTML=`<div class="fb no"><b>Canavar saldırdı! 💥</b>${Q.e}<br><span class="small">Bu soru savaşta yine karşına çıkacak.</span></div>`;
-    $('combo').textContent='';
+    $('fb').innerHTML=`<div class="fb no"><b>Doğrusu: ${Q.o[Q.a]}</b>${Q.e}<br><span class="small">Bu soru savaşta yine karşına çıkacak.</span></div>`;
+    $('combo').textContent=''; B.asked++;
     B.queue.splice(Math.min(3,B.queue.length),0,B.queue.shift());
   }
-  store(); B.asked++; if(ok) B.firstOk++;
+  store();
   const next=$('nextBtn'); next.classList.remove('hidden');
   next.textContent= B.hp<=0?'Zafer! 🏆' : B.hearts<=0?'Geri çekil 🛬':'Devam ⚔️';
 }
