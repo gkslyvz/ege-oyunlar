@@ -1,0 +1,51 @@
+{
+ "incelenen": 14,
+ "tarih": "2026-11-13",
+ "kapsam": "scripts/kaynak/v2/set_2026-11-13-tr-gpc2.py (set 2026-11-13-tr-gpc-2): 8 odev, 4 benzer, 2 hazirlik. Kaynak: GPÇ-2 5. sınıf yanıt anahtarı PDF'i. Her soru bağımsız çözüldü; 'ayak' için sözlük anlamı (halk edebiyatında uyak) web üzerinden doğrulandı (sozluk.gov.tr API'sine proxy erişimi yok).",
+ "ozet": "Kritik hata yok: 14 sorunun hepsinde tek doğru şık var ve işaretli cevaplar doğru. 'Ayak' açıklaması (dize sonlarındaki ses benzerliği = uyak) sözlükle uyumlu, hatta öğretmen anahtarındaki 'ölçüyü oluşturan nazım birimi' tanımından daha doğru. Tur sayıları kurala uyuyor (odev 8 ≥6, benzer 4 ≥3, hazirlik 2 ≥2). acik alanı hiçbir soruda kullanılmamış; bu sette sayısal cevap olmadığı için doğru. Gizlilik ihlali yok: yalnızca 'Deniz' ve 'Ali' kurgu adları geçiyor; okul, öğretmen adı, şube ve not yok. Resim gerekmiyor (PDF'teki görselden paragraf yazma etkinliği alınmamış). 2 orta bulgu var: 'kesir' terim sorusunun çeldiricileri anlam karşıtlığı kurmuyor, 'el' sorusunun ipucu cevabı veriyor. Düşük bulgular üslup ve kapsamla ilgili.",
+ "kritik": [],
+ "orta": [
+  {
+   "q": "Hangi cümlede \"kesir\" kelimesi matematik TERİMİ olarak kullanılmıştır?",
+   "sorun": "Çeldiricilerin üçü de 'kesir' kelimesini anlamca kullanmıyor, yalnızca adını anıyor. 'Kesir sözünü hiç duymamıştı.' cümlesi de matematik terimi olan kesirden söz ettiği için terim kullanımı sayılabilir ve tartışmaya açık. 'Kesir diye bir arkadaşı yoktu.' ise yapay ve kafa karıştırıcı. Soru gerçek/mecaz ile terim arasındaki farkı ölçmüyor. Ayrıca 'kesir'in yaygın bir gündelik anlamı yok.",
+   "oneri": "Gündelik ve terim anlamı olan bir kelimeye geçilsin, örneğin 'pay'. Soru kökü: 'Hangi cümlede \"pay\" kelimesi matematik TERİMİ olarak kullanılmıştır?' Doğru şık: '3/4 kesrinde pay 3'tür.' Çeldiriciler: 'Pastadan herkese eşit pay ayırdı.' (Gündelik anlamı terim sanma), 'Bu başarıda senin de payın büyük.' (Mecaz anlamı terim sanma), 'Ödülden kardeşine de pay verdi.' (Gündelik anlamı terim sanma). e: 'Matematikte pay, kesrin çizginin üstündeki sayısıdır. Bu anlamda kullanılınca terimdir.'"
+  },
+  {
+   "q": "\"Elimi kaldırıp söz istedim.\" cümlesinde \"el\" kelimesi hangi anlamdadır?",
+   "sorun": "İpucu ('Söz isterken neyi kaldırırız?') cevabı doğrudan veriyor: çocuk 'elimizi' der ve 'organ' şıkkını seçer. Ayrıca şıklar karışık türde: biri anlam türü + tanım ('Gerçek anlam: vücudumuzun bir organı'), biri yalnızca tür ('Terim anlam'), ikisi yalnızca tanım. Bu yüzden doğru şık biçiminden de belli oluyor.",
+   "oneri": "ip: 'Cümlede el, başka bir insanı mı anlatıyor, bedenimizin bir parçasını mı?' Şıklar tek türde, yalnızca tanım olsun: 'Kolun bilekten parmak uçlarına kadar olan bölümü' / 'Yabancı kişi' / 'Ülke, memleket' / 'Halk, insanlar'. Bunlar için yanılgı: 'Sesteş kelimenin öbür anlamını seçme'."
+  }
+ ],
+ "dusuk": [
+  {
+   "q": "Hangi cümlede \"ayak\" kelimesi TERİM anlamında kullanılmıştır?",
+   "sorun": "Cevap ve açıklama doğru: sözlükte 'ayak' halk edebiyatında 'uyak' demektir. Ancak açıklama 'uyak/kafiye' kelimesini adıyla söylemiyor; ayrıca öğretmen anahtarındaki tanımdan farklı. 'Uçağın merdiveninden ayak bastık.' cümlesi de dil açısından aksak ve 'ayak basmak' bir deyim.",
+   "oneri": "e: 'Halk şiirinde \"ayak\", dize sonlarındaki ses benzerliği, yani uyak (kafiye) demektir. Bu bir edebiyat terimidir.' Çeldirici: 'Yeni ayakkabım ayağımı sıktı.' (Gerçek anlamı terim sanma)."
+  },
+  {
+   "q": "Hangisinde \"ince\" kelimesi MECAZ anlamda kullanılmıştır?",
+   "sorun": "İpucu ('Hangisinin inceliğini cetvelle ölçemezsin?') somut olan tek şıkkı dışarıda bırakan bir test veriyor ve cevaba çok yaklaştırıyor; yine de çocuğun düşünmesini istiyor.",
+   "oneri": "ip: 'Hangi incelik gözle görülüp elle tutulamaz?' ya da olduğu gibi bırakılabilir."
+  },
+  {
+   "q": "Hangi cümlede \"yüz\" kelimesi SAYI anlamında kullanılmıştır?",
+   "sorun": "İpucu ('kaç tane olduğu söyleniyor') soru kökünü tekrarlıyor; yeni bir yönlendirme eklemiyor.",
+   "oneri": "ip: 'Yüzün yerine 100 yazabileceğin cümle hangisi?'"
+  },
+  {
+   "q": "Hangisi bu metnin anahtar kelimelerinden biri DEĞİLDİR?",
+   "sorun": "Soru kökündeki metin (M) PDF'in kısaltılmış hâli. 'Anlam' kelimesi M'de açıkça geçmiyor (yalnızca 'anladı' var). Öğretmen anahtarındaki 'farklı', 'ince' ve 'iletişim' de şıklarda yok. Cevap yine de tek ve doğru.",
+   "oneri": "Şıklardan 'Anlam' yerine 'İnce' konsun (metinde açıkça geçiyor ve anahtarda var): 'İnce' / 'Cümle' / 'Kelime' / doğru şık 'Saç modeli'."
+  },
+  {
+   "q": "\"Ritim, müzikte seslerin belirli bir düzen içinde tekrarlanmasıdır.\" cümlesinde \"ritim\" hangi anlamda kullanılmıştır?",
+   "sorun": "Çeldiricilerdeki 'Zıt anlam' ve 'Sesteş anlam', anlam türü değil anlam ilişkisi. Bu yüzden şıklar karışık türde ve doğru cevap kolayca eleniyor.",
+   "oneri": "Çeldiriciler 'Gerçek (gündelik) anlam' / 'Mecaz anlam' / 'Yan anlam' olsun. Yanılgı: 'Alan bilgisini gündelik anlam sanma' vb."
+  },
+  {
+   "q": "(Set geneli) eş anlam",
+   "sorun": "PDF'teki 7. soru (eş anlamlı eşleştirme) ve 'Sesteş/eş/zıt' kazanım bileşeni için hiç eş anlam sorusu yok. Zıt anlam yalnızca benzer sorularda var.",
+   "oneri": "Benzer soru eklensin: '\"Pilot, uçağı hızlı bir şekilde indirdi.\" cümlesindeki \"hızlı\" kelimesinin eş anlamlısı hangisidir?' Doğru şık: 'Süratli'. Çeldiriciler: 'Yavaş' (Zıt anlamı eş anlam sanma), 'Yüksek' (Başka özellikle karıştırma), 'Dikkatli' (Cümledeki başka bir anlamı seçme). e: 'Hızlı ile süratli aynı anlama gelir; bunlar eş anlamlı kelimelerdir.'"
+  }
+ ]
+}

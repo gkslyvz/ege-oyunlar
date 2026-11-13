@@ -1,0 +1,429 @@
+{
+ "id": "2026-11-13-fen-mebi-2",
+ "ders": "fen",
+ "baslik": "Fen ödevi: Güneş, Dünya ve Ay (geçmiş yıl yazılı soruları)",
+ "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)",
+ "kazanimlar": [
+  "FB.5.1.1",
+  "FB.5.1.2",
+  "FB.5.1.3",
+  "FB.5.1.4",
+  "FB.5.2.1",
+  "FB.5.2.4"
+ ],
+ "sorular": [
+  {
+   "t": "Ay'ın hareketleri",
+   "k": "FB.5.1.2",
+   "q": "Bir pinpon topunun bir yüzü noktalarla, diğer yüzü çizgilerle işaretlendi. Top Ay'ı temsil ediyor. Top, Dünya modelinin etrafında gerçek Ay gibi hareket ettirilirse ve başta Dünya'dan noktalı yüz görünüyorsa, yarım tur sonra topun hangi yüzü Dünya'ya dönük olur?",
+   "o": [
+    "Yine noktalı yüz",
+    "Çizgili yüz",
+    "Yarısı noktalı, yarısı çizgili yüz",
+    "Ne noktalı ne çizgili yüz, top yana döner"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay dolanırken bize farklı yüzünü gösterdiğini sanma",
+    "2": "Ay'ın yüzünün yavaş yavaş değiştiğini sanma",
+    "3": "Ay'ın dönme hareketini dolanmadan ayrı düşünme"
+   },
+   "e": "Ay kendi etrafındaki dönüşünü ve Dünya etrafındaki dolanmasını aynı sürede tamamlar. Bu yüzden Dünya'dan hep aynı yüzü görünür.",
+   "ip": "Ay kendi etrafında dönmesini ve Dünya'nın etrafında dolanmasını kaç günde tamamlar? Bu iki süreyi karşılaştır.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın hareketleri",
+   "k": "FB.5.1.2",
+   "q": "Bir tam turu yaklaşık 27,3 gün süren İKİ hareket hangileridir?",
+   "o": [
+    "Ay'ın kendi etrafında dönmesi ve Dünya'nın etrafında dolanması",
+    "Dünya'nın kendi etrafında dönmesi ve Ay'ın kendi etrafında dönmesi",
+    "Dünya'nın Güneş etrafında dolanması ve Ay'ın Dünya etrafında dolanması",
+    "Güneş'in kendi etrafında dönmesi ve Dünya'nın kendi etrafında dönmesi"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Dünya'nın dönme süresini Ay'ınkiyle aynı sanma",
+    "2": "Bir yıllık hareketle karıştırma",
+    "3": "Güneş'in ve Dünya'nın sürelerini Ay'ınkiyle karıştırma"
+   },
+   "e": "Ay'ın dönmesi ve dolanması aynı süreyi alır: yaklaşık 27,3 gün (27 gün 8 saat). Dünya ise kendi etrafında 24 saatte döner.",
+   "ip": "Dünya kendi etrafında 24 saatte döner. 27,3 gün hangi gök cisminin hareketlerine uyar?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın hareketleri",
+   "k": "FB.5.1.2",
+   "q": "Ay'ın, Dünya ile birlikte Güneş'in etrafında bir kez dolanması yaklaşık ne kadar sürer?",
+   "o": [
+    "365 gün 6 saat (yaklaşık 1 yıl)",
+    "27 gün 8 saat",
+    "24 saat",
+    "1 hafta"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay'ın Dünya etrafındaki dolanma süresiyle karıştırma",
+    "2": "Dünya'nın dönme süresiyle karıştırma",
+    "3": "İki evre arasındaki süreyle karıştırma"
+   },
+   "e": "Ay, Dünya'nın uydusu olduğu için onunla birlikte Güneş'in çevresini dolanır. Bu, Dünya'nın Güneş çevresindeki turu kadar sürer: 365 gün 6 saat.",
+   "ip": "Dünya'nın Güneş çevresindeki bir turu ne kadar?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "Ay'ın ANA evreleri sırasıyla gözlendi: Dolunay → K → Yeni Ay → L. K ve L hangi evrelerdir?",
+   "o": [
+    "K: Son dördün, L: İlk dördün",
+    "K: İlk dördün, L: Son dördün",
+    "K: Yeni Ay, L: Dolunay",
+    "K: Son dördün, L: Dolunay"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "İlk ve son dördünü karıştırma",
+    "2": "Ana evreleri tekrar etme",
+    "3": "Yeni Ay'dan sonra bir evre atlama"
+   },
+   "e": "Dolunaydan sonra Ay küçülür ve son dördün olur; Yeni Ay'dan sonra büyür ve ilk dördün olur.",
+   "ip": "Dolunaydan sonra Ay küçülür mü, büyür mü?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "13 Temmuz'da son dördün görüldü. Bir sonraki ilk dördün Temmuz ayının yaklaşık kaçında görülür?",
+   "o": [
+    "27 Temmuz",
+    "20 Temmuz",
+    "3 Ağustos",
+    "14 Temmuz"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Yeni Ay'ın tarihini ilk dördün sanma",
+    "2": "Bir evre fazla sayma",
+    "3": "Evrelerin her gün değiştiğini sanma"
+   },
+   "e": "Son dördün → Yeni Ay (1 hafta) → İlk dördün (1 hafta daha). 13 + 14 = 27 Temmuz.",
+   "ip": "Arada bir ana evre var; her ana evre arası yaklaşık 1 hafta.",
+   "zor": 3,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)",
+   "acik": "27"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "6 Nisan'da Ay ilk dördün evresindeydi. 27 Nisan'da Ay hangi evrede olur?",
+   "o": [
+    "Yeni Ay",
+    "Dolunay",
+    "Son dördün",
+    "İlk dördün"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "21 günü 1 hafta gibi sayma",
+    "2": "21 günü 2 hafta gibi sayma",
+    "3": "Bir ayın hepsinin geçtiğini sanma"
+   },
+   "e": "21 gün = 3 hafta. İlk dördün → Dolunay → Son dördün → Yeni Ay.",
+   "ip": "27 - 6 = kaç gün? Kaç hafta eder?",
+   "zor": 3,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın yüzeyi",
+   "k": "FB.5.1.2",
+   "q": "Gök taşları Ay yüzeyinde neden çok sayıda krater oluşturur?",
+   "o": [
+    "Ay'ın atmosferi yok denecek kadar ince olduğu için gök taşları yüzeye kadar ulaşır",
+    "Ay'ın yüzeyi sudan oluştuğu için",
+    "Ay Güneş'e çok yakın olduğu için",
+    "Ay kendi ışığını ürettiği için"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay'ın yüzey yapısını bilmeme",
+    "2": "Kraterleri sıcaklığa bağlama",
+    "3": "Ay'ı ışık kaynağı sanma"
+   },
+   "e": "Dünya'da atmosfer gök taşlarının çoğunu yakar. Ay'da kalın bir atmosfer olmadığı için gök taşları yüzeye çarpıp krater açar.",
+   "ip": "Dünya'yı gök taşlarından koruyan katman Ay'da var mı?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın yüzeyi",
+   "k": "FB.5.1.2",
+   "q": "Astronotların Ay'daki ayak izleri neden uzun yıllar bozulmadan kalır?",
+   "o": [
+    "Ay'da rüzgâr ve yağış gibi hava olayları olmadığı için",
+    "Ay'ın yüzeyi çok sert olduğu için",
+    "Ay'da her gün yağmur yağıp izleri koruduğu için",
+    "Ay hiç dönmediği için"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "İz çıkmadığını sanma",
+    "2": "Ay'da hava olayı olduğunu sanma",
+    "3": "Ay'ın dönme hareketini bilmeme"
+   },
+   "e": "Rüzgâr ve yağmur izleri silerdi. Ay'da atmosfer çok ince olduğu için bu hava olayları yoktur.",
+   "ip": "Kumdaki izini ne siler?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Güneş, Dünya, Ay",
+   "k": "FB.5.1.4",
+   "q": "Toplar büyükten küçüğe: basketbol > voleybol > tenis > masa tenisi. Güneş için basketbol, Ay için tenis topu seçildi. Dünya için hangisi seçilmeli?",
+   "o": [
+    "Voleybol topu",
+    "Masa tenisi topu",
+    "Basketbol topu",
+    "Tenis topu"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Dünya'yı Ay'dan küçük sanma",
+    "2": "Dünya'yı Güneş kadar büyük sanma",
+    "3": "Dünya ile Ay'ı aynı büyüklükte sanma"
+   },
+   "e": "Doğru sıra: Güneş en büyük, sonra Dünya, en küçük Ay. Dünya topu, Güneş topundan küçük ve Ay topundan büyük olmalı.",
+   "ip": "Dünya, Güneş ile Ay'ın arasında bir büyüklükte.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Güneş, Dünya, Ay",
+   "k": "FB.5.1.4",
+   "q": "Toplar büyükten küçüğe: basketbol > voleybol > tenis > masa tenisi. Dünya için basketbol topu seçilirse doğru bir model yapılabilir mi?",
+   "o": [
+    "Hayır, çünkü Güneş için basketbol topundan büyük bir top yok",
+    "Evet, Güneş için voleybol topu kullanılır",
+    "Hayır, çünkü Ay için tenis topu çok büyük olur",
+    "Evet, Güneş için masa tenisi topu kullanılır"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Güneş'i Dünya'dan küçük sanma",
+    "2": "Asıl sorunu (Güneş'in büyüklüğünü) görmeme",
+    "3": "Gökyüzünde küçük göründüğü için Güneş'i küçük sanma"
+   },
+   "e": "Güneş, Dünya'dan çok daha büyüktür. Dünya en büyük topla gösterilirse Güneş için daha büyük bir top gerekir.",
+   "ip": "Güneş hangi gök cisminden büyük olmalı?",
+   "zor": 3,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Güneş",
+   "k": "FB.5.1.1",
+   "q": "Güneş'in sabahtan akşama gökyüzünde hareket ediyormuş gibi görünmesinin nedeni nedir?",
+   "o": [
+    "Dünya'nın kendi ekseni etrafında dönmesi",
+    "Güneş'in Dünya'nın etrafında dolanması",
+    "Ay'ın Dünya'nın etrafında dolanması",
+    "Güneş'in gün içinde büyüyüp küçülmesi"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Görünen hareketi gerçek hareket sanma",
+    "2": "Ay'ın hareketiyle karıştırma",
+    "3": "Güneş'in boyutunun değiştiğini sanma"
+   },
+   "e": "Hareket eden biziz! Dünya döndükçe Güneş doğudan doğup batıdan batıyormuş gibi görünür.",
+   "ip": "Hareket eden bir uçaktan bakınca yerdeki ağaçlar da geriye kayıyormuş gibi görünmez mi?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Güneş",
+   "k": "FB.5.1.1",
+   "q": "Güneş'in çapı Dünya'nınkinin yaklaşık 109 katıdır. Ama fotoğrafta parmak arasına sığacak kadar küçük görünür. Neden?",
+   "o": [
+    "Güneş Dünya'dan çok uzakta olduğu için",
+    "Güneş aslında Dünya'dan küçük olduğu için",
+    "Fotoğraf makinesi Güneş'i küçülttüğü için",
+    "Güneş gündüz küçülüp gece büyüdüğü için"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Görünen büyüklüğü gerçek büyüklük sanma",
+    "2": "Nedeni araca bağlama",
+    "3": "Güneş'in boyutunun değiştiğini sanma"
+   },
+   "e": "Uzaktaki cisimler küçük görünür. Güneş çok büyük ama bize çok uzak.",
+   "ip": "Pistten kalkan bir uçak uzaklaştıkça nasıl görünür?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Güneş",
+   "k": "FB.5.1.1",
+   "q": "Güneş ile Dünya'nın benzer yönlerinden biri hangisidir?",
+   "o": [
+    "İkisi de küreye benzer ve katmanlardan oluşur",
+    "İkisi de ışığı yansıtarak parlar",
+    "İkisi de aynı büyüklüktedir",
+    "İkisinin de yüzeyi kayalarla kaplıdır"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Güneş'i ışık kaynağı olarak görmeme",
+    "2": "Büyüklük farkını bilmeme",
+    "3": "Güneş'i katı bir gezegen sanma"
+   },
+   "e": "Güneş de Dünya da küre biçimindedir ve katman katman bir yapıya sahiptir. Güneş bir yıldızdır, kendi ışığını üretir.",
+   "ip": "Şekillerini düşün.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Fen MEB geçmiş yıllar yazılı örnekleri + MEBİ hazırlık çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ay'ın evreleri",
+   "k": "FB.5.1.3",
+   "q": "Pilot Ege gece uçuşunda dolunayı gördü. Yaklaşık 2 hafta sonra aynı saatte uçtuğunda Ay hangi evrede olur?",
+   "o": [
+    "Yeni Ay",
+    "Yine dolunay",
+    "Son dördün",
+    "İlk dördün"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Evrenin değişmediğini sanma",
+    "2": "2 haftayı 1 hafta gibi sayma",
+    "3": "Evreleri ters sırayla sayma"
+   },
+   "e": "Dolunay → Son dördün (1 hafta) → Yeni Ay (2 hafta).",
+   "ip": "Her ana evre arası yaklaşık 1 hafta.",
+   "zor": 2,
+   "tur": "benzer"
+  },
+  {
+   "t": "Güneş, Dünya, Ay",
+   "k": "FB.5.1.4",
+   "q": "Bir modelde Dünya'yı tenis topu gösteriyor. Ay için hangisi en uygun olur?",
+   "o": [
+    "Tenis topundan küçük bir boncuk",
+    "Basketbol topu",
+    "Bir başka tenis topu",
+    "Tenis topundan biraz büyük bir portakal"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay'ı Dünya'dan büyük sanma",
+    "2": "Ay ile Dünya'yı aynı büyüklükte sanma",
+    "3": "Ay'ı Dünya'dan biraz büyük sanma"
+   },
+   "e": "Ay, Dünya'dan küçüktür; modelde de Dünya'yı gösteren cisimden küçük bir cisim seçilmeli.",
+   "ip": "Ay mı büyük, Dünya mı?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Ay'ın yüzeyi",
+   "k": "FB.5.1.2",
+   "q": "Ay'da bir uzay aracının bıraktığı tekerlek izi 50 yıl sonra nasıl olur?",
+   "o": [
+    "Büyük ölçüde aynı kalır",
+    "Rüzgârla tamamen silinir",
+    "Yağmurla dolup göl olur",
+    "Bitkilerle kaplanır"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ay'da rüzgâr olduğunu sanma",
+    "2": "Ay'da yağış olduğunu sanma",
+    "3": "Ay'da canlı yaşamı olduğunu sanma"
+   },
+   "e": "Ay'da hava olayları olmadığı için izler çok uzun süre kalır.",
+   "ip": "İzleri silecek bir rüzgâr ya da yağmur var mı?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Güneş",
+   "k": "FB.5.1.1",
+   "q": "Güneş'in kendi etrafında dönmesi ile ilgili hangisi doğrudur?",
+   "o": [
+    "Güneş de kendi ekseni etrafında döner",
+    "Güneş hiç hareket etmez",
+    "Güneş, Dünya'nın etrafında dolanır",
+    "Güneş yalnızca gece döner"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Güneş'in dönme hareketini bilmeme",
+    "2": "Görünen hareketi gerçek sanma",
+    "3": "Hareketi gece-gündüze bağlama"
+   },
+   "e": "Güneş de dönme hareketi yapar; bunu yüzeyindeki lekelerin yer değiştirmesinden anlarız.",
+   "ip": "Güneş'in yüzeyindeki lekeler zamanla neden yer değiştirir?",
+   "zor": 2,
+   "tur": "benzer"
+  },
+  {
+   "t": "Sürtünme",
+   "k": "FB.5.2.4",
+   "q": "Uçak piste indikten sonra tekerlekleri frenlenir ve uçak yavaşlar. Uçağı yavaşlatan kuvvetlerden biri hangisidir?",
+   "o": [
+    "Tekerlek ile pist arasındaki sürtünme kuvveti",
+    "Motorun ileri itme kuvveti",
+    "Ay'ın çekim kuvveti",
+    "Güneş'in ışığı"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "İtici kuvveti yavaşlatıcı sanma",
+    "2": "Uzaktaki cisimleri neden sanma",
+    "3": "Işığı kuvvet sanma"
+   },
+   "e": "Sürtünme kuvveti hareketin tersi yönünde etki eder ve cisimleri yavaşlatır.",
+   "ip": "Bisikletinde fren yapınca tekerlek ile yol arasında ne olur?",
+   "zor": 2,
+   "tur": "hazirlik"
+  },
+  {
+   "t": "Kuvvet",
+   "k": "FB.5.2.1",
+   "q": "Hangisi bir kuvvet örneği DEĞİLDİR?",
+   "o": [
+    "Bir uçağın renginin beyaz olması",
+    "Kapıyı itmek",
+    "Çekmeceyi çekmek",
+    "Topa tekme atmak"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "İtmeyi kuvvet saymama",
+    "2": "Çekmeyi kuvvet saymama",
+    "3": "Vurmayı kuvvet saymama"
+   },
+   "e": "Kuvvet itme ya da çekmedir. Renk bir özelliktir, kuvvet değildir.",
+   "ip": "Her şıkta bir cismi hareket ettiren bir şey var mı, bak.",
+   "zor": 1,
+   "tur": "hazirlik"
+  }
+ ]
+}

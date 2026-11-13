@@ -10,7 +10,17 @@
   "1CMO9U7w8PfY7dnSI167-jETmsBsIYfnH": "2026-11-13-ing-unit-1",
   "1U_Db7egDrPUk1sa3PmOBQfqZIoQ5LkMP": "2026-11-13-ing-unit-1",
   "12-PEE3odWkmBH27_pcQxDl3tefAGluRg": "2026-11-13-ing-unit-1",
-  "1ScxYY5IVJ74DPU59O6BIWrkb0d-Gb_ZE": "2026-11-13-mat-mebi-1"
+  "1ScxYY5IVJ74DPU59O6BIWrkb0d-Gb_ZE": "2026-11-13-mat-mebi-1",
+  "1zUUF2M7e43kyqwWmJnCY-_fSV20poeIE": "2026-11-13-fen-mebi-2",
+  "1U3F7lxhRXLzInHPGnCbgjbYb3e5gh-cm": "2026-11-13-tr-gpc-2",
+  "1Sc9LPKunDvdE1hBbky4SknZBQJZjkdjU": "2026-11-13-fen-mebi-1"
  },
- "kuyruk": []
+ "kuyruk": [
+  {
+   "id": "1nsM7FQgo1iZxjHd19uJqcoxjppAmAgEe",
+   "ders": "Ahlak ve Vatandaşlık",
+   "baslik": "Çalışma Kağıdı 1",
+   "neden": "ders kataloğunda (kazanim.py / banka LEGS) bu ders yok"
+  }
+ ]
 }

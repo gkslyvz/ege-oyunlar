@@ -1,0 +1,338 @@
+{
+ "id": "2026-11-13-tr-gpc-2",
+ "ders": "tr",
+ "baslik": "Türkçe ödevi: Kelimelerde anlam (GPÇ-2)",
+ "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)",
+ "kazanimlar": [
+  "T.O.5.6",
+  "T.O.5.8",
+  "T.O.5.20",
+  "T.O.5.19",
+  "T.O.5.21"
+ ],
+ "sorular": [
+  {
+   "t": "Metnin konusu",
+   "k": "T.O.5.6",
+   "q": "Metin: \"Deniz, arkadaşına 'Bugün çok farklı görünüyorsun.' dedi; aslında yalnızca yeni saç modelini fark etmişti ama arkadaşı bu sözü başka türlü anladı. Ertesi gün öğretmen bir oyun oynattı: Herkes aynı kelimeyi farklı cümlelerde kullandı. 'İnce' kelimesi birinde ince bir ipi, diğerinde ince bir düşünceyi anlattı. Deniz, kelimeleri doğru yerde kullanmanın, karşımızdakinin bizi doğru anlamasına yardım ettiğini öğrendi.\" Bu metnin konusu nedir?",
+   "o": [
+    "Kelimelerin cümle içinde farklı anlamlar kazanabilmesi",
+    "Deniz'in arkadaşının yeni saç modeli",
+    "Sınıfta oynanan oyunun kuralları",
+    "İnce bir ipin nasıl yapıldığı"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Metindeki küçük bir ayrıntıyı konu sanma",
+    "2": "Bir olayı konu sanma",
+    "3": "Örnek cümleyi konu sanma"
+   },
+   "e": "Konu, metnin neyi anlattığıdır. Bu metin, kelimelerin cümleye göre anlam değiştirmesini anlatıyor.",
+   "ip": "Metin baştan sona hangi şey üzerinde duruyor?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Ana düşünce",
+   "k": "T.O.5.8",
+   "q": "Metin: \"Deniz, arkadaşına 'Bugün çok farklı görünüyorsun.' dedi; aslında yalnızca yeni saç modelini fark etmişti ama arkadaşı bu sözü başka türlü anladı. Ertesi gün öğretmen bir oyun oynattı: Herkes aynı kelimeyi farklı cümlelerde kullandı. 'İnce' kelimesi birinde ince bir ipi, diğerinde ince bir düşünceyi anlattı. Deniz, kelimeleri doğru yerde kullanmanın, karşımızdakinin bizi doğru anlamasına yardım ettiğini öğrendi.\" Bu metnin ana düşüncesi hangisidir?",
+   "o": [
+    "Kelimeleri doğru yerde kullanmak, karşımızdakinin bizi doğru anlamasını sağlar",
+    "Arkadaşlarımızın saçını fark etmeliyiz",
+    "Okulda oyun oynamak eğlencelidir",
+    "Her kelimenin yalnızca bir anlamı vardır"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Olaydaki ayrıntıyı ana düşünce sanma",
+    "2": "Metnin olayını ana fikir sanma",
+    "3": "Metnin söylediğinin tersini seçme"
+   },
+   "e": "Ana düşünce, yazarın okura vermek istediği mesajdır. Deniz'in öğrendiği şey bu mesajı verir.",
+   "ip": "Deniz o gün ne öğrendi?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Anahtar kelime",
+   "k": "T.O.5.6",
+   "q": "Metin: \"Deniz, arkadaşına 'Bugün çok farklı görünüyorsun.' dedi; aslında yalnızca yeni saç modelini fark etmişti ama arkadaşı bu sözü başka türlü anladı. Ertesi gün öğretmen bir oyun oynattı: Herkes aynı kelimeyi farklı cümlelerde kullandı. 'İnce' kelimesi birinde ince bir ipi, diğerinde ince bir düşünceyi anlattı. Deniz, kelimeleri doğru yerde kullanmanın, karşımızdakinin bizi doğru anlamasına yardım ettiğini öğrendi.\" Hangisi bu metnin anahtar kelimelerinden biri DEĞİLDİR?",
+   "o": [
+    "Saç modeli",
+    "İnce",
+    "Cümle",
+    "Kelime"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Metnin özünü taşıyan kelimeyi tanımama",
+    "2": "Metnin özünü taşıyan kelimeyi tanımama",
+    "3": "Metnin özünü taşıyan kelimeyi tanımama"
+   },
+   "e": "Anahtar kelimeler metnin konusunu ve mesajını taşır: kelime, anlam, cümle, iletişim... Saç modeli yalnızca küçük bir ayrıntıdır.",
+   "ip": "Hangisi çıkarılsa metnin konusu değişmez?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Gerçek / mecaz",
+   "k": "T.O.5.20",
+   "q": "Hangisinde \"ince\" kelimesi MECAZ anlamda kullanılmıştır?",
+   "o": [
+    "İnce bir düşünceyle arkadaşına sürpriz yaptı.",
+    "İnce bir iple uçurtmayı bağladı.",
+    "Kâğıdı ince ince kesti.",
+    "Pilot ince bir kalemle rotayı çizdi."
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Ölçülebilen inceliği mecaz sanma",
+    "2": "Gerçek inceliği mecaz sanma",
+    "3": "Gerçek inceliği mecaz sanma"
+   },
+   "e": "Bir düşünceye dokunup kalınlığını ölçemeyiz; burada \"ince\", \"nazik, düşünceli\" anlamındadır. Bu yüzden mecazdır.",
+   "ip": "Hangi incelik gözle görülüp elle tutulamaz?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Terim anlam",
+   "k": "T.O.5.20",
+   "q": "\"Ritim, müzikte seslerin belirli bir düzen içinde tekrarlanmasıdır.\" cümlesinde \"ritim\" hangi anlamda kullanılmıştır?",
+   "o": [
+    "Terim anlam",
+    "Mecaz anlam",
+    "Gerçek (gündelik) anlam",
+    "Yan anlam"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Terimi mecaz sanma",
+    "2": "Alan anlamını gündelik anlam sanma",
+    "3": "Terimi yan anlam sanma"
+   },
+   "e": "Bir bilim, sanat ya da meslek alanına özgü anlamda kullanılan kelime terimdir. Ritim burada müzik terimidir.",
+   "ip": "Bu cümle hangi alana (ders, sanat) ait bir bilgi veriyor?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Terim anlam",
+   "k": "T.O.5.20",
+   "q": "Hangi cümlede \"ayak\" kelimesi TERİM anlamında kullanılmıştır?",
+   "o": [
+    "Bu şiirde her dörtlükte aynı ayak kullanılmış.",
+    "Koşarken ayağım taşa takıldı.",
+    "Masanın bir ayağı kırılmış.",
+    "Yeni ayakkabım ayağımı sıktı."
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Gerçek anlamı terim sanma",
+    "2": "Yan anlamı terim sanma",
+    "3": "Gerçek anlamı terim sanma"
+   },
+   "e": "Halk şiirinde \"ayak\", dize sonlarındaki ses benzerliği, yani uyak (kafiye) demektir. Bu bir edebiyat terimidir.",
+   "ip": "Hangisi bir sanat dalına ait?",
+   "zor": 3,
+   "tur": "odev",
+   "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Sesteş kelimeler",
+   "k": "T.O.5.20",
+   "q": "\"Doksan dokuzdan sonra yüz gelir.\" ve \"Yüzümü soğuk suyla yıkadım.\" cümlelerindeki \"yüz\" kelimeleri için hangisi doğrudur?",
+   "o": [
+    "Yazılışları aynı, anlamları farklı (sesteş) kelimelerdir",
+    "Eş anlamlı kelimelerdir",
+    "Zıt anlamlı kelimelerdir",
+    "İkisi de sayı bildirir"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Aynı yazılışı aynı anlam sanma",
+    "2": "Farklı anlamı zıt anlam sanma",
+    "3": "İkinci cümledeki anlamı fark etmeme"
+   },
+   "e": "Birinde sayı (100), diğerinde vücudumuzun bir bölümü anlatılıyor. Yazılışı aynı, anlamı farklı kelimelere sesteş denir.",
+   "ip": "İki cümlede de aynı şey mi anlatılıyor?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Gerçek / mecaz",
+   "k": "T.O.5.20",
+   "q": "\"Elimi kaldırıp söz istedim.\" cümlesinde \"el\" kelimesi hangi anlamdadır?",
+   "o": [
+    "Kolun bilekten parmak uçlarına kadar olan bölümü",
+    "Yabancı kişi",
+    "Ülke, memleket",
+    "Halk, insanlar"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Sesteş kelimenin öbür anlamını seçme",
+    "2": "Sesteş kelimenin öbür anlamını seçme",
+    "3": "Bağlama bakmadan başka anlam seçme"
+   },
+   "e": "Söz istemek için kaldırdığımız şey vücudumuzdaki elimizdir; kelime gerçek anlamında kullanılmıştır.",
+   "ip": "Cümlede el, başka bir insanı mı anlatıyor, bedenimizin bir parçasını mı?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+  },
+  {
+   "t": "Sesteş kelimeler",
+   "k": "T.O.5.20",
+   "q": "Hangi cümlede \"yüz\" kelimesi SAYI anlamında kullanılmıştır?",
+   "o": [
+    "Uçakta yüz yolcu vardı.",
+    "Yüzünü güneşe çevirdi.",
+    "Denizde yüzmeyi öğrendi.",
+    "Yastığın yüzünü değiştirdi."
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Organ anlamını sayı sanma",
+    "2": "Yüzmek eylemiyle karıştırma",
+    "3": "Kılıf anlamını sayı sanma"
+   },
+   "e": "\"Yüz yolcu\" 100 yolcu demektir; burada yüz bir sayıdır.",
+   "ip": "Yüzün yerine 100 yazabileceğin cümle hangisi?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Zıt anlam",
+   "k": "T.O.5.20",
+   "q": "\"İnce bir ip\" sözündeki \"ince\" kelimesinin zıt anlamlısı hangisidir?",
+   "o": [
+    "Kalın",
+    "Uzun",
+    "Narin",
+    "Hafif"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Başka bir özellikle karıştırma",
+    "2": "Eş anlama yakın kelime seçme",
+    "3": "Başka bir özellikle karıştırma"
+   },
+   "e": "İnce ↔ kalın. Zıt anlamlı kelimeler birbirinin karşıtıdır.",
+   "ip": "İncenin tersi nedir?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Terim anlam",
+   "k": "T.O.5.20",
+   "q": "Hangi cümlede \"pay\" kelimesi matematik TERİMİ olarak kullanılmıştır?",
+   "o": [
+    "3/4 kesrinde pay 3'tür.",
+    "Pastadan herkese eşit pay ayırdı.",
+    "Bu başarıda senin de payın büyük.",
+    "Ödülden kardeşine de pay verdi."
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Gündelik anlamı terim sanma",
+    "2": "Mecaz anlamı terim sanma",
+    "3": "Gündelik anlamı terim sanma"
+   },
+   "e": "Matematikte pay, kesir çizgisinin üstündeki sayıdır. Bu anlamda kullanılınca terimdir.",
+   "ip": "Hangisinde bir matematik bilgisi var?",
+   "zor": 2,
+   "tur": "benzer"
+  },
+  {
+   "t": "Ana düşünce",
+   "k": "T.O.5.8",
+   "q": "\"Ali, arkadaşına 'Hiç değişmemişsin!' dedi. Arkadaşı bunu iltifat sandı, oysa Ali onun hâlâ geç kaldığını söylemek istemişti.\" Bu küçük metinden hangi sonuç çıkarılabilir?",
+   "o": [
+    "Aynı söz farklı anlaşılabilir, bu yüzden açık konuşmak gerekir",
+    "Arkadaşlar hiç değişmez",
+    "Geç kalmak iyi bir davranıştır",
+    "İltifat etmek yanlıştır"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Sözü gerçek bilgi sanma",
+    "2": "Metinde olmayan yargıyı seçme",
+    "3": "Ayrıntıdan yanlış genelleme yapma"
+   },
+   "e": "Ali bir şey demek istedi, arkadaşı başka anladı. Ders: Sözlerimizi açık ve doğru seçmeliyiz.",
+   "ip": "Ali ne demek istedi, arkadaşı ne anladı?",
+   "zor": 2,
+   "tur": "benzer"
+  },
+  {
+   "t": "Eş anlam",
+   "k": "T.O.5.20",
+   "q": "\"Pilot, uçağı hızlı bir şekilde indirdi.\" cümlesindeki \"hızlı\" kelimesinin eş anlamlısı hangisidir?",
+   "o": [
+    "Süratli",
+    "Yavaş",
+    "Yüksek",
+    "Dikkatli"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Zıt anlamla karıştırma",
+    "2": "Başka bir özellikle karıştırma",
+    "3": "Cümleye uyan ama anlamı farklı kelime seçme"
+   },
+   "e": "Hızlı = süratli. Aynı anlama gelen farklı kelimelere eş anlamlı denir.",
+   "ip": "Yarış arabası nasıl gider?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Söz sanatları",
+   "k": "T.O.5.19",
+   "q": "\"Rüzgâr pencereyi öfkeyle tıklattı.\" cümlesinde hangi söz sanatı vardır?",
+   "o": [
+    "Kişileştirme",
+    "Abartma",
+    "Benzetme",
+    "Söz sanatı yoktur"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "İnsan özelliği vermeyi abartma sanma",
+    "2": "Kişileştirmeyi benzetme sanma",
+    "3": "Söz sanatını fark etmeme"
+   },
+   "e": "Rüzgâr öfkelenemez; öfke insana özgüdür. İnsan dışındaki bir varlığa insan özelliği vermeye kişileştirme denir.",
+   "ip": "Rüzgâr gerçekten öfkelenebilir mi?",
+   "zor": 2,
+   "tur": "hazirlik"
+  },
+  {
+   "t": "Özetleme",
+   "k": "T.O.5.21",
+   "q": "Okuduğumuz bir hikâyeyi özetlerken ne yapmalıyız?",
+   "o": [
+    "Önemli olayları ve ana düşünceyi kısaca kendi cümlelerimizle yazmalıyız",
+    "Hikâyeyi kelimesi kelimesine yeniden yazmalıyız",
+    "Yalnızca son cümleyi yazmalıyız",
+    "Hikâyeye yeni olaylar eklemeliyiz"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Özetlemeyi kopyalamak sanma",
+    "2": "Özeti tek ayrıntıya indirme",
+    "3": "Özete metinde olmayanı katma"
+   },
+   "e": "Özet, metnin kısa hâlidir: kim, ne, nerede, nasıl ve ana düşünce kendi cümlelerimizle yazılır.",
+   "ip": "Özet uzun mu olur, kısa mı?",
+   "zor": 1,
+   "tur": "hazirlik"
+  }
+ ]
+}

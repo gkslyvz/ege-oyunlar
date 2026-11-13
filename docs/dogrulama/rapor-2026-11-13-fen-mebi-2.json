@@ -1,0 +1,61 @@
+{
+  "incelenen": 19,
+  "tarih": "2026-11-13",
+  "kapsam": "scripts/kaynak/v2/set_2026-11-13-fen-mebi2.py (19 soru: odev 13, benzer 4, hazirlik 2), öğretmen yanıt anahtarı (MEB geçmiş yıllar + MEBİ, Fen Ünite 1) ile karşılaştırıldı",
+  "ozet": "Tüm doğru şıklar kendi çözümümle ve yanıt anahtarıyla uyumlu: pinpon topunda yine noktalı yüz; 27,3 gün = Ay'ın dönmesi + dolanması; Dünya ile birlikte Güneş çevresinde 365 gün 6 saat; Dolunay-Son dördün-Yeni Ay-İlk dördün; 13 Temmuz son dördün -> 27 Temmuz ilk dördün; 6 Nisan ilk dördün -> 27 Nisan Yeni Ay; krater/ince atmosfer; izler hava olayı yok; Dünya = voleybol topu; basketbol Dünya ise model kurulamaz; görünür hareket = Dünya'nın dönmesi; uzaklık; küre + katman. Her soruda tek doğru şık var, bilimsel hata yok, resim gerekmiyor, gizlilik ihlali yok (kaynak metindeki Yusuf/Ahmet adları kullanılmamış; 'Pilot Ege' build'de 'Pilot Kaptan'a çevriliyor). Kazanım kodları kazanim.py ile uyumlu. Tur sayıları yeterli (odev 13 >= 6, benzer 4 >= 3, hazirlik 2 >= 2). Kritik hata yok; cevabı neredeyse veren 3 ipucu, 1 açık uçlu biçim ve 1 belirsiz ifade düzeltilmeli.",
+  "kritik": [],
+  "orta": [
+    {
+      "q": "Bir tam turu yaklaşık 27,3 gün süren İKİ hareket hangileridir?",
+      "sorun": "İpucu 'İkisi de Ay'a ait.' cevabı veriyor: iki hareketin de Ay'a ait olduğu tek şık doğru şık.",
+      "oneri": "ip: \"Dünya kendi etrafında 24 saatte döner. 27,3 gün hangi gök cisminin hareketlerine uyar?\""
+    },
+    {
+      "q": "Bir pinpon topunun bir yüzü noktalarla, diğer yüzü çizgilerle işaretlendi...",
+      "sorun": "İpucu 'Gerçek Ay bize hiç arka yüzünü gösterir mi?' cevabı neredeyse doğrudan veriyor. Ayrıca 'Hiçbir yüzü görünmez' çeldiricisi gerçek Yeni Ay'da Dünya'ya dönük yüzün karanlık olmasıyla karışabilir (modelde ışık kaynağı yok ama soru 'görünür' diyor).",
+      "oneri": "q sonu: \"...yarım tur sonra topun hangi yüzü Dünya'ya dönük olur?\"; ip: \"Ay kendi etrafında dönmesini ve Dünya'nın etrafında dolanmasını kaç günde tamamlar? Bu iki süreyi karşılaştır.\""
+    },
+    {
+      "q": "13 Temmuz'da son dördün görüldü. Bir sonraki ilk dördün yaklaşık hangi tarihte görülür?",
+      "sorun": "acik='27 Temmuz' metin+sayı karışık; acikKontrol yalnız boşluk/nokta siliyor, '27', '27 Temmuz'da', '27/07' gibi doğru girişler yanlış sayılır. Kural: açık cevap sayısal/kısa olmalı.",
+      "oneri": "q: \"13 Temmuz'da son dördün görüldü. Bir sonraki ilk dördün Temmuz ayının yaklaşık kaçında görülür?\"; acik=\"27\"; şıklar \"27 Temmuz\" vb. aynı kalabilir."
+    },
+    {
+      "q": "Güneş'in kendi etrafında dönmesi ile ilgili hangisi doğrudur?",
+      "sorun": "İpucu 'Ünitenin ilk kazanımında Güneş'in hangi hareketi vardı?' çocuk diline uygun değil (kazanım kavramı) ve 'hareketi vardı' ifadesiyle cevabı ('döner') ele veriyor.",
+      "oneri": "ip: \"Güneş'in yüzeyindeki lekeler zamanla neden yer değiştirir?\""
+    }
+  ],
+  "dusuk": [
+    {
+      "q": "Ay'ın evreleri sırasıyla gözlendi: Dolunay → K → Yeni Ay → L...",
+      "sorun": "'evreleri' dendiği için ara evreler (ör. azalan hilal) de düşünülebilir; kaynak 'ana evreler' diyor.",
+      "oneri": "q: \"Ay'ın ANA evreleri sırasıyla gözlendi: Dolunay → K → Yeni Ay → L. K ve L hangi evrelerdir?\""
+    },
+    {
+      "q": "Astronotların Ay'daki ayak izleri neden uzun yıllar bozulmadan kalır?",
+      "sorun": "Çeldirici 'Ay'ın yüzeyi çok sert olduğu için iz çıkmadığı için' çift 'için' ile bozuk cümle; ayrıca soru izin var olduğunu söylediği için çok kolay elenir.",
+      "oneri": "Şık: \"Ay'ın yüzeyi çok sert olduğu için\" (yanılgı: \"İzlerin yüzeyin sertliğinden kaldığını sanma\")"
+    },
+    {
+      "q": "Toplar büyükten küçüğe: ... Dünya için basketbol topu seçilirse doğru bir model yapılabilir mi?",
+      "sorun": "Doğru şık tek 'Hayır' şıkkı, diğer üçü 'Evet'; bilgisiz çocuk biçimden cevabı tahmin edebilir.",
+      "oneri": "Bir 'Evet' çeldiricisini değiştir: (\"Hayır, çünkü Ay için tenis topu çok büyük olur\", \"Model kurmanın engelinin Ay topu olduğunu sanma\")"
+    },
+    {
+      "q": "Bir modelde Dünya'yı tenis topu gösteriyor. Ay için hangisi en uygun olur?",
+      "sorun": "'Basketbol topu' ve 'Voleybol topu' çeldiricileri aynı yanılgıyı ölçüyor; biri gereksiz.",
+      "oneri": "'Voleybol topu' yerine (\"Bir karpuz\", \"Ay'ı Güneş kadar büyük sanma\") ya da (\"Tenis topundan biraz büyük bir portakal\", \"Ay'ı Dünya'dan biraz büyük sanma\")"
+    },
+    {
+      "q": "Hangisi bir kuvvet örneği DEĞİLDİR?",
+      "sorun": "İpucu 'Hangisinde itme ya da çekme yok?' sorunun yeniden ifadesi; zor=1 olduğu için kabul edilebilir ama öğretici değil.",
+      "oneri": "ip: \"Kuvvet bir cisme yapılan itme ya da çekmedir. Bir renk bir şeyi itebilir mi?\" yerine daha nötr: \"Her şıkta bir cisme dokunup onu hareket ettiren bir şey var mı, bak.\""
+    },
+    {
+      "q": "Ay'ın, Dünya ile birlikte Güneş'in etrafında bir kez dolanması yaklaşık ne kadar sürer?",
+      "sorun": "Kazanım FB.5.1.4 kabul edilebilir, ancak kaynakta bu soru (S8/S9) Ay'ın hareketleri altında; FB.5.1.2 daha isabetli.",
+      "oneri": "k: \"FB.5.1.2\" (isteğe bağlı)"
+    }
+  ]
+}

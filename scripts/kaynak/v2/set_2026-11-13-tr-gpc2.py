@@ -1,0 +1,56 @@
+from ortak import S
+K = "Türkçe GPÇ-2 çalışma kâğıdı, yanıt anahtarı (öğretmen PDF'i, Classroom)"
+M = ("Metin: \"Deniz, arkadaşına 'Bugün çok farklı görünüyorsun.' dedi; aslında yalnızca yeni saç modelini fark etmişti ama arkadaşı bu sözü başka türlü anladı. "
+     "Ertesi gün öğretmen bir oyun oynattı: Herkes aynı kelimeyi farklı cümlelerde kullandı. 'İnce' kelimesi birinde ince bir ipi, diğerinde ince bir düşünceyi anlattı. "
+     "Deniz, kelimeleri doğru yerde kullanmanın, karşımızdakinin bizi doğru anlamasına yardım ettiğini öğrendi.\" ")
+SET = {"id": "2026-11-13-tr-gpc-2", "ders": "tr", "baslik": "Türkçe ödevi: Kelimelerde anlam (GPÇ-2)",
+ "kaynak": K, "kazanimlar": ["T.O.5.6", "T.O.5.8", "T.O.5.20", "T.O.5.19", "T.O.5.21"], "sorular": [
+# (a) ödevin kendi soruları — açık uçlu sorular çoktan seçmeliye çevrildi
+S("Metnin konusu", "T.O.5.6", M + "Bu metnin konusu nedir?", "Kelimelerin cümle içinde farklı anlamlar kazanabilmesi",
+  [("Deniz'in arkadaşının yeni saç modeli", "Metindeki küçük bir ayrıntıyı konu sanma"), ("Sınıfta oynanan oyunun kuralları", "Bir olayı konu sanma"), ("İnce bir ipin nasıl yapıldığı", "Örnek cümleyi konu sanma")],
+  "Konu, metnin neyi anlattığıdır. Bu metin, kelimelerin cümleye göre anlam değiştirmesini anlatıyor.", "Metin baştan sona hangi şey üzerinde duruyor?", 2, tur="odev", kaynak=K),
+S("Ana düşünce", "T.O.5.8", M + "Bu metnin ana düşüncesi hangisidir?", "Kelimeleri doğru yerde kullanmak, karşımızdakinin bizi doğru anlamasını sağlar",
+  [("Arkadaşlarımızın saçını fark etmeliyiz", "Olaydaki ayrıntıyı ana düşünce sanma"), ("Okulda oyun oynamak eğlencelidir", "Metnin olayını ana fikir sanma"), ("Her kelimenin yalnızca bir anlamı vardır", "Metnin söylediğinin tersini seçme")],
+  "Ana düşünce, yazarın okura vermek istediği mesajdır. Deniz'in öğrendiği şey bu mesajı verir.", "Deniz o gün ne öğrendi?", 2, tur="odev", kaynak=K),
+S("Anahtar kelime", "T.O.5.6", M + "Hangisi bu metnin anahtar kelimelerinden biri DEĞİLDİR?", "Saç modeli",
+  [("İnce", "Metnin özünü taşıyan kelimeyi tanımama"), ("Cümle", "Metnin özünü taşıyan kelimeyi tanımama"), ("Kelime", "Metnin özünü taşıyan kelimeyi tanımama")],
+  "Anahtar kelimeler metnin konusunu ve mesajını taşır: kelime, anlam, cümle, iletişim... Saç modeli yalnızca küçük bir ayrıntıdır.", "Hangisi çıkarılsa metnin konusu değişmez?", 2, tur="odev", kaynak=K),
+S("Gerçek / mecaz", "T.O.5.20", "Hangisinde \"ince\" kelimesi MECAZ anlamda kullanılmıştır?", "İnce bir düşünceyle arkadaşına sürpriz yaptı.",
+  [("İnce bir iple uçurtmayı bağladı.", "Ölçülebilen inceliği mecaz sanma"), ("Kâğıdı ince ince kesti.", "Gerçek inceliği mecaz sanma"), ("Pilot ince bir kalemle rotayı çizdi.", "Gerçek inceliği mecaz sanma")],
+  "Bir düşünceye dokunup kalınlığını ölçemeyiz; burada \"ince\", \"nazik, düşünceli\" anlamındadır. Bu yüzden mecazdır.", "Hangi incelik gözle görülüp elle tutulamaz?", 2, tur="odev", kaynak=K),
+S("Terim anlam", "T.O.5.20", "\"Ritim, müzikte seslerin belirli bir düzen içinde tekrarlanmasıdır.\" cümlesinde \"ritim\" hangi anlamda kullanılmıştır?", "Terim anlam",
+  [("Mecaz anlam", "Terimi mecaz sanma"), ("Gerçek (gündelik) anlam", "Alan anlamını gündelik anlam sanma"), ("Yan anlam", "Terimi yan anlam sanma")],
+  "Bir bilim, sanat ya da meslek alanına özgü anlamda kullanılan kelime terimdir. Ritim burada müzik terimidir.", "Bu cümle hangi alana (ders, sanat) ait bir bilgi veriyor?", 2, tur="odev", kaynak=K),
+S("Terim anlam", "T.O.5.20", "Hangi cümlede \"ayak\" kelimesi TERİM anlamında kullanılmıştır?", "Bu şiirde her dörtlükte aynı ayak kullanılmış.",
+  [("Koşarken ayağım taşa takıldı.", "Gerçek anlamı terim sanma"), ("Masanın bir ayağı kırılmış.", "Yan anlamı terim sanma"), ("Yeni ayakkabım ayağımı sıktı.", "Gerçek anlamı terim sanma")],
+  "Halk şiirinde \"ayak\", dize sonlarındaki ses benzerliği, yani uyak (kafiye) demektir. Bu bir edebiyat terimidir.", "Hangisi bir sanat dalına ait?", 3, tur="odev", kaynak=K),
+S("Sesteş kelimeler", "T.O.5.20", "\"Doksan dokuzdan sonra yüz gelir.\" ve \"Yüzümü soğuk suyla yıkadım.\" cümlelerindeki \"yüz\" kelimeleri için hangisi doğrudur?", "Yazılışları aynı, anlamları farklı (sesteş) kelimelerdir",
+  [("Eş anlamlı kelimelerdir", "Aynı yazılışı aynı anlam sanma"), ("Zıt anlamlı kelimelerdir", "Farklı anlamı zıt anlam sanma"), ("İkisi de sayı bildirir", "İkinci cümledeki anlamı fark etmeme")],
+  "Birinde sayı (100), diğerinde vücudumuzun bir bölümü anlatılıyor. Yazılışı aynı, anlamı farklı kelimelere sesteş denir.", "İki cümlede de aynı şey mi anlatılıyor?", 2, tur="odev", kaynak=K),
+S("Gerçek / mecaz", "T.O.5.20", "\"Elimi kaldırıp söz istedim.\" cümlesinde \"el\" kelimesi hangi anlamdadır?", "Kolun bilekten parmak uçlarına kadar olan bölümü",
+  [("Yabancı kişi", "Sesteş kelimenin öbür anlamını seçme"), ("Ülke, memleket", "Sesteş kelimenin öbür anlamını seçme"), ("Halk, insanlar", "Bağlama bakmadan başka anlam seçme")],
+  "Söz istemek için kaldırdığımız şey vücudumuzdaki elimizdir; kelime gerçek anlamında kullanılmıştır.", "Cümlede el, başka bir insanı mı anlatıyor, bedenimizin bir parçasını mı?", 1, tur="odev", kaynak=K),
+# (b) aynı kazanımda benzer yeni sorular
+S("Sesteş kelimeler", "T.O.5.20", "Hangi cümlede \"yüz\" kelimesi SAYI anlamında kullanılmıştır?", "Uçakta yüz yolcu vardı.",
+  [("Yüzünü güneşe çevirdi.", "Organ anlamını sayı sanma"), ("Denizde yüzmeyi öğrendi.", "Yüzmek eylemiyle karıştırma"), ("Yastığın yüzünü değiştirdi.", "Kılıf anlamını sayı sanma")],
+  "\"Yüz yolcu\" 100 yolcu demektir; burada yüz bir sayıdır.", "Yüzün yerine 100 yazabileceğin cümle hangisi?", 1, tur="benzer"),
+S("Zıt anlam", "T.O.5.20", "\"İnce bir ip\" sözündeki \"ince\" kelimesinin zıt anlamlısı hangisidir?", "Kalın",
+  [("Uzun", "Başka bir özellikle karıştırma"), ("Narin", "Eş anlama yakın kelime seçme"), ("Hafif", "Başka bir özellikle karıştırma")],
+  "İnce ↔ kalın. Zıt anlamlı kelimeler birbirinin karşıtıdır.", "İncenin tersi nedir?", 1, tur="benzer"),
+S("Terim anlam", "T.O.5.20", "Hangi cümlede \"pay\" kelimesi matematik TERİMİ olarak kullanılmıştır?", "3/4 kesrinde pay 3'tür.",
+  [("Pastadan herkese eşit pay ayırdı.", "Gündelik anlamı terim sanma"), ("Bu başarıda senin de payın büyük.", "Mecaz anlamı terim sanma"), ("Ödülden kardeşine de pay verdi.", "Gündelik anlamı terim sanma")],
+  "Matematikte pay, kesir çizgisinin üstündeki sayıdır. Bu anlamda kullanılınca terimdir.", "Hangisinde bir matematik bilgisi var?", 2, tur="benzer"),
+S("Ana düşünce", "T.O.5.8", "\"Ali, arkadaşına 'Hiç değişmemişsin!' dedi. Arkadaşı bunu iltifat sandı, oysa Ali onun hâlâ geç kaldığını söylemek istemişti.\" Bu küçük metinden hangi sonuç çıkarılabilir?", "Aynı söz farklı anlaşılabilir, bu yüzden açık konuşmak gerekir",
+  [("Arkadaşlar hiç değişmez", "Sözü gerçek bilgi sanma"), ("Geç kalmak iyi bir davranıştır", "Metinde olmayan yargıyı seçme"), ("İltifat etmek yanlıştır", "Ayrıntıdan yanlış genelleme yapma")],
+  "Ali bir şey demek istedi, arkadaşı başka anladı. Ders: Sözlerimizi açık ve doğru seçmeliyiz.", "Ali ne demek istedi, arkadaşı ne anladı?", 2, tur="benzer"),
+S("Eş anlam", "T.O.5.20", "\"Pilot, uçağı hızlı bir şekilde indirdi.\" cümlesindeki \"hızlı\" kelimesinin eş anlamlısı hangisidir?", "Süratli",
+  [("Yavaş", "Zıt anlamla karıştırma"), ("Yüksek", "Başka bir özellikle karıştırma"), ("Dikkatli", "Cümleye uyan ama anlamı farklı kelime seçme")],
+  "Hızlı = süratli. Aynı anlama gelen farklı kelimelere eş anlamlı denir.", "Yarış arabası nasıl gider?", 1, tur="benzer"),
+# (c) sıradaki konuya hazırlık: söz sanatları ve özetleme
+S("Söz sanatları", "T.O.5.19", "\"Rüzgâr pencereyi öfkeyle tıklattı.\" cümlesinde hangi söz sanatı vardır?", "Kişileştirme",
+  [("Abartma", "İnsan özelliği vermeyi abartma sanma"), ("Benzetme", "Kişileştirmeyi benzetme sanma"), ("Söz sanatı yoktur", "Söz sanatını fark etmeme")],
+  "Rüzgâr öfkelenemez; öfke insana özgüdür. İnsan dışındaki bir varlığa insan özelliği vermeye kişileştirme denir.", "Rüzgâr gerçekten öfkelenebilir mi?", 2, tur="hazirlik"),
+S("Özetleme", "T.O.5.21", "Okuduğumuz bir hikâyeyi özetlerken ne yapmalıyız?", "Önemli olayları ve ana düşünceyi kısaca kendi cümlelerimizle yazmalıyız",
+  [("Hikâyeyi kelimesi kelimesine yeniden yazmalıyız", "Özetlemeyi kopyalamak sanma"), ("Yalnızca son cümleyi yazmalıyız", "Özeti tek ayrıntıya indirme"), ("Hikâyeye yeni olaylar eklemeliyiz", "Özete metinde olmayanı katma")],
+  "Özet, metnin kısa hâlidir: kim, ne, nerede, nasıl ve ana düşünce kendi cümlelerimizle yazılır.", "Özet uzun mu olur, kısa mı?", 1, tur="hazirlik"),
+]}
