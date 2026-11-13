@@ -21,3 +21,12 @@ Ege'nin (5. sınıf, ~10 yaş) ödev ve sınav konularından beslenen eğitsel o
 ```json
 { "t": "Konu", "q": "Soru metni", "o": ["A", "B", "C"], "a": 1, "e": "Neden doğru (kısa)" }
 ```
+
+## Güncel yapı (13.11.2026)
+- Soru şeması v2: `{t,k(kazanım),q,o[4],a,yan{şık:yanılgı},e,ip,zor,tur(banka|odev|benzer|hazirlik),acik?,kaynak?,set?}`. Ödev setleri `scripts/kaynak/v2/set_*.py`; akış `docs/ODEV-AKISI.md`; işlenen dosyalar `data/islenen.json`.
+- Her yeni set ayrı doğrulama ajanından geçer (`docs/dogrulama/`). Kritik hata varsa yayınlanmaz.
+- DENEYAP rotası: `scripts/kaynak/v2/deneyap.py`, hedef tarih `data/hedefler.json` (tahmini; kılavuz çıkınca güncelle).
+- Hangar (`games/hangar`): tasarım `Ortak.tasarim()`, ustalık ödülleri `Ortak.ODULLER`, STL çıktısı. Baskıdan önce bağımsız kontrol.
+- Kişisel sürüm Pano'da `/oyun` altında (middleware ile giriş zorunlu); PWA `sw.js` build'de üretilir; three.js ve yazı tipleri `assets/vendor` (yerel).
+- Bulut: `data/bulut.json` (isimsiz profil uuid) → Supabase `api.oyun_kaydet/oku/gecmis` (`supabase/oyun-semasi.sql`). Genel sürümde `/*<BULUT>*/`, `/*<PANO>*/`, `/*<HEDEF>*/` blokları çıkarılır; genel sürüm sıfır dış istek yapar.
+- Lisanslar ve CC0 değiştirme listesi: `docs/LISANSLAR.md`.
