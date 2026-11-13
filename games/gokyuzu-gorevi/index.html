@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pilot Ege: Gökyüzü Görevi</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/vendor/fonts.css">
 <style>
   :root{
     --sky1:#0b3d91; --sky2:#3b8fe0; --sky3:#a9dcff;
@@ -365,6 +365,7 @@ function veriYukle(x){if(x&&x.v===1&&(x.guncel||0)>(S.guncel||0)){S=Object.assig
 window.Ortak={tasarim,acik,ODULLER,rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null,geriBildirim,acikKontrol,sureDurum,sureKapisi,veri,veriYukle,bulut:null,_bitti:false};
 })();
 
+/*<BULUT>*/
 // ---------- Bulut eşitleme (yalnız kişisel sürüm; genel sürümde window.BULUT yok → hiçbir veri gönderilmez) ----------
 (function(){
   const B=window.BULUT;if(!B||!B.url||!B.key||!B.profil||typeof fetch!=='function')return;
@@ -376,6 +377,7 @@ window.Ortak={tasarim,acik,ODULLER,rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,m
   };
   window.Ortak.bulut.oku();
 })();
+/*</BULUT>*/
 
 
 // ===== DURUM =====

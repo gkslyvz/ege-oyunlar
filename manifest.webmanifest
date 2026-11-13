@@ -1,0 +1,11 @@
+{
+ "name": "Ege Oyunlar",
+ "short_name": "Oyunlar",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#0b3d91",
+ "theme_color": "#0b3d91",
+ "icons": []
+}

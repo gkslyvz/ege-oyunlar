@@ -197,6 +197,7 @@ function veriYukle(x){if(x&&x.v===1&&(x.guncel||0)>(S.guncel||0)){S=Object.assig
 window.Ortak={tasarim,acik,ODULLER,rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null,geriBildirim,acikKontrol,sureDurum,sureKapisi,veri,veriYukle,bulut:null,_bitti:false};
 })();
 
+/*<BULUT>*/
 // ---------- Bulut eşitleme (yalnız kişisel sürüm; genel sürümde window.BULUT yok → hiçbir veri gönderilmez) ----------
 (function(){
   const B=window.BULUT;if(!B||!B.url||!B.key||!B.profil||typeof fetch!=='function')return;
@@ -208,3 +209,4 @@ window.Ortak={tasarim,acik,ODULLER,rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,m
   };
   window.Ortak.bulut.oku();
 })();
+/*</BULUT>*/

@@ -73,6 +73,13 @@ const STORY=['Profesör Unutkan, Kaptan Ege\'nin uçağının yakıtını boşal
 // ================= SAHNE =================
 const renderer=new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);document.body.prepend(renderer.domElement);
+// Uyarlanır kalite: FPS 40'ın altına düşerse çözünürlüğü kademeli düşür; #fps ile sayaç göster
+(function(){let oran=Math.min(devicePixelRatio,1.5);renderer.setPixelRatio(oran);let n=0,t0=performance.now();const goster=location.hash.includes('fps');let el=null;
+  if(goster){el=document.createElement('div');el.style.cssText='position:fixed;left:6px;bottom:6px;z-index:99;background:#000a;color:#0f0;font:12px monospace;padding:2px 6px;border-radius:6px';document.body.append(el)}
+  (function say(){n++;const t=performance.now();if(t-t0>=2000){const fps=n*1000/(t-t0);n=0;t0=t;
+    if(fps<40&&oran>1){oran=Math.max(1,oran-.25);renderer.setPixelRatio(oran);renderer.setSize(innerWidth,innerHeight)}
+    if(el)el.textContent=`${Math.round(fps)} fps · x${oran}`}requestAnimationFrame(say)})()})();
+
 const scene=new THREE.Scene();const SKY=0x9fd8ff;scene.background=new THREE.Color(SKY);scene.fog=new THREE.Fog(SKY,40,150);
 const camera=new THREE.PerspectiveCamera(62,innerWidth/innerHeight,.1,400);
 addEventListener('resize',()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix()});

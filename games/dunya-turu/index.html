@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pilot Ege: Dünya Turu</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/vendor/fonts.css">
 <style>
 :root{--ink:#10223f;--ok:#1fa35b;--bad:#e2463b;--gold:#ffc23d;--card:#fff}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -390,6 +390,7 @@ function veriYukle(x){if(x&&x.v===1&&(x.guncel||0)>(S.guncel||0)){S=Object.assig
 window.Ortak={tasarim,acik,ODULLER,rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null,geriBildirim,acikKontrol,sureDurum,sureKapisi,veri,veriYukle,bulut:null,_bitti:false};
 })();
 
+/*<BULUT>*/
 // ---------- Bulut eşitleme (yalnız kişisel sürüm; genel sürümde window.BULUT yok → hiçbir veri gönderilmez) ----------
 (function(){
   const B=window.BULUT;if(!B||!B.url||!B.key||!B.profil||typeof fetch!=='function')return;
@@ -401,6 +402,7 @@ window.Ortak={tasarim,acik,ODULLER,rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,m
   };
   window.Ortak.bulut.oku();
 })();
+/*</BULUT>*/
 
 
 // ================= DÜNYA =================
@@ -503,11 +505,13 @@ const beaten=(r,k)=>(S.beaten[r]||[]).includes(k);
 const regionDone=r=>beaten(r,'boss');
 const regionOpen=i=>i===0||regionDone(REGIONS[i-1].id);
 
+/*<PANO>*/
 // Pano'da barınırken yeni sınavları canlı oku → sınav boss'u kendiliğinden açılır
 const BOLGE={'türkçe':'tr','matematik':'mat','fen bilimleri':'fen','fen':'fen','sosyal bilgiler':'sos','ingilizce':'ing','i̇ngilizce':'ing'};
 fetch('/api/state',{credentials:'same-origin'}).then(r=>r.ok?r.json():null).then(d=>{if(!d||!d.view||!d.view.exams)return;
   window.PANO_EXAMS=d.view.exams.map(e=>({id:'pano:'+e.id,region:BOLGE[String(e.subject||'').toLocaleLowerCase('tr-TR')],date:e.date,title:e.title})).filter(e=>e.region);
   if(!$('map').classList.contains('hidden'))renderMap()}).catch(()=>{});
+/*</PANO>*/
 function renderMap(){
   setBg('');
   const l=level(S.xp);

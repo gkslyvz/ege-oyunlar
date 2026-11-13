@@ -276,11 +276,13 @@ const beaten=(r,k)=>(S.beaten[r]||[]).includes(k);
 const regionDone=r=>beaten(r,'boss');
 const regionOpen=i=>i===0||regionDone(REGIONS[i-1].id);
 
+/*<PANO>*/
 // Pano'da barınırken yeni sınavları canlı oku → sınav boss'u kendiliğinden açılır
 const BOLGE={'türkçe':'tr','matematik':'mat','fen bilimleri':'fen','fen':'fen','sosyal bilgiler':'sos','ingilizce':'ing','i̇ngilizce':'ing'};
 fetch('/api/state',{credentials:'same-origin'}).then(r=>r.ok?r.json():null).then(d=>{if(!d||!d.view||!d.view.exams)return;
   window.PANO_EXAMS=d.view.exams.map(e=>({id:'pano:'+e.id,region:BOLGE[String(e.subject||'').toLocaleLowerCase('tr-TR')],date:e.date,title:e.title})).filter(e=>e.region);
   if(!$('map').classList.contains('hidden'))renderMap()}).catch(()=>{});
+/*</PANO>*/
 function renderMap(){
   setBg('');
   const l=level(S.xp);

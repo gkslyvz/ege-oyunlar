@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ege Oyunlar</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b3d91">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
 <style>
 body{margin:0;min-height:100vh;font-family:'Baloo 2',system-ui,sans-serif;background:linear-gradient(180deg,#0b3d91,#3b8fe0 55%,#a9dcff);display:grid;place-items:center;padding:16px;box-sizing:border-box}
@@ -35,12 +37,16 @@ try{const S=JSON.parse(localStorage.getItem('egeOrtak.v1'));if(S){const l=1+Math
   const R=['Çırak Pilot','Yardımcı Pilot','Kaptan','Filo Komutanı','As Pilot','Gökyüzü Efsanesi'][Math.min(l-1,5)];
   const t=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul'}).format(new Date());const g=S.gorev&&S.gorev.gun===t?S.gorev:{yapilan:0,hedef:15};
   document.getElementById('durum').innerHTML=`<span style="background:#10223f;color:#ffc23d">Sv ${l} · ${R}</span><span style="background:#ff7a3d;color:#fff">🔥 ${S.seri?S.seri.say:0} gün</span><span style="background:#1fa35b;color:#fff">🎯 ${Math.min(g.yapilan,g.hedef)}/${g.hedef}</span>`}}catch(e){}
+/*<HEDEF>*/
 // Hedef rotası (ör. DENEYAP): kalan gün ve bugünkü görev
 fetch('data/hedefler.json').then(r=>r.ok?r.json():[]).then(H=>{
   const t=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul'}).format(new Date());const d=x=>Math.round(Date.parse(x+'T00:00:00Z')/864e5);
   const h=H.map(h=>({...h,gun:d(h.tarih)-d(t)})).filter(h=>h.gun>=0).sort((a,b)=>a.gun-b.gun)[0];if(!h)return;
   const n=h.gun<=14?10:h.gun<=45?6:h.gun<=90?4:2;
   document.getElementById('rota').innerHTML=`<a href="games/kacis/"><span>🧠</span><div><b>${h.baslik}: ${h.gun} gün${h.kesin?'':' (tahmini)'}</b><small>Bugünkü rota görevi: ${n} muhakeme sorusu · DENEYAP Rotası'nı seç</small></div></a>`}).catch(()=>{});
+/*</HEDEF>*/
+// Çevrimdışı: yalnız Pano'da (/oyun) barınırken
+if('serviceWorker' in navigator&&location.pathname.startsWith('/oyun/'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
 </html>
