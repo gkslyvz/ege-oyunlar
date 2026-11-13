@@ -20,7 +20,7 @@ const fmt=n=>n.toLocaleString('tr-TR');
 function Q(t,k,q,dogru,yanlis,e,ip,acik){
   const o=[String(dogru)],yan={};
   for(const [v,y] of yanlis){const s=String(v);if(o.length<4&&!o.includes(s)&&!/NaN|undefined|^-/.test(s)){yan[o.length]=y;o.push(s)}}
-  let n=1;while(o.length<4){const s=String(+String(dogru).replace(/\D/g,'')+n++);if(!o.includes(s)){yan[o.length]='Tahminle seçme';o.push(s)}}
+  const ek=(String(dogru).match(/[^\d]+$/)||[''])[0];let n=1;while(o.length<4){const s=String(+String(dogru).replace(/\D/g,'')+n++)+ek;if(!o.includes(s)){yan[o.length]='Tahminle seçme';o.push(s)}}
   return{t,k,q,o,a:0,yan,e,ip,acik:acik===undefined?null:String(acik),zor:2}}
 const GEN={
   aciTuru(){const a=pick([R(10,85),90,R(95,175),180]);const t=a<90?'Dar açı':a===90?'Dik açı':a<180?'Geniş açı':'Doğru açı';
@@ -57,6 +57,15 @@ const GEN={
     return Q('Üçgenler','MAT.5.3.6',`Kenarları ${shuffle(s).join(' cm, ')} cm olan üçgen hangisidir?`,n,['Eşkenar','İkizkenar','Çeşitkenar','Dik'].filter(x=>x!==n).map(x=>[x,Y[x]]),'Eşkenar: 3 kenar eşit · İkizkenar: 2 kenar eşit · Çeşitkenar: hepsi farklı','Kaç kenar birbirine eşit?')},
   cokgen(){const c=pick([[3,'Üçgen'],[4,'Dörtgen'],[5,'Beşgen'],[6,'Altıgen'],[8,'Sekizgen']]);
     return Q('Çokgenler','MAT.5.3.6',`${c[1]}in kaç kenarı vardır?`,c[0],[[c[0]+1,'Komşu çokgenle karıştırma'],[c[0]-1,'Komşu çokgenle karıştırma'],[c[0]*2,'Kenar ile köşe+kenarı karıştırma']],`${c[1]}: ${c[0]} kenar, ${c[0]} köşe.`,'İsminde sayı saklı.',c[0])},
+  // MEB 5. sınıf MEBİ yazılı materyali: ters açılar, komşu tümler/bütünler, köşegen (MAT.5.3.4 / MAT.5.3.6)
+  tersAci(){const a=R(20,160);if(a===90)return GEN.tersAci();
+    return Q('Açılar','MAT.5.3.4',`İki doğru kesişiyor. Oluşan açılardan biri ${a}°. Bu açının ters açısı kaç derecedir?`,`${a}°`,[[`${180-a}°`,'Ters açıyı komşu bütünler açıyla karıştırma'],[`${Math.abs(90-a)}°`,a<90?'Ters açıyı tümler açıyla karıştırma':'Açıdan 90° çıkarma'],[`${360-a}°`,'Tam açıdan çıkarma']],`Ters açılar (zıt yönlere bakan açılar) eşittir: ${a}°.`,'Ters açı, tam karşısındaki açıdır.',a)},
+  komsuButunler(){const a=R(25,155);if(a===90)return GEN.komsuButunler();const r=180-a;
+    return Q('Açılar','MAT.5.3.4',`A, O, C noktaları doğrusal. m(AOB) = ${a}° ise m(BOC) kaç derecedir?`,`${r}°`,[[`${90-a>0?90-a:a-90}°`,'Doğru açıyı 90° sanma'],[`${a}°`,'Komşu açıları eşit sanma'],[`${360-a}°`,'Doğru açıyı 360° sanma']],`Doğru açı 180°: 180 − ${a} = ${r}°. Bu iki açı komşu bütünlerdir.`,'Düz bir çizgi kaç derecedir?',r)},
+  komsuTumler(){const a=R(10,80);const r=90-a;if(r===a)return GEN.komsuTumler();
+    return Q('Açılar','MAT.5.3.4',`[KD ile [KE birbirine dik. [KF bu iki ışın arasında ve m(DKF) = ${a}°. m(FKE) kaç derecedir?`,`${r}°`,[[`${180-a}°`,'Dik açıyı 180° sanma'],[`${a}°`,'Komşu açıları eşit sanma'],[`${90+a}°`,'Çıkarmak yerine toplama']],`Dik açı 90°: 90 − ${a} = ${r}°. Bu iki açı komşu tümlerdir.`,'Dik demek kaç derece?',r)},
+  kosegen(){const c=pick([[3,'üçgenin',0],[4,'dörtgenin',2],[5,'beşgenin',5]]);
+    return Q('Çokgenler','MAT.5.3.6',`Bir ${c[1]} kaç köşegeni vardır?`,c[2],[[c[0],'Köşegen sayısını köşe sayısı sanma'],[c[2]*2,'Her köşegeni iki kez sayma'],[c[0]-1,'Köşegen sayısını köşe sayısından bir eksik sanma']].filter(x=>x[0]!==c[2]),`Köşegen, ardışık OLMAYAN iki köşeyi birleştirir.${c[0]===3?' Üçgende her köşe diğer ikisine komşu olduğu için köşegen yoktur.':''}`,'Yan yana olmayan köşeleri birleştir.',c[2])},
 };
 const GEN_KEYS=Object.keys(GEN);
 const GEN_K={};GEN_KEYS.forEach(g=>{try{GEN_K[g]=GEN[g]().k}catch(e){}});

@@ -1,0 +1,61 @@
+{
+  "incelenen": 22,
+  "tarih": "2026-11-13",
+  "kapsam": "scripts/kaynak/v2/set_mat_mebi1.py (18 soru) + games/ortak/ortak.js üreticileri tersAci, komsuButunler, komsuTumler, kosegen",
+  "ozet": "Ödev soruları MEB çözümleriyle uyumlu (AB çap 6 cm; b=40, a=c=140; x=55, y=60; kare 2, üçgen 0 köşegen; en az 3 doğru; düzgün çokgen iki koşul; sekizgen 8/8/8; 65 iç ölçek; 120 dış ölçek). Her soruda tek doğru şık var. Üreticiler 20.000'er rastgele denemede her zaman 4 farklı şık ve doğru cevap üretti (Q() tekrarları eliyor). Kritik hata yok.",
+  "kritik": [],
+  "orta": [
+    {
+      "q": "GEN.tersAci (a=45 veya a=135) ve GEN.komsuButunler (a=45 veya a=135)",
+      "sorun": "Çeldirici doğru cevapla ya da başka çeldiriciyle çakışınca Q() yedek şık üretiyor: '46' / '136' — derece işareti olmadan. Bu şık diğerlerinden biçim olarak ayrıştığı için hemen elenir ve 'Tahminle seçme' etiketi alır. Örnek: tersAci(45) → ['45°','135°','315°','46'].",
+      "oneri": "function Q(t,k,q,dogru,yanlis,e,ip,acik){\n  const o=[String(dogru)],yan={};\n  for(const [v,y] of yanlis){const s=String(v);if(o.length<4&&!o.includes(s)&&!/NaN|undefined|^-/.test(s)){yan[o.length]=y;o.push(s)}}\n  const suf=String(dogru).replace(/^[\\d.,]+/,'');let n=1;while(o.length<4){const s=(+String(dogru).replace(/\\D/g,'')+n++)+suf;if(!o.includes(s)){yan[o.length]='Tahminle seçme';o.push(s)}}\n  return{t,k,q,o,a:0,yan,e,ip,acik:acik===undefined?null:String(acik),zor:2}}"
+    },
+    {
+      "q": "Kenarı 7 cm olan karenin çevresi kaç cm'dir?",
+      "sorun": "Kazanım kodu uymuyor: MAT.5.4.1 'Çevre uzunluğu verilen dikdörtgenin kenar uzunluklarını yorumlayabilme' (tersine işlem). Bu soru kenardan çevre hesaplıyor; ortak.js cevre() üreticisi de aynı tür için MAT.5.4.4 kullanıyor.",
+      "oneri": "S(\"Çevre\", \"MAT.5.4.4\", \"Kenarı 7 cm olan karenin çevresi kaç cm'dir?\", \"28 cm\","
+    },
+    {
+      "q": "Aynı şekilde 40°'lik açının komşusu olan a açısı (birlikte düz bir çizgi oluşturuyorlar) kaç derecedir?",
+      "sorun": "'Aynı şekilde' önceki soruya atıf yapıyor; sorular karışık sırayla geldiği için bağlam kaybolur (bilgi soru içinde yeterli olsa da ifade kafa karıştırır).",
+      "oneri": "d ve k doğruları O noktasında kesişiyor. Oluşan açılardan biri 40°. Bu açıyla birlikte düz bir çizgi (doğru açı) oluşturan komşu a açısı kaç derecedir?"
+    }
+  ],
+  "dusuk": [
+    {
+      "q": "İki doğru kesişiyor; açılardan biri 65°. Bu açının komşu bütünleri ile ters açısının toplamı kaç derecedir?",
+      "sorun": "245° çeldiricisinin yanılgı etiketi uyuşmuyor: 245 = 65 + 180 (komşu bütünler yerine 180° eklenmiş). 'Ters açı yerine 180°' olsaydı 115 + 180 = 295 olurdu.",
+      "oneri": "(\"245°\", \"Komşu bütünler yerine 180°'yi ekleme\")"
+    },
+    {
+      "q": "GEN.tersAci (a > 90 iken)",
+      "sorun": "|90 − a| çeldiricisi 'Ters açıyı tümler açıyla karıştırma' etiketini alıyor; a > 90 iken (ör. 120 → 30) tümler açı tanımlı değil, etiket yanlış.",
+      "oneri": "[`${Math.abs(90-a)}°`, a<90?'Ters açıyı tümler açıyla karıştırma':'Doğru açıyı 90° sanma']"
+    },
+    {
+      "q": "GEN.kosegen",
+      "sorun": "c[0]−1 çeldiricisinin etiketi 'Kenarları da köşegen sayma' sayıyla uyuşmuyor (üçgende 2, dörtgende 3, beşgende 4). Dörtgende c[2]*2=4, c[0]=4 ile çakışıyor; şık yedekten ('5', 'Tahminle seçme') doluyor. Doğruluk sorunu yok.",
+      "oneri": "[[c[0],'Köşegen sayısını köşe sayısı sanma'],[c[2]*2,'Her köşegeni iki kez sayma'],[c[0]-1,'Köşe sayısından bir çıkarma'],[c[0]-3,'Yalnızca bir köşeden çıkan köşegenleri sayma']].filter(x=>x[0]!==c[2])"
+    },
+    {
+      "q": "Açıölçerde bir kol sağdaki 0° çizgisinde, diğer kol dış ölçekte 120°'yi gösteriyor. Açı hangi türdür?",
+      "sorun": "İpucu ('Hangi ölçek sağdaki 0'dan başlıyor?') işe yaramıyor; soru zaten dış ölçek değerini veriyor. Asıl karar 90° ile 180° arasında olmak.",
+      "oneri": "120, 90'dan büyük mü, 180'den küçük mü?"
+    },
+    {
+      "q": "Açıölçerde açının bir kolu SOLDAKİ 0° çizgisinde. Ölçüyü hangi ölçekten okumalıyız?",
+      "sorun": "Doğru şık en uzun ve en ayrıntılı şık; görsel ipucu veriyor. Ayrıca 'SOLDAKİ' büyük harf vurgusu çocuğa gereksiz bağırma gibi görünür.",
+      "oneri": "Açıölçerde açının bir kolu soldaki 0° çizgisinde. Ölçüyü hangi ölçekten okumalıyız? | şıklar: \"İç ölçekten (soldaki 0°'dan başlayan)\", \"Dış ölçekten (sağdaki 0°'dan başlayan)\", \"İki ölçeğin ortalamasından\", \"Hangi ölçek büyükse ondan\""
+    },
+    {
+      "q": "SET başlığı (kazanimlar listesi)",
+      "sorun": "Alan sorusu MAT.5.4.2 kullanıyor ama SET 'kazanimlar' listesinde MAT.5.4.2 yok; çevre sorusu MAT.5.4.4'e çevrilirse o da eklenmeli.",
+      "oneri": "\"kazanimlar\": [\"MAT.5.3.1\", \"MAT.5.3.2\", \"MAT.5.3.3\", \"MAT.5.3.4\", \"MAT.5.3.5\", \"MAT.5.3.6\", \"MAT.5.4.2\", \"MAT.5.4.4\"]"
+    },
+    {
+      "q": "\"Park Yeri\" levhası bir kareyi temsil ediyor. Karenin kaç köşegeni vardır?",
+      "sorun": "İpucu 'A köşesinden…' diyor ama soruda köşeler adlandırılmamış.",
+      "oneri": "Bir köşeden, yanında olmayan kaç köşeye çizgi çekebilirsin?"
+    }
+  ]
+}

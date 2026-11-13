@@ -1867,6 +1867,425 @@
     "tur": "hazirlik",
     "acik": "6",
     "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "3 cm'lik KL çiziliyor, pergel 3 cm açılıp K merkezli çember çiziliyor. K'den geçen ve KL'ye dik doğru çemberi A ve B'de kesiyor. AB, çemberin hangi elemanıdır ve uzunluğu kaç cm'dir?",
+    "o": [
+     "Çap, 6 cm",
+     "Yarıçap, 3 cm",
+     "Çap, 3 cm",
+     "Yarıçap, 6 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Merkezden geçen parçayı yarıçap sanma",
+     "2": "Çapı yarıçapa eşit sanma",
+     "3": "Çap ile yarıçap adlarını karıştırma"
+    },
+    "e": "AB merkezden (K) geçer ve iki ucu çemberin üzerindedir: çap. Çap = 2 × 3 = 6 cm.",
+    "ip": "AB, K noktasından geçiyor mu?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Doğrular",
+    "k": "MAT.5.3.4",
+    "q": "Kareli zeminde AN doğrusu ile BC doğrusu aralarında 90° açı oluşturacak şekilde kesişiyor. Bu iki doğrunun durumu nasıl gösterilir?",
+    "o": [
+     "AN ⊥ BC",
+     "AN // BC",
+     "AN = BC",
+     "AN > BC"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Dik kesişmeyi paralellikle karıştırma",
+     "2": "Eşitlik sembolünü doğrular için kullanma",
+     "3": "Karşılaştırma sembolünü kullanma"
+    },
+    "e": "Dik kesişen doğrular ⊥ ile, paralel doğrular // ile gösterilir.",
+    "ip": "Aralarında dik açı var.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Doğrular",
+    "k": "MAT.5.3.4",
+    "q": "Hangisi paralel doğrulara günlük hayattan bir örnek DEĞİLDİR?",
+    "o": [
+     "Makasın iki ağzı",
+     "Tren rayları",
+     "Defterin çizgileri",
+     "Yol şeritleri"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Rayların hiç birleşmediğini düşünmeme",
+     "2": "Çizgilerin aynı aralıkta durduğunu görmeme",
+     "3": "Şeritlerin eşit uzaklıkta gittiğini görmeme"
+    },
+    "e": "Paralel doğrular hiç kesişmez ve her yerde aynı uzaklıktadır. Makasın ağızları bir noktada birleşir: kesişir.",
+    "ip": "Hangisi bir noktada birleşiyor?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açı ölçme",
+    "k": "MAT.5.3.3",
+    "q": "Açıölçerde açının bir kolu soldaki 0° çizgisinde. Ölçüyü hangi ölçekten okumalıyız?",
+    "o": [
+     "Soldaki 0°'dan başlayan ölçekten",
+     "Her zaman dış ölçekten",
+     "İki ölçeğin ortalamasından",
+     "Hangi ölçek büyükse ondan"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Ölçeği 0°'ın yerine göre seçmeme",
+     "2": "Ölçekleri birleştirmeye çalışma",
+     "3": "Ölçek seçimini sayıya göre yapma"
+    },
+    "e": "Kolun yattığı 0° çizgisi hangi ölçeğin başıysa, ölçü o ölçekten okunur. Bu açıölçerde soldaki 0° iç ölçekteydi.",
+    "ip": "Saymaya 0'dan başlanır.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "d ve k doğruları O noktasında kesişiyor. Oluşan açılardan biri 40°. Bu açının ters açısı (b) kaç derecedir?",
+    "o": [
+     "40°",
+     "140°",
+     "50°",
+     "320°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Ters açıyı komşu bütünler açıyla karıştırma",
+     "2": "Ters açıyı tümler açıyla karıştırma",
+     "3": "Tam açıdan çıkarma"
+    },
+    "e": "Ters açılar (zıt yönlere bakan açılar) eşittir: b = 40°.",
+    "ip": "Tam karşısındaki açıya bak.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "40",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "d ve k doğruları O noktasında kesişiyor. 40°'lik açının komşusu olan a açısı (birlikte düz bir çizgi oluşturuyorlar) kaç derecedir?",
+    "o": [
+     "140°",
+     "40°",
+     "50°",
+     "320°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Komşu açıyı ters açı sanma",
+     "2": "Doğru açıyı 90° sanma",
+     "3": "Doğru açıyı 360° sanma"
+    },
+    "e": "Birlikte doğru açı (180°) oluştururlar: a = 180 − 40 = 140°. Bunlara komşu bütünler açılar denir.",
+    "ip": "Düz bir çizgi kaç derece?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "140",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "A, O ve C noktaları doğrusal. m(AOB) = 125° ise m(BOC) = x kaç derecedir?",
+    "o": [
+     "55°",
+     "125°",
+     "35°",
+     "235°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Komşu açıları eşit sanma",
+     "2": "Doğru açıyı 90° sanma",
+     "3": "Doğru açıyı 360° sanma"
+    },
+    "e": "AOC doğru açıdır (180°): x = 180 − 125 = 55°.",
+    "ip": "Doğrusal noktalar düz bir çizgi oluşturur.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "55",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "[KD ile [KE birbirine dik. Aralarındaki [KF ile oluşan açılardan biri 30° ise diğeri (y) kaç derecedir?",
+    "o": [
+     "60°",
+     "150°",
+     "30°",
+     "120°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Dik açıyı 180° sanma",
+     "2": "Komşu açıları eşit sanma",
+     "3": "Çıkarmak yerine toplama"
+    },
+    "e": "Dik açı 90°: y = 90 − 30 = 60°. Toplamı 90° olan komşu açılar komşu tümlerdir.",
+    "ip": "Dik açı kaç derece?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "60",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "\"Park Yeri\" levhası bir kareyi temsil ediyor. Karenin kaç köşegeni vardır?",
+    "o": [
+     "2",
+     "4",
+     "0",
+     "1"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Köşegen sayısını köşe sayısı sanma",
+     "2": "Karede köşegen olmadığını sanma",
+     "3": "Simetrik köşegeni saymama"
+    },
+    "e": "Köşegen ardışık olmayan iki köşeyi birleştirir: [AC] ve [BD]. Kare: 2 köşegen.",
+    "ip": "Bir köşeden yan yana olmayan köşeye kaç çizgi gider?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "2",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "\"Yol Ver\" levhası bir üçgeni temsil ediyor. Üçgenin kaç köşegeni vardır?",
+    "o": [
+     "0",
+     "3",
+     "1",
+     "6"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Köşegeni kenar sanma",
+     "2": "Yüksekliği köşegen sanma",
+     "3": "Her köşeden iki köşegen sayma"
+    },
+    "e": "Üçgende her köşe diğer ikisine komşudur; ardışık olmayan köşe yoktur. Köşegen sayısı 0.",
+    "ip": "Komşu olmayan iki köşe var mı?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "0",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.5",
+    "q": "Bir çokgen oluşturmak için en az kaç doğrunun ardışık kesişmesi gerekir?",
+    "o": [
+     "3",
+     "2",
+     "4",
+     "1"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "İki doğrunun kapalı şekil oluşturduğunu sanma",
+     "2": "En küçük çokgeni dörtgen sanma",
+     "3": "Tek doğrunun şekil oluşturduğunu sanma"
+    },
+    "e": "En az üç doğru (ilk doğru son doğruyla da kesişirse) kapalı bir şekil, yani üçgen oluşturur.",
+    "ip": "En az köşeli çokgeni düşün.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "3",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "\"Dur\" levhası bir sekizgendir. Sekizgenin kenar, köşe ve iç açı sayıları için hangisi doğrudur?",
+    "o": [
+     "Üçü de 8'dir",
+     "8 kenar, 16 köşe, 8 iç açı",
+     "8 kenar, 8 köşe, 4 iç açı",
+     "Kenar sayısı köşe sayısından 1 fazladır"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Köşeleri iki kez sayma",
+     "2": "İç açı sayısını yarıya bölme",
+     "3": "Açık şekille kapalı şekli karıştırma"
+    },
+    "e": "Çokgenin her köşesinde iki kenar birleşir ve bir iç açı oluşur; kenar = köşe = iç açı sayısı.",
+    "ip": "Her köşede kaç iç açı var?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "Kenarları 6 cm ve 3 cm, bütün iç açıları 90° olan dörtgen düzgün çokgen midir?",
+    "o": [
+     "Hayır, kenar uzunlukları eşit değil",
+     "Evet, bütün açıları eşit",
+     "Evet, dörtgen olduğu için",
+     "Hayır, iç açıları eşit değil"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Düzgün çokgen için tek koşulu yeterli sanma",
+     "2": "Her dörtgeni düzgün sanma",
+     "3": "Verilen açı bilgisini yanlış okuma"
+    },
+    "e": "Düzgün çokgende hem bütün kenarlar hem bütün iç açılar eşit olmalıdır. Burada kenarlar eşit değil.",
+    "ip": "İki koşul birlikte sağlanmalı.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "İki doğru kesişiyor; açılardan biri 65°. Bu açının komşu bütünleri ile ters açısının toplamı kaç derecedir?",
+    "o": [
+     "180°",
+     "130°",
+     "115°",
+     "245°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Ters açıyı iki kez toplama",
+     "2": "Yalnızca komşu bütünleri bulma",
+     "3": "Açıya 180° ekleme"
+    },
+    "e": "Komşu bütünler = 180 − 65 = 115°, ters açı = 65°. Toplam 115 + 65 = 180°.",
+    "ip": "Önce iki açıyı ayrı ayrı bul.",
+    "zor": 3,
+    "tur": "benzer",
+    "acik": "180",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açı ölçme",
+    "k": "MAT.5.3.3",
+    "q": "Açıölçerde bir kol sağdaki 0° çizgisinde, diğer kol dış ölçekte 120°'yi gösteriyor. Açı hangi türdür?",
+    "o": [
+     "Geniş açı",
+     "Dar açı",
+     "Dik açı",
+     "Doğru açı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "İç ölçekten 60° okuyup dar sanma",
+     "2": "Açı türlerini karıştırma",
+     "3": "180° ile karıştırma"
+    },
+    "e": "Doğru ölçekten okunan değer 120°; 90° ile 180° arası geniş açıdır.",
+    "ip": "Doğru ölçekten okununca 120° çıkıyor; bu 90°'den büyük mü?",
+    "zor": 2,
+    "tur": "benzer",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "Bütün kenarları 5 cm ve bütün iç açıları 60° olan üçgene ne ad verilir?",
+    "o": [
+     "Eşkenar üçgen",
+     "Dik üçgen",
+     "İkizkenar ama düzgün olmayan üçgen",
+     "Kare"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "60°'yi dik açı sanma",
+     "2": "Üç eşit kenarı iki eşit kenar sanma",
+     "3": "Kenar sayısını gözden kaçırma"
+    },
+    "e": "Kenarları ve açıları eşit olan üçgen düzgün üçgendir; adı eşkenar üçgendir.",
+    "ip": "Kaç kenarı eşit?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çevre",
+    "k": "MAT.5.4.4",
+    "q": "Kenarı 7 cm olan karenin çevresi kaç cm'dir?",
+    "o": [
+     "28 cm",
+     "49 cm",
+     "14 cm",
+     "21 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Çevre yerine alan hesaplama",
+     "2": "Yalnız iki kenarı toplama",
+     "3": "Üç kenarı toplama"
+    },
+    "e": "Karenin 4 kenarı eşittir: 4 × 7 = 28 cm.",
+    "ip": "Kaç kenar var, hepsi kaç cm?",
+    "zor": 1,
+    "tur": "hazirlik",
+    "acik": "28",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Alan",
+    "k": "MAT.5.4.2",
+    "q": "Bir dikdörtgenin içine 1 cm × 1 cm'lik kareler diziliyor: 5 sütun, 3 satır. Alanı kaç cm²'dir?",
+    "o": [
+     "15 cm²",
+     "16 cm²",
+     "8 cm²",
+     "53 cm²"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kenarları toplayıp ikiyle çarpma (çevre)",
+     "2": "Satır ve sütunu toplama",
+     "3": "Sayıları yan yana yazma"
+    },
+    "e": "Alan = kaç birim kare sığdığı: 5 × 3 = 15 cm².",
+    "ip": "Satır × sütun.",
+    "zor": 1,
+    "tur": "hazirlik",
+    "acik": "15",
+    "set": "2026-11-13-mat-mebi-1"
    }
   ],
   "gen": true
@@ -6385,6 +6804,425 @@
     "set": "2026-11-13-mat-gpc-2"
    },
    {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "3 cm'lik KL çiziliyor, pergel 3 cm açılıp K merkezli çember çiziliyor. K'den geçen ve KL'ye dik doğru çemberi A ve B'de kesiyor. AB, çemberin hangi elemanıdır ve uzunluğu kaç cm'dir?",
+    "o": [
+     "Çap, 6 cm",
+     "Yarıçap, 3 cm",
+     "Çap, 3 cm",
+     "Yarıçap, 6 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Merkezden geçen parçayı yarıçap sanma",
+     "2": "Çapı yarıçapa eşit sanma",
+     "3": "Çap ile yarıçap adlarını karıştırma"
+    },
+    "e": "AB merkezden (K) geçer ve iki ucu çemberin üzerindedir: çap. Çap = 2 × 3 = 6 cm.",
+    "ip": "AB, K noktasından geçiyor mu?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Doğrular",
+    "k": "MAT.5.3.4",
+    "q": "Kareli zeminde AN doğrusu ile BC doğrusu aralarında 90° açı oluşturacak şekilde kesişiyor. Bu iki doğrunun durumu nasıl gösterilir?",
+    "o": [
+     "AN ⊥ BC",
+     "AN // BC",
+     "AN = BC",
+     "AN > BC"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Dik kesişmeyi paralellikle karıştırma",
+     "2": "Eşitlik sembolünü doğrular için kullanma",
+     "3": "Karşılaştırma sembolünü kullanma"
+    },
+    "e": "Dik kesişen doğrular ⊥ ile, paralel doğrular // ile gösterilir.",
+    "ip": "Aralarında dik açı var.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Doğrular",
+    "k": "MAT.5.3.4",
+    "q": "Hangisi paralel doğrulara günlük hayattan bir örnek DEĞİLDİR?",
+    "o": [
+     "Makasın iki ağzı",
+     "Tren rayları",
+     "Defterin çizgileri",
+     "Yol şeritleri"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Rayların hiç birleşmediğini düşünmeme",
+     "2": "Çizgilerin aynı aralıkta durduğunu görmeme",
+     "3": "Şeritlerin eşit uzaklıkta gittiğini görmeme"
+    },
+    "e": "Paralel doğrular hiç kesişmez ve her yerde aynı uzaklıktadır. Makasın ağızları bir noktada birleşir: kesişir.",
+    "ip": "Hangisi bir noktada birleşiyor?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açı ölçme",
+    "k": "MAT.5.3.3",
+    "q": "Açıölçerde açının bir kolu soldaki 0° çizgisinde. Ölçüyü hangi ölçekten okumalıyız?",
+    "o": [
+     "Soldaki 0°'dan başlayan ölçekten",
+     "Her zaman dış ölçekten",
+     "İki ölçeğin ortalamasından",
+     "Hangi ölçek büyükse ondan"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Ölçeği 0°'ın yerine göre seçmeme",
+     "2": "Ölçekleri birleştirmeye çalışma",
+     "3": "Ölçek seçimini sayıya göre yapma"
+    },
+    "e": "Kolun yattığı 0° çizgisi hangi ölçeğin başıysa, ölçü o ölçekten okunur. Bu açıölçerde soldaki 0° iç ölçekteydi.",
+    "ip": "Saymaya 0'dan başlanır.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "d ve k doğruları O noktasında kesişiyor. Oluşan açılardan biri 40°. Bu açının ters açısı (b) kaç derecedir?",
+    "o": [
+     "40°",
+     "140°",
+     "50°",
+     "320°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Ters açıyı komşu bütünler açıyla karıştırma",
+     "2": "Ters açıyı tümler açıyla karıştırma",
+     "3": "Tam açıdan çıkarma"
+    },
+    "e": "Ters açılar (zıt yönlere bakan açılar) eşittir: b = 40°.",
+    "ip": "Tam karşısındaki açıya bak.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "40",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "d ve k doğruları O noktasında kesişiyor. 40°'lik açının komşusu olan a açısı (birlikte düz bir çizgi oluşturuyorlar) kaç derecedir?",
+    "o": [
+     "140°",
+     "40°",
+     "50°",
+     "320°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Komşu açıyı ters açı sanma",
+     "2": "Doğru açıyı 90° sanma",
+     "3": "Doğru açıyı 360° sanma"
+    },
+    "e": "Birlikte doğru açı (180°) oluştururlar: a = 180 − 40 = 140°. Bunlara komşu bütünler açılar denir.",
+    "ip": "Düz bir çizgi kaç derece?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "140",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "A, O ve C noktaları doğrusal. m(AOB) = 125° ise m(BOC) = x kaç derecedir?",
+    "o": [
+     "55°",
+     "125°",
+     "35°",
+     "235°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Komşu açıları eşit sanma",
+     "2": "Doğru açıyı 90° sanma",
+     "3": "Doğru açıyı 360° sanma"
+    },
+    "e": "AOC doğru açıdır (180°): x = 180 − 125 = 55°.",
+    "ip": "Doğrusal noktalar düz bir çizgi oluşturur.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "55",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "[KD ile [KE birbirine dik. Aralarındaki [KF ile oluşan açılardan biri 30° ise diğeri (y) kaç derecedir?",
+    "o": [
+     "60°",
+     "150°",
+     "30°",
+     "120°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Dik açıyı 180° sanma",
+     "2": "Komşu açıları eşit sanma",
+     "3": "Çıkarmak yerine toplama"
+    },
+    "e": "Dik açı 90°: y = 90 − 30 = 60°. Toplamı 90° olan komşu açılar komşu tümlerdir.",
+    "ip": "Dik açı kaç derece?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "60",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "\"Park Yeri\" levhası bir kareyi temsil ediyor. Karenin kaç köşegeni vardır?",
+    "o": [
+     "2",
+     "4",
+     "0",
+     "1"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Köşegen sayısını köşe sayısı sanma",
+     "2": "Karede köşegen olmadığını sanma",
+     "3": "Simetrik köşegeni saymama"
+    },
+    "e": "Köşegen ardışık olmayan iki köşeyi birleştirir: [AC] ve [BD]. Kare: 2 köşegen.",
+    "ip": "Bir köşeden yan yana olmayan köşeye kaç çizgi gider?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "2",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "\"Yol Ver\" levhası bir üçgeni temsil ediyor. Üçgenin kaç köşegeni vardır?",
+    "o": [
+     "0",
+     "3",
+     "1",
+     "6"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Köşegeni kenar sanma",
+     "2": "Yüksekliği köşegen sanma",
+     "3": "Her köşeden iki köşegen sayma"
+    },
+    "e": "Üçgende her köşe diğer ikisine komşudur; ardışık olmayan köşe yoktur. Köşegen sayısı 0.",
+    "ip": "Komşu olmayan iki köşe var mı?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "0",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.5",
+    "q": "Bir çokgen oluşturmak için en az kaç doğrunun ardışık kesişmesi gerekir?",
+    "o": [
+     "3",
+     "2",
+     "4",
+     "1"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "İki doğrunun kapalı şekil oluşturduğunu sanma",
+     "2": "En küçük çokgeni dörtgen sanma",
+     "3": "Tek doğrunun şekil oluşturduğunu sanma"
+    },
+    "e": "En az üç doğru (ilk doğru son doğruyla da kesişirse) kapalı bir şekil, yani üçgen oluşturur.",
+    "ip": "En az köşeli çokgeni düşün.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "acik": "3",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "\"Dur\" levhası bir sekizgendir. Sekizgenin kenar, köşe ve iç açı sayıları için hangisi doğrudur?",
+    "o": [
+     "Üçü de 8'dir",
+     "8 kenar, 16 köşe, 8 iç açı",
+     "8 kenar, 8 köşe, 4 iç açı",
+     "Kenar sayısı köşe sayısından 1 fazladır"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Köşeleri iki kez sayma",
+     "2": "İç açı sayısını yarıya bölme",
+     "3": "Açık şekille kapalı şekli karıştırma"
+    },
+    "e": "Çokgenin her köşesinde iki kenar birleşir ve bir iç açı oluşur; kenar = köşe = iç açı sayısı.",
+    "ip": "Her köşede kaç iç açı var?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "Kenarları 6 cm ve 3 cm, bütün iç açıları 90° olan dörtgen düzgün çokgen midir?",
+    "o": [
+     "Hayır, kenar uzunlukları eşit değil",
+     "Evet, bütün açıları eşit",
+     "Evet, dörtgen olduğu için",
+     "Hayır, iç açıları eşit değil"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Düzgün çokgen için tek koşulu yeterli sanma",
+     "2": "Her dörtgeni düzgün sanma",
+     "3": "Verilen açı bilgisini yanlış okuma"
+    },
+    "e": "Düzgün çokgende hem bütün kenarlar hem bütün iç açılar eşit olmalıdır. Burada kenarlar eşit değil.",
+    "ip": "İki koşul birlikte sağlanmalı.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "İki doğru kesişiyor; açılardan biri 65°. Bu açının komşu bütünleri ile ters açısının toplamı kaç derecedir?",
+    "o": [
+     "180°",
+     "130°",
+     "115°",
+     "245°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Ters açıyı iki kez toplama",
+     "2": "Yalnızca komşu bütünleri bulma",
+     "3": "Açıya 180° ekleme"
+    },
+    "e": "Komşu bütünler = 180 − 65 = 115°, ters açı = 65°. Toplam 115 + 65 = 180°.",
+    "ip": "Önce iki açıyı ayrı ayrı bul.",
+    "zor": 3,
+    "tur": "benzer",
+    "acik": "180",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Açı ölçme",
+    "k": "MAT.5.3.3",
+    "q": "Açıölçerde bir kol sağdaki 0° çizgisinde, diğer kol dış ölçekte 120°'yi gösteriyor. Açı hangi türdür?",
+    "o": [
+     "Geniş açı",
+     "Dar açı",
+     "Dik açı",
+     "Doğru açı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "İç ölçekten 60° okuyup dar sanma",
+     "2": "Açı türlerini karıştırma",
+     "3": "180° ile karıştırma"
+    },
+    "e": "Doğru ölçekten okunan değer 120°; 90° ile 180° arası geniş açıdır.",
+    "ip": "Doğru ölçekten okununca 120° çıkıyor; bu 90°'den büyük mü?",
+    "zor": 2,
+    "tur": "benzer",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "Bütün kenarları 5 cm ve bütün iç açıları 60° olan üçgene ne ad verilir?",
+    "o": [
+     "Eşkenar üçgen",
+     "Dik üçgen",
+     "İkizkenar ama düzgün olmayan üçgen",
+     "Kare"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "60°'yi dik açı sanma",
+     "2": "Üç eşit kenarı iki eşit kenar sanma",
+     "3": "Kenar sayısını gözden kaçırma"
+    },
+    "e": "Kenarları ve açıları eşit olan üçgen düzgün üçgendir; adı eşkenar üçgendir.",
+    "ip": "Kaç kenarı eşit?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Çevre",
+    "k": "MAT.5.4.4",
+    "q": "Kenarı 7 cm olan karenin çevresi kaç cm'dir?",
+    "o": [
+     "28 cm",
+     "49 cm",
+     "14 cm",
+     "21 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Çevre yerine alan hesaplama",
+     "2": "Yalnız iki kenarı toplama",
+     "3": "Üç kenarı toplama"
+    },
+    "e": "Karenin 4 kenarı eşittir: 4 × 7 = 28 cm.",
+    "ip": "Kaç kenar var, hepsi kaç cm?",
+    "zor": 1,
+    "tur": "hazirlik",
+    "acik": "28",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
+    "t": "Alan",
+    "k": "MAT.5.4.2",
+    "q": "Bir dikdörtgenin içine 1 cm × 1 cm'lik kareler diziliyor: 5 sütun, 3 satır. Alanı kaç cm²'dir?",
+    "o": [
+     "15 cm²",
+     "16 cm²",
+     "8 cm²",
+     "53 cm²"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kenarları toplayıp ikiyle çarpma (çevre)",
+     "2": "Satır ve sütunu toplama",
+     "3": "Sayıları yan yana yazma"
+    },
+    "e": "Alan = kaç birim kare sığdığı: 5 × 3 = 15 cm².",
+    "ip": "Satır × sütun.",
+    "zor": 1,
+    "tur": "hazirlik",
+    "acik": "15",
+    "set": "2026-11-13-mat-mebi-1"
+   },
+   {
     "t": "Gruplar ve roller",
     "k": "SB.5.1.1",
     "q": "Melis okulda Matematik Proje Grubu'nda görevleri dağıttı, sunumda konuşmacı oldu, eve servisle döndü ve sevincini annesi ve kardeşiyle paylaştı. Hangisi Melis'in dâhil olduğu gruplardan biri DEĞİLDİR?",
@@ -6762,6 +7600,21 @@
      "MAT.5.3.4",
      "MAT.5.3.5",
      "MAT.5.3.6"
+    ]
+   },
+   {
+    "id": "2026-11-13-mat-mebi-1",
+    "baslik": "Matematik: doğrular, açılar ve çokgenler (MEBİ yazılıya hazırlık)",
+    "ders": "mat",
+    "kazanimlar": [
+     "MAT.5.3.1",
+     "MAT.5.3.2",
+     "MAT.5.3.3",
+     "MAT.5.3.4",
+     "MAT.5.3.5",
+     "MAT.5.3.6",
+     "MAT.5.4.2",
+     "MAT.5.4.4"
     ]
    },
    {
