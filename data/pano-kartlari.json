@@ -1,0 +1,65 @@
+[
+ {
+  "id": "tr-es-anlam",
+  "region": "tr",
+  "t": "Eş anlam",
+  "q": "\"Yanıt\" sözcüğünün eş anlamlısı nedir?",
+  "answer": "Cevap"
+ },
+ {
+  "id": "tr-deyim",
+  "region": "tr",
+  "t": "Deyimler",
+  "q": "\"Göz atmak\" deyimi ne anlama gelir?",
+  "answer": "Bir şeye kısaca, üstünkörü bakmak."
+ },
+ {
+  "id": "tr-atasozu",
+  "region": "tr",
+  "t": "Atasözleri",
+  "q": "\"Damlaya damlaya göl olur\" atasözü ne anlatır?",
+  "answer": "Küçük birikimler zamanla büyük bir sonuç oluşturur."
+ },
+ {
+  "id": "tr-ikileme",
+  "region": "tr",
+  "t": "İkileme",
+  "q": "\"Çocuklar koşa koşa eve geldi.\" cümlesindeki ikilemeyi bul.",
+  "answer": "koşa koşa"
+ },
+ {
+  "id": "tr-pekistirme",
+  "region": "tr",
+  "t": "Pekiştirme",
+  "q": "\"Kıpkırmızı\" hangi sözcüğün pekiştirilmiş hâlidir?",
+  "answer": "kırmızı"
+ },
+ {
+  "id": "tr-hikaye",
+  "region": "tr",
+  "t": "Hikâyenin unsurları",
+  "q": "Hikâyenin dört temel unsurunu say.",
+  "answer": "Kişi, zaman, yer, olay"
+ },
+ {
+  "id": "tr-buyuk-harf",
+  "region": "tr",
+  "t": "Büyük harflerin kullanımı",
+  "q": "\"ege ankara'ya gitti.\" cümlesini doğru yaz.",
+  "answer": "Ege Ankara'ya gitti."
+ },
+ {
+  "id": "tr-nokta",
+  "region": "tr",
+  "t": "Noktanın kullanımı",
+  "q": "Tarih yazarken gün, ay ve yıl arasına hangi işaret konabilir? Bir örnek yaz.",
+  "answer": "Nokta. Örnek: 10.11.2026"
+ },
+ {
+  "id": "tr-anlam",
+  "region": "tr",
+  "t": "Sözcükte anlam",
+  "q": "\"Arkadaşına sert bir cevap verdi.\" cümlesinde \"sert\" gerçek mi, mecaz mı?",
+  "answer": "Mecaz anlamda."
+ }
+]

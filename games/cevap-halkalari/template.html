@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Pilot Ege 3D: Cevap Halkaları</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+html,body{margin:0;height:100%;overflow:hidden;background:#7ec8ff;font-family:'Baloo 2',system-ui,sans-serif;color:#10223f;touch-action:none}
+canvas{display:block;position:fixed;inset:0}
+.hidden{display:none!important}
+#hud{position:fixed;left:0;right:0;top:0;padding:10px;pointer-events:none;z-index:2}
+.qcard{background:rgba(255,255,255,.93);border-radius:18px;padding:10px 12px;box-shadow:0 6px 18px rgba(0,0,0,.18);max-width:560px;margin:0 auto}
+.qtop{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:#4a5d7c}
+.qtext{font-size:19px;font-weight:800;line-height:1.2;margin:2px 0 6px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.chip{display:flex;gap:6px;align-items:center;border-radius:12px;padding:5px 8px;font-size:15px;font-weight:700;line-height:1.15;color:#fff;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.chip b{flex:none;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.3);display:grid;place-items:center;font-size:15px}
+.chip.right{outline:4px solid #1fa35b;outline-offset:1px}
+.chip.dim{opacity:.35}
+#bar{position:fixed;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;z-index:2;pointer-events:none}
+.pill{background:rgba(16,34,63,.75);color:#fff;font-weight:800;border-radius:999px;padding:6px 14px;font-size:16px}
+#mute{pointer-events:auto;border:none;font:inherit;cursor:pointer}
+#toast{position:fixed;left:50%;bottom:62px;transform:translateX(-50%);width:min(92vw,520px);border-radius:16px;padding:10px 14px;font-size:16px;line-height:1.3;z-index:3;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:opacity .3s}
+#toast.ok{background:#e3f8ec}#toast.no{background:#fff1d6}
+#toast b{display:block;font-size:19px}
+#flash{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity .25s;background:radial-gradient(ellipse at center,rgba(255,0,0,0) 40%,rgba(255,40,40,.55))}
+#flash.g{background:radial-gradient(ellipse at center,rgba(0,255,0,0) 40%,rgba(40,220,120,.45))}
+#hint{position:fixed;left:50%;top:58%;transform:translate(-50%,-50%);color:#fff;font-weight:800;font-size:20px;text-shadow:0 2px 6px rgba(0,0,0,.4);z-index:2;pointer-events:none;text-align:center;transition:opacity .6s}
+.screen{position:fixed;inset:0;z-index:5;display:grid;place-items:center;padding:16px;background:linear-gradient(180deg,rgba(11,61,145,.85),rgba(59,143,224,.75))}
+.panel{background:#fff;border-radius:24px;padding:20px;max-width:440px;width:100%;box-shadow:0 14px 40px rgba(0,0,0,.3);text-align:center;max-height:92vh;overflow:auto}
+.panel h1{font-size:32px;line-height:1.05;margin:0 0 6px}
+.panel p{margin:6px 0;color:#34496b}
+.btn{display:block;width:100%;font:inherit;font-size:20px;font-weight:800;padding:12px;border:none;border-radius:16px;margin-top:10px;cursor:pointer;color:#fff;box-shadow:0 5px 0 rgba(0,0,0,.2)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.b1{background:#3b82f6}.b2{background:#f59e0b}.b3{background:#7c3aed}.b4{background:#10223f}
+.how{background:#eef5ff;border-radius:14px;padding:10px;font-size:15px;text-align:left;margin-top:10px}
+.big{font-size:40px;letter-spacing:3px}
+.rev{text-align:left;font-size:14px}
+</style>
+</head>
+<body>
+<div id="flash"></div>
+
+<div id="hud" class="hidden">
+  <div class="qcard">
+    <div class="qtop"><span id="qTopic"></span><span id="qProg"></span></div>
+    <div class="qtext" id="qText">Hazırlan...</div>
+    <div class="chips" id="chips"></div>
+  </div>
+</div>
+<div id="hint">Parmağını ekranda sürükle ✋<br>Doğru cevabın halkasından geç!</div>
+<div id="toast" class="hidden"></div>
+<div id="bar" class="hidden"><span class="pill" id="score">⭐ 0</span><button class="pill" id="mute">🔊</button></div>
+
+<div class="screen" id="start">
+  <div class="panel">
+    <div style="font-size:54px">🛩️</div>
+    <h1>Pilot Ege 3D<br>Cevap Halkaları</h1>
+    <p>Uçağını uçur, doğru cevabın halkasından geç!</p>
+    <button class="btn b1" data-leg="tr">📘 Türkçe rotası</button>
+    <button class="btn b2" data-leg="mat">📐 Matematik rotası</button>
+    <button class="btn b3" data-leg="fen">🚀 Fen rotası</button>
+    <div class="how"><b>Nasıl oynanır?</b><br>📱 Ekrana dokun, parmağını sürükle: uçak o yöne gider.<br>⌨️ Bilgisayarda: ok tuşları veya WASD.<br>🟢 Doğru halka = hız + puan. 🔴 Yanlış halka = soru sonra tekrar gelir.<br>🪙 Yoldaki altınları da topla!</div>
+    <div id="best" class="small" style="margin-top:8px;font-size:14px;color:#4a5d7c"></div>
+  </div>
+</div>
+
+<div class="screen hidden" id="end">
+  <div class="panel" id="endPanel"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ================= SORU BANKASI (Ege Pano'dan) =================
+/*LEGS*/
+
+const COLORS=['#2f7cf6','#f5a30b','#9b4dff','#ef4f6a'];
+const LETTERS=['A','B','C','D'];
+const $=id=>document.getElementById(id);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let best={};try{best=JSON.parse(localStorage.getItem('pilotEge3D.best'))||{}}catch(e){}
+
+// ================= SES =================
+let actx=null,engine=null,muted=false;
+function initAudio(){
+  try{
+    actx=actx||new(window.AudioContext||window.webkitAudioContext)();
+    if(actx.state==='suspended')actx.resume();
+    if(!engine){
+      const o=actx.createOscillator(),o2=actx.createOscillator(),f=actx.createBiquadFilter(),g=actx.createGain();
+      o.type='sawtooth';o.frequency.value=62;o2.type='square';o2.frequency.value=31;
+      f.type='lowpass';f.frequency.value=320;g.gain.value=muted?0:.035;
+      o.connect(f);o2.connect(f);f.connect(g).connect(actx.destination);o.start();o2.start();
+      engine={o,g};
+    }
+  }catch(e){}
+}
+function tone(fs,d=.12,type='triangle',v=.16){if(!actx||muted)return;try{let t=actx.currentTime;fs.forEach(fr=>{const o=actx.createOscillator(),g=actx.createGain();o.type=type;o.frequency.value=fr;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g).connect(actx.destination);o.start(t);o.stop(t+d);t+=d*.85})}catch(e){}}
+$('mute').onclick=()=>{muted=!muted;$('mute').textContent=muted?'🔇':'🔊';if(engine)engine.g.gain.value=muted?0:.035};
+
+// ================= SAHNE =================
+const SKY=0x8fd3ff;
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight);
+document.body.prepend(renderer.domElement);
+const scene=new THREE.Scene();
+scene.background=new THREE.Color(SKY);
+scene.fog=new THREE.Fog(SKY,60,260);
+const camera=new THREE.PerspectiveCamera(65,innerWidth/innerHeight,.1,600);
+addEventListener('resize',()=>{renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix()});
+
+scene.add(new THREE.HemisphereLight(0xffffff,0x4a7a3a,.85));
+const sun=new THREE.DirectionalLight(0xfff2d6,.9);sun.position.set(30,60,20);scene.add(sun);scene.add(sun.target);
+
+// Deniz
+const sea=new THREE.Mesh(new THREE.PlaneGeometry(900,900,40,40),new THREE.MeshStandardMaterial({color:0x2b8ad8,flatShading:true,roughness:.6}));
+sea.rotation.x=-Math.PI/2;scene.add(sea);
+const seaPos=sea.geometry.attributes.position;
+
+// Low-poly malzemeler
+const M=c=>new THREE.MeshStandardMaterial({color:c,flatShading:true,roughness:.8});
+const mats={white:M(0xffffff),red:M(0xe2463b),blue:M(0x1c4f9c),dark:M(0x23324d),glass:new THREE.MeshStandardMaterial({color:0x9fe0ff,metalness:.3,roughness:.1,transparent:true,opacity:.85}),grass:M(0x5bb25b),grass2:M(0x3f9a4a),sand:M(0xf3dc9b),rock:M(0x8a8f99),gold:new THREE.MeshStandardMaterial({color:0xffc23d,metalness:.6,roughness:.3,emissive:0x6b4a00})};
+
+const cloudMat=new THREE.MeshStandardMaterial({color:0xffffff,emissive:0x9aa6b8,flatShading:true,roughness:1});
+// Uçak
+function makePlane(){
+  const g=new THREE.Group();
+  const body=new THREE.Mesh(new THREE.CylinderGeometry(.42,.32,4.2,10),mats.white);body.rotation.x=-Math.PI/2;g.add(body);
+  const stripe=new THREE.Mesh(new THREE.CylinderGeometry(.44,.4,1.2,10),mats.red);stripe.rotation.x=-Math.PI/2;stripe.position.z=.4;g.add(stripe);
+  const nose=new THREE.Mesh(new THREE.ConeGeometry(.42,.8,10),mats.red);nose.rotation.x=-Math.PI/2;nose.position.z=-2.5;g.add(nose);
+  const cock=new THREE.Mesh(new THREE.SphereGeometry(.38,10,8,0,Math.PI*2,0,Math.PI/2),mats.glass);cock.scale.set(1,1,1.8);cock.position.set(0,.3,-.7);g.add(cock);
+  const wing=new THREE.Mesh(new THREE.BoxGeometry(6.4,.12,1.1),mats.white);wing.position.set(0,-.05,-.4);g.add(wing);
+  [-1,1].forEach(s=>{const tip=new THREE.Mesh(new THREE.BoxGeometry(.5,.14,1.12),mats.red);tip.position.set(s*3,-.05,-.4);g.add(tip)});
+  const stab=new THREE.Mesh(new THREE.BoxGeometry(2.4,.1,.7),mats.white);stab.position.set(0,.05,1.9);g.add(stab);
+  const fin=new THREE.Mesh(new THREE.BoxGeometry(.1,1.1,.9),mats.red);fin.position.set(0,.6,1.9);g.add(fin);
+  const prop=new THREE.Group();prop.position.z=-2.95;
+  const hub=new THREE.Mesh(new THREE.SphereGeometry(.14,8,6),mats.dark);prop.add(hub);
+  [0,Math.PI/2].forEach(r=>{const b=new THREE.Mesh(new THREE.BoxGeometry(.14,2.1,.05),mats.dark);b.rotation.z=r;prop.add(b)});
+  g.add(prop);g.userData.prop=prop;
+  return g;
+}
+const plane=makePlane();plane.scale.setScalar(.8);scene.add(plane);
+const sideX=()=>(Math.random()<.5?-1:1)*(22+Math.random()*50);
+
+// Bulutlar ve adalar (sonsuz dünya için geri dönüştürülür)
+const clouds=[],islands=[];
+function makeCloud(){const g=new THREE.Group();const n=3+Math.floor(Math.random()*3);for(let i=0;i<n;i++){const s=new THREE.Mesh(new THREE.IcosahedronGeometry(1.6+Math.random()*1.6,0),cloudMat);s.position.set(i*2.2-n,Math.random()*1.2,Math.random()*1.5);g.add(s)}g.scale.setScalar(1+Math.random()*1.2);return g}
+function makeIsland(){const g=new THREE.Group();const r=6+Math.random()*10;
+  const sand=new THREE.Mesh(new THREE.CylinderGeometry(r,r*1.15,1.2,9),mats.sand);sand.position.y=.2;g.add(sand);
+  const hill=new THREE.Mesh(new THREE.ConeGeometry(r*.8,3+Math.random()*7,8),Math.random()<.5?mats.grass:mats.grass2);hill.position.y=2+Math.random();g.add(hill);
+  for(let i=0;i<4;i++){const t=new THREE.Group();const tr=new THREE.Mesh(new THREE.CylinderGeometry(.2,.25,2,5),mats.rock);tr.position.y=1;const lf=new THREE.Mesh(new THREE.ConeGeometry(1,2.2,6),mats.grass2);lf.position.y=2.6;t.add(tr,lf);const a=Math.random()*6.28;t.position.set(Math.cos(a)*r*.75,.6,Math.sin(a)*r*.75);g.add(t)}
+  return g}
+for(let i=0;i<26;i++){const c=makeCloud();c.position.set(sideX(),6+Math.random()*26,-Math.random()*300);clouds.push(c);scene.add(c)}
+for(let i=0;i<14;i++){const s=makeIsland();s.position.set((Math.random()<.5?-1:1)*(20+Math.random()*70),0,-Math.random()*320);islands.push(s);scene.add(s)}
+
+// Yazı sprite'ı
+function textSprite(txt,color){
+  const c=document.createElement('canvas');c.width=c.height=256;const x=c.getContext('2d');
+  x.fillStyle=color;x.beginPath();x.arc(128,128,110,0,7);x.fill();x.lineWidth=14;x.strokeStyle='#fff';x.stroke();
+  x.fillStyle='#fff';x.font='bold 150px sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText(txt,128,138);
+  const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthWrite:false}));s.scale.set(3,3,1);return s;
+}
+
+// ================= OYUN DURUMU =================
+const BX=13,BY0=2.5,BY1=14,GATE_DIST=230,RING_R=3;
+let G=null,last=performance.now(),steer={x:0,y:0},keys={};
+const parts=[];
+
+function startGame(legId){
+  const L=LEGS.find(l=>l.id===legId);
+  G={L,queue:shuffle(L.qs.map((q,i)=>({...q,i}))),done:new Set(),tried:new Set(),firstOk:0,missed:new Set(),
+     score:0,speed:24,boost:0,vel:{x:0,y:0},gate:null,wait:1.2,shake:0,coins:[],running:true};
+  plane.position.set(0,7,0);
+  $('start').classList.add('hidden');$('end').classList.add('hidden');
+  $('hud').classList.remove('hidden');$('bar').classList.remove('hidden');$('hint').style.opacity=1;
+  setTimeout(()=>$('hint').style.opacity=0,3500);
+  $('score').textContent='⭐ 0';$('qText').textContent='Kalkış! Hazırlan...';$('chips').innerHTML='';$('qTopic').textContent=L.ders;
+  updateProg();initAudio();
+}
+function updateProg(){$('qProg').textContent=`${G.done.size}/${G.L.qs.length} ✅`}
+
+function spawnGate(){
+  const Q=G.queue[0];
+  const order=shuffle(Q.o.map((t,k)=>({t,k})));
+  const n=order.length;
+  const xs=n===2?[-5,5]:n===3?[-8,0,8]:[-10.5,-3.5,3.5,10.5];
+  const ys=n===4?[6.5,9,9,6.5]:n===3?[7,9,7]:[8,8];
+  const z=plane.position.z-GATE_DIST;
+  const rings=order.map((o,j)=>{
+    const g=new THREE.Group();
+    const col=new THREE.Color(COLORS[j]);
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(RING_R,.38,10,36),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.45,flatShading:true}));
+    const disc=new THREE.Mesh(new THREE.CircleGeometry(RING_R-.3,32),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.12,side:THREE.DoubleSide,depthWrite:false}));
+    const lab=textSprite(LETTERS[j],COLORS[j]);lab.position.y=RING_R+2;
+    g.add(ring,disc,lab);g.position.set(xs[j],ys[j],z);scene.add(g);
+    return {g,ring,k:o.k,x:xs[j],y:ys[j],letter:LETTERS[j],t:o.t};
+  });
+  G.gate={Q,rings,z,passed:false};
+  $('qTopic').textContent=Q.t;$('qText').textContent=Q.q;
+  $('chips').innerHTML=rings.map((r,j)=>`<div class="chip" id="chip${j}" style="background:${COLORS[j]}"><b>${r.letter}</b>${r.t}</div>`).join('');
+  // Kapılar arasına altın dizisi
+  for(let i=1;i<=5;i++){
+    const c=new THREE.Mesh(new THREE.TorusGeometry(.7,.22,8,16),mats.gold);
+    c.position.set((Math.random()-.5)*18,4+Math.random()*8,z+GATE_DIST*.25+i*14);
+    scene.add(c);G.coins.push(c);
+  }
+}
+
+function burst(pos,color,n=26){
+  for(let i=0;i<n;i++){
+    const m=new THREE.Mesh(new THREE.BoxGeometry(.35,.35,.35),new THREE.MeshBasicMaterial({color}));
+    m.position.copy(pos);const a=Math.random()*6.28,b=(Math.random()-.5)*3.14;
+    m.userData.v=new THREE.Vector3(Math.cos(a)*Math.cos(b),Math.sin(b),Math.sin(a)*Math.cos(b)).multiplyScalar(8+Math.random()*10);
+    m.userData.life=1;scene.add(m);parts.push(m);
+  }
+}
+function flash(green){const f=$('flash');f.className=green?'g':'';f.style.opacity=1;setTimeout(()=>f.style.opacity=0,260)}
+let toastT=null;
+function toast(ok,title,body){const t=$('toast');t.className=ok?'ok':'no';t.innerHTML=`<b>${title}</b>${body}`;t.style.opacity=1;clearTimeout(toastT);toastT=setTimeout(()=>{t.style.opacity=0;setTimeout(()=>t.classList.add('hidden'),300)},ok?3200:4800)}
+
+function resolveGate(hit){
+  const gt=G.gate,Q=gt.Q;const first=!G.tried.has(Q.i);G.tried.add(Q.i);
+  const ok=hit&&hit.k===Q.a;
+  gt.rings.forEach((r,j)=>{const ch=$('chip'+j);if(!ch)return;if(r.k===Q.a)ch.classList.add('right');else ch.classList.add('dim')});
+  if(ok){
+    G.queue.shift();G.done.add(Q.i);if(first)G.firstOk++;
+    G.score+=first?100:50;G.boost=1.6;flash(true);burst(hit.g.position,0x40e080);burst(hit.g.position,0xffe066,14);
+    tone([660,880,1175,1568],.1);
+    toast(true,['Tam isabet, kaptan! 🎯','Mükemmel uçuş! ✈️','Doğru halka! 🟢'][Math.floor(Math.random()*3)],Q.e);
+  }else{
+    G.missed.add(Q.i);G.queue.push(G.queue.shift());G.shake=.6;flash(false);tone([220,160],.2,'sawtooth');
+    if(hit)burst(hit.g.position,0xff5050,18);
+    const right=gt.rings.find(r=>r.k===Q.a);
+    toast(false,hit?'Yanlış halka! 💥':'Halkayı kaçırdın! 🌪️',`Doğrusu <b style="display:inline;font-size:16px">${right.letter}: ${right.t}</b><br>${Q.e}<br><span style="font-size:13px;color:#7a5a00">Bu soru rotanın sonunda tekrar gelecek.</span>`);
+  }
+  $('score').textContent='⭐ '+G.score;updateProg();
+  gt.passed=true;G.wait=ok?3.4:5.2;
+  setTimeout(()=>{gt.rings.forEach(r=>scene.remove(r.g))},1500);
+  if(!G.queue.length){G.wait=99;setTimeout(endGame,2600)}
+}
+
+function endGame(){
+  G.running=false;
+  const n=G.L.qs.length,st=G.firstOk/n>=.9?3:G.firstOk/n>=.7?2:1;
+  best[G.L.id]=Math.max(best[G.L.id]||0,st);try{localStorage.setItem('pilotEge3D.best',JSON.stringify(best))}catch(e){}
+  tone([523,659,784,1047,1319],.14);
+  const miss=[...G.missed].map(i=>G.L.qs[i]);
+  $('endPanel').innerHTML=`<div style="font-size:54px">🛬</div><h1>Güvenli iniş!</h1>
+   <div class="big">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div>
+   <p><b>${G.score} puan</b> · İlk denemede doğru: ${G.firstOk}/${n}</p>
+   ${miss.length?`<div class="how rev"><b>Tekrar et:</b><br>${miss.map(q=>`• ${q.t}: ${q.o[q.a]}`).join('<br>')}</div>`:'<p>Hiç hata yok. Gerçek bir as pilotsun! 🏆</p>'}
+   <button class="btn b1" id="again">Bu rotayı tekrar uç</button><button class="btn b4" id="menu">Başka rota seç</button>`;
+  $('again').onclick=()=>startGame(G.L.id);$('menu').onclick=showStart;
+  $('hud').classList.add('hidden');$('bar').classList.add('hidden');$('end').classList.remove('hidden');
+}
+function showStart(){
+  if(G)G.running=false;
+  $('end').classList.add('hidden');$('start').classList.remove('hidden');$('hud').classList.add('hidden');$('bar').classList.add('hidden');
+  const names={tr:'Türkçe',mat:'Matematik',fen:'Fen'};
+  const b=Object.keys(best).map(k=>`${names[k]} ${'⭐'.repeat(best[k])}`).join(' · ');$('best').textContent=b?'En iyi: '+b:'';
+}
+document.querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>startGame(b.dataset.leg));
+
+// ================= KONTROLLER =================
+let touch=null;
+addEventListener('pointerdown',e=>{if(e.target.closest('button,.panel'))return;touch={x:e.clientX,y:e.clientY};initAudio()});
+addEventListener('pointermove',e=>{if(!touch)return;steer.x=Math.max(-1,Math.min(1,(e.clientX-touch.x)/70));steer.y=Math.max(-1,Math.min(1,(e.clientY-touch.y)/70))});
+const endTouch=()=>{touch=null;steer.x=steer.y=0};
+addEventListener('pointerup',endTouch);addEventListener('pointercancel',endTouch);
+addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true});
+addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false});
+function keySteer(){
+  let x=0,y=0;
+  if(keys['arrowleft']||keys['a'])x-=1;if(keys['arrowright']||keys['d'])x+=1;
+  if(keys['arrowup']||keys['w'])y-=1;if(keys['arrowdown']||keys['s'])y+=1;
+  return (x||y)?{x,y}:null;
+}
+
+// ================= DÖNGÜ =================
+const camTarget=new THREE.Vector3();
+function loop(now){
+  requestAnimationFrame(loop);
+  const dt=Math.min(.05,(now-last)/1000);last=now;const t=now/1000;
+  const p=plane.position;
+  if(G&&G.running){
+    const ks=keySteer();const s=ks||steer;
+    G.vel.x+=((s.x*15)-G.vel.x)*Math.min(1,dt*5);
+    G.vel.y+=((-s.y*11)-G.vel.y)*Math.min(1,dt*5);
+    p.x=Math.max(-BX,Math.min(BX,p.x+G.vel.x*dt));
+    p.y=Math.max(BY0,Math.min(BY1,p.y+G.vel.y*dt));
+    G.boost=Math.max(0,G.boost-dt);
+    const sp=G.speed+(G.boost>0?14:0);
+    p.z-=sp*dt;
+    camera.fov+=((G.boost>0?78:65)-camera.fov)*dt*3;camera.updateProjectionMatrix();
+    if(engine&&actx)engine.o.frequency.setTargetAtTime(62+(G.boost>0?20:0)+Math.abs(G.vel.y),actx.currentTime,.2);
+
+    // Kapı
+    if(!G.gate||G.gate.passed){G.wait-=dt;if(G.wait<=0&&G.queue.length){spawnGate()}}
+    if(G.gate&&!G.gate.passed){
+      G.gate.rings.forEach((r,j)=>{r.ring.rotation.z+=dt*.6;r.g.children[0].material.emissiveIntensity=.35+Math.sin(t*4+j)*.15});
+      if(p.z<=G.gate.z){
+        const hit=G.gate.rings.find(r=>Math.hypot(p.x-r.x,p.y-r.y)<RING_R+.15);
+        resolveGate(hit||null);
+      }
+    }
+    // Altınlar
+    G.coins=G.coins.filter(c=>{
+      c.rotation.y+=dt*3;
+      if(c.position.distanceTo(p)<2.2){scene.remove(c);G.score+=10;$('score').textContent='⭐ '+G.score;tone([1318,1760],.07,'square',.06);burst(c.position,0xffd23d,8);return false}
+      if(c.position.z>p.z+20){scene.remove(c);return false}
+      return true;
+    });
+    // Uçak duruşu
+    plane.rotation.z+=((-G.vel.x*.045)-plane.rotation.z)*dt*6;
+    plane.rotation.x+=((G.vel.y*.04)-plane.rotation.x)*dt*6;
+  }else{
+    // Menüde uçak süzülür
+    p.z-=10*dt;p.y=7+Math.sin(t)*.6;p.x=Math.sin(t*.4)*3;plane.rotation.z=-Math.cos(t*.4)*.25;
+  }
+  plane.userData.prop.rotation.z+=dt*40;
+
+  // Dünya geri dönüşümü
+  clouds.forEach(c=>{if(c.position.z>p.z+30){c.position.z-=330;c.position.x=sideX();c.position.y=6+Math.random()*26;if(Math.random()<.3){c.position.x=(Math.random()-.5)*60;c.position.y=24+Math.random()*12}}});
+  islands.forEach(s=>{if(s.position.z>p.z+40){s.position.z-=340;s.position.x=(Math.random()<.5?-1:1)*(20+Math.random()*70)}});
+  sea.position.set(p.x,0,p.z-200);
+  for(let i=0;i<seaPos.count;i++){const x=seaPos.getX(i),y=seaPos.getY(i);seaPos.setZ(i,Math.sin(x*.05+t)*.6+Math.cos(y*.07+t*1.3)*.6)}
+  seaPos.needsUpdate=true;
+
+  // Parçacıklar
+  for(let i=parts.length-1;i>=0;i--){const m=parts[i];m.userData.life-=dt*1.2;m.position.addScaledVector(m.userData.v,dt);m.rotation.x+=dt*5;m.scale.setScalar(Math.max(.01,m.userData.life));if(m.userData.life<=0){scene.remove(m);parts.splice(i,1)}}
+
+  // Kamera
+  camTarget.set(p.x*.8,p.y+4.2,p.z+13);
+  camera.position.lerp(camTarget,Math.min(1,dt*4));
+  if(G&&G.shake>0){G.shake-=dt;camera.position.x+=(Math.random()-.5)*G.shake;camera.position.y+=(Math.random()-.5)*G.shake}
+  camera.lookAt(p.x*.85,p.y+1.6,p.z-25);
+  sun.position.set(p.x+30,60,p.z+20);sun.target.position.copy(p);
+  renderer.render(scene,camera);
+}
+camera.position.set(0,10,12);
+showStart();
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

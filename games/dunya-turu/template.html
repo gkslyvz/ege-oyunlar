@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilot Ege: Dünya Turu</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#10223f;--ok:#1fa35b;--bad:#e2463b;--gold:#ffc23d;--card:#fff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{font-family:'Baloo 2',system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,#0b3d91,#3b8fe0 50%,#a9dcff);min-height:100vh;overflow-x:hidden;transition:background .6s}
+body.r-tr{background:linear-gradient(180deg,#3d4a63,#7d8ca8 55%,#c9d3e3)}
+body.r-mat{background:linear-gradient(180deg,#b5541b,#e8a24c 55%,#f7dc9c)}
+body.r-fen{background:linear-gradient(180deg,#05061a,#141a4a 55%,#2b3a8f)}
+main{max-width:560px;margin:0 auto;padding:14px 14px 40px;position:relative;z-index:1}
+.hidden{display:none!important}
+.card{background:var(--card);border-radius:22px;padding:16px;box-shadow:0 10px 30px rgba(6,30,70,.25)}
+button{font:inherit;cursor:pointer}
+.btn{width:100%;font-size:21px;font-weight:800;padding:13px;border:none;border-radius:16px;background:var(--gold);color:#3b2a00;box-shadow:0 5px 0 #d99a12;margin-top:12px}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #d99a12}
+.btn.ghost{background:#eaf1fb;color:#1c4f9c;box-shadow:0 5px 0 #c4d4ec}
+.small{font-size:14px;color:#4a5d7c}
+.center{text-align:center}
+
+/* HUD */
+.hud{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.95);border-radius:18px;padding:10px 12px;box-shadow:0 6px 18px rgba(6,30,70,.2)}
+.hud .av{font-size:38px;line-height:1}
+.hud .nm{font-weight:800;font-size:17px;line-height:1.1}
+.xpbar{height:10px;background:#e3ebf7;border-radius:99px;overflow:hidden;margin-top:4px;width:100%}
+.xpbar i{display:block;height:100%;background:linear-gradient(90deg,#ffc23d,#ff8a3d);border-radius:99px;transition:width .6s}
+.hud .hangar{margin-left:auto;background:#10223f;color:#fff;border:none;border-radius:14px;padding:8px 10px;font-weight:700;font-size:14px;white-space:nowrap}
+h1{color:#fff;font-size:30px;margin:14px 0 4px;text-shadow:0 3px 0 rgba(0,0,0,.2);line-height:1.05}
+.lead{color:#e8f2ff;margin:0 0 12px}
+
+/* Sınav uyarısı */
+.exam{display:flex;gap:12px;align-items:center;background:linear-gradient(90deg,#ffdd55,#ffb02e);border:none;border-radius:18px;padding:12px 14px;width:100%;text-align:left;margin:12px 0;box-shadow:0 0 0 0 rgba(255,200,40,.7);animation:pulse 1.6s infinite;color:#3b2a00}
+.exam .e{font-size:34px}
+.exam b{display:block;font-size:18px;line-height:1.1}
+@keyframes pulse{70%{box-shadow:0 0 0 14px rgba(255,200,40,0)}100%{box-shadow:0 0 0 0 rgba(255,200,40,0)}}
+
+/* Bölgeler */
+.region{background:#fff;border-radius:20px;padding:14px;margin-top:12px;box-shadow:0 6px 18px rgba(6,30,70,.18)}
+.region.locked{opacity:.6}
+.rh{display:flex;align-items:center;gap:10px}
+.rh .fl{font-size:34px}
+.rh .t{font-weight:800;font-size:20px;line-height:1.05}
+.rh .d{font-size:14px;color:#4a5d7c}
+.mons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.mon{border:3px solid #d6e6fb;background:#f6faff;border-radius:16px;padding:6px 2px;text-align:center;position:relative}
+.mon .m{font-size:34px;line-height:1.2}
+.mon .n{font-size:11px;font-weight:700;line-height:1.1;min-height:24px}
+.mon.boss{border-color:#ffb02e;background:#fff6df}
+.mon.done{border-color:var(--ok);background:#e3f8ec}
+.mon.done::after{content:"✅";position:absolute;top:-8px;right:-6px;font-size:18px}
+.mon:disabled{filter:grayscale(1);opacity:.55;cursor:not-allowed}
+.mon:not(:disabled):active{transform:scale(.95)}
+
+/* Diyalog */
+.dlg{display:flex;gap:12px;align-items:flex-end;margin-top:30px}
+.dlg .who{font-size:64px;line-height:1}
+.bubble{background:#fff;border-radius:20px 20px 20px 4px;padding:14px 16px;font-size:20px;font-weight:700;line-height:1.3;box-shadow:0 8px 24px rgba(0,0,0,.2);min-height:90px;flex:1}
+
+/* Savaş */
+.arena{position:relative;height:190px;margin:8px 0 10px}
+.fighter{position:absolute;bottom:6px;text-align:center;width:140px}
+.fighter.ege{left:0}.fighter.foe{right:0}
+.fighter .body{font-size:76px;line-height:1;display:inline-block}
+.foe .body{font-size:84px}
+.foe.isboss .body{font-size:100px}
+.hearts{font-size:20px;letter-spacing:1px}
+.hp{height:12px;background:rgba(0,0,0,.25);border-radius:99px;overflow:hidden;margin:3px auto 0;width:110px}
+.hp i{display:block;height:100%;background:linear-gradient(90deg,#ff5a4e,#ff9f43);transition:width .4s}
+.fname{color:#fff;font-weight:800;font-size:15px;text-shadow:0 2px 0 rgba(0,0,0,.35);line-height:1.1}
+.say{position:absolute;top:0;right:8px;left:110px;background:#fff;border-radius:16px 16px 4px 16px;padding:8px 12px;font-weight:700;font-size:15px;box-shadow:0 6px 16px rgba(0,0,0,.2);transition:opacity .3s}
+.hit{animation:hit .5s}
+@keyframes hit{0%,100%{transform:none;filter:none}20%{transform:translateX(10px) rotate(6deg);filter:brightness(2.2)}50%{transform:translateX(-8px);filter:brightness(1.6)}75%{transform:translateX(4px)}}
+.lungeR{animation:lungeR .45s}
+@keyframes lungeR{50%{transform:translateX(40px) scale(1.08)}}
+.lungeL{animation:lungeL .45s}
+@keyframes lungeL{50%{transform:translateX(-50px) scale(1.1)}}
+.hurt{animation:hurt .5s}
+@keyframes hurt{0%,100%{transform:none}25%{transform:translateX(-8px);filter:drop-shadow(0 0 12px red)}60%{transform:translateX(6px);filter:drop-shadow(0 0 12px red)}}
+.float{position:absolute;font-weight:800;font-size:28px;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.4);pointer-events:none;animation:up 1s ease-out forwards;z-index:3}
+@keyframes up{to{transform:translateY(-60px);opacity:0}}
+.proj{position:absolute;font-size:34px;z-index:2;pointer-events:none}
+.qmeta{display:flex;justify-content:space-between;font-size:14px;color:#4a5d7c;font-weight:700}
+.q{font-size:21px;font-weight:800;line-height:1.25;margin:6px 0 12px}
+.opts{display:grid;gap:9px}
+.opt{font-size:18px;font-weight:700;text-align:left;padding:12px 14px;border-radius:15px;border:3px solid #d6e6fb;background:#f6faff;color:var(--ink)}
+.opt.right{background:#e3f8ec;border-color:var(--ok)}
+.opt.wrong{background:#fde8e6;border-color:var(--bad)}
+.fb{margin-top:12px;padding:11px 13px;border-radius:14px;font-size:16px;line-height:1.35}
+.fb.ok{background:#e3f8ec}.fb.no{background:#fff1d6}
+.fb b{display:block;font-size:18px}
+.combo{color:#fff;text-align:center;font-weight:800;min-height:22px;margin-top:8px;text-shadow:0 2px 0 rgba(0,0,0,.3)}
+.topbar{display:flex;justify-content:space-between;align-items:center;color:#fff;font-weight:700}
+.topbar button{background:rgba(255,255,255,.22);color:#fff;border:none;border-radius:12px;padding:6px 12px}
+
+/* Kartlar */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+.pc{border-radius:18px;padding:12px;background:linear-gradient(160deg,#1c4f9c,#3b8fe0);color:#fff;min-height:190px;position:relative;box-shadow:0 6px 18px rgba(0,0,0,.25);border:4px solid #a9dcff}
+.pc.leg{background:linear-gradient(160deg,#7a4b00,#e09a16);border-color:#ffe28a}
+.pc.gold{background:linear-gradient(160deg,#a87600,#ffd34d);border-color:#fff3b0;color:#3b2a00}
+.pc .ic{font-size:46px;line-height:1.1}
+.pc .cn{font-weight:800;font-size:18px;line-height:1.05;margin-top:4px}
+.pc .yr{font-size:13px;opacity:.85;font-weight:700}
+.pc .fx{font-size:13px;line-height:1.25;margin-top:6px}
+.pc .rr{position:absolute;top:8px;right:10px;font-size:11px;font-weight:800;background:rgba(0,0,0,.25);padding:2px 7px;border-radius:99px}
+.pc.lockd{background:#2a3550;border-color:#44516e;color:#8a96b3;display:grid;place-items:center;text-align:center}
+.pc.lockd .ic{filter:brightness(0) invert(.35)}
+.reveal{animation:flip .9s ease-out}
+@keyframes flip{0%{transform:rotateY(90deg) scale(.6)}60%{transform:rotateY(-10deg) scale(1.05)}100%{transform:none}}
+.confetti{position:fixed;top:-10px;width:10px;height:14px;z-index:9;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+.lvlup{background:#10223f;color:#ffc23d;border-radius:14px;padding:8px;font-weight:800;margin-top:8px}
+.linkbtn{background:none;border:none;color:#e6f0ff;text-decoration:underline;margin-top:16px}
+</style>
+</head>
+<body>
+<main>
+
+<!-- GİRİŞ HİKÂYESİ -->
+<section id="intro" class="hidden">
+  <h1>✈️ Pilot Ege<br>Dünya Turu</h1>
+  <div class="dlg"><div class="who" id="introWho">📻</div><div class="bubble" id="introText"></div></div>
+  <button class="btn" id="introNext">Devam ▶</button>
+</section>
+
+<!-- HARİTA -->
+<section id="map" class="hidden">
+  <div class="hud">
+    <div class="av">🧑‍✈️</div>
+    <div style="flex:1;min-width:0"><div class="nm" id="hudName"></div><div class="small" id="hudXp"></div><div class="xpbar"><i id="hudBar"></i></div></div>
+    <button class="hangar" id="toHangar">🃏 Hangar</button>
+  </div>
+  <div id="examBox"></div>
+  <div id="regions"></div>
+  <div class="center"><button class="linkbtn" id="replayIntro">Hikâyeyi tekrar izle</button> · <button class="linkbtn" id="reset">Sıfırla</button></div>
+</section>
+
+<!-- SAVAŞ -->
+<section id="battle" class="hidden">
+  <div class="topbar"><button id="flee">← Kaç</button><span id="bTitle"></span><span id="bXp"></span></div>
+  <div class="arena" id="arena">
+    <div class="say" id="say"></div>
+    <div class="fighter ege"><div class="hearts" id="hearts"></div><div class="body" id="egeBody">🧑‍✈️</div><div class="fname">Kaptan Ege</div></div>
+    <div class="fighter foe" id="foeBox"><div class="body" id="foeBody"></div><div class="fname" id="foeName"></div><div class="hp"><i id="foeHp"></i></div></div>
+  </div>
+  <div class="card">
+    <div class="qmeta"><span id="qTopic"></span><span id="qNum"></span></div>
+    <div class="q" id="qText"></div>
+    <div class="opts" id="opts"></div>
+    <div id="fb"></div>
+    <button class="btn hidden" id="nextBtn">Devam ⚔️</button>
+  </div>
+  <div class="combo" id="combo"></div>
+</section>
+
+<!-- SONUÇ -->
+<section id="result" class="hidden">
+  <div class="card center" id="resultCard"></div>
+</section>
+
+<!-- HANGAR -->
+<section id="hangar" class="hidden">
+  <div class="topbar"><button id="hangarBack">← Harita</button><span>🃏 Uçak Hangarı</span><span id="hangarCount"></span></div>
+  <div class="grid" id="cardGrid"></div>
+</section>
+
+</main>
+<script>
+// ================= SORU BANKASI (Ege Pano'dan) =================
+/*LEGS*/
+
+// ================= DÜNYA =================
+const REGIONS = [
+  { id:'tr', city:'Londra', flag:'🇬🇧', ders:'Türkçe', gang:'Kelime Hırsızları', bodyClass:'r-tr',
+    story:'Londra sisli! Kelime Hırsızları şehrin bütün kelimelerini çalmış. Tabelalar bomboş!',
+    mons:[{e:'👻',n:'Sis Hayaleti',say:'Hıııı! Eş anlamlı kelimeleri sisin içine sakladım!'},
+          {e:'🦇',n:'Harf Yarasası',say:'Büyük harfleri yedim, şimdi deyimlere sıra geldi!'},
+          {e:'🐀',n:'Nokta Faresi',say:'Cik cik! Bütün noktaları kemirdim!'}],
+    boss:{e:'🐉',n:'Kelime Ejderhası',say:'GRAAA! Londra\'nın tüm hikâyeleri artık benim!'},
+    cards:['wright','spitfire','concorde','b747'] },
+  { id:'mat', city:'Kahire', flag:'🇪🇬', ders:'Matematik', gang:'Açı Bekçileri', bodyClass:'r-mat',
+    story:'Kahire\'de piramitlerin açıları bozulmuş! Açı Bekçileri çöldeki geometriyi karıştırıyor.',
+    mons:[{e:'🦂',n:'Açı Akrebi',say:'Dar mı, geniş mi? Kuyruğum 180 derece kıvrılır!'},
+          {e:'🐍',n:'Paralel Yılanı',say:'Tıssss... Benim iki çizgim asla kesişmez!'},
+          {e:'🪲',n:'Çokgen Böceği',say:'Kaç kenarım var? Bilemezsin!'}],
+    boss:{e:'🦁',n:'Büyük Sfenks',say:'Bilmecemi çözemeyen piramide giremez, küçük pilot!'},
+    cards:['vecihi','a380','hurjet','kaan'] },
+  { id:'fen', city:'Uzay Üssü', flag:'🚀', ders:'Fen Bilimleri', gang:'Karanlık Ay Çetesi', bodyClass:'r-fen',
+    story:'Florida Uzay Üssü\'nden roketle kalkış! Profesör Unutkan Ay\'ı karartmaya çalışıyor.',
+    mons:[{e:'👾',n:'Krater Canavarı',say:'Ay\'ın çukurlarının adını kimse bilmez!'},
+          {e:'🛸',n:'Gölge UFO',say:'Gece ve gündüzü karıştırdım! Hahaha!'},
+          {e:'☄️',n:'Kuyruklu Taş',say:'Dünya kaç saatte döner? Ben unuttum, sen de unut!'}],
+    boss:{e:'🌑',n:'Profesör Unutkan',say:'Demek buraya kadar geldin Kaptan Ege... Son sınavım seni bekliyor!'},
+    cards:['shuttle','sr71','saturn','apollo'] },
+];
+
+const CARDS = {
+  wright:  {ic:'🛩️',n:'Wright Flyer',y:1903,f:'İlk motorlu ve kontrollü uçuşu yaptı: 12 saniye, yaklaşık 37 metre.'},
+  spitfire:{ic:'✈️',n:'Supermarine Spitfire',y:1936,f:'İngiltere\'nin ünlü avcı uçağı. Eliptik kanatlarıyla tanınır.'},
+  concorde:{ic:'✈️',n:'Concorde',y:1969,f:'Sesten 2 kat hızlı yolcu uçağı. Londra–New York\'u yaklaşık 3,5 saatte uçardı.'},
+  b747:    {ic:'✈️',n:'Boeing 747',y:1969,f:'"Jumbo Jet": ilk geniş gövdeli yolcu uçağı, "Gökyüzünün Kraliçesi".',boss:1},
+  vecihi:  {ic:'🛩️',n:'Vecihi K-VI',y:1925,f:'Vecihi Hürkuş\'un tasarlayıp uçurduğu ilk Türk uçağı.'},
+  a380:    {ic:'✈️',n:'Airbus A380',y:2005,f:'Dünyanın en büyük yolcu uçağı. İki katlı; 800\'den fazla yolcu alabilir.'},
+  hurjet:  {ic:'🛩️',n:'TUSAŞ Hürjet',y:2023,f:'Türkiye\'nin jet eğitim uçağı. Pilotlar savaş uçağına bununla hazırlanır.'},
+  kaan:    {ic:'✈️',n:'KAAN',y:2024,f:'Türkiye\'nin milli muharip uçağı. İlk uçuşunu 21 Şubat 2024\'te yaptı.',boss:1},
+  shuttle: {ic:'🚀',n:'Uzay Mekiği',y:1981,f:'Uzaydan dönüp uçak gibi piste inebilen, tekrar kullanılan uzay aracı.'},
+  sr71:    {ic:'✈️',n:'SR-71 Blackbird',y:1964,f:'Ses hızının 3 katından hızlı uçan keşif uçağı. Hız rekoru hâlâ onda.'},
+  saturn:  {ic:'🚀',n:'Saturn V',y:1967,f:'İnsanları Ay\'a götüren dev roket. Boyu yaklaşık 110 metre.'},
+  apollo:  {ic:'🌙',n:'Apollo 11 "Kartal"',y:1969,f:'20 Temmuz 1969\'da Ay\'a inen ilk araç. İçinde Neil Armstrong ve Buzz Aldrin vardı.',boss:1},
+  golden:  {ic:'🏅',n:'Altın Pilot',y:'Özel',f:'Sınav öncesi boss\'u yendin! Bu kart yalnızca sınava hazır kaptanlara verilir.',gold:1},
+};
+const CARD_ORDER=['wright','spitfire','concorde','b747','vecihi','a380','hurjet','kaan','shuttle','sr71','saturn','apollo','golden'];
+
+// Ege Pano'daki sınav takvimi. Sınava 0–3 gün kala o dersin Sınav Boss'u açılır.
+/*EXAMS*/
+
+const INTRO = [
+  ['📻','Kuleden Kaptan Ege\'ye! Acil durum! Acil durum!'],
+  ['🦹','Kötü Profesör Unutkan dünyanın bütün bilgilerini çaldı ve canavarlarına dağıttı!'],
+  ['📻','Bilgileri geri almanın tek yolu var: canavarları DOĞRU CEVAPLARLA yenmek.'],
+  ['⚔️','Her doğru cevap bir saldırı. Üst üste 3 doğru = KRİTİK VURUŞ! Yanlış cevapta canavar sana saldırır.'],
+  ['🃏','Her zaferde efsane bir uçak kartı kazanacaksın. Hangarını doldur!'],
+  ['⚡','Sınavın yaklaşınca o ülkede özel bir Sınav Boss\'u belirir. Onu yenen Altın Pilot kartını alır!'],
+  ['🧑‍✈️','Uçağın hazır. İlk durak: Londra. Kalkış izni verildi! ✈️'],
+];
+
+// ================= DURUM =================
+const KEY='pilotEgeRPG.v1';
+const fresh=()=>({xp:0,beaten:{},cards:{},examWins:[],qs:{},intro:false});
+let S=fresh();
+try{const x=JSON.parse(localStorage.getItem(KEY));if(x&&typeof x.xp==='number')S=Object.assign(fresh(),x);}catch(e){}
+const store=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+
+const $=id=>document.getElementById(id);
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const QB=Object.fromEntries(LEGS.map(L=>[L.id,L.qs.map((q,i)=>({...q,id:L.id+':'+i}))]));
+
+const RANKS=['Çırak Pilot','Yardımcı Pilot','Kaptan','Filo Komutanı','As Pilot','Gökyüzü Efsanesi'];
+const level=xp=>1+Math.floor(xp/100);
+const rank=l=>RANKS[Math.min(l-1,RANKS.length-1)];
+
+function todayIst(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul'}).format(new Date())}
+const daysTo=d=>Math.round((Date.parse(d+'T00:00:00Z')-Date.parse(todayIst()+'T00:00:00Z'))/864e5);
+function activeExams(){
+  let list=EXAMS.map(e=>({...e,left:daysTo(e.date)})).filter(e=>e.left>=0&&e.left<=3&&!S.examWins.includes(e.id));
+  if(location.hash==='#sinav-demo'&&!list.length) list=[{id:'demo',region:'mat',left:2,title:'Matematik yazılısı (deneme)'}];
+  return list;
+}
+
+// ================= SES =================
+let actx=null;
+function tone(fs,d=.12,type='triangle',vol=.16){try{actx=actx||new(window.AudioContext||window.webkitAudioContext)();let t=actx.currentTime;fs.forEach(f=>{const o=actx.createOscillator(),g=actx.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g).connect(actx.destination);o.start(t);o.stop(t+d);t+=d*.85});}catch(e){}}
+const sHit=()=>tone([523,784,1046]),sCrit=()=>tone([523,659,784,1046,1318],.09),sHurt=()=>tone([200,150],.2,'sawtooth'),sWin=()=>tone([523,659,784,1047,784,1047,1319],.13);
+
+// ================= EKRANLAR =================
+function show(id){['intro','map','battle','result','hangar'].forEach(s=>$(s).classList.toggle('hidden',s!==id));window.scrollTo(0,0)}
+function setBg(cls){document.body.className=cls||''}
+
+let introI=0;
+function playIntro(){introI=0;setBg('');show('intro');stepIntro()}
+function stepIntro(){const [w,t]=INTRO[introI];$('introWho').textContent=w;typeText($('introText'),t);$('introNext').textContent=introI===INTRO.length-1?'Kalkış! ✈️':'Devam ▶'}
+$('introNext').onclick=()=>{introI++;if(introI>=INTRO.length){S.intro=true;store();renderMap()}else stepIntro()};
+let typer=null;
+function typeText(el,txt){clearInterval(typer);el.textContent='';let i=0;typer=setInterval(()=>{el.textContent=txt.slice(0,++i);if(i>=txt.length)clearInterval(typer)},22)}
+
+const beaten=(r,k)=>(S.beaten[r]||[]).includes(k);
+const regionDone=r=>beaten(r,'boss');
+const regionOpen=i=>i===0||regionDone(REGIONS[i-1].id);
+
+function renderMap(){
+  setBg('');
+  const l=level(S.xp);
+  $('hudName').textContent=`Kaptan Ege · Seviye ${l}`;
+  $('hudXp').textContent=`${rank(l)} · ${S.xp%100}/100 XP`;
+  $('hudBar').style.width=(S.xp%100)+'%';
+  const owned=CARD_ORDER.filter(c=>S.cards[c]).length;
+  $('toHangar').textContent=`🃏 Hangar ${owned}/${CARD_ORDER.length}`;
+
+  const ex=activeExams(); const eb=$('examBox'); eb.innerHTML='';
+  ex.forEach(e=>{
+    const R=REGIONS.find(r=>r.id===e.region);
+    const b=document.createElement('button'); b.className='exam';
+    b.innerHTML=`<div class="e">⚡</div><div><b>Sınav Boss'u: ${R.city}!</b>${e.title} ${e.left===0?'bugün':e.left+' gün sonra'}. Yen, Altın Pilot kartını al! (2× XP)</div>`;
+    b.onclick=()=>startBattle(R,'exam',e); eb.appendChild(b);
+  });
+
+  const box=$('regions'); box.innerHTML='';
+  REGIONS.forEach((R,i)=>{
+    const open=regionOpen(i); const d=document.createElement('div');
+    d.className='region'+(open?'':' locked');
+    d.innerHTML=`<div class="rh"><div class="fl">${open?R.flag:'🔒'}</div><div><div class="t">${R.city}</div><div class="d">${R.ders} · ${R.gang}</div></div></div><div class="mons"></div>`;
+    const ms=d.querySelector('.mons');
+    const allMin=R.mons.every((_,k)=>beaten(R.id,k));
+    [...R.mons.map((m,k)=>({...m,k})),{...R.boss,k:'boss'}].forEach(m=>{
+      const b=document.createElement('button'); const isBoss=m.k==='boss';
+      b.className='mon'+(isBoss?' boss':'')+(beaten(R.id,m.k)?' done':'');
+      b.disabled=!open||(isBoss&&!allMin);
+      b.innerHTML=`<div class="m">${b.disabled&&isBoss?'❔':m.e}</div><div class="n">${isBoss?'BOSS':m.n}</div>`;
+      b.onclick=()=>startBattle(R,isBoss?'boss':m.k);
+      ms.appendChild(b);
+    });
+    if(!open) d.insertAdjacentHTML('beforeend','<div class="small" style="margin-top:6px">Önceki ülkenin boss\'unu yenince açılır.</div>');
+    else if(!allMin) d.insertAdjacentHTML('beforeend','<div class="small" style="margin-top:6px">3 canavarı yen, boss ortaya çıksın.</div>');
+    box.appendChild(d);
+  });
+  show('map');
+}
+
+// ================= SAVAŞ =================
+let B=null;
+function qPriority(q){const s=S.qs[q.id]||{r:0,w:0};return (s.w-s.r)*2+(s.r+s.w===0?1:0)+Math.random()*.8}
+function startBattle(R,kind,exam){
+  const foe= kind==='boss'?R.boss : kind==='exam'?{e:'⚡'+R.boss.e,n:'Sınav Boss\'u',say:`Sınavına ${exam.left===0?'bugün':exam.left+' gün'} kaldı! Bakalım hazır mısın?`} : R.mons[kind];
+  const maxHp= kind==='exam'?7 : kind==='boss'?5 : 3;
+  const pool=QB[R.id].slice().sort((a,b)=>qPriority(b)-qPriority(a));
+  B={R,kind,exam,foe,hp:maxHp,maxHp,hearts:3,streak:0,queue:pool,xpGain:0,asked:0,firstOk:0,mult:kind==='exam'?2:1};
+  setBg(R.bodyClass);
+  $('bTitle').textContent=`${R.flag} ${R.city}`; $('bXp').textContent='';
+  $('foeBody').textContent=foe.e; $('foeName').textContent=foe.n;
+  $('foeBox').classList.toggle('isboss',kind!=='minion'&&typeof kind!=='number');
+  say(foe.say); $('combo').textContent='';
+  drawBars(); show('battle'); ask();
+}
+function say(t){const s=$('say');s.style.opacity=1;s.textContent=t}
+function drawBars(){
+  $('hearts').textContent='❤️'.repeat(B.hearts)+'🤍'.repeat(3-B.hearts);
+  $('foeHp').style.width=(Math.max(B.hp,0)/B.maxHp*100)+'%';
+  $('bXp').textContent=`+${B.xpGain} XP`;
+}
+function ask(){
+  if(!B.queue.length) B.queue=shuffle(QB[B.R.id]);
+  const Q=B.queue[0];
+  $('qTopic').textContent=Q.t; $('qNum').textContent=`Canavar canı: ${B.hp}/${B.maxHp}`;
+  $('qText').textContent=Q.q; $('fb').innerHTML=''; $('nextBtn').classList.add('hidden');
+  const box=$('opts'); box.innerHTML='';
+  shuffle(Q.o.map((text,k)=>({text,k}))).forEach(({text,k})=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=text;
+    b.onclick=()=>answer(k,b); box.appendChild(b);
+  });
+}
+function floatText(txt,side){
+  const a=$('arena'),f=document.createElement('div');f.className='float';f.textContent=txt;
+  f.style[side]='40px';f.style.top='50px';a.appendChild(f);setTimeout(()=>f.remove(),1000);
+}
+function fireProjectile(){
+  const a=$('arena'),p=document.createElement('div');p.className='proj';p.textContent='✈️';a.appendChild(p);
+  const w=a.clientWidth;
+  p.animate([{left:'90px',top:'110px',transform:'scale(.6)'},{left:(w-130)+'px',top:'90px',transform:'scale(1.3)'}],{duration:380,easing:'ease-in'}).onfinish=()=>p.remove();
+}
+function anim(el,cls){el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls);setTimeout(()=>el.classList.remove(cls),550)}
+
+function answer(k,btn){
+  const Q=B.queue[0]; const ok=k===Q.a;
+  [...$('opts').children].forEach(b=>b.disabled=true);
+  const st=S.qs[Q.id]||(S.qs[Q.id]={r:0,w:0});
+  if(ok){
+    st.r++; B.streak++; B.queue.shift();
+    const crit=B.streak>=3&&B.streak%3===0; const dmg=crit?2:1;
+    B.hp-=dmg; const xp=(crit?20:10)*B.mult; B.xpGain+=xp;
+    btn.classList.add('right'); crit?sCrit():sHit();
+    anim($('egeBody'),'lungeR'); fireProjectile();
+    setTimeout(()=>{anim($('foeBody'),'hit');floatText(crit?'KRİTİK -2':'-1','right');drawBars()},360);
+    say(B.hp<=0?'Hayıııır! Nasıl bildin?!':pick(['Ahh! Bunu nereden bildin?!','Of! Bu acıttı!','Şanslıydın, küçük pilot!','Grr... Bir dahakine!']));
+    $('fb').innerHTML=`<div class="fb ok"><b>${crit?'⚡ KRİTİK VURUŞ!':pick(['Tam isabet!','Harika, kaptan!','Doğru!'])}</b>${Q.e}</div>`;
+    $('combo').textContent=B.streak>=2?`🔥 ${B.streak} doğru üst üste!${B.streak%3===2?' Bir sonraki KRİTİK!':''}`:'';
+  }else{
+    st.w++; B.streak=0; B.hearts--;
+    btn.classList.add('wrong'); sHurt();
+    [...$('opts').children].forEach(b=>{if(b.textContent===Q.o[Q.a])b.classList.add('right')});
+    anim($('foeBody'),'lungeL'); setTimeout(()=>{anim($('egeBody'),'hurt');floatText('💔','left');drawBars()},250);
+    say(pick(['Hahaha! Yanıldın!','Bu bilgi artık benim!','Hi hi hi, tuzağa düştün!']));
+    $('fb').innerHTML=`<div class="fb no"><b>Canavar saldırdı! 💥</b>${Q.e}<br><span class="small">Bu soru savaşta yine karşına çıkacak.</span></div>`;
+    $('combo').textContent='';
+    B.queue.splice(Math.min(3,B.queue.length),0,B.queue.shift());
+  }
+  store(); B.asked++; if(ok) B.firstOk++;
+  const next=$('nextBtn'); next.classList.remove('hidden');
+  next.textContent= B.hp<=0?'Zafer! 🏆' : B.hearts<=0?'Geri çekil 🛬':'Devam ⚔️';
+}
+$('nextBtn').onclick=()=>{ if(B.hp<=0) win(); else if(B.hearts<=0) lose(); else ask(); };
+$('flee').onclick=()=>{ if(B&&B.xpGain){S.xp+=B.xpGain;store()} renderMap(); };
+
+function win(){
+  const before=level(S.xp); S.xp+=B.xpGain+(B.kind==='minion'||typeof B.kind==='number'?20:50)*B.mult;
+  let cardId=null,isNew=false;
+  if(B.kind==='exam'){ cardId='golden'; isNew=!S.cards.golden; S.cards.golden=(S.cards.golden||0)+1; if(B.exam.id!=='demo') S.examWins.push(B.exam.id); }
+  else{
+    const arr=S.beaten[B.R.id]||(S.beaten[B.R.id]=[]);
+    const key=B.kind; if(!arr.includes(key)) arr.push(key);
+    cardId=B.R.cards[key==='boss'?3:key]; isNew=!S.cards[cardId]; S.cards[cardId]=(S.cards[cardId]||0)+1;
+  }
+  store(); sWin(); confetti();
+  const after=level(S.xp); const C=CARDS[cardId];
+  const story = B.kind==='boss'
+    ? (B.R.id==='fen' ? 'Profesör Unutkan yenildi! Dünyanın bütün bilgileri geri döndü. Sen gerçek bir kahramansın, Kaptan Ege! 🌍' : `${B.R.city} kurtuldu! Yeni rota açıldı. Uçağına bin, sıradaki ülke seni bekliyor!`)
+    : B.kind==='exam' ? 'Sınava hazırsın, kaptan! Bu kart sadece sınav öncesi boss\'unu yenenlere verilir.'
+    : `${B.foe.n} yenildi! Çaldığı bilgileri geri aldın.`;
+  $('resultCard').innerHTML=`
+    <h2 style="margin:4px 0">🏆 Zafer!</h2>
+    <p style="margin:4px 0 10px">${story}</p>
+    <div class="small">${isNew?'Yeni kart kazandın!':'Bu kart zaten hangarında: +1 kopya'}</div>
+    <div style="max-width:220px;margin:8px auto">${cardHTML(cardId,true)}</div>
+    <div><b>+${B.xpGain+(B.kind==='exam'?100:B.kind==='boss'?50:20)} XP</b> · İlk denemede doğru: ${B.firstOk}/${B.asked}</div>
+    ${after>before?`<div class="lvlup">⬆️ SEVİYE ATLADIN! Seviye ${after}: ${rank(after)}</div>`:''}
+    <button class="btn" id="resBack">Haritaya dön 🗺️</button>`;
+  $('resBack').onclick=renderMap; show('result');
+}
+function lose(){
+  S.xp+=B.xpGain; store();
+  $('resultCard').innerHTML=`
+    <h2 style="margin:4px 0">🛬 Geri çekildin</h2>
+    <div style="font-size:64px">${B.foe.e}</div>
+    <p>${B.foe.n} bu sefer kazandı ama kazandığın <b>${B.xpGain} XP</b> senin. Yanlış yaptığın sorular bir sonraki savaşta önce gelecek. Yakıt ikmali yap ve tekrar dene!</p>
+    <button class="btn" id="again">Tekrar savaş ⚔️</button><button class="btn ghost" id="resBack">Haritaya dön</button>`;
+  const {R,kind,exam}=B;
+  $('again').onclick=()=>startBattle(R,kind,exam); $('resBack').onclick=renderMap; show('result');
+}
+function confetti(){const c=['#ffc23d','#e2463b','#1fa35b','#3b8fe0','#fff'];for(let i=0;i<70;i++){const d=document.createElement('div');d.className='confetti';d.style.cssText=`left:${Math.random()*100}vw;background:${c[i%5]};animation-duration:${1.6+Math.random()*1.6}s;animation-delay:${Math.random()*.4}s`;document.body.appendChild(d);setTimeout(()=>d.remove(),3600)}}
+
+// ================= HANGAR =================
+function cardHTML(id,reveal){
+  const C=CARDS[id]; const n=S.cards[id]||0;
+  if(!n) return `<div class="pc lockd"><div><div class="ic">${C.ic}</div><div class="cn">???</div><div class="small" style="color:#8a96b3">Henüz kazanılmadı</div></div></div>`;
+  const cls=C.gold?'gold':C.boss?'leg':'';
+  return `<div class="pc ${cls} ${reveal?'reveal':''}"><span class="rr">${C.gold?'ALTIN':C.boss?'EFSANEVİ':'NORMAL'}${n>1?' ×'+n:''}</span><div class="ic">${C.ic}</div><div class="cn">${C.n}</div><div class="yr">${C.y}</div><div class="fx">${C.f}</div></div>`;
+}
+function renderHangar(){
+  setBg('');
+  $('hangarCount').textContent=`${CARD_ORDER.filter(c=>S.cards[c]).length}/${CARD_ORDER.length}`;
+  $('cardGrid').innerHTML=CARD_ORDER.map(id=>cardHTML(id)).join('');
+  show('hangar');
+}
+$('toHangar').onclick=renderHangar; $('hangarBack').onclick=renderMap;
+$('replayIntro').onclick=playIntro;
+let armed=false;
+$('reset').onclick=()=>{if(!armed){armed=true;$('reset').textContent='Emin misin? Tekrar dokun';setTimeout(()=>{armed=false;$('reset').textContent='Sıfırla'},3000);return}
+  S=fresh();store();armed=false;$('reset').textContent='Sıfırla';playIntro()};
+
+S.intro?renderMap():playIntro();
+</script>
+</body>
+</html>
