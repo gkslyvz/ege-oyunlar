@@ -3,6 +3,7 @@
 import json, glob, os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'v2'))
 from tr import TR; from mat import MAT; from fen import FEN; from sos_ing import SOS, ING; from kazanim import K
+from deneyap import SORULAR as DNY
 
 # .py setlerini JSON'a dök (otomatik akış doğrudan JSON yazar)
 for f in glob.glob(os.path.join(os.path.dirname(__file__), 'v2', 'set_*.py')):
@@ -26,7 +27,8 @@ for s in SETS:
         odev.append(q)
 if odev:
     LEGS.append(dict(id='odev', title='Ödev Görevi ⭐', ders='Ödev Görevi', icon='📸', **{'from': 'Ödev'}, to='Usta', vehicle='plane', qs=odev,
-                     setler=[{k: s[k] for k in ('id', 'baslik', 'ders', 'kazanimlar')} for s in SETS]))
+                     ozel=True, setler=[{k: s[k] for k in ('id', 'baslik', 'ders', 'kazanimlar')} for s in SETS]))
+LEGS.append(dict(id='deneyap', title='DENEYAP Rotası 🧠', ders='DENEYAP', icon='🧠', **{'from': 'Hangar'}, to='Atölye', vehicle='rocket', qs=list(DNY), ozel=True, gen=True))
 
 hata, uyari = [], []
 for L in LEGS:

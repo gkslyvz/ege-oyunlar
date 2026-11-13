@@ -189,7 +189,7 @@ const ROCKET=`<g><path d="M8 18 L0 12 L4 23 L0 34 L8 28 Z" fill="#ffc23d"/><path
 <path d="M14 15 L6 5 L22 15 Z M14 31 L6 41 L22 31 Z" fill="#e2463b"/><circle cx="44" cy="23" r="5" fill="#a9dcff" stroke="#10223f" stroke-width="2"/></g>`;
 
 // ===== HARİTA =====
-function unlocked(i){ return i===0 || LEGS[i].id==='odev' || (save.stars[LEGS[i-1].id]||0)>0; }
+function unlocked(i){ return i===0 || LEGS[i].ozel || (save.stars[LEGS[i-1].id]||0)>0; }
 function renderMap(){
   document.body.classList.remove('space');
   const box=$('legs'); box.innerHTML='';

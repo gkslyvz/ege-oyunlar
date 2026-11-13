@@ -1,0 +1,94 @@
+# DENEYAP rotası: genel yetenek / muhakeme soruları (4-5. sınıf düzeyi).
+# Not: DENEYAP e-sınav içeriği resmi kılavuzla doğrulanmadı [?]; sorular sayısal-sözel-şekil muhakemesi
+# ve 5. sınıf matematik/fen üzerine kuruldu. Kılavuz yayımlanınca kazanım dağılımı güncellenecek.
+from ortak import S
+from kazanim import add
+U = "DENEYAP hazırlık"
+add("deneyap", 1, U, "DNY.SAY", "Sayısal muhakeme: sayı örüntüleri, ters işlem, işlem mantığı")
+add("deneyap", 2, U, "DNY.SOZ", "Sözel mantık: sıralama, eşleştirme, koşullu çıkarım")
+add("deneyap", 3, U, "DNY.SEK", "Şekil ve uzamsal düşünme: örüntü, katlama, döndürme, küp")
+add("deneyap", 4, U, "DNY.PRB", "Problem çözme: çok adımlı günlük hayat problemleri")
+add("deneyap", 5, U, "DNY.BIL", "Bilim ve teknoloji muhakemesi: deney düzeneği, değişken, basit makine")
+
+SORULAR = [
+# --- Sayısal muhakeme ---
+S("Sayı örüntüsü", "DNY.SAY", "2, 5, 11, 23, 47, ... örüntüsünde sıradaki sayı kaçtır?", "95",
+  [("94", "Kuralı 'ikiyle çarp' sanıp +1'i unutma"), ("71", "Farkı sabit 24 sanma"), ("69", "Farkları yanlış devam ettirme")],
+  "Kural: 2 ile çarp, 1 ekle. 47 × 2 + 1 = 95.", "Her sayı bir öncekinin yaklaşık iki katı.", 2, acik="95"),
+S("Sayı örüntüsü", "DNY.SAY", "1, 4, 9, 16, 25, ... örüntüsünde sıradaki sayı kaçtır?", "36",
+  [("34", "Farkı 9 sanma"), ("30", "Sabit 5 ekleme"), ("49", "Bir sayı atlama")],
+  "Sayılar 1×1, 2×2, 3×3, 4×4, 5×5... Sıradaki 6×6 = 36.", "Her sayı bir sayının kendisiyle çarpımı.", 2, acik="36"),
+S("Ters işlem", "DNY.SAY", "Bir sayıya 7 ekleyip sonucu 3 ile çarpınca 45 buluyoruz. Sayı kaçtır?", "8",
+  [("15", "Sadece 45 ÷ 3 yapıp 7'yi çıkarmayı unutma"), ("22", "Ters işlemde ekleme yapma"), ("12", "İşlem sırasını karıştırma")],
+  "Sondan başa: 45 ÷ 3 = 15, 15 − 7 = 8.", "Sondan başa doğru ters işlem yap.", 2, acik="8"),
+S("İşlem mantığı", "DNY.SAY", "□ + □ + △ = 17 ve □ + △ = 11 ise □ kaçtır?", "6",
+  [("5", "△'yı □ sanma"), ("11", "İkinci eşitliğin sonucunu cevap sanma"), ("3", "Rastgele bölme")],
+  "Birinci eşitlik, ikinciden bir □ fazla: 17 − 11 = 6.", "İki eşitliği karşılaştır.", 2, acik="6"),
+S("Sayı örüntüsü", "DNY.SAY", "3, 6, 5, 10, 9, 18, 17, ... örüntüsünde sıradaki sayı kaçtır?", "34",
+  [("16", "Hep 1 çıkarma sanma"), ("36", "18'i ikiyle çarpma"), ("19", "Hep 2 ekleme sanma")],
+  "Kural sırayla: ×2, −1, ×2, −1... 17 × 2 = 34.", "İki işlem sırayla tekrar ediyor.", 3, acik="34"),
+S("Basamak mantığı", "DNY.SAY", "Rakamları birbirinden farklı en büyük üç basamaklı çift sayı kaçtır?", "986",
+  [("998", "Rakamların farklı olma şartını unutma"), ("987", "Çift olma şartını unutma"), ("988", "Rakamların farklı olma şartını unutma")],
+  "Yüzler 9, onlar 8 olmalı; birler basamağı çift ve farklı en büyük rakam 6 → 986.", "Birler basamağı çift olmalı.", 3, acik="986"),
+# --- Sözel mantık ---
+S("Sıralama", "DNY.SOZ", "Ali, Bora'dan uzun; Can, Ali'den uzun; Deniz, Bora'dan kısa. En uzun kimdir?", "Can",
+  [("Ali", "Bir karşılaştırmayı atlama"), ("Bora", "İlişkiyi ters okuma"), ("Deniz", "İlişkiyi ters okuma")],
+  "Sıra (uzundan kısaya): Can > Ali > Bora > Deniz.", "Hepsini bir çizgiye diz.", 1),
+S("Sıralama", "DNY.SOZ", "Beş kişilik kuyrukta Elif baştan 2., Mert sondan 2. sıradadır. Aralarında kaç kişi vardır?", "1",
+  [("2", "Elif ve Mert'i de sayma"), ("0", "Yan yana olduklarını sanma"), ("3", "Kuyruk uzunluğunu yanlış kullanma")],
+  "Sondan 2. = baştan 4. Baştan 2. ile 4. arasında yalnızca 3. kişi var.", "Sondan 2. baştan kaçıncı?", 2, acik="1"),
+S("Koşullu çıkarım", "DNY.SOZ", "\"Yağmur yağarsa maç ertelenir.\" Maç ertelenmediyse kesin olarak ne söylenebilir?", "Yağmur yağmamıştır",
+  [("Yağmur yağmıştır", "Koşulu ters okuma"), ("Maç iptal olmuştur", "Metinde olmayan bilgi ekleme"), ("Hiçbir şey söylenemez", "Ters yönlü çıkarımı bilmeme")],
+  "Yağmur yağsaydı maç ertelenirdi. Ertelenmediğine göre yağmur yağmamıştır.", "Yağmur yağsaydı ne olurdu?", 3),
+S("Eşleştirme", "DNY.SOZ", "Ayşe, Banu ve Cem'in evcil hayvanları kedi, köpek ve kuştur (her birinin farklı). Ayşe'ninki köpek değil, Banu'nunki kuş. Cem'in hayvanı nedir?", "Köpek",
+  [("Kedi", "Ayşe'nin bilgisini Cem'e verme"), ("Kuş", "Banu'nun hayvanını tekrar verme"), ("Belirlenemez", "Eleme yöntemini kullanmama")],
+  "Banu: kuş. Ayşe köpek değil → kedi. Geriye kalan köpek Cem'in.", "Önce kesin olanı yerleştir.", 2),
+S("Takvim mantığı", "DNY.SOZ", "Bugün çarşamba ise 10 gün sonra hangi gündür?", "Cumartesi",
+  [("Cuma", "Günü saymaya bugünden başlama"), ("Pazar", "Bir gün fazla sayma"), ("Perşembe", "7'yi çıkarıp 3 gün eklemeyi unutma")],
+  "10 = 7 + 3. 7 gün sonra yine çarşamba, 3 gün sonra cumartesi.", "7 gün sonra hangi gün olur?", 2),
+# --- Şekil ve uzamsal ---
+S("Küp", "DNY.SEK", "Bir küpün kaç yüzü, kaç köşesi vardır?", "6 yüz, 8 köşe",
+  [("8 yüz, 6 köşe", "Yüz ve köşeyi karıştırma"), ("6 yüz, 12 köşe", "Ayrıt sayısını köşe sanma"), ("4 yüz, 8 köşe", "Yanal yüzleri sayıp alt-üstü unutma")],
+  "Küp: 6 yüz, 8 köşe, 12 ayrıt.", "Bir zarı düşün.", 1),
+S("Küp", "DNY.SEK", "Bir zarın karşılıklı yüzlerindeki sayıların toplamı 7'dir. Üst yüzde 2 varsa alt yüzde kaç vardır?", "5",
+  [("2", "Karşı yüzü aynı sanma"), ("4", "Yan yüzle karıştırma"), ("6", "Toplamı 8 sanma")],
+  "7 − 2 = 5.", "Toplam 7.", 1, acik="5"),
+S("Katlama", "DNY.SEK", "Bir kâğıdı ikiye katlayıp ortasından bir delik açıyoruz. Kâğıdı açınca kaç delik görürüz?", "2",
+  [("1", "Katlı kâğıdın iki kat olduğunu unutma"), ("4", "İki kez katlanmış sanma"), ("3", "Rastgele sayma")],
+  "İki kat kâğıt delindiği için açınca 2 delik olur, katlama çizgisine göre simetrik.", "Kaç kat kâğıt delindi?", 2, acik="2"),
+S("Katlama", "DNY.SEK", "Bir kâğıt ikiye, sonra yine ikiye katlanıp tek bir delik açılıyor. Açınca kaç delik olur?", "4",
+  [("2", "İkinci katlamayı unutma"), ("3", "Katlama sayısını ekleme"), ("8", "Üç kez katlanmış sanma")],
+  "Her katlama kat sayısını ikiye katlar: 2 × 2 = 4 kat → 4 delik.", "Her katlamada kat sayısı ne olur?", 3, acik="4"),
+S("Şekil örüntüsü", "DNY.SEK", "Örüntü: ▲ ■ ● ▲ ■ ● ▲ ... 20. şekil hangisidir?", "■",
+  [("▲", "Sırayı bir kaydırma"), ("●", "20'yi 3'e tam bölünür sanma"), ("Belirlenemez", "Tekrarlı örüntü mantığını kullanmama")],
+  "Örüntü 3'lü tekrar ediyor. 20 ÷ 3 = 6 kalan 2 → 2. şekil: ■.", "Kaç şekilde bir tekrar ediyor?", 3),
+S("Döndürme", "DNY.SEK", "Saatin yelkovanı 12'yi gösteriyor. Saat yönünde çeyrek tur dönerse hangi sayıyı gösterir?", "3",
+  [("9", "Saatin tersi yönde döndürme"), ("6", "Yarım tur döndürme"), ("4", "Çeyrek turu yanlış hesaplama")],
+  "Tam tur 12 sayı, çeyrek tur 3 sayı: 12 → 3.", "Çeyrek = dörtte bir.", 1, acik="3"),
+# --- Problem çözme ---
+S("Çok adımlı problem", "DNY.PRB", "Bir kutuda 4 sıra, her sırada 6 yumurta var. 5 yumurta kırılırsa kaç sağlam yumurta kalır?", "19",
+  [("24", "Kırılanları çıkarmamak"), ("29", "Kırılanları ekleme"), ("15", "Sadece 4 + 6 + 5'le uğraşma")],
+  "4 × 6 = 24, 24 − 5 = 19.", "Önce toplam yumurtayı bul.", 1, acik="19"),
+S("Yaş problemi", "DNY.PRB", "Ege 10, annesi 38 yaşında. Kaç yıl sonra annesinin yaşı Ege'nin yaşının 3 katı olur?", "4",
+  [("2", "Deneme yanılmada hesap hatası"), ("6", "Yaş farkının değişmediğini unutma"), ("8", "Sadece Ege'nin yaşını büyütme")],
+  "Yaş farkı hep 28. 3 kat olunca fark Ege'nin yaşının 2 katı: 28 ÷ 2 = 14 → 14 − 10 = 4 yıl.", "Yaş farkı hiç değişmez.", 3, acik="4"),
+S("Çok adımlı problem", "DNY.PRB", "Bir merdivenin her basamağı 15 cm. 12 basamak çıkan biri kaç metre yükselmiş olur?", "1,8 m",
+  [("180 m", "cm'yi m'ye çevirmeme"), ("18 m", "Çevirmede hata"), ("27 m", "Toplama yapma")],
+  "12 × 15 = 180 cm = 1,8 m.", "1 m = 100 cm.", 2),
+S("Mantık problemi", "DNY.PRB", "Bir salyangoz 10 m'lik kuyuda gündüz 3 m tırmanıp gece 2 m kayıyor. Kaçıncı gün kuyudan çıkar?", "8. gün",
+  [("10. gün", "Son gün kaymadan çıkabileceğini unutma"), ("5. gün", "Sadece gündüz tırmanışını sayma"), ("7. gün", "Gün sayımında hata")],
+  "7 günün sonunda 7 m'de. 8. gün 3 m tırmanınca 10 m'ye ulaşır ve çıkar.", "Son gün kaymaz!", 3),
+# --- Bilim ve teknoloji ---
+S("Değişken", "DNY.BIL", "Bitkinin büyümesine ışığın etkisini incelemek isteyen Zeynep hangi değişkeni DEĞİŞTİRMELİDİR?", "Bitkinin aldığı ışık miktarını",
+  [("Verdiği su miktarını", "Birden fazla değişkeni değiştirme"), ("Saksı toprağının türünü", "Sabit tutulması gerekeni değiştirme"), ("Bitkinin türünü", "Kontrol değişkenini değiştirme")],
+  "Bir deneyde yalnızca incelenen değişken (ışık) değiştirilir; diğerleri sabit tutulur.", "Neyin etkisini inceliyor?", 2),
+S("Basit makine", "DNY.BIL", "Ağır bir kutuyu kamyona daha AZ kuvvetle çıkarmak için hangisi kullanılır?", "Eğik düzlem (rampa)",
+  [("Daha kısa ve dik bir merdiven", "Dikliğin kuvveti azalttığını sanma"), ("Daha ağır bir kutu", "Yükü artırmayı çözüm sanma"), ("Daha hızlı kaldırmak", "Hızın kuvveti azalttığını sanma")],
+  "Eğik düzlem yolu uzatır ama gereken kuvveti azaltır.", "Rampayı düşün.", 2),
+S("Deney düzeneği", "DNY.BIL", "Aynı büyüklükteki tahta, demir ve plastik kaşıkları sıcak suya koyup hangisinin sapının önce ısındığına bakan öğrenci neyi test ediyordur?", "Maddelerin ısı iletimini",
+  [("Maddelerin rengini", "İlgisiz özellik"), ("Suyun kaynama sıcaklığını", "Değişkeni yanlış belirleme"), ("Kaşıkların ağırlığını", "İlgisiz özellik")],
+  "Hangi maddenin ısıyı daha iyi ilettiğini karşılaştırıyor; metaller iyi iletir.", "Sap neden ısınır?", 2),
+S("Teknoloji muhakemesi", "DNY.BIL", "Bir robot her komutta 1 kare ilerliyor. \"2 ileri, sağa dön, 3 ileri\" komutundan sonra başladığı kareye en kısa yoldan dönmesi için kaç kare gitmesi gerekir?", "5",
+  [("3", "Sadece son hareketi geri alma"), ("4", "Çapraz gidebildiğini sanma"), ("6", "Dönüşü kare sanma")],
+  "Robot 2 ileri ve 3 sağa gitti; çapraz gidemediği için en kısa yol 2 + 3 = 5 kare.", "Çapraz gidemez.", 3, acik="5"),
+]

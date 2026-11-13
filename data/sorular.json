@@ -1520,6 +1520,353 @@
     "ip": "Torbada hangi renkten daha çok var?",
     "zor": 2,
     "tur": "banka"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Kerem pergelin kollarını 5 cm açıp bir çember çizdi. Bu çemberin çapı kaç cm'dir?",
+    "o": [
+     "10 cm",
+     "5 cm",
+     "2,5 cm",
+     "15 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Pergel açıklığını çap sanma",
+     "2": "Çapı yarıçapın yarısı sanma",
+     "3": "Yarıçapı üçle çarpma"
+    },
+    "e": "Pergel açıklığı yarıçaptır. Çap = 2 × yarıçap = 2 × 5 = 10 cm.",
+    "ip": "Pergel açıklığı yarıçap mı, çap mı?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "10",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Kerem aynı merkezle pergel açıklığını 5 cm'den 4 cm daha artırıp ikinci çemberi çizdi. İkinci çemberin çapı kaç cm'dir?",
+    "o": [
+     "18 cm",
+     "9 cm",
+     "14 cm",
+     "20 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Yarıçapı bulup çapa çevirmeyi unutma",
+     "2": "4 cm'yi çapa ekleme (10+4)",
+     "3": "Açıklığı 10'a çıkarmak sanma"
+    },
+    "e": "Yeni yarıçap 5 + 4 = 9 cm, çap = 2 × 9 = 18 cm.",
+    "ip": "Önce yeni yarıçapı bul.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "18",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Sonra pergel açıklığını 9 cm'den 3 cm azaltıp üçüncü çemberi çizdi. Üçüncü çemberin yarıçapı kaç cm'dir?",
+    "o": [
+     "6 cm",
+     "12 cm",
+     "2 cm",
+     "3 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Çapı yarıçap sanma",
+     "2": "5 cm'den 3 çıkarma (ilk açıklıktan)",
+     "3": "Azaltılan miktarı sonuç sanma"
+    },
+    "e": "Önceki açıklık 9 cm idi: 9 − 3 = 6 cm yarıçap (çap 12 cm).",
+    "ip": "Son açıklık 9 cm'ydi.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "6",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Hangisi DOĞRUDUR?",
+    "o": [
+     "Çemberde çapın yarısı yarıçapa eşittir",
+     "Pergelin açıklığı çemberin çapına eşittir",
+     "Bir çemberin birden fazla merkezi olabilir",
+     "Bir çemberde yalnızca bir çap çizilebilir"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Pergel açıklığını çap sanma",
+     "2": "Merkezin tek olduğunu bilmeme",
+     "3": "Çapın sonsuz sayıda çizilebildiğini bilmeme"
+    },
+    "e": "Bir çemberin tek merkezi, sonsuz sayıda çapı vardır; pergel açıklığı yarıçaptır.",
+    "ip": "Pergel açıklığı neye eşit?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Bir çember üzerindeki birbirine EN UZAK iki noktayı birleştiren doğru parçasına ne denir?",
+    "o": [
+     "Çap",
+     "Yarıçap",
+     "Merkez",
+     "Dikme"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Merkezden çembere olan uzaklıkla karıştırma",
+     "2": "Nokta ile doğru parçasını karıştırma",
+     "3": "Başka geometrik kavramla karıştırma"
+    },
+    "e": "Çap merkezden geçer ve çemberin en uzun doğru parçasıdır.",
+    "ip": "Merkezden geçen en uzun parça.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Yarıçapları 8 cm ve 6 cm olan iki çember dıştan bir noktada değiyor. K ve L, iki çemberin merkezlerinden geçen doğru üzerinde en dışta kalan noktalarıdır. |KL| kaç cm'dir?",
+    "o": [
+     "28 cm",
+     "14 cm",
+     "2 cm",
+     "48 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Yarıçapları toplayıp çapa çevirmeme",
+     "2": "Yarıçapları çıkarma",
+     "3": "Yarıçapları çarpma"
+    },
+    "e": "KL iki çapın toplamıdır: 16 + 12 = 28 cm.",
+    "ip": "Her çemberin çapını bul ve topla.",
+    "zor": 3,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "28",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.3",
+    "q": "Bir yol planındaki 60°'lik açı 15° azaltılırsa yeni açı kaç derece olur?",
+    "o": [
+     "45°",
+     "75°",
+     "50°",
+     "15°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Azaltma yerine ekleme",
+     "2": "Yalnızca 10 çıkarma",
+     "3": "Değişim miktarını sonuç sanma"
+    },
+    "e": "60 − 15 = 45°.",
+    "ip": "Azaltmak = çıkarmak.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "45",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.3",
+    "q": "Ölçüsü 80° olan açı hangi açı çeşididir?",
+    "o": [
+     "Dar açı",
+     "Dik açı",
+     "Geniş açı",
+     "Doğru açı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Dar açıyı 90°'ye yakın diye dik sanma",
+     "2": "80'i büyük sayı diye geniş sanma",
+     "3": "180° ile karıştırma"
+    },
+    "e": "0° ile 90° arası dar açı, 90° dik açı, 90° ile 180° arası geniş açıdır.",
+    "ip": "90°'den küçük mü büyük mü?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.3",
+    "q": "Ölçüsü 138° olan açı hangi açı çeşididir?",
+    "o": [
+     "Geniş açı",
+     "Dar açı",
+     "Dik açı",
+     "Tam açı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "90°'den büyük açıyı dar sanma",
+     "2": "Yalnızca 90°'nin dik olduğunu bilmeme",
+     "3": "360° ile karıştırma"
+    },
+    "e": "90° ile 180° arası açılar geniş açıdır.",
+    "ip": "138, 90'dan büyük mü küçük mü?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Doğrular",
+    "k": "MAT.5.3.2",
+    "q": "Bir noktadan bir doğruya çizilebilecek EN KISA doğru parçası hangisidir?",
+    "o": [
+     "Dikme (doğruya dik çizilen parça)",
+     "Eğik çizilen herhangi bir parça",
+     "Doğruya paralel parça",
+     "Hepsi aynı uzunluktadır"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Eğik parçayı daha kısa sanma",
+     "2": "Paralel parçanın doğruyla buluşmadığını unutma",
+     "3": "Uzunluğun yöne bağlı olduğunu bilmeme"
+    },
+    "e": "Noktadan doğruya en kısa yol, doğruya dik inen parçadır (dikme); gönye ile çizilir.",
+    "ip": "Hangi açıyla inersen en kısa olur?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Doğrular",
+    "k": "MAT.5.3.4",
+    "q": "k ve l doğruları hiç kesişmiyor ve aralarındaki uzaklık her yerde aynı. Bu durum sembolle nasıl gösterilir?",
+    "o": [
+     "k // l",
+     "k ⊥ l",
+     "k = l",
+     "k > l"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Paralel ile dik sembolünü karıştırma",
+     "2": "Eşitlik sembolünü kullanma",
+     "3": "Karşılaştırma sembolünü kullanma"
+    },
+    "e": "Paralel doğrular // ile, dik doğrular ⊥ ile gösterilir.",
+    "ip": "Bu doğrular paralel mi, dik mi?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Çapı 14 cm olan bir çemberi çizmek için pergel kaç cm açılmalıdır?",
+    "o": [
+     "7 cm",
+     "14 cm",
+     "28 cm",
+     "12 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Pergeli çap kadar açma",
+     "2": "Çapı ikiyle çarpma",
+     "3": "Çaptan 2 çıkarma (yarıya bölmek yerine)"
+    },
+    "e": "Pergel yarıçap kadar açılır: 14 ÷ 2 = 7 cm.",
+    "ip": "Çapın yarısı.",
+    "zor": 2,
+    "tur": "benzer",
+    "acik": "7",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "İki doğru kesiştiğinde dört açının hepsi 90° ise bu doğrular için ne söylenir?",
+    "o": [
+     "Birbirine diktir",
+     "Birbirine paraleldir",
+     "Çakışıktır",
+     "Hiç kesişmez"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kesişen doğruyu paralel sanma",
+     "2": "Dik kesişmeyi çakışma sanma",
+     "3": "Kesişmeyi unutma"
+    },
+    "e": "Dik kesişen doğrular 90°'lik açılar oluşturur: k ⊥ l.",
+    "ip": "90° hangi açının ölçüsü?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.5",
+    "q": "Aşağıdaki şekillerden hangisi çokgen sayılmaz?",
+    "o": [
+     "Çember",
+     "Üçgen",
+     "Kare",
+     "Beşgen"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Üçgeni çokgen saymama",
+     "2": "Kareyi çokgen saymama",
+     "3": "Beşgeni çokgen saymama"
+    },
+    "e": "Çokgen, doğru parçalarının ardışık birleşmesiyle oluşan kapalı şekildir. Çember eğri çizgidir.",
+    "ip": "Çokgenin kenarları düz müdür?",
+    "zor": 1,
+    "tur": "hazirlik",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "Bir altıgenin kaç kenarı vardır?",
+    "o": [
+     "6",
+     "5",
+     "8",
+     "4"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Beşgenle karıştırma",
+     "2": "Sekizgenle karıştırma",
+     "3": "Dörtgenle karıştırma"
+    },
+    "e": "Çokgenin adı kenar sayısını söyler: altı-gen → 6 kenar, 6 köşe, 6 iç açı.",
+    "ip": "Adının başında sayı var.",
+    "zor": 1,
+    "tur": "hazirlik",
+    "acik": "6",
+    "set": "2026-11-13-mat-gpc-2"
    }
   ],
   "gen": true
@@ -3736,6 +4083,346 @@
     "ip": "Adında 'Reis' var.",
     "zor": 2,
     "tur": "banka"
+   },
+   {
+    "t": "Gruplar ve roller",
+    "k": "SB.5.1.1",
+    "q": "Melis okulda Matematik Proje Grubu'nda görevleri dağıttı, sunumda konuşmacı oldu, eve servisle döndü ve sevincini annesi ve kardeşiyle paylaştı. Hangisi Melis'in dâhil olduğu gruplardan biri DEĞİLDİR?",
+    "o": [
+     "Futbol takımı",
+     "Servis grubu",
+     "Aile",
+     "Matematik proje grubu"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Her gün birlikte olunan servisi grup saymama",
+     "2": "Aileyi grup saymama",
+     "3": "Metindeki grubu gözden kaçırma"
+    },
+    "e": "Melis'in grupları: sınıfı, matematik proje grubu, servis grubu ve ailesi. Metinde futbol takımı yok.",
+    "ip": "Metinde geçen grupları tek tek say.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Gruplar ve roller",
+    "k": "SB.5.1.1",
+    "q": "Melis proje grubunda görevlerin kim tarafından yapılacağını belirledi. Bu grupta Melis'in rolü nedir?",
+    "o": [
+     "Grup lideri",
+     "Yolcu",
+     "Evlat",
+     "Dinleyici"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Servis grubundaki rolle karıştırma",
+     "2": "Ailedeki rolle karıştırma",
+     "3": "Görev dağıtanı izleyici sanma"
+    },
+    "e": "Görevleri dağıtan ve planı hazırlayan kişi grup lideridir.",
+    "ip": "Görevleri kim dağıtır?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Gruplar ve roller",
+    "k": "SB.5.1.1",
+    "q": "Eymen futbol takımında yer alıyor. Bu gruptaki rolüne uygun sorumluluk hangisidir?",
+    "o": [
+     "Antrenmanlara düzenli katılmak",
+     "Kardeşinin ödevine yardım etmek",
+     "Zil çalınca sırasına oturmak",
+     "Bilim şenliği için araştırma yapmak"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Aile rolünün sorumluluğunu takıma yazma",
+     "2": "Öğrenci rolünün sorumluluğunu takıma yazma",
+     "3": "Proje grubunun sorumluluğuyla karıştırma"
+    },
+    "e": "Her rolün kendi sorumluluğu vardır: futbol oyuncusu antrenmanlara düzenli katılır.",
+    "ip": "Futbolcunun takıma karşı görevi ne?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Kültürel farklılıklar",
+    "k": "SB.5.1.2",
+    "q": "Nouri ailesi, Afganistan'daki iç çatışmalardan kaçarak Türkiye'ye sığınmacı olarak geldi. Ailenin Türkiye'ye gelmesinin nedeni nedir?",
+    "o": [
+     "Afganistan'daki iç çatışmalar yüzünden",
+     "Tatil yapmak için",
+     "Okul değiştirmek için",
+     "Türk yemeklerini tatmak için"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Zorunlu göçü gezi sanma",
+     "2": "Göçün nedenini küçük bir sebep sanma",
+     "3": "Sonucu neden sanma"
+    },
+    "e": "Nouri ailesi Afganistan'daki iç çatışmalardan kaçtı. Savaştan kaçıp başka ülkeye sığınan kişiye sığınmacı denir.",
+    "ip": "'Kaçarak' kelimesi neyi anlatıyor?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Kültürel farklılıklar",
+    "k": "SB.5.1.2",
+    "q": "Farklı kültürlerden insanların bir arada, kardeşçe yaşaması topluma ne kazandırır?",
+    "o": [
+     "Birlik, beraberlik ve toplumsal barış güçlenir",
+     "İnsanlar birbirinden uzaklaşır",
+     "Herkes aynı gelenekleri yaşamak zorunda kalır",
+     "Komşuluk ilişkileri zayıflar"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Farklılığı ayrılık sebebi sanma",
+     "2": "Saygıyı tek tipleşme sanma",
+     "3": "Sonucu tersine çevirme"
+    },
+    "e": "Farklılıklara saygı, insanların birbirini tanımasını ve toplumun güçlenmesini sağlar.",
+    "ip": "Birbirinin mutluluğunu paylaşan insanlar birbirine yakınlaşır mı, uzaklaşır mı?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Kültürel farklılıklar",
+    "k": "SB.5.1.2",
+    "q": "Mahallede farklı yörelerden gelen ailelerin bayram gelenekleri farklıdır. Hangisi bu geleneklere SAYGILI bir davranıştır?",
+    "o": [
+     "Komşunun yöresel ikramını merakla tatmak",
+     "Yeni gelen aileden geleneğini değiştirmesini istemek",
+     "Farklı geleneklerle alay etmek",
+     "Farklı yöreden gelenlerle konuşmamak"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Saygıyı herkesin bana benzemesi sanma",
+     "2": "Farklılığı yadırgama",
+     "3": "Farklılığı uzak durma sebebi sanma"
+    },
+    "e": "Saygı; farklılıkları doğal karşılamak, merak etmek ve kimseden değişmesini istememektir.",
+    "ip": "Saygı, farklı olanı merak etmek mi, değiştirmek mi?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Yardımlaşma ve dayanışma",
+    "k": "SB.5.1.3",
+    "q": "Orman yangınında gönüllülerin bölgeye su ve yiyecek taşıması hangi değeri en iyi gösterir?",
+    "o": [
+     "Yardımlaşma ve dayanışma",
+     "Rekabet",
+     "Bencillik",
+     "Tutumluluk"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Birlikte çalışmayı yarışma sanma",
+     "2": "Değeri tersine çevirme",
+     "3": "İlgisiz bir değerle karıştırma"
+    },
+    "e": "Zor zamanda başkalarına destek olmak yardımlaşma ve dayanışmadır; fedakârlık ve empatiyi de gösterir.",
+    "ip": "Zor günde birbirine destek olmaya ne denir?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "İhtiyaç hâlinde kurumlar",
+    "k": "SB.5.4.4",
+    "q": "Afetlere karşı önlem alan, afet olunca müdahale eden ve afetzedelere yardım eden kurum hangisidir?",
+    "o": [
+     "AFAD",
+     "TÜBİTAK",
+     "Belediye zabıtası",
+     "Millî Eğitim Bakanlığı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Bilim kurumuyla karıştırma",
+     "2": "Yerel düzen görevlisiyle karıştırma",
+     "3": "Okulla ilgili kurumla karıştırma"
+    },
+    "e": "AFAD = Afet ve Acil Durum Yönetimi Başkanlığı.",
+    "ip": "Deprem, sel gibi olaylardan sorumlu kurumu düşün.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Yardımlaşma ve dayanışma",
+    "k": "SB.5.1.3",
+    "q": "Öğrenciler yaşlılara yardım için bir proje planladı ve görev paylaştı. Ancak bir süre sonra aralarında anlaşmazlık çıktı. Bunun nedenlerinden biri hangisi olabilir?",
+    "o": [
+     "Bazı öğrencilerin görevlerini zamanında yapmaması",
+     "Projenin yaşlılara yardım amaçlı olması",
+     "Görev paylaşımı yapılmış olması",
+     "Projenin planlanmış olması"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Amacı sorunun nedeni sanma",
+     "2": "İyi bir adımı sorun sanma",
+     "3": "Planlamayı sorun sanma"
+    },
+    "e": "Sorumluluğu yerine getirmemek ve arkadaşının fikrini dinlememek grup çalışmasını zorlaştırır.",
+    "ip": "Planı bozan davranış hangisi?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Yardımlaşma ve dayanışma",
+    "k": "SB.5.1.3",
+    "q": "Grup projesindeki sorunları çözmek için öğrenciler ne yapmalıdır?",
+    "o": [
+     "Görevlerini zamanında yapıp birbirini dinleyerek ortak karar almalı",
+     "Herkes kendi bildiğini yapmalı",
+     "Projeyi hemen bırakmalı",
+     "En çok konuşanın fikri uygulanmalı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Bireysel davranışı çözüm sanma",
+     "2": "Sorundan kaçmayı çözüm sanma",
+     "3": "Ortak kararı tek kişinin kararı sanma"
+    },
+    "e": "Sorumluluk, saygı ve iş birliği grup çalışmasının temelidir.",
+    "ip": "Sorunun nedenini tersine çevir.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Gruplar ve roller",
+    "k": "SB.5.1.1",
+    "q": "Ali sabah okulda öğrenci, öğleden sonra basketbol takımında kaptan, akşam evde ağabeydir. Bu durum neyi gösterir?",
+    "o": [
+     "Bir kişinin farklı gruplarda farklı rolleri olabilir",
+     "Bir kişinin tek bir rolü olur",
+     "Rol ile grup aynı şeydir",
+     "Roller sadece okulda olur"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Rolü tek ve değişmez sanma",
+     "2": "Grup ve rol kavramlarını karıştırma",
+     "3": "Rolleri yalnızca okula bağlama"
+    },
+    "e": "İnsan dâhil olduğu her grupta farklı bir rol üstlenir; her rolün sorumluluğu da farklıdır.",
+    "ip": "Ali kaç farklı yerde, kaç farklı şey?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Kültürel farklılıklar",
+    "k": "SB.5.1.2",
+    "q": "Türkiye ile KKTC'nin ortak kültürel özelliklerinden biri hangisidir?",
+    "o": [
+     "Türkçe konuşulması",
+     "Aynı para birimini kullanmaları",
+     "Aynı nüfusa sahip olmaları",
+     "Kar yağışının çok olması"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kültürü ekonomiyle karıştırma",
+     "2": "Kültürü nüfusla karıştırma",
+     "3": "Kültürü iklimle karıştırma"
+    },
+    "e": "Türkiye ve KKTC'de Türkçe konuşulur; bayramlarda aile ziyaretine önem verilir.",
+    "ip": "Kültürü oluşturan şeyleri düşün: dil, bayram, yemek...",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Yardımlaşma ve dayanışma",
+    "k": "SB.5.1.3",
+    "q": "Hangisi okulda yapılabilecek bir dayanışma faaliyetidir?",
+    "o": [
+     "İhtiyacı olan arkadaşlar için kitap-kırtasiye toplamak",
+     "Teneffüste en önde olmak için yarışmak",
+     "Ödevleri tek başına yapmak",
+     "Kantinde sıra beklemek"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Rekabeti dayanışma sanma",
+     "2": "Bireysel işi dayanışma sanma",
+     "3": "Kurala uymayı dayanışma sanma"
+    },
+    "e": "Dayanışma, birlikte hareket edip ihtiyacı olana destek olmaktır.",
+    "ip": "Kime yardım ediliyor?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Göreceli konum",
+    "k": "SB.5.2.1",
+    "q": "\"İstanbul, Marmara Denizi'nin kuzeyindedir.\" ifadesi neyi anlatır?",
+    "o": [
+     "Göreceli (bağıl) konum",
+     "Mutlak konum",
+     "İklim",
+     "Nüfus"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Çevreye göre tarifi koordinatla karıştırma",
+     "2": "Konumu hava durumuyla karıştırma",
+     "3": "Konumu insan sayısıyla karıştırma"
+    },
+    "e": "Bir yerin çevresindeki yerlere göre anlatılması göreceli konumdur.",
+    "ip": "Burada koordinat mı var, yoksa bir denize göre yer mi tarif ediliyor?",
+    "zor": 2,
+    "tur": "hazirlik",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Komşu ülkeler",
+    "k": "SB.5.2.4",
+    "q": "Hangisi Türkiye'nin kara sınırı olan komşularından biri DEĞİLDİR?",
+    "o": [
+     "İtalya",
+     "Gürcistan",
+     "Yunanistan",
+     "İran"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kuzeydoğu komşusunu unutma",
+     "2": "Batı komşusunu unutma",
+     "3": "Doğu komşusunu unutma"
+    },
+    "e": "Kara komşularımız: Yunanistan, Bulgaristan, Gürcistan, Ermenistan, Nahçıvan (Azerbaycan), İran, Irak, Suriye.",
+    "ip": "Haritada Türkiye'ye karadan değen ülkeleri düşün.",
+    "zor": 2,
+    "tur": "hazirlik",
+    "set": "2026-11-13-sos-mebi-1"
    }
   ]
  },
@@ -4335,6 +5022,326 @@
     "ip": "Suda yaşar, burnu uzun ve çok zekidir.",
     "zor": 1,
     "tur": "banka"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.G1",
+    "q": "A: - - - - ?\nB: Two. English and French.\nWhich question completes the blank?",
+    "o": [
+     "How many languages do you speak?",
+     "When is your English class?",
+     "How old are you?",
+     "Do you speak French?"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Answering a 'when' question with a number of languages",
+     "2": "Thinking 'Two' is an age",
+     "3": "A yes/no question needs 'Yes/No', not 'Two'"
+    },
+    "e": "\"Two. English and French.\" tells how many languages → How many languages do you speak?",
+    "ip": "The answer is a number of languages.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.R2",
+    "q": "ID CARD — Name: Linda, Country: England, Age: 16, School: Victory High School.\nWhich question has NO answer on the card?",
+    "o": [
+     "How many languages does she speak?",
+     "How old is she?",
+     "Where does she study?",
+     "What is her name?"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Missing 'Age: 16'",
+     "2": "Missing 'School'",
+     "3": "Missing 'Name'"
+    },
+    "e": "The card shows name, country, age and school — not languages.",
+    "ip": "Look for information that is not on the card.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.G1",
+    "q": "Andy makes a question with: do you / how many / on Monday / have / classes / from.\nWhich word is ODD (not needed)?",
+    "o": [
+     "from",
+     "do you",
+     "how many",
+     "on Monday"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Not seeing the helper verb",
+     "2": "Not seeing the question word",
+     "3": "Not seeing the time phrase"
+    },
+    "e": "How many classes do you have on Monday? → 'from' is not needed.",
+    "ip": "Make the question first.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Timetable",
+    "k": "ENG.5.2.V1",
+    "q": "Monday: French, French, Turkish, Maths. Tuesday: Music, Art, Art, I.T. Wednesday: P.E., P.E., Geography, Geography. Thursday: Science, Science, History, History.\nOlga likes learning LANGUAGES. Her favourite classes are on...",
+    "o": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Thinking Music/Art are languages",
+     "2": "Thinking Geography is a language",
+     "3": "Thinking History is a language"
+    },
+    "e": "French and Turkish are languages, and they are on Monday.",
+    "ip": "Find French and Turkish.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.G1",
+    "q": "Paul: I am German. Which question did Rosa ask before this answer?",
+    "o": [
+     "What nationality are you?",
+     "How old are you?",
+     "Where do you study?",
+     "What is your name?"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "German is not an age",
+     "2": "German is not a school",
+     "3": "German is not a name"
+    },
+    "e": "German is a nationality → What nationality are you?",
+    "ip": "German = Alman.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Countries",
+    "k": "ENG.5.1.V1",
+    "q": "Amy has the flag of the USA. Which sentence is NOT correct?",
+    "o": [
+     "Amy is from China.",
+     "Amy is from the USA.",
+     "Amy is American.",
+     "Amy's country is the USA."
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Mixing up NOT correct and correct",
+     "2": "Not knowing nationality of the USA",
+     "3": "Mixing up NOT correct and correct"
+    },
+    "e": "Amy has the USA flag, so 'Amy is from China' is wrong.",
+    "ip": "Find the wrong one.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Likes and dislikes",
+    "k": "ENG.5.2.V1",
+    "q": "Goja: experiments? No. Sports? No. Solving problems? No. Drawing pictures? Yes!\nWhat is Goja's favourite class?",
+    "o": [
+     "Art",
+     "Science",
+     "P.E.",
+     "Maths"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Experiments = Science, but she said No",
+     "2": "Sports = P.E., but she said No",
+     "3": "Solving problems = Maths, but she said No"
+    },
+    "e": "Drawing pictures → Art.",
+    "ip": "Which activity got 'Yes'?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Verb 'to be'",
+    "k": "ENG.5.1.G1",
+    "q": "They ___ from Italy.",
+    "o": [
+     "are",
+     "is",
+     "am",
+     "be"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Using 'is' with they",
+     "2": "Using 'am' with they",
+     "3": "Not changing 'be'"
+    },
+    "e": "I am, he/she/it is, we/you/they are.",
+    "ip": "They → ?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "acik": "are",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "School rules",
+    "k": "ENG.5.1.V1",
+    "q": "Which one is a correct school rule?",
+    "o": [
+     "Raise your hand to speak.",
+     "Fight at school.",
+     "Eat in the classroom.",
+     "Make noise in the library."
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Missing that rules tell good behaviour",
+     "2": "Missing the rule 'Don't eat in the classroom'",
+     "3": "Missing the rule 'You mustn't make noise'"
+    },
+    "e": "Rules: Raise your hand to speak. You mustn't fight. Don't eat in the classroom.",
+    "ip": "A good behaviour.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.G1",
+    "q": "A: - - - - ?\nB: I am 11 years old.",
+    "o": [
+     "How old are you?",
+     "Where are you from?",
+     "What is your name?",
+     "How many brothers do you have?"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "11 is not a place",
+     "2": "11 is not a name",
+     "3": "'years old' shows age"
+    },
+    "e": "'years old' → How old are you?",
+    "ip": "years old = yaş.",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Verb 'to be'",
+    "k": "ENG.5.1.G1",
+    "q": "She ___ a doctor.",
+    "o": [
+     "is",
+     "are",
+     "am",
+     "be"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Using 'are' with she",
+     "2": "Using 'am' with she",
+     "3": "Not changing 'be'"
+    },
+    "e": "He/She/It → is.",
+    "ip": "She → ?",
+    "zor": 1,
+    "tur": "benzer",
+    "acik": "is",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Countries",
+    "k": "ENG.5.1.V1",
+    "q": "Yuki is from Japan. She is ___.",
+    "o": [
+     "Japanese",
+     "Japan",
+     "Japanish",
+     "Chinese"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Using the country instead of the nationality",
+     "2": "Inventing a nationality word",
+     "3": "Mixing up countries"
+    },
+    "e": "Japan → Japanese, Türkiye → Turkish, Italy → Italian.",
+    "ip": "Country vs nationality.",
+    "zor": 2,
+    "tur": "benzer",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Physical features",
+    "k": "ENG.5.3.V1",
+    "q": "Which word describes HAIR?",
+    "o": [
+     "curly",
+     "tall",
+     "kind",
+     "fast"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "'tall' describes a person's height",
+     "2": "'kind' is personality",
+     "3": "'fast' is an ability"
+    },
+    "e": "Hair can be curly, straight, long, short, blonde...",
+    "ip": "Which word can you say about hair, not about a whole person?",
+    "zor": 1,
+    "tur": "hazirlik",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Abilities",
+    "k": "ENG.5.3.G1",
+    "q": "Can you swim? — Yes, I ___.",
+    "o": [
+     "can",
+     "do",
+     "am",
+     "swim"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Answering a 'can' question with 'do'",
+     "2": "Answering with 'be'",
+     "3": "Repeating the verb"
+    },
+    "e": "Short answers repeat the helper: Can you...? Yes, I can. / No, I can't.",
+    "ip": "Short answers use the helper verb of the question.",
+    "zor": 1,
+    "tur": "hazirlik",
+    "acik": "can",
+    "set": "2026-11-13-ing-unit-1"
    }
   ]
  },
@@ -4709,8 +5716,1016 @@
     "zor": 2,
     "tur": "hazirlik",
     "set": "2026-11-13-fen-mebi-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.G1",
+    "q": "A: - - - - ?\nB: Two. English and French.\nWhich question completes the blank?",
+    "o": [
+     "How many languages do you speak?",
+     "When is your English class?",
+     "How old are you?",
+     "Do you speak French?"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Answering a 'when' question with a number of languages",
+     "2": "Thinking 'Two' is an age",
+     "3": "A yes/no question needs 'Yes/No', not 'Two'"
+    },
+    "e": "\"Two. English and French.\" tells how many languages → How many languages do you speak?",
+    "ip": "The answer is a number of languages.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.R2",
+    "q": "ID CARD — Name: Linda, Country: England, Age: 16, School: Victory High School.\nWhich question has NO answer on the card?",
+    "o": [
+     "How many languages does she speak?",
+     "How old is she?",
+     "Where does she study?",
+     "What is her name?"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Missing 'Age: 16'",
+     "2": "Missing 'School'",
+     "3": "Missing 'Name'"
+    },
+    "e": "The card shows name, country, age and school — not languages.",
+    "ip": "Look for information that is not on the card.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.G1",
+    "q": "Andy makes a question with: do you / how many / on Monday / have / classes / from.\nWhich word is ODD (not needed)?",
+    "o": [
+     "from",
+     "do you",
+     "how many",
+     "on Monday"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Not seeing the helper verb",
+     "2": "Not seeing the question word",
+     "3": "Not seeing the time phrase"
+    },
+    "e": "How many classes do you have on Monday? → 'from' is not needed.",
+    "ip": "Make the question first.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Timetable",
+    "k": "ENG.5.2.V1",
+    "q": "Monday: French, French, Turkish, Maths. Tuesday: Music, Art, Art, I.T. Wednesday: P.E., P.E., Geography, Geography. Thursday: Science, Science, History, History.\nOlga likes learning LANGUAGES. Her favourite classes are on...",
+    "o": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Thinking Music/Art are languages",
+     "2": "Thinking Geography is a language",
+     "3": "Thinking History is a language"
+    },
+    "e": "French and Turkish are languages, and they are on Monday.",
+    "ip": "Find French and Turkish.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.G1",
+    "q": "Paul: I am German. Which question did Rosa ask before this answer?",
+    "o": [
+     "What nationality are you?",
+     "How old are you?",
+     "Where do you study?",
+     "What is your name?"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "German is not an age",
+     "2": "German is not a school",
+     "3": "German is not a name"
+    },
+    "e": "German is a nationality → What nationality are you?",
+    "ip": "German = Alman.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Countries",
+    "k": "ENG.5.1.V1",
+    "q": "Amy has the flag of the USA. Which sentence is NOT correct?",
+    "o": [
+     "Amy is from China.",
+     "Amy is from the USA.",
+     "Amy is American.",
+     "Amy's country is the USA."
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Mixing up NOT correct and correct",
+     "2": "Not knowing nationality of the USA",
+     "3": "Mixing up NOT correct and correct"
+    },
+    "e": "Amy has the USA flag, so 'Amy is from China' is wrong.",
+    "ip": "Find the wrong one.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Likes and dislikes",
+    "k": "ENG.5.2.V1",
+    "q": "Goja: experiments? No. Sports? No. Solving problems? No. Drawing pictures? Yes!\nWhat is Goja's favourite class?",
+    "o": [
+     "Art",
+     "Science",
+     "P.E.",
+     "Maths"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Experiments = Science, but she said No",
+     "2": "Sports = P.E., but she said No",
+     "3": "Solving problems = Maths, but she said No"
+    },
+    "e": "Drawing pictures → Art.",
+    "ip": "Which activity got 'Yes'?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Verb 'to be'",
+    "k": "ENG.5.1.G1",
+    "q": "They ___ from Italy.",
+    "o": [
+     "are",
+     "is",
+     "am",
+     "be"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Using 'is' with they",
+     "2": "Using 'am' with they",
+     "3": "Not changing 'be'"
+    },
+    "e": "I am, he/she/it is, we/you/they are.",
+    "ip": "They → ?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "acik": "are",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "School rules",
+    "k": "ENG.5.1.V1",
+    "q": "Which one is a correct school rule?",
+    "o": [
+     "Raise your hand to speak.",
+     "Fight at school.",
+     "Eat in the classroom.",
+     "Make noise in the library."
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Missing that rules tell good behaviour",
+     "2": "Missing the rule 'Don't eat in the classroom'",
+     "3": "Missing the rule 'You mustn't make noise'"
+    },
+    "e": "Rules: Raise your hand to speak. You mustn't fight. Don't eat in the classroom.",
+    "ip": "A good behaviour.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Asking questions",
+    "k": "ENG.5.1.G1",
+    "q": "A: - - - - ?\nB: I am 11 years old.",
+    "o": [
+     "How old are you?",
+     "Where are you from?",
+     "What is your name?",
+     "How many brothers do you have?"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "11 is not a place",
+     "2": "11 is not a name",
+     "3": "'years old' shows age"
+    },
+    "e": "'years old' → How old are you?",
+    "ip": "years old = yaş.",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Verb 'to be'",
+    "k": "ENG.5.1.G1",
+    "q": "She ___ a doctor.",
+    "o": [
+     "is",
+     "are",
+     "am",
+     "be"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Using 'are' with she",
+     "2": "Using 'am' with she",
+     "3": "Not changing 'be'"
+    },
+    "e": "He/She/It → is.",
+    "ip": "She → ?",
+    "zor": 1,
+    "tur": "benzer",
+    "acik": "is",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Countries",
+    "k": "ENG.5.1.V1",
+    "q": "Yuki is from Japan. She is ___.",
+    "o": [
+     "Japanese",
+     "Japan",
+     "Japanish",
+     "Chinese"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Using the country instead of the nationality",
+     "2": "Inventing a nationality word",
+     "3": "Mixing up countries"
+    },
+    "e": "Japan → Japanese, Türkiye → Turkish, Italy → Italian.",
+    "ip": "Country vs nationality.",
+    "zor": 2,
+    "tur": "benzer",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Physical features",
+    "k": "ENG.5.3.V1",
+    "q": "Which word describes HAIR?",
+    "o": [
+     "curly",
+     "tall",
+     "kind",
+     "fast"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "'tall' describes a person's height",
+     "2": "'kind' is personality",
+     "3": "'fast' is an ability"
+    },
+    "e": "Hair can be curly, straight, long, short, blonde...",
+    "ip": "Which word can you say about hair, not about a whole person?",
+    "zor": 1,
+    "tur": "hazirlik",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Abilities",
+    "k": "ENG.5.3.G1",
+    "q": "Can you swim? — Yes, I ___.",
+    "o": [
+     "can",
+     "do",
+     "am",
+     "swim"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Answering a 'can' question with 'do'",
+     "2": "Answering with 'be'",
+     "3": "Repeating the verb"
+    },
+    "e": "Short answers repeat the helper: Can you...? Yes, I can. / No, I can't.",
+    "ip": "Short answers use the helper verb of the question.",
+    "zor": 1,
+    "tur": "hazirlik",
+    "acik": "can",
+    "set": "2026-11-13-ing-unit-1"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Kerem pergelin kollarını 5 cm açıp bir çember çizdi. Bu çemberin çapı kaç cm'dir?",
+    "o": [
+     "10 cm",
+     "5 cm",
+     "2,5 cm",
+     "15 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Pergel açıklığını çap sanma",
+     "2": "Çapı yarıçapın yarısı sanma",
+     "3": "Yarıçapı üçle çarpma"
+    },
+    "e": "Pergel açıklığı yarıçaptır. Çap = 2 × yarıçap = 2 × 5 = 10 cm.",
+    "ip": "Pergel açıklığı yarıçap mı, çap mı?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "10",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Kerem aynı merkezle pergel açıklığını 5 cm'den 4 cm daha artırıp ikinci çemberi çizdi. İkinci çemberin çapı kaç cm'dir?",
+    "o": [
+     "18 cm",
+     "9 cm",
+     "14 cm",
+     "20 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Yarıçapı bulup çapa çevirmeyi unutma",
+     "2": "4 cm'yi çapa ekleme (10+4)",
+     "3": "Açıklığı 10'a çıkarmak sanma"
+    },
+    "e": "Yeni yarıçap 5 + 4 = 9 cm, çap = 2 × 9 = 18 cm.",
+    "ip": "Önce yeni yarıçapı bul.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "18",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Sonra pergel açıklığını 9 cm'den 3 cm azaltıp üçüncü çemberi çizdi. Üçüncü çemberin yarıçapı kaç cm'dir?",
+    "o": [
+     "6 cm",
+     "12 cm",
+     "2 cm",
+     "3 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Çapı yarıçap sanma",
+     "2": "5 cm'den 3 çıkarma (ilk açıklıktan)",
+     "3": "Azaltılan miktarı sonuç sanma"
+    },
+    "e": "Önceki açıklık 9 cm idi: 9 − 3 = 6 cm yarıçap (çap 12 cm).",
+    "ip": "Son açıklık 9 cm'ydi.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "6",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Hangisi DOĞRUDUR?",
+    "o": [
+     "Çemberde çapın yarısı yarıçapa eşittir",
+     "Pergelin açıklığı çemberin çapına eşittir",
+     "Bir çemberin birden fazla merkezi olabilir",
+     "Bir çemberde yalnızca bir çap çizilebilir"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Pergel açıklığını çap sanma",
+     "2": "Merkezin tek olduğunu bilmeme",
+     "3": "Çapın sonsuz sayıda çizilebildiğini bilmeme"
+    },
+    "e": "Bir çemberin tek merkezi, sonsuz sayıda çapı vardır; pergel açıklığı yarıçaptır.",
+    "ip": "Pergel açıklığı neye eşit?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Bir çember üzerindeki birbirine EN UZAK iki noktayı birleştiren doğru parçasına ne denir?",
+    "o": [
+     "Çap",
+     "Yarıçap",
+     "Merkez",
+     "Dikme"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Merkezden çembere olan uzaklıkla karıştırma",
+     "2": "Nokta ile doğru parçasını karıştırma",
+     "3": "Başka geometrik kavramla karıştırma"
+    },
+    "e": "Çap merkezden geçer ve çemberin en uzun doğru parçasıdır.",
+    "ip": "Merkezden geçen en uzun parça.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Yarıçapları 8 cm ve 6 cm olan iki çember dıştan bir noktada değiyor. K ve L, iki çemberin merkezlerinden geçen doğru üzerinde en dışta kalan noktalarıdır. |KL| kaç cm'dir?",
+    "o": [
+     "28 cm",
+     "14 cm",
+     "2 cm",
+     "48 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Yarıçapları toplayıp çapa çevirmeme",
+     "2": "Yarıçapları çıkarma",
+     "3": "Yarıçapları çarpma"
+    },
+    "e": "KL iki çapın toplamıdır: 16 + 12 = 28 cm.",
+    "ip": "Her çemberin çapını bul ve topla.",
+    "zor": 3,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "28",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.3",
+    "q": "Bir yol planındaki 60°'lik açı 15° azaltılırsa yeni açı kaç derece olur?",
+    "o": [
+     "45°",
+     "75°",
+     "50°",
+     "15°"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Azaltma yerine ekleme",
+     "2": "Yalnızca 10 çıkarma",
+     "3": "Değişim miktarını sonuç sanma"
+    },
+    "e": "60 − 15 = 45°.",
+    "ip": "Azaltmak = çıkarmak.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "acik": "45",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.3",
+    "q": "Ölçüsü 80° olan açı hangi açı çeşididir?",
+    "o": [
+     "Dar açı",
+     "Dik açı",
+     "Geniş açı",
+     "Doğru açı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Dar açıyı 90°'ye yakın diye dik sanma",
+     "2": "80'i büyük sayı diye geniş sanma",
+     "3": "180° ile karıştırma"
+    },
+    "e": "0° ile 90° arası dar açı, 90° dik açı, 90° ile 180° arası geniş açıdır.",
+    "ip": "90°'den küçük mü büyük mü?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.3",
+    "q": "Ölçüsü 138° olan açı hangi açı çeşididir?",
+    "o": [
+     "Geniş açı",
+     "Dar açı",
+     "Dik açı",
+     "Tam açı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "90°'den büyük açıyı dar sanma",
+     "2": "Yalnızca 90°'nin dik olduğunu bilmeme",
+     "3": "360° ile karıştırma"
+    },
+    "e": "90° ile 180° arası açılar geniş açıdır.",
+    "ip": "138, 90'dan büyük mü küçük mü?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Doğrular",
+    "k": "MAT.5.3.2",
+    "q": "Bir noktadan bir doğruya çizilebilecek EN KISA doğru parçası hangisidir?",
+    "o": [
+     "Dikme (doğruya dik çizilen parça)",
+     "Eğik çizilen herhangi bir parça",
+     "Doğruya paralel parça",
+     "Hepsi aynı uzunluktadır"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Eğik parçayı daha kısa sanma",
+     "2": "Paralel parçanın doğruyla buluşmadığını unutma",
+     "3": "Uzunluğun yöne bağlı olduğunu bilmeme"
+    },
+    "e": "Noktadan doğruya en kısa yol, doğruya dik inen parçadır (dikme); gönye ile çizilir.",
+    "ip": "Hangi açıyla inersen en kısa olur?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Doğrular",
+    "k": "MAT.5.3.4",
+    "q": "k ve l doğruları hiç kesişmiyor ve aralarındaki uzaklık her yerde aynı. Bu durum sembolle nasıl gösterilir?",
+    "o": [
+     "k // l",
+     "k ⊥ l",
+     "k = l",
+     "k > l"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Paralel ile dik sembolünü karıştırma",
+     "2": "Eşitlik sembolünü kullanma",
+     "3": "Karşılaştırma sembolünü kullanma"
+    },
+    "e": "Paralel doğrular // ile, dik doğrular ⊥ ile gösterilir.",
+    "ip": "Bu doğrular paralel mi, dik mi?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çember",
+    "k": "MAT.5.3.2",
+    "q": "Çapı 14 cm olan bir çemberi çizmek için pergel kaç cm açılmalıdır?",
+    "o": [
+     "7 cm",
+     "14 cm",
+     "28 cm",
+     "12 cm"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Pergeli çap kadar açma",
+     "2": "Çapı ikiyle çarpma",
+     "3": "Çaptan 2 çıkarma (yarıya bölmek yerine)"
+    },
+    "e": "Pergel yarıçap kadar açılır: 14 ÷ 2 = 7 cm.",
+    "ip": "Çapın yarısı.",
+    "zor": 2,
+    "tur": "benzer",
+    "acik": "7",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Açılar",
+    "k": "MAT.5.3.4",
+    "q": "İki doğru kesiştiğinde dört açının hepsi 90° ise bu doğrular için ne söylenir?",
+    "o": [
+     "Birbirine diktir",
+     "Birbirine paraleldir",
+     "Çakışıktır",
+     "Hiç kesişmez"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kesişen doğruyu paralel sanma",
+     "2": "Dik kesişmeyi çakışma sanma",
+     "3": "Kesişmeyi unutma"
+    },
+    "e": "Dik kesişen doğrular 90°'lik açılar oluşturur: k ⊥ l.",
+    "ip": "90° hangi açının ölçüsü?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.5",
+    "q": "Aşağıdaki şekillerden hangisi çokgen sayılmaz?",
+    "o": [
+     "Çember",
+     "Üçgen",
+     "Kare",
+     "Beşgen"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Üçgeni çokgen saymama",
+     "2": "Kareyi çokgen saymama",
+     "3": "Beşgeni çokgen saymama"
+    },
+    "e": "Çokgen, doğru parçalarının ardışık birleşmesiyle oluşan kapalı şekildir. Çember eğri çizgidir.",
+    "ip": "Çokgenin kenarları düz müdür?",
+    "zor": 1,
+    "tur": "hazirlik",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Çokgenler",
+    "k": "MAT.5.3.6",
+    "q": "Bir altıgenin kaç kenarı vardır?",
+    "o": [
+     "6",
+     "5",
+     "8",
+     "4"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Beşgenle karıştırma",
+     "2": "Sekizgenle karıştırma",
+     "3": "Dörtgenle karıştırma"
+    },
+    "e": "Çokgenin adı kenar sayısını söyler: altı-gen → 6 kenar, 6 köşe, 6 iç açı.",
+    "ip": "Adının başında sayı var.",
+    "zor": 1,
+    "tur": "hazirlik",
+    "acik": "6",
+    "set": "2026-11-13-mat-gpc-2"
+   },
+   {
+    "t": "Gruplar ve roller",
+    "k": "SB.5.1.1",
+    "q": "Melis okulda Matematik Proje Grubu'nda görevleri dağıttı, sunumda konuşmacı oldu, eve servisle döndü ve sevincini annesi ve kardeşiyle paylaştı. Hangisi Melis'in dâhil olduğu gruplardan biri DEĞİLDİR?",
+    "o": [
+     "Futbol takımı",
+     "Servis grubu",
+     "Aile",
+     "Matematik proje grubu"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Her gün birlikte olunan servisi grup saymama",
+     "2": "Aileyi grup saymama",
+     "3": "Metindeki grubu gözden kaçırma"
+    },
+    "e": "Melis'in grupları: sınıfı, matematik proje grubu, servis grubu ve ailesi. Metinde futbol takımı yok.",
+    "ip": "Metinde geçen grupları tek tek say.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Gruplar ve roller",
+    "k": "SB.5.1.1",
+    "q": "Melis proje grubunda görevlerin kim tarafından yapılacağını belirledi. Bu grupta Melis'in rolü nedir?",
+    "o": [
+     "Grup lideri",
+     "Yolcu",
+     "Evlat",
+     "Dinleyici"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Servis grubundaki rolle karıştırma",
+     "2": "Ailedeki rolle karıştırma",
+     "3": "Görev dağıtanı izleyici sanma"
+    },
+    "e": "Görevleri dağıtan ve planı hazırlayan kişi grup lideridir.",
+    "ip": "Görevleri kim dağıtır?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Gruplar ve roller",
+    "k": "SB.5.1.1",
+    "q": "Eymen futbol takımında yer alıyor. Bu gruptaki rolüne uygun sorumluluk hangisidir?",
+    "o": [
+     "Antrenmanlara düzenli katılmak",
+     "Kardeşinin ödevine yardım etmek",
+     "Zil çalınca sırasına oturmak",
+     "Bilim şenliği için araştırma yapmak"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Aile rolünün sorumluluğunu takıma yazma",
+     "2": "Öğrenci rolünün sorumluluğunu takıma yazma",
+     "3": "Proje grubunun sorumluluğuyla karıştırma"
+    },
+    "e": "Her rolün kendi sorumluluğu vardır: futbol oyuncusu antrenmanlara düzenli katılır.",
+    "ip": "Futbolcunun takıma karşı görevi ne?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Kültürel farklılıklar",
+    "k": "SB.5.1.2",
+    "q": "Nouri ailesi, Afganistan'daki iç çatışmalardan kaçarak Türkiye'ye sığınmacı olarak geldi. Ailenin Türkiye'ye gelmesinin nedeni nedir?",
+    "o": [
+     "Afganistan'daki iç çatışmalar yüzünden",
+     "Tatil yapmak için",
+     "Okul değiştirmek için",
+     "Türk yemeklerini tatmak için"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Zorunlu göçü gezi sanma",
+     "2": "Göçün nedenini küçük bir sebep sanma",
+     "3": "Sonucu neden sanma"
+    },
+    "e": "Nouri ailesi Afganistan'daki iç çatışmalardan kaçtı. Savaştan kaçıp başka ülkeye sığınan kişiye sığınmacı denir.",
+    "ip": "'Kaçarak' kelimesi neyi anlatıyor?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Kültürel farklılıklar",
+    "k": "SB.5.1.2",
+    "q": "Farklı kültürlerden insanların bir arada, kardeşçe yaşaması topluma ne kazandırır?",
+    "o": [
+     "Birlik, beraberlik ve toplumsal barış güçlenir",
+     "İnsanlar birbirinden uzaklaşır",
+     "Herkes aynı gelenekleri yaşamak zorunda kalır",
+     "Komşuluk ilişkileri zayıflar"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Farklılığı ayrılık sebebi sanma",
+     "2": "Saygıyı tek tipleşme sanma",
+     "3": "Sonucu tersine çevirme"
+    },
+    "e": "Farklılıklara saygı, insanların birbirini tanımasını ve toplumun güçlenmesini sağlar.",
+    "ip": "Birbirinin mutluluğunu paylaşan insanlar birbirine yakınlaşır mı, uzaklaşır mı?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Kültürel farklılıklar",
+    "k": "SB.5.1.2",
+    "q": "Mahallede farklı yörelerden gelen ailelerin bayram gelenekleri farklıdır. Hangisi bu geleneklere SAYGILI bir davranıştır?",
+    "o": [
+     "Komşunun yöresel ikramını merakla tatmak",
+     "Yeni gelen aileden geleneğini değiştirmesini istemek",
+     "Farklı geleneklerle alay etmek",
+     "Farklı yöreden gelenlerle konuşmamak"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Saygıyı herkesin bana benzemesi sanma",
+     "2": "Farklılığı yadırgama",
+     "3": "Farklılığı uzak durma sebebi sanma"
+    },
+    "e": "Saygı; farklılıkları doğal karşılamak, merak etmek ve kimseden değişmesini istememektir.",
+    "ip": "Saygı, farklı olanı merak etmek mi, değiştirmek mi?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Yardımlaşma ve dayanışma",
+    "k": "SB.5.1.3",
+    "q": "Orman yangınında gönüllülerin bölgeye su ve yiyecek taşıması hangi değeri en iyi gösterir?",
+    "o": [
+     "Yardımlaşma ve dayanışma",
+     "Rekabet",
+     "Bencillik",
+     "Tutumluluk"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Birlikte çalışmayı yarışma sanma",
+     "2": "Değeri tersine çevirme",
+     "3": "İlgisiz bir değerle karıştırma"
+    },
+    "e": "Zor zamanda başkalarına destek olmak yardımlaşma ve dayanışmadır; fedakârlık ve empatiyi de gösterir.",
+    "ip": "Zor günde birbirine destek olmaya ne denir?",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "İhtiyaç hâlinde kurumlar",
+    "k": "SB.5.4.4",
+    "q": "Afetlere karşı önlem alan, afet olunca müdahale eden ve afetzedelere yardım eden kurum hangisidir?",
+    "o": [
+     "AFAD",
+     "TÜBİTAK",
+     "Belediye zabıtası",
+     "Millî Eğitim Bakanlığı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Bilim kurumuyla karıştırma",
+     "2": "Yerel düzen görevlisiyle karıştırma",
+     "3": "Okulla ilgili kurumla karıştırma"
+    },
+    "e": "AFAD = Afet ve Acil Durum Yönetimi Başkanlığı.",
+    "ip": "Deprem, sel gibi olaylardan sorumlu kurumu düşün.",
+    "zor": 1,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Yardımlaşma ve dayanışma",
+    "k": "SB.5.1.3",
+    "q": "Öğrenciler yaşlılara yardım için bir proje planladı ve görev paylaştı. Ancak bir süre sonra aralarında anlaşmazlık çıktı. Bunun nedenlerinden biri hangisi olabilir?",
+    "o": [
+     "Bazı öğrencilerin görevlerini zamanında yapmaması",
+     "Projenin yaşlılara yardım amaçlı olması",
+     "Görev paylaşımı yapılmış olması",
+     "Projenin planlanmış olması"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Amacı sorunun nedeni sanma",
+     "2": "İyi bir adımı sorun sanma",
+     "3": "Planlamayı sorun sanma"
+    },
+    "e": "Sorumluluğu yerine getirmemek ve arkadaşının fikrini dinlememek grup çalışmasını zorlaştırır.",
+    "ip": "Planı bozan davranış hangisi?",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Yardımlaşma ve dayanışma",
+    "k": "SB.5.1.3",
+    "q": "Grup projesindeki sorunları çözmek için öğrenciler ne yapmalıdır?",
+    "o": [
+     "Görevlerini zamanında yapıp birbirini dinleyerek ortak karar almalı",
+     "Herkes kendi bildiğini yapmalı",
+     "Projeyi hemen bırakmalı",
+     "En çok konuşanın fikri uygulanmalı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Bireysel davranışı çözüm sanma",
+     "2": "Sorundan kaçmayı çözüm sanma",
+     "3": "Ortak kararı tek kişinin kararı sanma"
+    },
+    "e": "Sorumluluk, saygı ve iş birliği grup çalışmasının temelidir.",
+    "ip": "Sorunun nedenini tersine çevir.",
+    "zor": 2,
+    "tur": "odev",
+    "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Gruplar ve roller",
+    "k": "SB.5.1.1",
+    "q": "Ali sabah okulda öğrenci, öğleden sonra basketbol takımında kaptan, akşam evde ağabeydir. Bu durum neyi gösterir?",
+    "o": [
+     "Bir kişinin farklı gruplarda farklı rolleri olabilir",
+     "Bir kişinin tek bir rolü olur",
+     "Rol ile grup aynı şeydir",
+     "Roller sadece okulda olur"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Rolü tek ve değişmez sanma",
+     "2": "Grup ve rol kavramlarını karıştırma",
+     "3": "Rolleri yalnızca okula bağlama"
+    },
+    "e": "İnsan dâhil olduğu her grupta farklı bir rol üstlenir; her rolün sorumluluğu da farklıdır.",
+    "ip": "Ali kaç farklı yerde, kaç farklı şey?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Kültürel farklılıklar",
+    "k": "SB.5.1.2",
+    "q": "Türkiye ile KKTC'nin ortak kültürel özelliklerinden biri hangisidir?",
+    "o": [
+     "Türkçe konuşulması",
+     "Aynı para birimini kullanmaları",
+     "Aynı nüfusa sahip olmaları",
+     "Kar yağışının çok olması"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kültürü ekonomiyle karıştırma",
+     "2": "Kültürü nüfusla karıştırma",
+     "3": "Kültürü iklimle karıştırma"
+    },
+    "e": "Türkiye ve KKTC'de Türkçe konuşulur; bayramlarda aile ziyaretine önem verilir.",
+    "ip": "Kültürü oluşturan şeyleri düşün: dil, bayram, yemek...",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Yardımlaşma ve dayanışma",
+    "k": "SB.5.1.3",
+    "q": "Hangisi okulda yapılabilecek bir dayanışma faaliyetidir?",
+    "o": [
+     "İhtiyacı olan arkadaşlar için kitap-kırtasiye toplamak",
+     "Teneffüste en önde olmak için yarışmak",
+     "Ödevleri tek başına yapmak",
+     "Kantinde sıra beklemek"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Rekabeti dayanışma sanma",
+     "2": "Bireysel işi dayanışma sanma",
+     "3": "Kurala uymayı dayanışma sanma"
+    },
+    "e": "Dayanışma, birlikte hareket edip ihtiyacı olana destek olmaktır.",
+    "ip": "Kime yardım ediliyor?",
+    "zor": 1,
+    "tur": "benzer",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Göreceli konum",
+    "k": "SB.5.2.1",
+    "q": "\"İstanbul, Marmara Denizi'nin kuzeyindedir.\" ifadesi neyi anlatır?",
+    "o": [
+     "Göreceli (bağıl) konum",
+     "Mutlak konum",
+     "İklim",
+     "Nüfus"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Çevreye göre tarifi koordinatla karıştırma",
+     "2": "Konumu hava durumuyla karıştırma",
+     "3": "Konumu insan sayısıyla karıştırma"
+    },
+    "e": "Bir yerin çevresindeki yerlere göre anlatılması göreceli konumdur.",
+    "ip": "Burada koordinat mı var, yoksa bir denize göre yer mi tarif ediliyor?",
+    "zor": 2,
+    "tur": "hazirlik",
+    "set": "2026-11-13-sos-mebi-1"
+   },
+   {
+    "t": "Komşu ülkeler",
+    "k": "SB.5.2.4",
+    "q": "Hangisi Türkiye'nin kara sınırı olan komşularından biri DEĞİLDİR?",
+    "o": [
+     "İtalya",
+     "Gürcistan",
+     "Yunanistan",
+     "İran"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kuzeydoğu komşusunu unutma",
+     "2": "Batı komşusunu unutma",
+     "3": "Doğu komşusunu unutma"
+    },
+    "e": "Kara komşularımız: Yunanistan, Bulgaristan, Gürcistan, Ermenistan, Nahçıvan (Azerbaycan), İran, Irak, Suriye.",
+    "ip": "Haritada Türkiye'ye karadan değen ülkeleri düşün.",
+    "zor": 2,
+    "tur": "hazirlik",
+    "set": "2026-11-13-sos-mebi-1"
    }
   ],
+  "ozel": true,
   "setler": [
    {
     "id": "2026-11-13-fen-mebi-1",
@@ -4723,7 +6738,597 @@
      "FB.5.2.2",
      "FB.5.2.3"
     ]
+   },
+   {
+    "id": "2026-11-13-ing-unit-1",
+    "baslik": "English homework: Theme 1 School Life",
+    "ders": "ing",
+    "kazanimlar": [
+     "ENG.5.1.V1",
+     "ENG.5.1.G1",
+     "ENG.5.1.R2",
+     "ENG.5.2.V1",
+     "ENG.5.3.V1",
+     "ENG.5.3.G1"
+    ]
+   },
+   {
+    "id": "2026-11-13-mat-gpc-2",
+    "baslik": "Matematik ödevi: Çember, doğrular ve açılar (GPÇ-2)",
+    "ders": "mat",
+    "kazanimlar": [
+     "MAT.5.3.2",
+     "MAT.5.3.3",
+     "MAT.5.3.4",
+     "MAT.5.3.5",
+     "MAT.5.3.6"
+    ]
+   },
+   {
+    "id": "2026-11-13-sos-mebi-1",
+    "baslik": "Sosyal ödevi: Birlikte Yaşamak (MEBİ çalışma kâğıdı)",
+    "ders": "sos",
+    "kazanimlar": [
+     "SB.5.1.1",
+     "SB.5.1.2",
+     "SB.5.1.3",
+     "SB.5.4.4",
+     "SB.5.2.1",
+     "SB.5.2.4"
+    ]
    }
   ]
+ },
+ {
+  "id": "deneyap",
+  "title": "DENEYAP Rotası 🧠",
+  "ders": "DENEYAP",
+  "icon": "🧠",
+  "from": "Hangar",
+  "to": "Atölye",
+  "vehicle": "rocket",
+  "qs": [
+   {
+    "t": "Sayı örüntüsü",
+    "k": "DNY.SAY",
+    "q": "2, 5, 11, 23, 47, ... örüntüsünde sıradaki sayı kaçtır?",
+    "o": [
+     "95",
+     "94",
+     "71",
+     "69"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kuralı 'ikiyle çarp' sanıp +1'i unutma",
+     "2": "Farkı sabit 24 sanma",
+     "3": "Farkları yanlış devam ettirme"
+    },
+    "e": "Kural: 2 ile çarp, 1 ekle. 47 × 2 + 1 = 95.",
+    "ip": "Her sayı bir öncekinin yaklaşık iki katı.",
+    "zor": 2,
+    "tur": "banka",
+    "acik": "95"
+   },
+   {
+    "t": "Sayı örüntüsü",
+    "k": "DNY.SAY",
+    "q": "1, 4, 9, 16, 25, ... örüntüsünde sıradaki sayı kaçtır?",
+    "o": [
+     "36",
+     "34",
+     "30",
+     "49"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Farkı 9 sanma",
+     "2": "Sabit 5 ekleme",
+     "3": "Bir sayı atlama"
+    },
+    "e": "Sayılar 1×1, 2×2, 3×3, 4×4, 5×5... Sıradaki 6×6 = 36.",
+    "ip": "Her sayı bir sayının kendisiyle çarpımı.",
+    "zor": 2,
+    "tur": "banka",
+    "acik": "36"
+   },
+   {
+    "t": "Ters işlem",
+    "k": "DNY.SAY",
+    "q": "Bir sayıya 7 ekleyip sonucu 3 ile çarpınca 45 buluyoruz. Sayı kaçtır?",
+    "o": [
+     "8",
+     "15",
+     "22",
+     "12"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Sadece 45 ÷ 3 yapıp 7'yi çıkarmayı unutma",
+     "2": "Ters işlemde ekleme yapma",
+     "3": "İşlem sırasını karıştırma"
+    },
+    "e": "Sondan başa: 45 ÷ 3 = 15, 15 − 7 = 8.",
+    "ip": "Sondan başa doğru ters işlem yap.",
+    "zor": 2,
+    "tur": "banka",
+    "acik": "8"
+   },
+   {
+    "t": "İşlem mantığı",
+    "k": "DNY.SAY",
+    "q": "□ + □ + △ = 17 ve □ + △ = 11 ise □ kaçtır?",
+    "o": [
+     "6",
+     "5",
+     "11",
+     "3"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "△'yı □ sanma",
+     "2": "İkinci eşitliğin sonucunu cevap sanma",
+     "3": "Rastgele bölme"
+    },
+    "e": "Birinci eşitlik, ikinciden bir □ fazla: 17 − 11 = 6.",
+    "ip": "İki eşitliği karşılaştır.",
+    "zor": 2,
+    "tur": "banka",
+    "acik": "6"
+   },
+   {
+    "t": "Sayı örüntüsü",
+    "k": "DNY.SAY",
+    "q": "3, 6, 5, 10, 9, 18, 17, ... örüntüsünde sıradaki sayı kaçtır?",
+    "o": [
+     "34",
+     "16",
+     "36",
+     "19"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Hep 1 çıkarma sanma",
+     "2": "18'i ikiyle çarpma",
+     "3": "Hep 2 ekleme sanma"
+    },
+    "e": "Kural sırayla: ×2, −1, ×2, −1... 17 × 2 = 34.",
+    "ip": "İki işlem sırayla tekrar ediyor.",
+    "zor": 3,
+    "tur": "banka",
+    "acik": "34"
+   },
+   {
+    "t": "Basamak mantığı",
+    "k": "DNY.SAY",
+    "q": "Rakamları birbirinden farklı en büyük üç basamaklı çift sayı kaçtır?",
+    "o": [
+     "986",
+     "998",
+     "987",
+     "988"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Rakamların farklı olma şartını unutma",
+     "2": "Çift olma şartını unutma",
+     "3": "Rakamların farklı olma şartını unutma"
+    },
+    "e": "Yüzler 9, onlar 8 olmalı; birler basamağı çift ve farklı en büyük rakam 6 → 986.",
+    "ip": "Birler basamağı çift olmalı.",
+    "zor": 3,
+    "tur": "banka",
+    "acik": "986"
+   },
+   {
+    "t": "Sıralama",
+    "k": "DNY.SOZ",
+    "q": "Ali, Bora'dan uzun; Can, Ali'den uzun; Deniz, Bora'dan kısa. En uzun kimdir?",
+    "o": [
+     "Can",
+     "Ali",
+     "Bora",
+     "Deniz"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Bir karşılaştırmayı atlama",
+     "2": "İlişkiyi ters okuma",
+     "3": "İlişkiyi ters okuma"
+    },
+    "e": "Sıra (uzundan kısaya): Can > Ali > Bora > Deniz.",
+    "ip": "Hepsini bir çizgiye diz.",
+    "zor": 1,
+    "tur": "banka"
+   },
+   {
+    "t": "Sıralama",
+    "k": "DNY.SOZ",
+    "q": "Beş kişilik kuyrukta Elif baştan 2., Mert sondan 2. sıradadır. Aralarında kaç kişi vardır?",
+    "o": [
+     "1",
+     "2",
+     "0",
+     "3"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Elif ve Mert'i de sayma",
+     "2": "Yan yana olduklarını sanma",
+     "3": "Kuyruk uzunluğunu yanlış kullanma"
+    },
+    "e": "Sondan 2. = baştan 4. Baştan 2. ile 4. arasında yalnızca 3. kişi var.",
+    "ip": "Sondan 2. baştan kaçıncı?",
+    "zor": 2,
+    "tur": "banka",
+    "acik": "1"
+   },
+   {
+    "t": "Koşullu çıkarım",
+    "k": "DNY.SOZ",
+    "q": "\"Yağmur yağarsa maç ertelenir.\" Maç ertelenmediyse kesin olarak ne söylenebilir?",
+    "o": [
+     "Yağmur yağmamıştır",
+     "Yağmur yağmıştır",
+     "Maç iptal olmuştur",
+     "Hiçbir şey söylenemez"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Koşulu ters okuma",
+     "2": "Metinde olmayan bilgi ekleme",
+     "3": "Ters yönlü çıkarımı bilmeme"
+    },
+    "e": "Yağmur yağsaydı maç ertelenirdi. Ertelenmediğine göre yağmur yağmamıştır.",
+    "ip": "Yağmur yağsaydı ne olurdu?",
+    "zor": 3,
+    "tur": "banka"
+   },
+   {
+    "t": "Eşleştirme",
+    "k": "DNY.SOZ",
+    "q": "Ayşe, Banu ve Cem'in evcil hayvanları kedi, köpek ve kuştur (her birinin farklı). Ayşe'ninki köpek değil, Banu'nunki kuş. Cem'in hayvanı nedir?",
+    "o": [
+     "Köpek",
+     "Kedi",
+     "Kuş",
+     "Belirlenemez"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Ayşe'nin bilgisini Cem'e verme",
+     "2": "Banu'nun hayvanını tekrar verme",
+     "3": "Eleme yöntemini kullanmama"
+    },
+    "e": "Banu: kuş. Ayşe köpek değil → kedi. Geriye kalan köpek Cem'in.",
+    "ip": "Önce kesin olanı yerleştir.",
+    "zor": 2,
+    "tur": "banka"
+   },
+   {
+    "t": "Takvim mantığı",
+    "k": "DNY.SOZ",
+    "q": "Bugün çarşamba ise 10 gün sonra hangi gündür?",
+    "o": [
+     "Cumartesi",
+     "Cuma",
+     "Pazar",
+     "Perşembe"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Günü saymaya bugünden başlama",
+     "2": "Bir gün fazla sayma",
+     "3": "7'yi çıkarıp 3 gün eklemeyi unutma"
+    },
+    "e": "10 = 7 + 3. 7 gün sonra yine çarşamba, 3 gün sonra cumartesi.",
+    "ip": "7 gün sonra hangi gün olur?",
+    "zor": 2,
+    "tur": "banka"
+   },
+   {
+    "t": "Küp",
+    "k": "DNY.SEK",
+    "q": "Bir küpün kaç yüzü, kaç köşesi vardır?",
+    "o": [
+     "6 yüz, 8 köşe",
+     "8 yüz, 6 köşe",
+     "6 yüz, 12 köşe",
+     "4 yüz, 8 köşe"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Yüz ve köşeyi karıştırma",
+     "2": "Ayrıt sayısını köşe sanma",
+     "3": "Yanal yüzleri sayıp alt-üstü unutma"
+    },
+    "e": "Küp: 6 yüz, 8 köşe, 12 ayrıt.",
+    "ip": "Bir zarı düşün.",
+    "zor": 1,
+    "tur": "banka"
+   },
+   {
+    "t": "Küp",
+    "k": "DNY.SEK",
+    "q": "Bir zarın karşılıklı yüzlerindeki sayıların toplamı 7'dir. Üst yüzde 2 varsa alt yüzde kaç vardır?",
+    "o": [
+     "5",
+     "2",
+     "4",
+     "6"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Karşı yüzü aynı sanma",
+     "2": "Yan yüzle karıştırma",
+     "3": "Toplamı 8 sanma"
+    },
+    "e": "7 − 2 = 5.",
+    "ip": "Toplam 7.",
+    "zor": 1,
+    "tur": "banka",
+    "acik": "5"
+   },
+   {
+    "t": "Katlama",
+    "k": "DNY.SEK",
+    "q": "Bir kâğıdı ikiye katlayıp ortasından bir delik açıyoruz. Kâğıdı açınca kaç delik görürüz?",
+    "o": [
+     "2",
+     "1",
+     "4",
+     "3"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Katlı kâğıdın iki kat olduğunu unutma",
+     "2": "İki kez katlanmış sanma",
+     "3": "Rastgele sayma"
+    },
+    "e": "İki kat kâğıt delindiği için açınca 2 delik olur, katlama çizgisine göre simetrik.",
+    "ip": "Kaç kat kâğıt delindi?",
+    "zor": 2,
+    "tur": "banka",
+    "acik": "2"
+   },
+   {
+    "t": "Katlama",
+    "k": "DNY.SEK",
+    "q": "Bir kâğıt ikiye, sonra yine ikiye katlanıp tek bir delik açılıyor. Açınca kaç delik olur?",
+    "o": [
+     "4",
+     "2",
+     "3",
+     "8"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "İkinci katlamayı unutma",
+     "2": "Katlama sayısını ekleme",
+     "3": "Üç kez katlanmış sanma"
+    },
+    "e": "Her katlama kat sayısını ikiye katlar: 2 × 2 = 4 kat → 4 delik.",
+    "ip": "Her katlamada kat sayısı ne olur?",
+    "zor": 3,
+    "tur": "banka",
+    "acik": "4"
+   },
+   {
+    "t": "Şekil örüntüsü",
+    "k": "DNY.SEK",
+    "q": "Örüntü: ▲ ■ ● ▲ ■ ● ▲ ... 20. şekil hangisidir?",
+    "o": [
+     "■",
+     "▲",
+     "●",
+     "Belirlenemez"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Sırayı bir kaydırma",
+     "2": "20'yi 3'e tam bölünür sanma",
+     "3": "Tekrarlı örüntü mantığını kullanmama"
+    },
+    "e": "Örüntü 3'lü tekrar ediyor. 20 ÷ 3 = 6 kalan 2 → 2. şekil: ■.",
+    "ip": "Kaç şekilde bir tekrar ediyor?",
+    "zor": 3,
+    "tur": "banka"
+   },
+   {
+    "t": "Döndürme",
+    "k": "DNY.SEK",
+    "q": "Saatin yelkovanı 12'yi gösteriyor. Saat yönünde çeyrek tur dönerse hangi sayıyı gösterir?",
+    "o": [
+     "3",
+     "9",
+     "6",
+     "4"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Saatin tersi yönde döndürme",
+     "2": "Yarım tur döndürme",
+     "3": "Çeyrek turu yanlış hesaplama"
+    },
+    "e": "Tam tur 12 sayı, çeyrek tur 3 sayı: 12 → 3.",
+    "ip": "Çeyrek = dörtte bir.",
+    "zor": 1,
+    "tur": "banka",
+    "acik": "3"
+   },
+   {
+    "t": "Çok adımlı problem",
+    "k": "DNY.PRB",
+    "q": "Bir kutuda 4 sıra, her sırada 6 yumurta var. 5 yumurta kırılırsa kaç sağlam yumurta kalır?",
+    "o": [
+     "19",
+     "24",
+     "29",
+     "15"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Kırılanları çıkarmamak",
+     "2": "Kırılanları ekleme",
+     "3": "Sadece 4 + 6 + 5'le uğraşma"
+    },
+    "e": "4 × 6 = 24, 24 − 5 = 19.",
+    "ip": "Önce toplam yumurtayı bul.",
+    "zor": 1,
+    "tur": "banka",
+    "acik": "19"
+   },
+   {
+    "t": "Yaş problemi",
+    "k": "DNY.PRB",
+    "q": "Ege 10, annesi 38 yaşında. Kaç yıl sonra annesinin yaşı Ege'nin yaşının 3 katı olur?",
+    "o": [
+     "4",
+     "2",
+     "6",
+     "8"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Deneme yanılmada hesap hatası",
+     "2": "Yaş farkının değişmediğini unutma",
+     "3": "Sadece Ege'nin yaşını büyütme"
+    },
+    "e": "Yaş farkı hep 28. 3 kat olunca fark Ege'nin yaşının 2 katı: 28 ÷ 2 = 14 → 14 − 10 = 4 yıl.",
+    "ip": "Yaş farkı hiç değişmez.",
+    "zor": 3,
+    "tur": "banka",
+    "acik": "4"
+   },
+   {
+    "t": "Çok adımlı problem",
+    "k": "DNY.PRB",
+    "q": "Bir merdivenin her basamağı 15 cm. 12 basamak çıkan biri kaç metre yükselmiş olur?",
+    "o": [
+     "1,8 m",
+     "180 m",
+     "18 m",
+     "27 m"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "cm'yi m'ye çevirmeme",
+     "2": "Çevirmede hata",
+     "3": "Toplama yapma"
+    },
+    "e": "12 × 15 = 180 cm = 1,8 m.",
+    "ip": "1 m = 100 cm.",
+    "zor": 2,
+    "tur": "banka"
+   },
+   {
+    "t": "Mantık problemi",
+    "k": "DNY.PRB",
+    "q": "Bir salyangoz 10 m'lik kuyuda gündüz 3 m tırmanıp gece 2 m kayıyor. Kaçıncı gün kuyudan çıkar?",
+    "o": [
+     "8. gün",
+     "10. gün",
+     "5. gün",
+     "7. gün"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Son gün kaymadan çıkabileceğini unutma",
+     "2": "Sadece gündüz tırmanışını sayma",
+     "3": "Gün sayımında hata"
+    },
+    "e": "7 günün sonunda 7 m'de. 8. gün 3 m tırmanınca 10 m'ye ulaşır ve çıkar.",
+    "ip": "Son gün kaymaz!",
+    "zor": 3,
+    "tur": "banka"
+   },
+   {
+    "t": "Değişken",
+    "k": "DNY.BIL",
+    "q": "Bitkinin büyümesine ışığın etkisini incelemek isteyen Zeynep hangi değişkeni DEĞİŞTİRMELİDİR?",
+    "o": [
+     "Bitkinin aldığı ışık miktarını",
+     "Verdiği su miktarını",
+     "Saksı toprağının türünü",
+     "Bitkinin türünü"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Birden fazla değişkeni değiştirme",
+     "2": "Sabit tutulması gerekeni değiştirme",
+     "3": "Kontrol değişkenini değiştirme"
+    },
+    "e": "Bir deneyde yalnızca incelenen değişken (ışık) değiştirilir; diğerleri sabit tutulur.",
+    "ip": "Neyin etkisini inceliyor?",
+    "zor": 2,
+    "tur": "banka"
+   },
+   {
+    "t": "Basit makine",
+    "k": "DNY.BIL",
+    "q": "Ağır bir kutuyu kamyona daha AZ kuvvetle çıkarmak için hangisi kullanılır?",
+    "o": [
+     "Eğik düzlem (rampa)",
+     "Daha kısa ve dik bir merdiven",
+     "Daha ağır bir kutu",
+     "Daha hızlı kaldırmak"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Dikliğin kuvveti azalttığını sanma",
+     "2": "Yükü artırmayı çözüm sanma",
+     "3": "Hızın kuvveti azalttığını sanma"
+    },
+    "e": "Eğik düzlem yolu uzatır ama gereken kuvveti azaltır.",
+    "ip": "Rampayı düşün.",
+    "zor": 2,
+    "tur": "banka"
+   },
+   {
+    "t": "Deney düzeneği",
+    "k": "DNY.BIL",
+    "q": "Aynı büyüklükteki tahta, demir ve plastik kaşıkları sıcak suya koyup hangisinin sapının önce ısındığına bakan öğrenci neyi test ediyordur?",
+    "o": [
+     "Maddelerin ısı iletimini",
+     "Maddelerin rengini",
+     "Suyun kaynama sıcaklığını",
+     "Kaşıkların ağırlığını"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "İlgisiz özellik",
+     "2": "Değişkeni yanlış belirleme",
+     "3": "İlgisiz özellik"
+    },
+    "e": "Hangi maddenin ısıyı daha iyi ilettiğini karşılaştırıyor; metaller iyi iletir.",
+    "ip": "Sap neden ısınır?",
+    "zor": 2,
+    "tur": "banka"
+   },
+   {
+    "t": "Teknoloji muhakemesi",
+    "k": "DNY.BIL",
+    "q": "Bir robot her komutta 1 kare ilerliyor. \"2 ileri, sağa dön, 3 ileri\" komutundan sonra başladığı kareye en kısa yoldan dönmesi için kaç kare gitmesi gerekir?",
+    "o": [
+     "5",
+     "3",
+     "4",
+     "6"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Sadece son hareketi geri alma",
+     "2": "Çapraz gidebildiğini sanma",
+     "3": "Dönüşü kare sanma"
+    },
+    "e": "Robot 2 ileri ve 3 sağa gitti; çapraz gidemediği için en kısa yol 2 + 3 = 5 kare.",
+    "ip": "Çapraz gidemez.",
+    "zor": 3,
+    "tur": "banka",
+    "acik": "5"
+   }
+  ],
+  "ozel": true,
+  "gen": true
  }
 ]

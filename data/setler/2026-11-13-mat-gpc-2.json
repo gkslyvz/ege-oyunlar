@@ -1,0 +1,347 @@
+{
+ "id": "2026-11-13-mat-gpc-2",
+ "ders": "mat",
+ "baslik": "Matematik ödevi: Çember, doğrular ve açılar (GPÇ-2)",
+ "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+ "kazanimlar": [
+  "MAT.5.3.2",
+  "MAT.5.3.3",
+  "MAT.5.3.4",
+  "MAT.5.3.5",
+  "MAT.5.3.6"
+ ],
+ "sorular": [
+  {
+   "t": "Çember",
+   "k": "MAT.5.3.2",
+   "q": "Kerem pergelin kollarını 5 cm açıp bir çember çizdi. Bu çemberin çapı kaç cm'dir?",
+   "o": [
+    "10 cm",
+    "5 cm",
+    "2,5 cm",
+    "15 cm"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Pergel açıklığını çap sanma",
+    "2": "Çapı yarıçapın yarısı sanma",
+    "3": "Yarıçapı üçle çarpma"
+   },
+   "e": "Pergel açıklığı yarıçaptır. Çap = 2 × yarıçap = 2 × 5 = 10 cm.",
+   "ip": "Pergel açıklığı yarıçap mı, çap mı?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+   "acik": "10"
+  },
+  {
+   "t": "Çember",
+   "k": "MAT.5.3.2",
+   "q": "Kerem aynı merkezle pergel açıklığını 5 cm'den 4 cm daha artırıp ikinci çemberi çizdi. İkinci çemberin çapı kaç cm'dir?",
+   "o": [
+    "18 cm",
+    "9 cm",
+    "14 cm",
+    "20 cm"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Yarıçapı bulup çapa çevirmeyi unutma",
+    "2": "4 cm'yi çapa ekleme (10+4)",
+    "3": "Açıklığı 10'a çıkarmak sanma"
+   },
+   "e": "Yeni yarıçap 5 + 4 = 9 cm, çap = 2 × 9 = 18 cm.",
+   "ip": "Önce yeni yarıçapı bul.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+   "acik": "18"
+  },
+  {
+   "t": "Çember",
+   "k": "MAT.5.3.2",
+   "q": "Sonra pergel açıklığını 9 cm'den 3 cm azaltıp üçüncü çemberi çizdi. Üçüncü çemberin yarıçapı kaç cm'dir?",
+   "o": [
+    "6 cm",
+    "12 cm",
+    "2 cm",
+    "3 cm"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Çapı yarıçap sanma",
+    "2": "5 cm'den 3 çıkarma (ilk açıklıktan)",
+    "3": "Azaltılan miktarı sonuç sanma"
+   },
+   "e": "Önceki açıklık 9 cm idi: 9 − 3 = 6 cm yarıçap (çap 12 cm).",
+   "ip": "Son açıklık 9 cm'ydi.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+   "acik": "6"
+  },
+  {
+   "t": "Çember",
+   "k": "MAT.5.3.2",
+   "q": "Hangisi DOĞRUDUR?",
+   "o": [
+    "Çemberde çapın yarısı yarıçapa eşittir",
+    "Pergelin açıklığı çemberin çapına eşittir",
+    "Bir çemberin birden fazla merkezi olabilir",
+    "Bir çemberde yalnızca bir çap çizilebilir"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Pergel açıklığını çap sanma",
+    "2": "Merkezin tek olduğunu bilmeme",
+    "3": "Çapın sonsuz sayıda çizilebildiğini bilmeme"
+   },
+   "e": "Bir çemberin tek merkezi, sonsuz sayıda çapı vardır; pergel açıklığı yarıçaptır.",
+   "ip": "Pergel açıklığı neye eşit?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)"
+  },
+  {
+   "t": "Çember",
+   "k": "MAT.5.3.2",
+   "q": "Bir çember üzerindeki birbirine EN UZAK iki noktayı birleştiren doğru parçasına ne denir?",
+   "o": [
+    "Çap",
+    "Yarıçap",
+    "Merkez",
+    "Dikme"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Merkezden çembere olan uzaklıkla karıştırma",
+    "2": "Nokta ile doğru parçasını karıştırma",
+    "3": "Başka geometrik kavramla karıştırma"
+   },
+   "e": "Çap merkezden geçer ve çemberin en uzun doğru parçasıdır.",
+   "ip": "Merkezden geçen en uzun parça.",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)"
+  },
+  {
+   "t": "Çember",
+   "k": "MAT.5.3.2",
+   "q": "Yarıçapları 8 cm ve 6 cm olan iki çember dıştan bir noktada değiyor. K ve L, iki çemberin merkezlerinden geçen doğru üzerinde en dışta kalan noktalarıdır. |KL| kaç cm'dir?",
+   "o": [
+    "28 cm",
+    "14 cm",
+    "2 cm",
+    "48 cm"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Yarıçapları toplayıp çapa çevirmeme",
+    "2": "Yarıçapları çıkarma",
+    "3": "Yarıçapları çarpma"
+   },
+   "e": "KL iki çapın toplamıdır: 16 + 12 = 28 cm.",
+   "ip": "Her çemberin çapını bul ve topla.",
+   "zor": 3,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+   "acik": "28"
+  },
+  {
+   "t": "Açılar",
+   "k": "MAT.5.3.3",
+   "q": "Bir yol planındaki 60°'lik açı 15° azaltılırsa yeni açı kaç derece olur?",
+   "o": [
+    "45°",
+    "75°",
+    "50°",
+    "15°"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Azaltma yerine ekleme",
+    "2": "Yalnızca 10 çıkarma",
+    "3": "Değişim miktarını sonuç sanma"
+   },
+   "e": "60 − 15 = 45°.",
+   "ip": "Azaltmak = çıkarmak.",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)",
+   "acik": "45"
+  },
+  {
+   "t": "Açılar",
+   "k": "MAT.5.3.3",
+   "q": "Ölçüsü 80° olan açı hangi açı çeşididir?",
+   "o": [
+    "Dar açı",
+    "Dik açı",
+    "Geniş açı",
+    "Doğru açı"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Dar açıyı 90°'ye yakın diye dik sanma",
+    "2": "80'i büyük sayı diye geniş sanma",
+    "3": "180° ile karıştırma"
+   },
+   "e": "0° ile 90° arası dar açı, 90° dik açı, 90° ile 180° arası geniş açıdır.",
+   "ip": "90°'den küçük mü büyük mü?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)"
+  },
+  {
+   "t": "Açılar",
+   "k": "MAT.5.3.3",
+   "q": "Ölçüsü 138° olan açı hangi açı çeşididir?",
+   "o": [
+    "Geniş açı",
+    "Dar açı",
+    "Dik açı",
+    "Tam açı"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "90°'den büyük açıyı dar sanma",
+    "2": "Yalnızca 90°'nin dik olduğunu bilmeme",
+    "3": "360° ile karıştırma"
+   },
+   "e": "90° ile 180° arası açılar geniş açıdır.",
+   "ip": "138, 90'dan büyük mü küçük mü?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)"
+  },
+  {
+   "t": "Doğrular",
+   "k": "MAT.5.3.2",
+   "q": "Bir noktadan bir doğruya çizilebilecek EN KISA doğru parçası hangisidir?",
+   "o": [
+    "Dikme (doğruya dik çizilen parça)",
+    "Eğik çizilen herhangi bir parça",
+    "Doğruya paralel parça",
+    "Hepsi aynı uzunluktadır"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Eğik parçayı daha kısa sanma",
+    "2": "Paralel parçanın doğruyla buluşmadığını unutma",
+    "3": "Uzunluğun yöne bağlı olduğunu bilmeme"
+   },
+   "e": "Noktadan doğruya en kısa yol, doğruya dik inen parçadır (dikme); gönye ile çizilir.",
+   "ip": "Hangi açıyla inersen en kısa olur?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Matematik GPÇ-2 geliştirme-pekiştirme çalışması (öğretmen PDF'i)"
+  },
+  {
+   "t": "Doğrular",
+   "k": "MAT.5.3.4",
+   "q": "k ve l doğruları hiç kesişmiyor ve aralarındaki uzaklık her yerde aynı. Bu durum sembolle nasıl gösterilir?",
+   "o": [
+    "k // l",
+    "k ⊥ l",
+    "k = l",
+    "k > l"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Paralel ile dik sembolünü karıştırma",
+    "2": "Eşitlik sembolünü kullanma",
+    "3": "Karşılaştırma sembolünü kullanma"
+   },
+   "e": "Paralel doğrular // ile, dik doğrular ⊥ ile gösterilir.",
+   "ip": "Bu doğrular paralel mi, dik mi?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Çember",
+   "k": "MAT.5.3.2",
+   "q": "Çapı 14 cm olan bir çemberi çizmek için pergel kaç cm açılmalıdır?",
+   "o": [
+    "7 cm",
+    "14 cm",
+    "28 cm",
+    "12 cm"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Pergeli çap kadar açma",
+    "2": "Çapı ikiyle çarpma",
+    "3": "Çaptan 2 çıkarma (yarıya bölmek yerine)"
+   },
+   "e": "Pergel yarıçap kadar açılır: 14 ÷ 2 = 7 cm.",
+   "ip": "Çapın yarısı.",
+   "zor": 2,
+   "tur": "benzer",
+   "acik": "7"
+  },
+  {
+   "t": "Açılar",
+   "k": "MAT.5.3.4",
+   "q": "İki doğru kesiştiğinde dört açının hepsi 90° ise bu doğrular için ne söylenir?",
+   "o": [
+    "Birbirine diktir",
+    "Birbirine paraleldir",
+    "Çakışıktır",
+    "Hiç kesişmez"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Kesişen doğruyu paralel sanma",
+    "2": "Dik kesişmeyi çakışma sanma",
+    "3": "Kesişmeyi unutma"
+   },
+   "e": "Dik kesişen doğrular 90°'lik açılar oluşturur: k ⊥ l.",
+   "ip": "90° hangi açının ölçüsü?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Çokgenler",
+   "k": "MAT.5.3.5",
+   "q": "Aşağıdaki şekillerden hangisi çokgen sayılmaz?",
+   "o": [
+    "Çember",
+    "Üçgen",
+    "Kare",
+    "Beşgen"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Üçgeni çokgen saymama",
+    "2": "Kareyi çokgen saymama",
+    "3": "Beşgeni çokgen saymama"
+   },
+   "e": "Çokgen, doğru parçalarının ardışık birleşmesiyle oluşan kapalı şekildir. Çember eğri çizgidir.",
+   "ip": "Çokgenin kenarları düz müdür?",
+   "zor": 1,
+   "tur": "hazirlik"
+  },
+  {
+   "t": "Çokgenler",
+   "k": "MAT.5.3.6",
+   "q": "Bir altıgenin kaç kenarı vardır?",
+   "o": [
+    "6",
+    "5",
+    "8",
+    "4"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Beşgenle karıştırma",
+    "2": "Sekizgenle karıştırma",
+    "3": "Dörtgenle karıştırma"
+   },
+   "e": "Çokgenin adı kenar sayısını söyler: altı-gen → 6 kenar, 6 köşe, 6 iç açı.",
+   "ip": "Adının başında sayı var.",
+   "zor": 1,
+   "tur": "hazirlik",
+   "acik": "6"
+  }
+ ]
+}

@@ -1,0 +1,322 @@
+{
+ "id": "2026-11-13-ing-unit-1",
+ "ders": "ing",
+ "baslik": "English homework: Theme 1 School Life",
+ "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+ "kazanimlar": [
+  "ENG.5.1.V1",
+  "ENG.5.1.G1",
+  "ENG.5.1.R2",
+  "ENG.5.2.V1",
+  "ENG.5.3.V1",
+  "ENG.5.3.G1"
+ ],
+ "sorular": [
+  {
+   "t": "Asking questions",
+   "k": "ENG.5.1.G1",
+   "q": "A: - - - - ?\nB: Two. English and French.\nWhich question completes the blank?",
+   "o": [
+    "How many languages do you speak?",
+    "When is your English class?",
+    "How old are you?",
+    "Do you speak French?"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Answering a 'when' question with a number of languages",
+    "2": "Thinking 'Two' is an age",
+    "3": "A yes/no question needs 'Yes/No', not 'Two'"
+   },
+   "e": "\"Two. English and French.\" tells how many languages → How many languages do you speak?",
+   "ip": "The answer is a number of languages.",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)"
+  },
+  {
+   "t": "Asking questions",
+   "k": "ENG.5.1.R2",
+   "q": "ID CARD — Name: Linda, Country: England, Age: 16, School: Victory High School.\nWhich question has NO answer on the card?",
+   "o": [
+    "How many languages does she speak?",
+    "How old is she?",
+    "Where does she study?",
+    "What is her name?"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Missing 'Age: 16'",
+    "2": "Missing 'School'",
+    "3": "Missing 'Name'"
+   },
+   "e": "The card shows name, country, age and school — not languages.",
+   "ip": "Look for information that is not on the card.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)"
+  },
+  {
+   "t": "Asking questions",
+   "k": "ENG.5.1.G1",
+   "q": "Andy makes a question with: do you / how many / on Monday / have / classes / from.\nWhich word is ODD (not needed)?",
+   "o": [
+    "from",
+    "do you",
+    "how many",
+    "on Monday"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Not seeing the helper verb",
+    "2": "Not seeing the question word",
+    "3": "Not seeing the time phrase"
+   },
+   "e": "How many classes do you have on Monday? → 'from' is not needed.",
+   "ip": "Make the question first.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)"
+  },
+  {
+   "t": "Timetable",
+   "k": "ENG.5.2.V1",
+   "q": "Monday: French, French, Turkish, Maths. Tuesday: Music, Art, Art, I.T. Wednesday: P.E., P.E., Geography, Geography. Thursday: Science, Science, History, History.\nOlga likes learning LANGUAGES. Her favourite classes are on...",
+   "o": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Thinking Music/Art are languages",
+    "2": "Thinking Geography is a language",
+    "3": "Thinking History is a language"
+   },
+   "e": "French and Turkish are languages, and they are on Monday.",
+   "ip": "Find French and Turkish.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)"
+  },
+  {
+   "t": "Asking questions",
+   "k": "ENG.5.1.G1",
+   "q": "Paul: I am German. Which question did Rosa ask before this answer?",
+   "o": [
+    "What nationality are you?",
+    "How old are you?",
+    "Where do you study?",
+    "What is your name?"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "German is not an age",
+    "2": "German is not a school",
+    "3": "German is not a name"
+   },
+   "e": "German is a nationality → What nationality are you?",
+   "ip": "German = Alman.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)"
+  },
+  {
+   "t": "Countries",
+   "k": "ENG.5.1.V1",
+   "q": "Amy has the flag of the USA. Which sentence is NOT correct?",
+   "o": [
+    "Amy is from China.",
+    "Amy is from the USA.",
+    "Amy is American.",
+    "Amy's country is the USA."
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Mixing up NOT correct and correct",
+    "2": "Not knowing nationality of the USA",
+    "3": "Mixing up NOT correct and correct"
+   },
+   "e": "Amy has the USA flag, so 'Amy is from China' is wrong.",
+   "ip": "Find the wrong one.",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)"
+  },
+  {
+   "t": "Likes and dislikes",
+   "k": "ENG.5.2.V1",
+   "q": "Goja: experiments? No. Sports? No. Solving problems? No. Drawing pictures? Yes!\nWhat is Goja's favourite class?",
+   "o": [
+    "Art",
+    "Science",
+    "P.E.",
+    "Maths"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Experiments = Science, but she said No",
+    "2": "Sports = P.E., but she said No",
+    "3": "Solving problems = Maths, but she said No"
+   },
+   "e": "Drawing pictures → Art.",
+   "ip": "Which activity got 'Yes'?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)"
+  },
+  {
+   "t": "Verb 'to be'",
+   "k": "ENG.5.1.G1",
+   "q": "They ___ from Italy.",
+   "o": [
+    "are",
+    "is",
+    "am",
+    "be"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Using 'is' with they",
+    "2": "Using 'am' with they",
+    "3": "Not changing 'be'"
+   },
+   "e": "I am, he/she/it is, we/you/they are.",
+   "ip": "They → ?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)",
+   "acik": "are"
+  },
+  {
+   "t": "School rules",
+   "k": "ENG.5.1.V1",
+   "q": "Which one is a correct school rule?",
+   "o": [
+    "Raise your hand to speak.",
+    "Fight at school.",
+    "Eat in the classroom.",
+    "Make noise in the library."
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Missing that rules tell good behaviour",
+    "2": "Missing the rule 'Don't eat in the classroom'",
+    "3": "Missing the rule 'You mustn't make noise'"
+   },
+   "e": "Rules: Raise your hand to speak. You mustn't fight. Don't eat in the classroom.",
+   "ip": "A good behaviour.",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "English Unit 1 worksheet test + MEB çalışma (öğretmen PDF'i)"
+  },
+  {
+   "t": "Asking questions",
+   "k": "ENG.5.1.G1",
+   "q": "A: - - - - ?\nB: I am 11 years old.",
+   "o": [
+    "How old are you?",
+    "Where are you from?",
+    "What is your name?",
+    "How many brothers do you have?"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "11 is not a place",
+    "2": "11 is not a name",
+    "3": "'years old' shows age"
+   },
+   "e": "'years old' → How old are you?",
+   "ip": "years old = yaş.",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Verb 'to be'",
+   "k": "ENG.5.1.G1",
+   "q": "She ___ a doctor.",
+   "o": [
+    "is",
+    "are",
+    "am",
+    "be"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Using 'are' with she",
+    "2": "Using 'am' with she",
+    "3": "Not changing 'be'"
+   },
+   "e": "He/She/It → is.",
+   "ip": "She → ?",
+   "zor": 1,
+   "tur": "benzer",
+   "acik": "is"
+  },
+  {
+   "t": "Countries",
+   "k": "ENG.5.1.V1",
+   "q": "Yuki is from Japan. She is ___.",
+   "o": [
+    "Japanese",
+    "Japan",
+    "Japanish",
+    "Chinese"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Using the country instead of the nationality",
+    "2": "Inventing a nationality word",
+    "3": "Mixing up countries"
+   },
+   "e": "Japan → Japanese, Türkiye → Turkish, Italy → Italian.",
+   "ip": "Country vs nationality.",
+   "zor": 2,
+   "tur": "benzer"
+  },
+  {
+   "t": "Physical features",
+   "k": "ENG.5.3.V1",
+   "q": "Which word describes HAIR?",
+   "o": [
+    "curly",
+    "tall",
+    "kind",
+    "fast"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "'tall' describes a person's height",
+    "2": "'kind' is personality",
+    "3": "'fast' is an ability"
+   },
+   "e": "Hair can be curly, straight, long, short, blonde...",
+   "ip": "Which word can you say about hair, not about a whole person?",
+   "zor": 1,
+   "tur": "hazirlik"
+  },
+  {
+   "t": "Abilities",
+   "k": "ENG.5.3.G1",
+   "q": "Can you swim? — Yes, I ___.",
+   "o": [
+    "can",
+    "do",
+    "am",
+    "swim"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Answering a 'can' question with 'do'",
+    "2": "Answering with 'be'",
+    "3": "Repeating the verb"
+   },
+   "e": "Short answers repeat the helper: Can you...? Yes, I can. / No, I can't.",
+   "ip": "Short answers use the helper verb of the question.",
+   "zor": 1,
+   "tur": "hazirlik",
+   "acik": "can"
+  }
+ ]
+}

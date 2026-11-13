@@ -1,0 +1,341 @@
+{
+ "id": "2026-11-13-sos-mebi-1",
+ "ders": "sos",
+ "baslik": "Sosyal ödevi: Birlikte Yaşamak (MEBİ çalışma kâğıdı)",
+ "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)",
+ "kazanimlar": [
+  "SB.5.1.1",
+  "SB.5.1.2",
+  "SB.5.1.3",
+  "SB.5.4.4",
+  "SB.5.2.1",
+  "SB.5.2.4"
+ ],
+ "sorular": [
+  {
+   "t": "Gruplar ve roller",
+   "k": "SB.5.1.1",
+   "q": "Melis okulda Matematik Proje Grubu'nda görevleri dağıttı, sunumda konuşmacı oldu, eve servisle döndü ve sevincini annesi ve kardeşiyle paylaştı. Hangisi Melis'in dâhil olduğu gruplardan biri DEĞİLDİR?",
+   "o": [
+    "Futbol takımı",
+    "Servis grubu",
+    "Aile",
+    "Matematik proje grubu"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Her gün birlikte olunan servisi grup saymama",
+    "2": "Aileyi grup saymama",
+    "3": "Metindeki grubu gözden kaçırma"
+   },
+   "e": "Melis'in grupları: sınıfı, matematik proje grubu, servis grubu ve ailesi. Metinde futbol takımı yok.",
+   "ip": "Metinde geçen grupları tek tek say.",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Gruplar ve roller",
+   "k": "SB.5.1.1",
+   "q": "Melis proje grubunda görevlerin kim tarafından yapılacağını belirledi. Bu grupta Melis'in rolü nedir?",
+   "o": [
+    "Grup lideri",
+    "Yolcu",
+    "Evlat",
+    "Dinleyici"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Servis grubundaki rolle karıştırma",
+    "2": "Ailedeki rolle karıştırma",
+    "3": "Görev dağıtanı izleyici sanma"
+   },
+   "e": "Görevleri dağıtan ve planı hazırlayan kişi grup lideridir.",
+   "ip": "Görevleri kim dağıtır?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Gruplar ve roller",
+   "k": "SB.5.1.1",
+   "q": "Eymen futbol takımında yer alıyor. Bu gruptaki rolüne uygun sorumluluk hangisidir?",
+   "o": [
+    "Antrenmanlara düzenli katılmak",
+    "Kardeşinin ödevine yardım etmek",
+    "Zil çalınca sırasına oturmak",
+    "Bilim şenliği için araştırma yapmak"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Aile rolünün sorumluluğunu takıma yazma",
+    "2": "Öğrenci rolünün sorumluluğunu takıma yazma",
+    "3": "Proje grubunun sorumluluğuyla karıştırma"
+   },
+   "e": "Her rolün kendi sorumluluğu vardır: futbol oyuncusu antrenmanlara düzenli katılır.",
+   "ip": "Futbolcunun takıma karşı görevi ne?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Kültürel farklılıklar",
+   "k": "SB.5.1.2",
+   "q": "Nouri ailesi, Afganistan'daki iç çatışmalardan kaçarak Türkiye'ye sığınmacı olarak geldi. Ailenin Türkiye'ye gelmesinin nedeni nedir?",
+   "o": [
+    "Afganistan'daki iç çatışmalar yüzünden",
+    "Tatil yapmak için",
+    "Okul değiştirmek için",
+    "Türk yemeklerini tatmak için"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Zorunlu göçü gezi sanma",
+    "2": "Göçün nedenini küçük bir sebep sanma",
+    "3": "Sonucu neden sanma"
+   },
+   "e": "Nouri ailesi Afganistan'daki iç çatışmalardan kaçtı. Savaştan kaçıp başka ülkeye sığınan kişiye sığınmacı denir.",
+   "ip": "'Kaçarak' kelimesi neyi anlatıyor?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Kültürel farklılıklar",
+   "k": "SB.5.1.2",
+   "q": "Farklı kültürlerden insanların bir arada, kardeşçe yaşaması topluma ne kazandırır?",
+   "o": [
+    "Birlik, beraberlik ve toplumsal barış güçlenir",
+    "İnsanlar birbirinden uzaklaşır",
+    "Herkes aynı gelenekleri yaşamak zorunda kalır",
+    "Komşuluk ilişkileri zayıflar"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Farklılığı ayrılık sebebi sanma",
+    "2": "Saygıyı tek tipleşme sanma",
+    "3": "Sonucu tersine çevirme"
+   },
+   "e": "Farklılıklara saygı, insanların birbirini tanımasını ve toplumun güçlenmesini sağlar.",
+   "ip": "Birbirinin mutluluğunu paylaşan insanlar birbirine yakınlaşır mı, uzaklaşır mı?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Kültürel farklılıklar",
+   "k": "SB.5.1.2",
+   "q": "Mahallede farklı yörelerden gelen ailelerin bayram gelenekleri farklıdır. Hangisi bu geleneklere SAYGILI bir davranıştır?",
+   "o": [
+    "Komşunun yöresel ikramını merakla tatmak",
+    "Yeni gelen aileden geleneğini değiştirmesini istemek",
+    "Farklı geleneklerle alay etmek",
+    "Farklı yöreden gelenlerle konuşmamak"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Saygıyı herkesin bana benzemesi sanma",
+    "2": "Farklılığı yadırgama",
+    "3": "Farklılığı uzak durma sebebi sanma"
+   },
+   "e": "Saygı; farklılıkları doğal karşılamak, merak etmek ve kimseden değişmesini istememektir.",
+   "ip": "Saygı, farklı olanı merak etmek mi, değiştirmek mi?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Yardımlaşma ve dayanışma",
+   "k": "SB.5.1.3",
+   "q": "Orman yangınında gönüllülerin bölgeye su ve yiyecek taşıması hangi değeri en iyi gösterir?",
+   "o": [
+    "Yardımlaşma ve dayanışma",
+    "Rekabet",
+    "Bencillik",
+    "Tutumluluk"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Birlikte çalışmayı yarışma sanma",
+    "2": "Değeri tersine çevirme",
+    "3": "İlgisiz bir değerle karıştırma"
+   },
+   "e": "Zor zamanda başkalarına destek olmak yardımlaşma ve dayanışmadır; fedakârlık ve empatiyi de gösterir.",
+   "ip": "Zor günde birbirine destek olmaya ne denir?",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "İhtiyaç hâlinde kurumlar",
+   "k": "SB.5.4.4",
+   "q": "Afetlere karşı önlem alan, afet olunca müdahale eden ve afetzedelere yardım eden kurum hangisidir?",
+   "o": [
+    "AFAD",
+    "TÜBİTAK",
+    "Belediye zabıtası",
+    "Millî Eğitim Bakanlığı"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Bilim kurumuyla karıştırma",
+    "2": "Yerel düzen görevlisiyle karıştırma",
+    "3": "Okulla ilgili kurumla karıştırma"
+   },
+   "e": "AFAD = Afet ve Acil Durum Yönetimi Başkanlığı.",
+   "ip": "Deprem, sel gibi olaylardan sorumlu kurumu düşün.",
+   "zor": 1,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Yardımlaşma ve dayanışma",
+   "k": "SB.5.1.3",
+   "q": "Öğrenciler yaşlılara yardım için bir proje planladı ve görev paylaştı. Ancak bir süre sonra aralarında anlaşmazlık çıktı. Bunun nedenlerinden biri hangisi olabilir?",
+   "o": [
+    "Bazı öğrencilerin görevlerini zamanında yapmaması",
+    "Projenin yaşlılara yardım amaçlı olması",
+    "Görev paylaşımı yapılmış olması",
+    "Projenin planlanmış olması"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Amacı sorunun nedeni sanma",
+    "2": "İyi bir adımı sorun sanma",
+    "3": "Planlamayı sorun sanma"
+   },
+   "e": "Sorumluluğu yerine getirmemek ve arkadaşının fikrini dinlememek grup çalışmasını zorlaştırır.",
+   "ip": "Planı bozan davranış hangisi?",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Yardımlaşma ve dayanışma",
+   "k": "SB.5.1.3",
+   "q": "Grup projesindeki sorunları çözmek için öğrenciler ne yapmalıdır?",
+   "o": [
+    "Görevlerini zamanında yapıp birbirini dinleyerek ortak karar almalı",
+    "Herkes kendi bildiğini yapmalı",
+    "Projeyi hemen bırakmalı",
+    "En çok konuşanın fikri uygulanmalı"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Bireysel davranışı çözüm sanma",
+    "2": "Sorundan kaçmayı çözüm sanma",
+    "3": "Ortak kararı tek kişinin kararı sanma"
+   },
+   "e": "Sorumluluk, saygı ve iş birliği grup çalışmasının temelidir.",
+   "ip": "Sorunun nedenini tersine çevir.",
+   "zor": 2,
+   "tur": "odev",
+   "kaynak": "Sosyal Bilgiler MEBİ Yazılıya Hazırlanıyorum 1. Dönem 1. Yazılı (öğretmen PDF'i)"
+  },
+  {
+   "t": "Gruplar ve roller",
+   "k": "SB.5.1.1",
+   "q": "Ali sabah okulda öğrenci, öğleden sonra basketbol takımında kaptan, akşam evde ağabeydir. Bu durum neyi gösterir?",
+   "o": [
+    "Bir kişinin farklı gruplarda farklı rolleri olabilir",
+    "Bir kişinin tek bir rolü olur",
+    "Rol ile grup aynı şeydir",
+    "Roller sadece okulda olur"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Rolü tek ve değişmez sanma",
+    "2": "Grup ve rol kavramlarını karıştırma",
+    "3": "Rolleri yalnızca okula bağlama"
+   },
+   "e": "İnsan dâhil olduğu her grupta farklı bir rol üstlenir; her rolün sorumluluğu da farklıdır.",
+   "ip": "Ali kaç farklı yerde, kaç farklı şey?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Kültürel farklılıklar",
+   "k": "SB.5.1.2",
+   "q": "Türkiye ile KKTC'nin ortak kültürel özelliklerinden biri hangisidir?",
+   "o": [
+    "Türkçe konuşulması",
+    "Aynı para birimini kullanmaları",
+    "Aynı nüfusa sahip olmaları",
+    "Kar yağışının çok olması"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Kültürü ekonomiyle karıştırma",
+    "2": "Kültürü nüfusla karıştırma",
+    "3": "Kültürü iklimle karıştırma"
+   },
+   "e": "Türkiye ve KKTC'de Türkçe konuşulur; bayramlarda aile ziyaretine önem verilir.",
+   "ip": "Kültürü oluşturan şeyleri düşün: dil, bayram, yemek...",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Yardımlaşma ve dayanışma",
+   "k": "SB.5.1.3",
+   "q": "Hangisi okulda yapılabilecek bir dayanışma faaliyetidir?",
+   "o": [
+    "İhtiyacı olan arkadaşlar için kitap-kırtasiye toplamak",
+    "Teneffüste en önde olmak için yarışmak",
+    "Ödevleri tek başına yapmak",
+    "Kantinde sıra beklemek"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Rekabeti dayanışma sanma",
+    "2": "Bireysel işi dayanışma sanma",
+    "3": "Kurala uymayı dayanışma sanma"
+   },
+   "e": "Dayanışma, birlikte hareket edip ihtiyacı olana destek olmaktır.",
+   "ip": "Kime yardım ediliyor?",
+   "zor": 1,
+   "tur": "benzer"
+  },
+  {
+   "t": "Göreceli konum",
+   "k": "SB.5.2.1",
+   "q": "\"İstanbul, Marmara Denizi'nin kuzeyindedir.\" ifadesi neyi anlatır?",
+   "o": [
+    "Göreceli (bağıl) konum",
+    "Mutlak konum",
+    "İklim",
+    "Nüfus"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Çevreye göre tarifi koordinatla karıştırma",
+    "2": "Konumu hava durumuyla karıştırma",
+    "3": "Konumu insan sayısıyla karıştırma"
+   },
+   "e": "Bir yerin çevresindeki yerlere göre anlatılması göreceli konumdur.",
+   "ip": "Burada koordinat mı var, yoksa bir denize göre yer mi tarif ediliyor?",
+   "zor": 2,
+   "tur": "hazirlik"
+  },
+  {
+   "t": "Komşu ülkeler",
+   "k": "SB.5.2.4",
+   "q": "Hangisi Türkiye'nin kara sınırı olan komşularından biri DEĞİLDİR?",
+   "o": [
+    "İtalya",
+    "Gürcistan",
+    "Yunanistan",
+    "İran"
+   ],
+   "a": 0,
+   "yan": {
+    "1": "Kuzeydoğu komşusunu unutma",
+    "2": "Batı komşusunu unutma",
+    "3": "Doğu komşusunu unutma"
+   },
+   "e": "Kara komşularımız: Yunanistan, Bulgaristan, Gürcistan, Ermenistan, Nahçıvan (Azerbaycan), İran, Irak, Suriye.",
+   "ip": "Haritada Türkiye'ye karadan değen ülkeleri düşün.",
+   "zor": 2,
+   "tur": "hazirlik"
+  }
+ ]
+}

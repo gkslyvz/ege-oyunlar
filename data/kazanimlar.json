@@ -604,5 +604,35 @@
   "sira": 8,
   "unite": "Theme 8: Life in the Universe & Future",
   "metin": "Reading – planet Earth; holidays; science and future"
+ },
+ "DNY.SAY": {
+  "ders": "deneyap",
+  "sira": 1,
+  "unite": "DENEYAP hazırlık",
+  "metin": "Sayısal muhakeme: sayı örüntüleri, ters işlem, işlem mantığı"
+ },
+ "DNY.SOZ": {
+  "ders": "deneyap",
+  "sira": 2,
+  "unite": "DENEYAP hazırlık",
+  "metin": "Sözel mantık: sıralama, eşleştirme, koşullu çıkarım"
+ },
+ "DNY.SEK": {
+  "ders": "deneyap",
+  "sira": 3,
+  "unite": "DENEYAP hazırlık",
+  "metin": "Şekil ve uzamsal düşünme: örüntü, katlama, döndürme, küp"
+ },
+ "DNY.PRB": {
+  "ders": "deneyap",
+  "sira": 4,
+  "unite": "DENEYAP hazırlık",
+  "metin": "Problem çözme: çok adımlı günlük hayat problemleri"
+ },
+ "DNY.BIL": {
+  "ders": "deneyap",
+  "sira": 5,
+  "unite": "DENEYAP hazırlık",
+  "metin": "Bilim ve teknoloji muhakemesi: deney düzeneği, değişken, basit makine"
  }
 }

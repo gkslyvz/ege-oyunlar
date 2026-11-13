@@ -13,12 +13,15 @@ for (const L of sorular) for (const q of L.qs) {
 
 const legs = `const LEGS = ${JSON.stringify(sorular)}; window.LEGS = LEGS;`;
 const ortak = readFileSync('games/ortak/ortak.js', 'utf8');
+const hedefler = existsSync('data/hedefler.json') ? readFileSync('data/hedefler.json', 'utf8') : '[]';
+const ortakKisisel = `window.HEDEFLER = ${hedefler.trim()};\n` + ortak;
+const ortakGenel = 'window.HEDEFLER = [];\n' + ortak;
 const exams = `const EXAMS = ${JSON.stringify(sinavlar)};`;
 
 for (const game of readdirSync('games')) {
   const tpl = `games/${game}/template.html`;
   if (!existsSync(tpl)) continue;
-  const html = readFileSync(tpl, 'utf8').replace('/*LEGS*/', () => legs).replace('/*EXAMS*/', exams).replace('/*ORTAK*/', () => ortak);
+  const html = readFileSync(tpl, 'utf8').replace('/*LEGS*/', () => legs).replace('/*EXAMS*/', exams).replace('/*ORTAK*/', () => ortakKisisel);
   if (html.includes('/*LEGS*/') || html.includes('/*EXAMS*/')) throw new Error(`${game}: yer tutucu kaldı`);
   writeFileSync(`games/${game}/index.html`, html);
   console.log(`✓ games/${game}/index.html`);
@@ -39,7 +42,7 @@ if (gi > 0) {
   for (const game of readdirSync('games')) {
     const tpl = `games/${game}/template.html`;
     if (!existsSync(tpl)) continue;
-    let html = readFileSync(tpl, 'utf8').replace('/*LEGS*/', () => genelLegs).replace('/*EXAMS*/', 'const EXAMS = [];').replace('/*ORTAK*/', () => ortak);
+    let html = readFileSync(tpl, 'utf8').replace('/*LEGS*/', () => genelLegs).replace('/*EXAMS*/', 'const EXAMS = [];').replace('/*ORTAK*/', () => ortakGenel);
     for (const [a, b] of REP) html = html.split(a).join(b);
     if (/\bEge\b/.test(html.replace(/Ege (Bölgesi|adaları|Denizi)|Marmara, Ege/g, ''))) throw new Error(`${game}: genel sürümde isim kaldı`);
     mkdirSync(`${out}/${game}`, { recursive: true });

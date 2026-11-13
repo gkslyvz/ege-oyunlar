@@ -14,17 +14,19 @@ h1{color:#fff;font-size:36px;margin:0 0 6px;text-align:center;text-shadow:0 3px 
 a{display:flex;gap:14px;align-items:center;background:#fff;border-radius:20px;padding:14px 16px;margin-top:12px;text-decoration:none;color:#10223f;box-shadow:0 8px 22px rgba(6,30,70,.25)}
 a span{font-size:40px}a b{display:block;font-size:20px}a small{color:#4a5d7c;font-size:15px}
 .yeni{background:#ffc23d;color:#3b2a00;border-radius:8px;font-size:12px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+#rota a{background:linear-gradient(90deg,#0ea5a4,#0b7f7e);color:#fff}#rota a small{color:#d9fffb}
 footer{color:#e6f0ff;font-size:12px;text-align:center;margin-top:14px}
 </style>
 </head>
 <body><main>
 <h1>✈️ Ege Oyunlar</h1>
 <div id="durum"></div>
+<div id="rota"></div>
 <a href="games/kacis/"><span>🏃‍♂️</span><div><b>Profesör Unutkan'dan Kaçış <i class="yeni">YENİ</i></b><small>Pistte koş, doğru kapıdan geç, uçağına yakıt topla</small></div></a>
 <a href="games/cevap-halkalari/"><span>🛩️</span><div><b>Cevap Halkaları 3D</b><small>Gerçek PA-28 ile uç, doğru halkadan geç</small></div></a>
 <a href="games/dunya-turu/"><span>🌍</span><div><b>Pilot Ege: Dünya Turu</b><small>Canavarları doğru cevaplarla yen, uçak kartı topla</small></div></a>
 <a href="games/gokyuzu-gorevi/"><span>🗺️</span><div><b>Gökyüzü Görevi</b><small>Rotayı tamamla, pasaporta damga al</small></div></a>
-<footer>183 müfredat sorusu + sınırsız matematik sorusu · Uçak modelleri: FlightGear/Flightradar24 (GPLv2)</footer>
+<footer>Müfredat + ödev + DENEYAP soruları, sınırsız matematik sorusu · Uçak modelleri: FlightGear/Flightradar24 (GPLv2)</footer>
 </main>
 <script>
 // Ortak ilerleme özeti (oyunlarla aynı kayıt)
@@ -32,6 +34,12 @@ try{const S=JSON.parse(localStorage.getItem('egeOrtak.v1'));if(S){const l=1+Math
   const R=['Çırak Pilot','Yardımcı Pilot','Kaptan','Filo Komutanı','As Pilot','Gökyüzü Efsanesi'][Math.min(l-1,5)];
   const t=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul'}).format(new Date());const g=S.gorev&&S.gorev.gun===t?S.gorev:{yapilan:0,hedef:15};
   document.getElementById('durum').innerHTML=`<span style="background:#10223f;color:#ffc23d">Sv ${l} · ${R}</span><span style="background:#ff7a3d;color:#fff">🔥 ${S.seri?S.seri.say:0} gün</span><span style="background:#1fa35b;color:#fff">🎯 ${Math.min(g.yapilan,g.hedef)}/${g.hedef}</span>`}}catch(e){}
+// Hedef rotası (ör. DENEYAP): kalan gün ve bugünkü görev
+fetch('data/hedefler.json').then(r=>r.ok?r.json():[]).then(H=>{
+  const t=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul'}).format(new Date());const d=x=>Math.round(Date.parse(x+'T00:00:00Z')/864e5);
+  const h=H.map(h=>({...h,gun:d(h.tarih)-d(t)})).filter(h=>h.gun>=0).sort((a,b)=>a.gun-b.gun)[0];if(!h)return;
+  const n=h.gun<=14?10:h.gun<=45?6:h.gun<=90?4:2;
+  document.getElementById('rota').innerHTML=`<a href="games/kacis/"><span>🧠</span><div><b>${h.baslik}: ${h.gun} gün${h.kesin?'':' (tahmini)'}</b><small>Bugünkü rota görevi: ${n} muhakeme sorusu · DENEYAP Rotası'nı seç</small></div></a>`}).catch(()=>{});
 </script>
 </body>
 </html>

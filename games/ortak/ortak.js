@@ -80,9 +80,16 @@ function oncelik(q,now){
   if(window.ROTA_ODAK&&q.k&&window.ROTA_ODAK.includes(q.k))p+=30; // rota (ör. DENEYAP) odak kazanımları
   return p+Math.random()*5;
 }
+// Hedef rotası (ör. DENEYAP): sınava yaklaştıkça yoğunlaşır
+function rota(){const H=(window.HEDEFLER||[]).filter(h=>h.rota&&leg(h.rota)).map(h=>({...h,gun:dayNum(h.tarih)-dayNum(today())})).filter(h=>h.gun>=0).sort((a,b)=>a.gun-b.gun)[0];
+  if(!H)return null;const g=H.gun;
+  return{...H,gunluk:g<=14?10:g<=45?6:g<=90?4:2,pay:g<=14?0.3:g<=45?0.2:g<=90?0.1:0,evre:g<=14?'Son düzlük':g<=45?'Yoğun':g<=90?'Isınma':'Hazırlık'}}
 function sec(legId,n=10,maxOpt=4){
   const now=dayNum(today());const L=leg(legId);
   let out=bank(legId).map(q=>({q,p:oncelik(q,now)})).sort((a,b)=>b.p-a.p).map(x=>x.q).slice(0,n);
+  const R=rota();
+  if(R&&R.pay&&legId!==R.rota&&legId!=='odev'){const m=Math.max(1,Math.round(n*R.pay));
+    const ek=bank(R.rota).map(q=>({q,p:oncelik(q,now)})).sort((a,b)=>b.p-a.p).map(x=>x.q).slice(0,m);out=out.slice(0,n-ek.length).concat(ek)}
   if(L&&L.gen){const g=Math.round(n*0.4);out=out.slice(0,n-g);
     const zayif=Object.keys(S.kaz).filter(k=>k.startsWith('MAT')&&kazOran(k)!==null&&kazOran(k)<0.6);
     for(let i=0;i<g;i++)out.push(uret(zayif.length&&Math.random()<.6?pick(zayif):null))}
@@ -182,5 +189,5 @@ function sessiz(v){if(v===undefined)return S.sessiz;S.sessiz=v;save();if(master)
 function veri(){return S}
 function veriYukle(x){if(x&&x.v===1&&(x.guncel||0)>(S.guncel||0)){S=Object.assign(bos(),x);try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}return true}return false}
 
-window.Ortak={sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null,geriBildirim,acikKontrol,sureDurum,sureKapisi,veri,veriYukle,bulut:null,_bitti:false};
+window.Ortak={rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null,geriBildirim,acikKontrol,sureDurum,sureKapisi,veri,veriYukle,bulut:null,_bitti:false};
 })();
