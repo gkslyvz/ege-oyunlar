@@ -250,7 +250,8 @@ const rank=l=>RANKS[Math.min(l-1,RANKS.length-1)];
 function todayIst(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul'}).format(new Date())}
 const daysTo=d=>Math.round((Date.parse(d+'T00:00:00Z')-Date.parse(todayIst()+'T00:00:00Z'))/864e5);
 function activeExams(){
-  let list=EXAMS.map(e=>({...e,left:daysTo(e.date)})).filter(e=>e.left>=0&&e.left<=3&&!S.examWins.includes(e.id));
+  const tum=[...EXAMS,...(window.PANO_EXAMS||[]).filter(p=>!EXAMS.some(e=>e.region===p.region&&e.date===p.date))];
+  let list=tum.map(e=>({...e,left:daysTo(e.date)})).filter(e=>e.left>=0&&e.left<=3&&!S.examWins.includes(e.id));
   if(location.hash==='#sinav-demo'&&!list.length) list=[{id:'demo',region:'mat',left:2,title:'Matematik yazılısı (deneme)'}];
   return list;
 }
@@ -275,6 +276,11 @@ const beaten=(r,k)=>(S.beaten[r]||[]).includes(k);
 const regionDone=r=>beaten(r,'boss');
 const regionOpen=i=>i===0||regionDone(REGIONS[i-1].id);
 
+// Pano'da barınırken yeni sınavları canlı oku → sınav boss'u kendiliğinden açılır
+const BOLGE={'türkçe':'tr','matematik':'mat','fen bilimleri':'fen','fen':'fen','sosyal bilgiler':'sos','ingilizce':'ing','i̇ngilizce':'ing'};
+fetch('/api/state',{credentials:'same-origin'}).then(r=>r.ok?r.json():null).then(d=>{if(!d||!d.view||!d.view.exams)return;
+  window.PANO_EXAMS=d.view.exams.map(e=>({id:'pano:'+e.id,region:BOLGE[String(e.subject||'').toLocaleLowerCase('tr-TR')],date:e.date,title:e.title})).filter(e=>e.region);
+  if(!$('map').classList.contains('hidden'))renderMap()}).catch(()=>{});
 function renderMap(){
   setBg('');
   const l=level(S.xp);

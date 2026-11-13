@@ -1,0 +1,57 @@
+{
+ "tarih": "2026-11-13",
+ "dosya": "scripts/kaynak/v2/deneyap.py",
+ "incelenen": 11,
+ "kritik": [
+  {
+   "q": "Türkiye'nin ilk yerli otomobil markası hangisidir?",
+   "sorun": "Kök yanlış bilgi öğretiyor: Türkiye'nin 'ilk yerli otomobili' yaygın kabulde 1961 Devrim'dir (Togg Gemlik Kampüsü'nde bile 'ilk yerli otomobil Devrim' diye sergilendi); ilk seri üretim yerli marka 1966 Anadol'dur. Togg 'ilk' değil. Ders kitaplarında Devrim'i bilen çocuk için kafa karıştırır; proje kuralı 'bilgi doğruluğu emin olunmadan soru eklenmez'. Şıklar arasında tek doğru seçim (Togg) yine de belli; sorun bilgi doğruluğu.",
+   "oneri": "Kök: \"Türkiye'nin yerli elektrikli otomobil markası hangisidir?\" | Açıklama aynı kalabilir; istenirse ekle: \"Türkiye'nin ilk yerli otomobili ise 1961'de üretilen Devrim'dir.\" | İpucu 'Elektrikli otomobil.' kök ile aynı bilgiyi verir → 'Gemlik'te üretilir.' gibi bir ipucuna çevir."
+  }
+ ],
+ "orta": [
+  {
+   "q": "Bir sayı makinesi: \"Sayı çiftse 2'ye böl, tekse 3 ekle.\" 10 ile başlayıp makineyi 3 kez çalıştırırsak sonuç ne olur?",
+   "sorun": "Cevap 4 doğru ve tek (10→5→8→4). Ancak iki yanılgı etiketi şıklarla uyuşmuyor: '8' ikinci adımda kural karıştırmaktan değil, 2 adımda durmaktan gelir (kural karışırsa 5/2 çıkar). '13' tek sayıyı bölmeye çalışmaktan değil, ÇİFT olan 10'a 3 eklemekten gelir.",
+   "oneri": "yan: '8' → \"Makineyi 3 yerine 2 kez çalıştırma\"; '13' → \"Çift sayıya da 3 ekleme (kuralları karıştırma)\"."
+  }
+ ],
+ "dusuk": [
+  {
+   "q": "Sabah okula hazırlanma algoritmasında hangi sıra doğrudur?",
+   "sorun": "Doğru şık tek ve net; fakat 'Uyan' ile başlayan tek şık doğru şık olduğu için ipucu ('Hangi adım olmadan diğerleri yapılamaz?') cevabı neredeyse doğrudan veriyor. Zorluk 1 için kabul edilebilir.",
+   "oneri": "İsteğe bağlı: bir çeldiriciyi de 'Uyan' ile başlat ama ortasını boz (ör. 'Uyan → Çantanı al → Kahvaltı yap → Giyin → Yüzünü yıka', yanılgı: 'Ara adımların sırasını gözetmeme') ve ipucunu 'Önce hangisi, sonra hangisi olmalı?' yap."
+  },
+  {
+   "q": "\"Işık kırmızıysa dur, yeşilse geç.\" komutu hangi yapıya örnektir?",
+   "sorun": "İpucu 'Duruma göre seçim mi, tekrar mı?' iki seçeneği adlandırıp cevaba ('seçim' = karar) çok yaklaştırıyor. 'Sıralama yapısı' terimi BT derslerinde genelde 'sıralı yapı' diye geçer.",
+   "oneri": "İpucu: \"Komut her seferinde aynı mı, duruma göre mi değişiyor?\" | Şık: 'Sıralı (adım adım) yapı'."
+  },
+  {
+   "q": "İnsansız hava aracının kısaltması hangisidir?",
+   "sorun": "İpucu 'Baş harflerine bak.' tek doğru şıkkı doğrudan buldurur (İ-H-A). Bilgi doğru.",
+   "oneri": "Zorluk 1 için bırakılabilir; istenirse ipucu: \"Kısaltma Türkçe kelimelerden oluşur.\""
+  },
+  {
+   "q": "Bir kâğıdı ikiye katlayıp katlama çizgisine DEĞMEYEN bir yerden tek delik açıyoruz. Kâğıdı açınca kaç delik görürüz?",
+   "sorun": "Önceki kritik bulgu giderilmiş: kök artık tek cevaba (2) kilitli, açıklama ve ipucu uyumlu. Yalnız '3' şıkkının yanılgısı 'Rastgele sayma' bir kavram yanılgısı değil.",
+   "oneri": "'3' yanılgısı: \"Katlama çizgisine de bir delik açıldığını sanma (1+2)\"."
+  },
+  {
+   "q": "Kareli zeminde bir robot yalnız ileri-geri-sağa-sola gidebilir, çapraz gidemez. \"2 ileri, sağa dön, 3 ileri\" komutundan sonra başladığı kareye en kısa yoldan dönmesi için kaç kare gitmesi gerekir?",
+   "sorun": "Önceki kritik giderilmiş: çapraz yasağı kökte, cevap 5 tek. İpucu 'Çapraz gidemez.' kökü tekrar ediyor, yol göstermiyor. '1' çeldiricisinin yanılgısı zayıf.",
+   "oneri": "İpucu: \"Robot kaç kare ileri, kaç kare yana gitti?\" | '1' yerine '2' (yanılgı: 'Yalnız ilk hareketi geri alma') düşünülebilir."
+  },
+  {
+   "q": "Ağır bir kutuyu kamyona daha AZ kuvvetle çıkarmak için hangisi kullanılır?",
+   "sorun": "Cevap doğru ve tek. 'Daha ağır bir kutu' ve 'Daha hızlı kaldırmak' 'hangisi kullanılır?' sorusuna dilbilgisel olarak uymuyor (araç değil) ve çok zayıf çeldirici; soru fazla kolay. Basit makineler müfredatta 5. sınıftan sonra gelir, ancak sezgisel düzeyde sorulabilir.",
+   "oneri": "Çeldiricileri araç yap: 'Kısa ve dik bir merdiven' (dikliğin kuvveti azalttığını sanma), 'Kutuyu ipe bağlayıp dikey çekmek' (yolu kısaltmanın kuvveti azalttığını sanma), 'Daha kısa bir rampa' (rampanın uzunluğunun önemsiz olduğunu sanma)."
+  }
+ ],
+ "temiz": [
+  "Rakamları birbirinden farklı en büyük üç basamaklı çift sayı kaçtır? — 986 doğru ve tek; 998/987/976 yanılgıları uyumlu; ipucu cevabı vermiyor.",
+  "Beş kişilik kuyrukta Elif baştan 2., Mert sondan 2. sıradadır. Aralarında kaç kişi vardır? — Mert baştan 4., arada 1 kişi; çeldiriciler ve yanılgılar uyumlu.",
+  "Bir kâğıt ikiye, sonra yine ikiye katlanıyor... — 4 kat → 4 delik doğru ve tek; yanılgılar uyumlu; ipucu iyi."
+ ],
+ "genel": "11 sorunun hepsinde a=0 (S() doğruyu o[0]'a koyar) ve acik değerleri (986, 1, 2, 4, 5, 4) doğru şıkla birebir. Yazım hatası bulunmadı. Hesaplamalı soruların hepsi bağımsız olarak çözüldü, tek doğru cevaplı."
+}

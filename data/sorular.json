@@ -6906,13 +6906,13 @@
      "986",
      "998",
      "987",
-     "988"
+     "976"
     ],
     "a": 0,
     "yan": {
      "1": "Rakamların farklı olma şartını unutma",
      "2": "Çift olma şartını unutma",
-     "3": "Rakamların farklı olma şartını unutma"
+     "3": "Onlar basamağını büyütmeyi unutma"
     },
     "e": "Yüzler 9, onlar 8 olmalı; birler basamağı çift ve farklı en büyük rakam 6 → 986.",
     "ip": "Birler basamağı çift olmalı.",
@@ -6953,9 +6953,9 @@
     ],
     "a": 0,
     "yan": {
-     "1": "Elif ve Mert'i de sayma",
+     "1": "4 − 2 yapıp aradakileri sayma",
      "2": "Yan yana olduklarını sanma",
-     "3": "Kuyruk uzunluğunu yanlış kullanma"
+     "3": "Elif ve Mert'i de sayma"
     },
     "e": "Sondan 2. = baştan 4. Baştan 2. ile 4. arasında yalnızca 3. kişi var.",
     "ip": "Sondan 2. baştan kaçıncı?",
@@ -7072,7 +7072,7 @@
    {
     "t": "Katlama",
     "k": "DNY.SEK",
-    "q": "Bir kâğıdı ikiye katlayıp ortasından bir delik açıyoruz. Kâğıdı açınca kaç delik görürüz?",
+    "q": "Bir kâğıdı ikiye katlayıp katlama çizgisine DEĞMEYEN bir yerden tek delik açıyoruz. Kâğıdı açınca kaç delik görürüz?",
     "o": [
      "2",
      "1",
@@ -7094,7 +7094,7 @@
    {
     "t": "Katlama",
     "k": "DNY.SEK",
-    "q": "Bir kâğıt ikiye, sonra yine ikiye katlanıp tek bir delik açılıyor. Açınca kaç delik olur?",
+    "q": "Bir kâğıt ikiye, sonra yine ikiye katlanıyor. Katlama çizgilerine değmeyen bir yerden tek delik açılıyor. Açınca kaç delik olur?",
     "o": [
      "4",
      "2",
@@ -7181,7 +7181,7 @@
    {
     "t": "Yaş problemi",
     "k": "DNY.PRB",
-    "q": "Ege 10, annesi 38 yaşında. Kaç yıl sonra annesinin yaşı Ege'nin yaşının 3 katı olur?",
+    "q": "Arda 10, annesi 38 yaşında. Kaç yıl sonra annesinin yaşı Arda'nın yaşının 3 katı olur?",
     "o": [
      "4",
      "2",
@@ -7192,9 +7192,9 @@
     "yan": {
      "1": "Deneme yanılmada hesap hatası",
      "2": "Yaş farkının değişmediğini unutma",
-     "3": "Sadece Ege'nin yaşını büyütme"
+     "3": "Sadece Arda'nın yaşını büyütme"
     },
-    "e": "Yaş farkı hep 28. 3 kat olunca fark Ege'nin yaşının 2 katı: 28 ÷ 2 = 14 → 14 − 10 = 4 yıl.",
+    "e": "Yaş farkı hep 28. 3 kat olunca fark Arda'nın yaşının 2 katı: 28 ÷ 2 = 14 → 14 − 10 = 4 yıl.",
     "ip": "Yaş farkı hiç değişmez.",
     "zor": 3,
     "tur": "banka",
@@ -7270,17 +7270,17 @@
     "o": [
      "Eğik düzlem (rampa)",
      "Daha kısa ve dik bir merdiven",
-     "Daha ağır bir kutu",
-     "Daha hızlı kaldırmak"
+     "Kaldıraçsız düz bir ip",
+     "Kutunun üstüne bir kutu daha koymak"
     ],
     "a": 0,
     "yan": {
      "1": "Dikliğin kuvveti azalttığını sanma",
-     "2": "Yükü artırmayı çözüm sanma",
-     "3": "Hızın kuvveti azalttığını sanma"
+     "2": "İpin tek başına kuvveti azalttığını sanma",
+     "3": "Yükü artırmayı çözüm sanma"
     },
     "e": "Eğik düzlem yolu uzatır ama gereken kuvveti azaltır.",
-    "ip": "Rampayı düşün.",
+    "ip": "Yol uzarsa kuvvet ne olur?",
     "zor": 2,
     "tur": "banka"
    },
@@ -7308,24 +7308,130 @@
    {
     "t": "Teknoloji muhakemesi",
     "k": "DNY.BIL",
-    "q": "Bir robot her komutta 1 kare ilerliyor. \"2 ileri, sağa dön, 3 ileri\" komutundan sonra başladığı kareye en kısa yoldan dönmesi için kaç kare gitmesi gerekir?",
+    "q": "Kareli zeminde bir robot yalnız ileri-geri-sağa-sola gidebilir, çapraz gidemez. \"2 ileri, sağa dön, 3 ileri\" komutundan sonra başladığı kareye en kısa yoldan dönmesi için kaç kare gitmesi gerekir?",
     "o": [
      "5",
      "3",
-     "4",
+     "1",
      "6"
     ],
     "a": 0,
     "yan": {
      "1": "Sadece son hareketi geri alma",
-     "2": "Çapraz gidebildiğini sanma",
-     "3": "Dönüşü kare sanma"
+     "2": "Sadece bir adım geri gelmeyi yeterli sanma",
+     "3": "Dönüşü de bir kare sanma"
     },
     "e": "Robot 2 ileri ve 3 sağa gitti; çapraz gidemediği için en kısa yol 2 + 3 = 5 kare.",
     "ip": "Çapraz gidemez.",
     "zor": 3,
     "tur": "banka",
     "acik": "5"
+   },
+   {
+    "t": "Algoritma",
+    "k": "DNY.BIL",
+    "q": "Sabah okula hazırlanma algoritmasında hangi sıra doğrudur?",
+    "o": [
+     "Uyan → Yüzünü yıka → Giyin → Kahvaltı yap → Çantanı al",
+     "Çantanı al → Uyan → Giyin → Kahvaltı yap → Yüzünü yıka",
+     "Giyin → Uyan → Yüzünü yıka → Çantanı al → Kahvaltı yap",
+     "Kahvaltı yap → Çantanı al → Uyan → Giyin → Yüzünü yıka"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Adımların mantıklı sırasını gözetmeme",
+     "2": "Başlangıç adımını yanlış seçme",
+     "3": "Sırayı rastgele dizme"
+    },
+    "e": "Algoritma, bir işin adımlarının doğru sırayla yazılmasıdır; uyanmadan diğer adımlar yapılamaz.",
+    "ip": "Hangi adım olmadan diğerleri yapılamaz?",
+    "zor": 1,
+    "tur": "banka"
+   },
+   {
+    "t": "Algoritma",
+    "k": "DNY.SAY",
+    "q": "Bir sayı makinesi: \"Sayı çiftse 2'ye böl, tekse 3 ekle.\" 10 ile başlayıp makineyi 3 kez çalıştırırsak sonuç ne olur?",
+    "o": [
+     "4",
+     "5",
+     "8",
+     "13"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Yalnız ilk adımı yapma",
+     "2": "Makineyi 2 kez çalıştırıp durma",
+     "3": "Çift sayıya da 3 ekleme"
+    },
+    "e": "10 çift → 5; 5 tek → 8; 8 çift → 4.",
+    "ip": "Her adımda sayının tek mi çift mi olduğuna bak.",
+    "zor": 2,
+    "tur": "banka",
+    "acik": "4"
+   },
+   {
+    "t": "Algoritma",
+    "k": "DNY.BIL",
+    "q": "\"Işık kırmızıysa dur, yeşilse geç.\" komutu hangi yapıya örnektir?",
+    "o": [
+     "Karar (eğer-ise) yapısı",
+     "Döngü (tekrar) yapısı",
+     "Rastgele seçim",
+     "Sıralama yapısı"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Koşulu tekrarla karıştırma",
+     "2": "Koşulun bir kurala bağlı olduğunu görmeme",
+     "3": "Adım sırasıyla karıştırma"
+    },
+    "e": "Bir koşula göre farklı iş yapmak karar yapısıdır (eğer ... ise ...).",
+    "ip": "Duruma göre seçim mi, tekrar mı?",
+    "zor": 2,
+    "tur": "banka"
+   },
+   {
+    "t": "Genel kültür",
+    "k": "DNY.BIL",
+    "q": "Türkiye'nin yerli elektrikli otomobil markası hangisidir?",
+    "o": [
+     "Togg",
+     "Aselsan",
+     "Baykar",
+     "Türksat"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Savunma şirketini otomobil markası sanma",
+     "2": "İHA üreticisini otomobil markası sanma",
+     "3": "Uydu şirketini otomobil markası sanma"
+    },
+    "e": "Togg, Türkiye'nin yerli elektrikli otomobil markasıdır. Türkiye'nin ilk yerli otomobili ise 1961'de üretilen Devrim'dir.",
+    "ip": "Diğer üç şirket otomobil yapmıyor.",
+    "zor": 1,
+    "tur": "banka"
+   },
+   {
+    "t": "Genel kültür",
+    "k": "DNY.BIL",
+    "q": "İnsansız hava aracının kısaltması hangisidir?",
+    "o": [
+     "İHA",
+     "UFO",
+     "GPS",
+     "NASA"
+    ],
+    "a": 0,
+    "yan": {
+     "1": "Tanımlanamayan uçan cisimle karıştırma",
+     "2": "Konum bulma sistemiyle karıştırma",
+     "3": "Uzay ajansıyla karıştırma"
+    },
+    "e": "İHA = İnsansız Hava Aracı; pilotsuz, uzaktan ya da otomatik uçar.",
+    "ip": "Baş harflerine bak.",
+    "zor": 1,
+    "tur": "banka"
    }
   ],
   "ozel": true,

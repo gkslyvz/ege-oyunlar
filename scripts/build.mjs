@@ -14,7 +14,8 @@ for (const L of sorular) for (const q of L.qs) {
 const legs = `const LEGS = ${JSON.stringify(sorular)}; window.LEGS = LEGS;`;
 const ortak = readFileSync('games/ortak/ortak.js', 'utf8');
 const hedefler = existsSync('data/hedefler.json') ? readFileSync('data/hedefler.json', 'utf8') : '[]';
-const ortakKisisel = `window.HEDEFLER = ${hedefler.trim()};\n` + ortak;
+const bulut = existsSync('data/bulut.json') ? readFileSync('data/bulut.json', 'utf8').trim() : 'null';
+const ortakKisisel = `window.HEDEFLER = ${hedefler.trim()};\nwindow.BULUT = ${bulut};\n` + ortak;
 const ortakGenel = 'window.HEDEFLER = [];\n' + ortak;
 const exams = `const EXAMS = ${JSON.stringify(sinavlar)};`;
 

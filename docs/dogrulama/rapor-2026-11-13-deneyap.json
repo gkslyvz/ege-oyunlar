@@ -1,0 +1,111 @@
+{
+ "tarih": "2026-11-13",
+ "incelenen": 25,
+ "kritik": [
+  {
+   "q": "Bir kâğıdı ikiye katlayıp ortasından bir delik açıyoruz. Kâğıdı açınca kaç delik görürüz?",
+   "sorun": "'ortasından' belirsiz: kâğıdın (açık hâlinin) ortası tam katlama çizgisinin üzerindedir; delik katlama çizgisine açılırsa açınca TEK delik görülür. Böylece '1' şıkkı savunulabilir hâle geliyor (DENEYAP/BİLSEM tipi katlama sorularında en sık tuzak tam da budur). Açıklamadaki 'katlama çizgisine göre simetrik' ifadesi de deliğin çizgiden uzak olduğunu varsayıyor ama soru bunu söylemiyor.",
+   "oneri": "Soru: \"Bir kâğıdı ikiye katlıyoruz. Katlama çizgisine DEĞMEYEN bir yerden tek bir delik açıyoruz. Kâğıdı açınca kaç delik görürüz?\" | Yanlış şık 1'in yanılgısı: \"Katlı kâğıdın iki kat olduğunu unutma\" (aynı kalabilir) | Açıklama: \"Delik iki kat kâğıdı birden deler, açınca katlama çizgisinin iki yanında birer tane, toplam 2 delik olur.\""
+  },
+  {
+   "q": "Bir robot her komutta 1 kare ilerliyor. \"2 ileri, sağa dön, 3 ileri\" komutundan sonra başladığı kareye en kısa yoldan dönmesi için kaç kare gitmesi gerekir?",
+   "sorun": "Doğru cevap 5'i belirleyen kural (robot çapraz gidemez) soru kökünde yok, yalnızca ipucunda ve açıklamada var. Çapraz hareket serbest sayılırsa en kısa yol max(2,3)=3 kare olur ve '3' şıkkı da doğru olur → iki savunulabilir cevap. Ayrıca '4' şıkkının yanılgı etiketi ('Çapraz gidebildiğini sanma') matematiksel olarak yanlış: çapraz gidilebilseydi cevap 4 değil 3 olurdu. İpucu ('Çapraz gidemez.') bilgi değil kural verdiği için kökte olmalı.",
+   "oneri": "Soru: \"Kareli bir zeminde robot her komutta 1 kare ilerliyor; yalnızca ileri gidebilir ve sağa/sola dönebilir, çapraz gidemez. \\\"2 ileri, sağa dön, 3 ileri\\\" komutundan sonra başladığı kareye en kısa yoldan dönmesi için kaç kare gitmesi gerekir?\" | Şık 4 → yerine (\"1\", \"Sadece 3 − 2 farkını alma\") | Şık 3 etiketi aynı kalabilir: \"Sadece son hareketi geri alma\" | İpucu: \"Robotun gittiği yolu kareli kâğıda çiz.\""
+  }
+ ],
+ "orta": [
+  {
+   "q": "Ege 10, annesi 38 yaşında. Kaç yıl sonra annesinin yaşı Ege'nin yaşının 3 katı olur?",
+   "sorun": "(1) Çocuğun adı 'Ege' soru metninde geçiyor; CLAUDE.md kuralına göre genel sürüm (Matprosu) build'i \\bEge\\b kalırsa hata veriyor (scripts/build.mjs satır 47) ve REP tablosunda bu kalıp için değiştirme yok → bu soru genel sürüme girerse build kırılır / isim sızar. (2) Yanılgı etiketleri belirsiz: 8 = 38 − 3×10 (bugünkü farkı cevap sanma), 2 ve 6 için verilen etiketler bir hesap hatasını tarif etmiyor. Matematik doğru: 38+4=42, 10+4=14, 42=3×14.",
+   "oneri": "Soru: \"Ali 10, annesi 38 yaşında. Kaç yıl sonra annesinin yaşı Ali'nin yaşının 3 katı olur?\" | Açıklama: \"Yaş farkı hep 28. Anne, Ali'nin 3 katı olunca aradaki fark Ali'nin yaşının 2 katıdır: 28 ÷ 2 = 14. Ali 14 yaşına 4 yıl sonra girer. Kontrol: 42 = 3 × 14.\" | Yanılgılar (3 şık): (\"8\", \"Bugünkü farkı (38 − 30) cevap sanma\"), (\"14\", \"Ali'nin o günkü yaşını cevap sanma\"), (\"6\", \"Deneme yanılmada kontrol etmeme (16 × 3 = 48, ama anne 44)\")"
+  },
+  {
+   "q": "Beş kişilik kuyrukta Elif baştan 2., Mert sondan 2. sıradadır. Aralarında kaç kişi vardır?",
+   "sorun": "Yanılgı etiketleri yer değiştirmiş: Elif ve Mert de sayılırsa (2., 3., 4.) sonuç 3 olur, 2 değil. 2 ise sıra numaralarını çıkarmaktan (4 − 2) gelir. Cevap (1) ve acik doğru.",
+   "oneri": "Yanılgılar: (\"2\", \"Sıra numaralarını çıkarma (4 − 2)\"), (\"0\", \"Yan yana olduklarını sanma\"), (\"3\", \"Elif ve Mert'i de sayma\")"
+  },
+  {
+   "q": "Ağır bir kutuyu kamyona daha AZ kuvvetle çıkarmak için hangisi kullanılır?",
+   "sorun": "İpucu ('Rampayı düşün.') doğru şıkkın içindeki kelimeyi ('Eğik düzlem (rampa)') aynen veriyor → cevabı ele veriyor.",
+   "oneri": "İpucu: \"Yükü dik yukarı kaldırmak mı, yavaş yavaş uzun bir yoldan çıkarmak mı daha kolay?\""
+  },
+  {
+   "q": "Bir kâğıt ikiye, sonra yine ikiye katlanıp tek bir delik açılıyor. Açınca kaç delik olur?",
+   "sorun": "Kardeş sorudaki (tek katlama) gibi deliğin katlama çizgilerine değmediği belirtilmeli; köşeye/katlama çizgisine açılan delikte 1 veya 2 delik çıkar. Şimdilik 'ortasından' demediği için daha az riskli. '3' etiketi ('Katlama sayısını ekleme') anlaşılmaz.",
+   "oneri": "Soru: \"Bir kâğıt ikiye, sonra yine ikiye katlanıyor. Katlama çizgilerine DEĞMEYEN bir yerden tek bir delik açılıyor. Açınca kaç delik olur?\" | Yanılgı: (\"3\", \"Katlama sayısına 1 ekleme (2 + 1)\")"
+  },
+  {
+   "q": "Rakamları birbirinden farklı en büyük üç basamaklı çift sayı kaçtır?",
+   "sorun": "Hem 998 hem 988 aynı yanılgıyla etiketlenmiş; oysa 'farklı rakam' şartı unutulursa en büyük çift sayı 998'dir, 988'e götüren bir yanılgı yok. Cevap 986 doğru.",
+   "oneri": "Şık 988 yerine (\"996\", \"Sadece onlar basamağının farklı olmasına bakma\") ya da (\"984\", \"Birler basamağına çift en büyük rakamı (6) koymayı atlama\")."
+  }
+ ],
+ "dusuk": [
+  {
+   "q": "Bir sayıya 7 ekleyip sonucu 3 ile çarpınca 45 buluyoruz. Sayı kaçtır?",
+   "sorun": "'12' şıkkının yanılgısı ('İşlem sırasını karıştırma') hiçbir hesapla 12'ye götürmüyor ((45−7)÷3 = 12,67).",
+   "oneri": "(\"38\", \"Önce 45'ten 7 çıkarıp bölmeyi unutma\")"
+  },
+  {
+   "q": "□ + □ + △ = 17 ve □ + △ = 11 ise □ kaçtır?",
+   "sorun": "'3' şıkkı 'Rastgele bölme' — bir kavram yanılgısı değil.",
+   "oneri": "(\"28\", \"İki sonucu toplama (17 + 11)\")"
+  },
+  {
+   "q": "Bugün çarşamba ise 10 gün sonra hangi gündür?",
+   "sorun": "Perşembe'nin etiketi ('7'yi çıkarıp 3 gün eklemeyi unutma') Perşembe'ye götürmüyor; Perşembe +1 gün demek.",
+   "oneri": "(\"Perşembe\", \"10'un yalnızca birler basamağına bakıp 0 gün + 1 sayma\") ya da şıkkı (\"Pazartesi\", \"Geriye doğru sayma\") yap."
+  },
+  {
+   "q": "Bir zarın karşılıklı yüzlerindeki sayıların toplamı 7'dir. Üst yüzde 2 varsa alt yüzde kaç vardır?",
+   "sorun": "İpucu ('Toplam 7.') sorudaki bilgiyi tekrar ediyor; yeni bir düşünme yolu vermiyor.",
+   "oneri": "İpucu: \"2'ye kaç eklersen 7 olur?\""
+  },
+  {
+   "q": "Bir kutuda 4 sıra, her sırada 6 yumurta var. 5 yumurta kırılırsa kaç sağlam yumurta kalır?",
+   "sorun": "'15' etiketi ('Sadece 4 + 6 + 5'le uğraşma') çocukça/anlaşılmaz.",
+   "oneri": "(\"15\", \"Çarpmak yerine tüm sayıları toplama (4 + 6 + 5)\")"
+  },
+  {
+   "q": "Bir salyangoz 10 m'lik kuyuda gündüz 3 m tırmanıp gece 2 m kayıyor. Kaçıncı gün kuyudan çıkar?",
+   "sorun": "Başlangıç noktası yazmıyor (dipten mi?). İpucu ('Son gün kaymaz!') çözümün anahtarını doğrudan veriyor. Cevap 8. gün doğru (8. gün 7 m + 3 m = 10 m).",
+   "oneri": "Soru: \"Bir salyangoz 10 m derinliğindeki bir kuyunun dibinden başlıyor. Gündüz 3 m tırmanıp gece 2 m kayıyor. Kaçıncı gün kuyudan çıkar?\" | İpucu: \"Her günün sonunda nerede olduğunu tablo yap; son gün gece olmadan çıkabilir mi?\""
+  },
+  {
+   "q": "Bir kâğıdı ikiye katlayıp ortasından bir delik açıyoruz. Kâğıdı açınca kaç delik görürüz?",
+   "sorun": "(Kritik maddeye ek) '3' şıkkının etiketi 'Rastgele sayma' — kavram yanılgısı değil.",
+   "oneri": "(\"3\", \"Katlı kâğıttaki deliğe açılan yeni iki deliği ekleme (1 + 2)\")"
+  },
+  {
+   "q": "GENEL KAPSAM",
+   "sorun": "Set 5 alanı 5–6'şar soruyla dengeli kapsıyor ve tüm sorular metinden çözülebiliyor. Ancak TÜBİTAK'ın 2022 açıklamasına göre yazılı sınav 'fen, matematik, algoritma ve genel kültür' sorularından oluşuyordu; sette algoritma yalnızca 1 soru (robot), genel kültür/teknoloji kültürü hiç yok. Gerçek e-sınavın şekilli (görsel) sorular içerip içermediği doğrulanamadı; sette şekil/uzamsal sorular görsel olmadan yazıldığı için kolay kalıyor.",
+   "oneri": "Algoritma (akış şeması, komut dizisi, döngü: 'şu komutlar 3 kez tekrarlanırsa robot nerede?') ve bilim-teknoloji genel kültürü (ör. Türk bilim insanları, temel icatlar, enerji kaynakları) için 3–5 soru ekle; kılavuz/örnek soru yayımlanınca dağılımı güncelle."
+  }
+ ],
+ "deneyap_icerik": {
+  "dogrulanan": [
+   "2026 seçme süreci üç aşamalı: e-sınav → çevrim içi eğitim + görevler → uygulama sınavı (T3 Vakfı / Anadolu Üniv. duyuru PDF'leri).",
+   "Başvurabilen sınıflar (2025-2026): 4., 5., 8., 9. sınıf ve lise hazırlık (aynı kaynaklar).",
+   "DENEYAP Türkiye 2026 e-sınavı 10 Nisan – 8 Mayıs 2026, 81 ilde 133 merkezde, elektronik ortamda; 182.800 başvuru (CNN Türk, Türkiye Gazetesi).",
+   "Sınavın amacı 'analitik düşünme, problem çözme ve temel yetkinlikleri' ölçmek; yalnızca akademik bilgiye dayanmıyor (CNN Türk, Türkiye Gazetesi).",
+   "2022 (42 il) sürecinde yazılı sınav '21. yüzyıl becerilerini ölçen fen, matematik, algoritma ve genel kültür sorularından' oluşuyordu; sorular akademisyen ve öğretmenlerce hazırlanıyordu (TÜBİTAK haber, 02.10.2022)."
+  ],
+  "dogrulanamayan": [
+   "Soru sayısı, süre, puanlama ve alan bazında soru dağılımı (hiçbir erişilebilen kaynakta yok).",
+   "Soruların görsel/şekilli olup olmadığı ve 'sayısal/sözel/şekil' ayrımı (bu ayrım sette varsayım).",
+   "2026 sınav kılavuzu ve SSS: Edirne GSB'de PDF olarak var ama robots.txt nedeniyle okunamadı — Göksel/Claude'un tarayıcıdan açıp okuması önerilir.",
+   "2022'deki 'fen, matematik, algoritma, genel kültür' yapısının 2026'da aynen sürdüğü."
+  ],
+  "kaynaklar": [
+   "https://www.cnnturk.com/teknoloji/deneyap-turkiye-2026-e-sinav-sureci-basliyor-2416290",
+   "https://www.turkiyegazetesi.com.tr/egitim/deneyap-turkiye-2026-e-sinavi-sureci-basliyor-182-bin-ogrenci-basvurdu-1783292",
+   "https://cdnv2.t3vakfi.org/media/uploaded/SWZzjV52FBqQx0DJgF9wzgCOLbNvP5Oj.pdf",
+   "https://cdnv2.t3vakfi.org/media/uploaded/dPuEQp6XMz0NRLfH5fSh2y7h1HC9KqNo.pdf",
+   "https://www.anadolu.edu.tr/uploads/anadolu/files/kurum_disi_duyuru/6993000142971.pdf",
+   "https://tubitak.gov.tr/tr/haber/deneyap-turkiye-teknoloji-atolyeleri-icin-42-ilde-sinav-yapildi",
+   "https://tubitak.gov.tr/en/node/16410",
+   "https://edirne.gsb.gov.tr/Public/Edit/images/IM/31/2026/Mart/Sınav Kılavuzu.pdf (okunamadı)",
+   "https://edirne.gsb.gov.tr/Public/Edit/images/IM/31/2026/Mart/Sıkça Sorulan Sorular.pdf (okunamadı)"
+  ]
+ }
+}

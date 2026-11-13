@@ -1,9 +1,10 @@
 // ===== EGE OYUNLAR ORTAK MOTORU v2 =====
 // Soru seçimi (tekrarsız + aralıklı tekrar + kazanıma göre uyarlanan zorluk), matematik üreticileri,
 // ipucu → açıklama geri bildirimi, kavram yanılgısı kaydı, ortak ilerleme ve ustalık, süre sınırı, müzik/ses.
-// Kayıt: localStorage 'egewindow.Ortak.v1' (Bulut eşitleme varsa window.Ortak.bulut ile aynı veri yukarı/aşağı taşınır).
+// Kayıt: localStorage 'egeOrtak.v1' (Bulut eşitleme varsa window.Ortak.bulut ile aynı veri yukarı/aşağı taşınır).
 (function(){
-const KEY='egewindow.Ortak.v1';
+const KEY='egeOrtak.v1';
+try{const eski=localStorage.getItem('egewindow.Ortak.v1');if(eski&&!localStorage.getItem(KEY))localStorage.setItem(KEY,eski)}catch(e){}
 const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul'}).format(new Date());
 const dayNum=d=>Math.round(Date.parse(d+'T00:00:00Z')/864e5);
 const bos=()=>({v:1,q:{},son:[],xp:0,seri:{gun:null,say:0},gorev:{gun:null,yapilan:0,hedef:15,odul:false},sessiz:false,toplamDogru:0,kaz:{},yan:{},gunluk:{},usta:[],baslangic:null,guncel:Date.now()});
@@ -190,4 +191,16 @@ function veri(){return S}
 function veriYukle(x){if(x&&x.v===1&&(x.guncel||0)>(S.guncel||0)){S=Object.assign(bos(),x);try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}return true}return false}
 
 window.Ortak={rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null,geriBildirim,acikKontrol,sureDurum,sureKapisi,veri,veriYukle,bulut:null,_bitti:false};
+})();
+
+// ---------- Bulut eşitleme (yalnız kişisel sürüm; genel sürümde window.BULUT yok → hiçbir veri gönderilmez) ----------
+(function(){
+  const B=window.BULUT;if(!B||!B.url||!B.key||!B.profil||typeof fetch!=='function')return;
+  const rpc=(fn,body)=>fetch(`${B.url}/rest/v1/rpc/${fn}`,{method:'POST',headers:{apikey:B.key,Authorization:'Bearer '+B.key,'Content-Type':'application/json','Content-Profile':'api','Accept-Profile':'api'},body:JSON.stringify(body)}).then(r=>r.ok?r.json():Promise.reject(r.status));
+  let zam=null,son=null;
+  window.Ortak.bulut={
+    yaz(S){son=S;clearTimeout(zam);zam=setTimeout(()=>{const v={...son};rpc('oyun_kaydet',{p_profil:B.profil,p_veri:v}).catch(()=>{})},4000)},
+    oku(){return rpc('oyun_oku',{p_profil:B.profil}).then(r=>{if(r&&r.veri){const ok=window.Ortak.veriYukle({...r.veri,guncel:Date.parse(r.guncel)});if(ok&&window.Ortak.olay)window.Ortak.olay('bulut','yuklendi');return ok}return false}).catch(()=>false)}
+  };
+  window.Ortak.bulut.oku();
 })();
