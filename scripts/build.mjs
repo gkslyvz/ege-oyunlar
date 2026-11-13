@@ -25,3 +25,29 @@ for (const game of readdirSync('games')) {
 }
 const n = sorular.reduce((s, L) => s + L.qs.length, 0);
 console.log(`Soru: ${n} · Sınav: ${sinavlar.length}`);
+
+// ---- Genel (herkese açık) sürüm: kişisel veri yok, çocuğun adı yok ----
+// Kullanım: node scripts/build.mjs --genel <çıktı klasörü>
+const gi = process.argv.indexOf('--genel');
+if (gi > 0) {
+  const { mkdirSync, copyFileSync } = await import('node:fs');
+  const out = process.argv[gi + 1];
+  const REP = [['Pilot Ege', 'Pilot Kaptan'], ['Kaptan Ege', 'Kaptan'], ['astronot Ege', 'astronot kaptan'], ['Ege Pano', 'Pano'],
+    ["Ege ankara'ya", "Ali ankara'ya"], ["Ege Ankara'ya", "Ali Ankara'ya"], ['(Ege, Bodrum)', '(Ali, Bodrum)'], ['pilotEge', 'mpOyun'], ['egeOrtak', 'mpOrtak'], ['Ege Oyunlar', 'MATPROSU Oyunlar']];
+  const genelLegs = `const LEGS = ${JSON.stringify(sorular)}; window.LEGS = LEGS; window.ASSET_BASE = '../modeller/';`;
+  for (const game of readdirSync('games')) {
+    const tpl = `games/${game}/template.html`;
+    if (!existsSync(tpl)) continue;
+    let html = readFileSync(tpl, 'utf8').replace('/*LEGS*/', () => genelLegs).replace('/*EXAMS*/', 'const EXAMS = [];').replace('/*ORTAK*/', () => ortak);
+    for (const [a, b] of REP) html = html.split(a).join(b);
+    if (/\bEge\b/.test(html.replace(/Ege Bölgesi/g, ''))) throw new Error(`${game}: genel sürümde isim kaldı`);
+    mkdirSync(`${out}/${game}`, { recursive: true });
+    writeFileSync(`${out}/${game}/index.html`, html);
+  }
+  mkdirSync(`${out}/modeller/models`, { recursive: true });
+  for (const f of readdirSync('assets/models')) copyFileSync(`assets/models/${f}`, `${out}/modeller/models/${f}`);
+  let hub = readFileSync('index.html', 'utf8');
+  for (const [a, b] of REP) hub = hub.split(a).join(b);
+  writeFileSync(`${out}/index.html`, hub);
+  console.log(`Genel sürüm → ${out}`);
+}

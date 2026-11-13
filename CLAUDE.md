@@ -13,6 +13,10 @@ Ege'nin (5. sınıf, ~10 yaş) ödev ve sınav konularından beslenen eğitsel o
 - **Teknoloji:** tek dosyalık HTML + vanilla JS; 3D için Three.js r128 (cdnjs). Derleme aracı yok.
 - **Test:** her değişiklikten sonra build + Playwright ile telefon boyutunda (390×844) ekran görüntüsü ve konsol hatası kontrolü.
 
+## Yayın
+- Kişisel sürüm: bu repo (GitHub Pages açılınca) + Claude artifact.
+- Genel sürüm (Matprosu sitesi): `node scripts/build.mjs --genel ../matematop-web/public/oyunlar` → matematop-web'e commit/push (Netlify otomatik yayınlar). Genel sürümde sınav takvimi boş, çocuğun adı yok; build isim kalırsa hata verir.
+
 ## Soru şeması
 ```json
 { "t": "Konu", "q": "Soru metni", "o": ["A", "B", "C"], "a": 1, "e": "Neden doğru (kısa)" }
