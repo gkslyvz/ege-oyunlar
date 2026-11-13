@@ -324,7 +324,7 @@ function renderMap(){
 let B=null;
 function qPriority(q){const s=S.qs[q.id]||{r:0,w:0};return (s.w-s.r)*2+(s.r+s.w===0?1:0)+Math.random()*.8}
 function startBattle(R,kind,exam){
-  const foe= kind==='boss'?R.boss : kind==='exam'?{e:'⚡'+R.boss.e,n:'Sınav Boss\'u',say:`Sınavına ${exam.left===0?'bugün':exam.left+' gün'} kaldı! Bakalım hazır mısın?`} : R.mons[kind];
+  const foe= kind==='boss'?R.boss : kind==='exam'?{e:(Ortak.tasarim()&&Ortak.tasarim().boss?Ortak.tasarim().boss.e:'⚡'+R.boss.e),n:(Ortak.tasarim()&&Ortak.tasarim().boss?Ortak.tasarim().boss.n:'Sınav Boss\'u'),say:`Sınavına ${exam.left===0?'bugün':exam.left+' gün'} kaldı! Bakalım hazır mısın?`} : R.mons[kind];
   const maxHp= kind==='exam'?7 : kind==='boss'?5 : 3;
   if(Ortak.sureKapisi())return;
   const pool=Ortak.sec(R.id,24,4);

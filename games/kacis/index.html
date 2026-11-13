@@ -270,9 +270,13 @@ const SES={
 };
 function sessiz(v){if(v===undefined)return S.sessiz;S.sessiz=v;save();if(master)master.gain.value=v?0:1}
 function veri(){return S}
+function tasarim(x){if(x){S.tasarim=x;save()}return S.tasarim||null}
+// Ustalık ödülleri: her ustalaşılan kazanım yeni parça açar
+const ODULLER=[[0,'Gövde rengi'],[1,'Kanat rengi'],[2,'Şerit deseni'],[3,'Kuyruk numarası'],[4,'Kanat ucu (winglet)'],[6,'Jet motoru'],[8,'Boss tasarımı'],[10,'Altın kaplama']];
+function acik(ad){const u=(S.usta||[]).length;const o=ODULLER.find(x=>x[1]===ad);return o?u>=o[0]:false}
 function veriYukle(x){if(x&&x.v===1&&(x.guncel||0)>(S.guncel||0)){S=Object.assign(bos(),x);try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}return true}return false}
 
-window.Ortak={rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null,geriBildirim,acikKontrol,sureDurum,sureKapisi,veri,veriYukle,bulut:null,_bitti:false};
+window.Ortak={tasarim,acik,ODULLER,rota,sec,kirp,kaydet,uret,xp,durum,ozetHTML,muzik,muzikDur,SES,sessiz,ac,bugun:today,olay:null,geriBildirim,acikKontrol,sureDurum,sureKapisi,veri,veriYukle,bulut:null,_bitti:false};
 })();
 
 // ---------- Bulut eşitleme (yalnız kişisel sürüm; genel sürümde window.BULUT yok → hiçbir veri gönderilmez) ----------

@@ -151,7 +151,7 @@ function makePlane(){
 }
 const plane=makePlane();plane.scale.setScalar(.8);scene.add(plane);
 // Gerçek model: Piper PA-28 (FlightGear/FR24, GPLv2). Yüklenince basit modelin yerini alır.
-new THREE.GLTFLoader().load((window.MODEL_DATA||{})['models/pa28.glb']||ASSET+'models/pa28.glb',g=>{const m=g.scene;const b=new THREE.Box3().setFromObject(m);const sz=b.getSize(new THREE.Vector3());const c=b.getCenter(new THREE.Vector3());
+new THREE.GLTFLoader().load((window.MODEL_DATA||{})['models/pa28.glb']||ASSET+'models/pa28.glb',g=>{const m=g.scene;const TS=Ortak.tasarim();if(TS&&TS.govde)m.traverse(o=>{if(o.isMesh&&o.material&&o.material.color){o.material=o.material.clone();o.material.color.lerp(new THREE.Color(TS.altin?'#d4a017':TS.govde),.55)}});const b=new THREE.Box3().setFromObject(m);const sz=b.getSize(new THREE.Vector3());const c=b.getCenter(new THREE.Vector3());
   m.position.sub(c);const w=new THREE.Group();w.add(m);w.rotation.y=PA28_YAW;w.scale.setScalar(6.2/Math.max(sz.x,sz.z));
   plane.children.forEach(ch=>ch.visible=false);plane.add(w);plane.userData.real=w},undefined,()=>{});
 const PA28_YAW=0;

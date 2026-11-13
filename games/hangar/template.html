@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Hangar: Kendi Uçağını Tasarla</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Baloo 2',system-ui,sans-serif;background:linear-gradient(180deg,#0b3d91,#3b8fe0);color:#10223f;min-height:100vh}
+#sahne{width:100%;height:42vh;display:block;background:radial-gradient(circle at 50% 40%,#cfe9ff,#7fb7ec)}
+header{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;color:#fff}
+header a{color:#fff;text-decoration:none;font-weight:800}
+h1{margin:0;font-size:22px}
+main{background:#fff;border-radius:22px 22px 0 0;padding:12px 14px 30px;margin-top:-14px;position:relative}
+.sekmeler{display:flex;gap:8px;margin-bottom:8px}
+.sekmeler button{flex:1;border:0;border-radius:14px;padding:10px;font:800 17px 'Baloo 2';background:#e8f0fb;color:#10223f}
+.sekmeler button[aria-pressed=true]{background:#10223f;color:#ffc23d}
+h2{font-size:17px;margin:12px 0 4px;display:flex;justify-content:space-between;align-items:center}
+h2 small{font-size:13px;color:#7a5a00;background:#fff3cf;border-radius:8px;padding:0 6px}
+.renk{display:flex;gap:8px;flex-wrap:wrap}
+.renk button{width:44px;height:44px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px #c9d6ea;cursor:pointer}
+.renk button[aria-pressed=true]{box-shadow:0 0 0 3px #10223f}
+.secenek{display:flex;gap:8px;flex-wrap:wrap}
+.secenek button{border:2px solid #c9d6ea;background:#fff;border-radius:12px;padding:8px 12px;font:700 16px 'Baloo 2';min-height:44px}
+.secenek button[aria-pressed=true]{border-color:#10223f;background:#10223f;color:#ffc23d}
+.kilit{opacity:.45;pointer-events:none}
+input[type=text]{width:100%;font:700 18px 'Baloo 2';padding:8px 12px;border:2px solid #c9d6ea;border-radius:12px}
+.emoji button{font-size:30px;padding:2px 8px}
+.alt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.btn{border:0;border-radius:16px;padding:14px;font:800 18px 'Baloo 2';color:#fff;background:#1fa35b;min-height:52px}
+.btn.mavi{background:#3b82f6}
+.not{font-size:13px;color:#4a5d7c;margin-top:10px}
+.odul{background:#f3f0ff;border-radius:14px;padding:8px 12px;margin-top:10px;font-size:15px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#10223f;color:#ffc23d;padding:10px 16px;border-radius:14px;font-weight:800}
+</style>
+</head>
+<body>
+<header><a href="../../">← Oyunlar</a><h1>🛠️ Hangar</h1><span id="usta"></span></header>
+<canvas id="sahne"></canvas>
+<main>
+  <div class="sekmeler"><button id="tUcak" aria-pressed="true">✈️ Uçağım</button><button id="tBoss" aria-pressed="false">👾 Boss'um</button></div>
+  <div id="panel"></div>
+  <div class="alt"><button class="btn" id="kaydet">Kaydet</button><button class="btn mavi" id="stl">3D yazıcı (STL)</button></div>
+  <div class="odul" id="odul"></div>
+  <p class="not">STL dosyası 12 cm kanat açıklığında. Baskıdan önce modeli ayrı bir kontrol ekibi incelesin; destek (support) açık basılmalı.</p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/exporters/STLExporter.js"></script>
+<script>
+/*LEGS*/
+/*ORTAK*/
+const $=id=>document.getElementById(id);
+const RENKLER=['#e2463b','#3b82f6','#1fa35b','#ffc23d','#7c3aed','#ff7a1a','#10223f','#ffffff','#9aa3b2','#ec4899'];
+const VARSAYILAN={govde:'#ffffff',kanat:'#3b82f6',serit:'tek',seritRenk:'#e2463b',no:'TC-001',winglet:false,motor:'pervane',altin:false,boss:{n:'Profesör Unutkan',e:'🤖',renk:'#7c3aed'}};
+let T=Object.assign({},VARSAYILAN,Ortak.tasarim()||{});T.boss=Object.assign({},VARSAYILAN.boss,T.boss||{});
+let sekme='ucak';
+
+// ---------- 3B önizleme ----------
+const cv=$('sahne');const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));
+const sc=new THREE.Scene();const cam=new THREE.PerspectiveCamera(40,1,.1,100);cam.position.set(4.2,2.6,5.4);cam.lookAt(0,0,0);
+sc.add(new THREE.HemisphereLight(0xffffff,0x6688aa,1));const gun=new THREE.DirectionalLight(0xffffff,.7);gun.position.set(3,6,4);sc.add(gun);
+function boyut(){const w=cv.clientWidth,h=cv.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}addEventListener('resize',boyut);
+const M=c=>new THREE.MeshStandardMaterial({color:c,roughness:.45,metalness:T.altin?.7:.1});
+function ucakYap(baski){
+  const g=new THREE.Group();const govdeR=T.altin?'#d4a017':T.govde;
+  const G=new THREE.Mesh(new THREE.CylinderGeometry(.34,.28,3.2,24),M(govdeR));G.rotation.x=Math.PI/2;g.add(G);
+  const burun=new THREE.Mesh(new THREE.SphereGeometry(.34,24,16,0,Math.PI*2,0,Math.PI/2),M(govdeR));burun.rotation.x=-Math.PI/2;burun.position.z=-1.6;g.add(burun);
+  const kuyrukUc=new THREE.Mesh(new THREE.ConeGeometry(.28,.6,24),M(govdeR));kuyrukUc.rotation.x=Math.PI/2;kuyrukUc.position.z=1.9;g.add(kuyrukUc);
+  const kt=baski?.07:.06;// baskıda kanat kalınlığı ≥ 2,4 mm (12 cm ölçekte)
+  const kanat=new THREE.Mesh(new THREE.BoxGeometry(4.4,kt,.9),M(T.kanat));kanat.position.set(0,-.08,-.1);g.add(kanat);
+  const yatay=new THREE.Mesh(new THREE.BoxGeometry(1.6,kt,.5),M(T.kanat));yatay.position.set(0,.05,1.75);g.add(yatay);
+  const dikey=new THREE.Mesh(new THREE.BoxGeometry(kt,.8,.55),M(T.kanat));dikey.position.set(0,.45,1.75);g.add(dikey);
+  if(T.winglet){[-1,1].forEach(s=>{const w=new THREE.Mesh(new THREE.BoxGeometry(kt,.35,.4),M(T.kanat));w.position.set(s*2.2,.08,-.05);g.add(w)})}
+  if(T.motor==='jet'){[-1,1].forEach(s=>{const e=new THREE.Mesh(new THREE.CylinderGeometry(.16,.14,.6,16),M('#9aa3b2'));e.rotation.x=Math.PI/2;e.position.set(s*1.1,-.3,-.25);g.add(e)})}
+  else if(!baski){const p=new THREE.Mesh(new THREE.BoxGeometry(.9,.08,.04),M('#23324d'));p.position.z=-1.95;p.name='pervane';g.add(p)}
+  if(T.serit!=='yok'&&!baski){const n=T.serit==='cift'?2:1;for(let i=0;i<n;i++){const s=new THREE.Mesh(new THREE.CylinderGeometry(.345,.335,.18,24),M(T.seritRenk));s.rotation.x=Math.PI/2;s.position.z=-.6+i*.35;g.add(s)}}
+  if(!baski&&T.no){const c=document.createElement('canvas');c.width=256;c.height=64;const x=c.getContext('2d');x.fillStyle='#10223f';x.font='bold 44px sans-serif';x.textAlign='center';x.fillText(T.no,128,48);
+    const tx=new THREE.CanvasTexture(c);[-1,1].forEach(s=>{const pl=new THREE.Mesh(new THREE.PlaneGeometry(.5,.13),new THREE.MeshBasicMaterial({map:tx,transparent:true}));pl.position.set(s*.036,.5,1.75);pl.rotation.y=s*Math.PI/2;g.add(pl)})}
+  return g;
+}
+function bossYap(){const g=new THREE.Group();const b=new THREE.Mesh(new THREE.SphereGeometry(1,32,24),M(T.boss.renk));g.add(b);
+  [-1,1].forEach(s=>{const e=new THREE.Mesh(new THREE.SphereGeometry(.22,16,12),M('#ffffff'));e.position.set(s*.38,.25,.85);g.add(e);const p=new THREE.Mesh(new THREE.SphereGeometry(.1,12,8),M('#10223f'));p.position.set(s*.38,.25,1.05);g.add(p)});
+  const c=document.createElement('canvas');c.width=128;c.height=128;const x=c.getContext('2d');x.font='96px sans-serif';x.textAlign='center';x.fillText(T.boss.e,64,100);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c)}));sp.position.y=1.5;sp.scale.set(.9,.9,.9);g.add(sp);return g}
+let model=null;function yenile(){if(model)sc.remove(model);model=sekme==='ucak'?ucakYap(false):bossYap();sc.add(model);panel()}
+let t0=performance.now();(function dong(t){const dt=(t-t0)/1000;t0=t;if(model){model.rotation.y+=dt*.5;const p=model.getObjectByName('pervane');if(p)p.rotation.z+=dt*25}R.render(sc,cam);requestAnimationFrame(dong)})(t0);
+
+// ---------- Panel ----------
+const kilitli=ad=>!Ortak.acik(ad);
+const etiket=ad=>{const o=Ortak.ODULLER.find(x=>x[1]===ad);return kilitli(ad)?`<small>🔒 ${o[0]} ustalık</small>`:''};
+const renkler=(alan,ad,deger)=>`<div class="renk ${kilitli(ad)?'kilit':''}">${RENKLER.map(c=>`<button style="background:${c}" data-renk="${alan}" data-c="${c}" aria-label="${c}" aria-pressed="${deger===c}"></button>`).join('')}</div>`;
+function panel(){
+  if(sekme==='ucak'){$('panel').innerHTML=`
+   <h2>Gövde ${etiket('Gövde rengi')}</h2>${renkler('govde','Gövde rengi',T.govde)}
+   <h2>Kanat ve kuyruk ${etiket('Kanat rengi')}</h2>${renkler('kanat','Kanat rengi',T.kanat)}
+   <h2>Şerit ${etiket('Şerit deseni')}</h2><div class="secenek ${kilitli('Şerit deseni')?'kilit':''}">${[['yok','Yok'],['tek','Tek'],['cift','Çift']].map(([v,l])=>`<button data-serit="${v}" aria-pressed="${T.serit===v}">${l}</button>`).join('')}</div>
+   ${kilitli('Şerit deseni')?'':renkler('seritRenk','Şerit deseni',T.seritRenk)}
+   <h2>Kuyruk numarası ${etiket('Kuyruk numarası')}</h2><input type="text" id="no" maxlength="8" value="${T.no}" ${kilitli('Kuyruk numarası')?'disabled':''}>
+   <h2>Kanat ucu ${etiket('Kanat ucu (winglet)')}</h2><div class="secenek ${kilitli('Kanat ucu (winglet)')?'kilit':''}"><button data-wing="0" aria-pressed="${!T.winglet}">Düz</button><button data-wing="1" aria-pressed="${T.winglet}">Winglet</button></div>
+   <h2>Motor ${etiket('Jet motoru')}</h2><div class="secenek ${kilitli('Jet motoru')?'kilit':''}"><button data-motor="pervane" aria-pressed="${T.motor==='pervane'}">Pervane</button><button data-motor="jet" aria-pressed="${T.motor==='jet'}">2 jet motoru</button></div>
+   <h2>Altın kaplama ${etiket('Altın kaplama')}</h2><div class="secenek ${kilitli('Altın kaplama')?'kilit':''}"><button data-altin="0" aria-pressed="${!T.altin}">Kapalı</button><button data-altin="1" aria-pressed="${T.altin}">✨ Altın</button></div>`}
+  else{const k=kilitli('Boss tasarımı');$('panel').innerHTML=`
+   <h2>Boss'unun adı ${etiket('Boss tasarımı')}</h2><input type="text" id="bossAd" maxlength="20" value="${T.boss.n}" ${k?'disabled':''}>
+   <h2>Görünüş</h2><div class="secenek emoji ${k?'kilit':''}">${['🤖','👾','🐉','🦖','👻','🧟','🦑','🌋'].map(e=>`<button data-emoji="${e}" aria-pressed="${T.boss.e===e}">${e}</button>`).join('')}</div>
+   <h2>Rengi</h2>${renkler('boss','Boss tasarımı',T.boss.renk)}
+   <p class="not">Kendi boss'un sınav günlerinde Dünya Turu'nda karşına çıkar.</p>`}
+  const u=Ortak.durum().usta;$('usta').textContent=`🏅 ${u}`;
+  const sonraki=Ortak.ODULLER.find(o=>o[0]>u);$('odul').innerHTML=sonraki?`Sıradaki ödül: <b>${sonraki[1]}</b> (${sonraki[0]} ustalık). Bir kazanımda üst üste 5 soruyu ilk denemede doğru yapınca 1 ustalık kazanırsın.`:'Tüm parçaları açtın! 🏆'}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
+  if(d.renk){if(d.renk==='boss')T.boss.renk=d.c;else T[d.renk]=d.c}else if(d.serit)T.serit=d.serit;else if(d.wing)T.winglet=d.wing==='1';else if(d.motor)T.motor=d.motor;else if(d.altin)T.altin=d.altin==='1';else if(d.emoji)T.boss.e=d.emoji;else return;yenile()});
+document.addEventListener('input',e=>{if(e.target.id==='no'){T.no=e.target.value.toUpperCase().replace(/[^A-Z0-9-]/g,'');yenile()}if(e.target.id==='bossAd'){T.boss.n=e.target.value.replace(/[<>]/g,'')}});
+$('tUcak').onclick=()=>{sekme='ucak';$('tUcak').setAttribute('aria-pressed','true');$('tBoss').setAttribute('aria-pressed','false');yenile()};
+$('tBoss').onclick=()=>{sekme='boss';$('tBoss').setAttribute('aria-pressed','true');$('tUcak').setAttribute('aria-pressed','false');yenile()};
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),2500)}
+$('kaydet').onclick=()=>{Ortak.tasarim(JSON.parse(JSON.stringify(T)));Ortak.SES&&Ortak.SES.dogru&&Ortak.SES.dogru();toast('Kaydedildi! Oyunlarda bu uçakla uçacaksın ✈️')};
+$('stl').onclick=()=>{const m=ucakYap(true);m.scale.setScalar(120/4.4);m.updateMatrixWorld(true);// 4,4 birim kanat = 120 mm
+  const veri=new THREE.STLExporter().parse(m,{binary:true});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([veri],{type:'model/stl'}));a.download=`ucagim-${(T.no||'ucak').toLowerCase()}.stl`;a.click();toast('STL hazır. Baskıdan önce kontrol ettirelim!')};
+boyut();yenile();
+</script>
+</body>
+</html>
