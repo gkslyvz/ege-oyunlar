@@ -64,6 +64,9 @@ if (gi > 0) {
   let hub = ayikla(readFileSync('index.html', 'utf8'), 'HEDEF').replace(FONT_RE, '<link rel="stylesheet" href="vendor/fonts.css">')
     .replace('<link rel="manifest" href="manifest.webmanifest">\n', '').replace(/\/\/ Çevrimdışı: yalnız Pano[^\n]*\n[^\n]*\n/, '');
   for (const [a, b] of REP) hub = hub.split(a).join(b);
+  // Genel sürümde oyunlar <out>/<oyun>/ altında; kişisel hub'daki games/ öneki kalkmalı
+  hub = hub.replace(/href="games\//g, 'href="');
+  for (const m of hub.matchAll(/href="([a-z0-9-]+)\/"/g)) if (!existsSync(`${out}/${m[1]}/index.html`)) throw new Error(`genel hub: kırık bağlantı ${m[1]}/`);
   writeFileSync(`${out}/index.html`, hub);
   console.log(`Genel sürüm → ${out}`);
 }
